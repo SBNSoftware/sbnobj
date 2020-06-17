@@ -14,9 +14,9 @@
 
 
 # use cmake 3.12 or later
-cmake_minimum_required (VERSION 3.12)
+cmake_minimum_required (VERSION 3.12...3.14 FATAL_ERROR)
 
-project(sbnobj LANGUAGES CXX C)
+project(lardataobj LANGUAGES CXX)
 
 # cetbuildtools contains our cmake modules
 find_package(cetbuildtools REQUIRED)
@@ -40,10 +40,13 @@ cet_set_compiler_flags(DIAGS CAUTIOUS
 cet_report_compiler_flags()
 
 # these are minimum required versions, not the actual product versions
-find_ups_product( larsoft )
-find_ups_product( nutools )
-find_ups_product( art )
-find_ups_product( cetbuildtools ) # LIBRARY_OUTPUT_DIRECTORY, etc.
+find_ups_product( canvas )
+find_ups_product( larcoreobj )
+find_ups_product( larcorealg )
+find_ups_product( nusimdata )
+find_ups_boost( )
+find_ups_root()
+find_ups_product( cetbuildtools )
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)

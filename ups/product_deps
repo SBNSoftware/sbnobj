@@ -23,22 +23,20 @@ defaultqual e19
 # gdmldir -  
 # fwdir   -  
 #
-incdir	product_dir	include
-libdir	fq_dir		lib
-bindir	fq_dir		bin
-flcdir  product_dir     fcl
+
+flcdir  product_dir     job
 
 # With "product  version" table below, we now define depdendencies
 # Add the dependent product and version
 
 product          version
-larsoft      v08_55_00
-cetbuildtools    v7_12_01  -  only_for_build
+lardataobj	v08_11_01
+cetbuildtools    v7_15_01  -  only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
 # Make a table by adding columns before "notes". 
-qualifier      larsoft     notes
+qualifier   lardataobj     notes
 e19:debug   e19:debug
 e19:prof    e19:prof
 end_qualifier_list
