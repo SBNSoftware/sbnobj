@@ -1,7 +1,3 @@
-# basic source code CMakeLists.txt
+add_subdirectory(CRT)
 
-art_make( )
 
-install_headers()
-install_source()
-install_fhicl()

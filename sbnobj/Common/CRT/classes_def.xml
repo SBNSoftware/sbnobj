@@ -1,0 +1,113 @@
+<lcgdict>
+
+  <class name="sbn::crt::CRTHit" ClassVersion="14">
+   <version ClassVersion="14" checksum="1503901052"/>
+  </class>
+  <class name="std::vector<sbn::crt::CRTHit>"/>
+  <class name="art::Wrapper<sbn::crt::CRTHit>"/>
+  <class name="art::Wrapper<std::vector<sbn::crt::CRTHit> >"/>
+
+  <class name="std::map< uint8_t, uint16_t >"/>
+  <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
+
+  <class name="sbn::crt::CRTTzero" ClassVersion="10">
+   <version ClassVersion="10" checksum="1595961705"/>
+  </class>
+  <class name="std::vector<sbn::crt::CRTTzero>"/>
+  <class name="art::Wrapper< std::vector<sbn::crt::CRTTzero> >"/>
+
+  <class name="sbn::crt::CRTTrack" ClassVersion="10">
+   <version ClassVersion="10" checksum="3848331120"/>
+  </class>
+  <class name="std::vector<sbn::crt::CRTTrack>"/>
+  <class name="art::Wrapper< std::vector<sbn::crt::CRTTrack> >"/>
+
+  <!-- associations  -->
+
+ <class name="art::Assns<sbn::crt::CRTTzero, sbn::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTTzero, sbn::crt::CRTHit, void> >"           />
+ <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTzero,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTzero, void> >"           />
+
+ <class name="art::Wrapper< std::vector<sim::AuxDetIDE> >"/>
+
+ <class name="art::Assns<sbn::crt::CRTTrack, sbn::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTTrack, sbn::crt::CRTHit, void> >"           />
+ <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack, void> >"           />
+
+
+  <class name="sbnd::crt::CRTHit" ClassVersion="14">
+   <version ClassVersion="14" checksum="1444826046"/>
+   <version ClassVersion="13" checksum="3216187151"/>
+   <version ClassVersion="12" checksum="1882709306"/>
+   <version ClassVersion="11" checksum="3783352173"/>
+   <version ClassVersion="10" checksum="202575031"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTHit>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTHit>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTHit> >"/>
+
+  <class name="sbnd::crt::CRTTzero" ClassVersion="10">
+   <version ClassVersion="10" checksum="4009481135"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTTzero>"/>
+  <class name="art::Wrapper< std::vector<sbnd::crt::CRTTzero> >"/>
+
+  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+   <version ClassVersion="10" checksum="2681413750"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTTrack>"/>
+  <class name="art::Wrapper< std::vector<sbnd::crt::CRTTrack> >"/>
+
+  <!-- associations  -->
+
+ <class name="art::Assns<sbnd::crt::CRTTzero, sbnd::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTzero, sbnd::crt::CRTHit, void> >"           />
+ <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTzero,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTzero, void> >"           />
+
+ <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTHit, void> >"           />
+ <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTrack,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTrack, void> >"           />
+
+
+ <class name="art::Assns<icarus::crt::CRTHit,sim::AuxDetIDE,void>"/>
+ <class name="art::Assns<sim::AuxDetIDE,icarus::crt::CRTHit,void>"/>
+ <class name="art::Wrapper<art::Assns<icarus::crt::CRTHit,sim::AuxDetIDE,void> >"/>
+ <class name="art::Wrapper<art::Assns<sim::AuxDetIDE,icarus::crt::CRTHit,void> >"/>
+
+
+
+ <class name="icarus::crt::CRTHit" ClassVersion="10">
+  <version ClassVersion="10" checksum="2571160906"/>
+ </class>
+ <class name="std::vector<icarus::crt::CRTHit>"/>
+ <class name="art::Wrapper< icarus::crt::CRTHit>"/>
+ <class name="art::Wrapper< std::vector<icarus::crt::CRTHit> >"/>
+
+ <class name="icarus::crt::CRTTrack" ClassVersion="10">
+  <version ClassVersion="10" checksum="3267173018"/>
+ </class>
+ <class name="art::Wrapper<icarus::crt::CRTTrack>"/>
+ <class name="std::vector<icarus::crt::CRTTrack>"/>
+ <class name="art::Wrapper<std::vector<icarus::crt::CRTTrack>>"/>
+
+ <class name="icarus::crt::CRTTzero" ClassVersion="10">
+  <version ClassVersion="10" checksum="3620345171"/>
+ </class>
+ <class name="std::vector<icarus::crt::CRTTzero>"/>
+ <class name="art::Wrapper< std::vector<icarus::crt::CRTTzero> >"/>
+
+ <class name="art::Assns<icarus::crt::CRTTrack, icarus::crt::CRTHit, void>"/>
+ <class name="art::Wrapper<art::Assns<icarus::crt::CRTTrack, icarus::crt::CRTHit, void>>"/>
+ <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTrack, void>"/>
+ <class name="art::Wrapper<art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTrack, void>>"/>
+
+ <class name="art::Assns<icarus::crt::CRTTzero, icarus::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTTzero, icarus::crt::CRTHit, void> >"           />
+ <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero, void> >"           />
+
+</lcgdict>
