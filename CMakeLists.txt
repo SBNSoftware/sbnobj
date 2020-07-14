@@ -16,7 +16,12 @@
 # use cmake 3.12 or later
 cmake_minimum_required (VERSION 3.12...3.14 FATAL_ERROR)
 
-project(lardataobj LANGUAGES CXX)
+project(sbnobj LANGUAGES CXX)
+
+message(STATUS
+  "\n-- ============================================================================="
+  "\n-- === *** Start of configuration of ${PROJECT_NAME} ***"
+  "\n-- ===")
 
 # cetbuildtools contains our cmake modules
 find_package(cetbuildtools REQUIRED)
@@ -42,6 +47,7 @@ cet_report_compiler_flags()
 # these are minimum required versions, not the actual product versions
 find_ups_product( canvas )
 find_ups_product( larcoreobj )
+find_ups_product( lardataobj )
 find_ups_product( larcorealg )
 find_ups_product( lardataalg )
 find_ups_product( nusimdata )
@@ -68,3 +74,11 @@ add_subdirectory(ups)
 
 # packaging utility - must be last
 include(UseCPack)
+
+
+message(STATUS
+  "\n-- ==="
+  "\n-- === *** End of configuration of ${PROJECT_NAME} ***"
+  "\n-- ============================================================================="
+  "\n-- "
+  )
