@@ -3,8 +3,7 @@
 
 #include <cstdint>
 
-namespace icarus {
-namespace crt {
+namespace icarus::crt {
 
   struct CRTData {
 
@@ -17,7 +16,6 @@ namespace crt {
       CRTData() {}
   };
 
-} // namespace crt
-} // namespace icarus
+} // namespace icarus::crt
 
 #endif

@@ -16,8 +16,7 @@
 #include <vector>
 #include <map>
 
-namespace sbn {
-namespace crt {
+namespace sbn::crt {
   
   struct CRTTrack{
 
@@ -59,7 +58,6 @@ namespace crt {
     
   };
   
-}
-}
+} // namespace sbn::crt
 
 #endif

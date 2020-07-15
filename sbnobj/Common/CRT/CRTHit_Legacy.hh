@@ -22,8 +22,7 @@
 #include <string>
 #include <utility>
 
-namespace sbnd {
-namespace crt {
+namespace sbnd::crt {
 
     struct CRTHit{
 
@@ -53,11 +52,9 @@ namespace crt {
 
     };
 
-} // namespace crt
-} // namespace sbnd
+} // namespace sbnd::crt
 
-namespace icarus {
-namespace crt {
+namespace icarus::crt {
 
     struct CRTHit{
 
@@ -87,7 +84,6 @@ namespace crt {
 
     };
 
-} // namespace crt
-} // namespace icarus
+} // namespace icarus::crt
 
 #endif

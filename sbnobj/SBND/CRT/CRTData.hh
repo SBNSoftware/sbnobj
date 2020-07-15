@@ -5,8 +5,7 @@
 #include <vector>
 #include <utility>
 
-namespace sbnd {
-namespace crt {
+namespace sbnd::crt {
 
   class CRTData {
 
@@ -28,7 +27,6 @@ namespace crt {
 
   };
 
-} // namespace crt
-} // namespace sbnd
+} // namespace sbnd::crt
 
 #endif

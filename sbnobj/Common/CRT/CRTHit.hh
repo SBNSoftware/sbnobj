@@ -18,8 +18,7 @@
 #include <string>
 #include <utility>
 
-namespace sbn {
-namespace crt {
+namespace sbn::crt {
 
     struct CRTHit{
 
@@ -49,7 +48,6 @@ namespace crt {
 
     };
 
-} // namespace crt
-} // namespace sbn
+} // namespace sbn::crt
 
 #endif

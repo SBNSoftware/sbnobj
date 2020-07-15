@@ -20,8 +20,7 @@
 #include <vector>
 #include <map>
 
-namespace sbnd {
-namespace crt {
+namespace sbnd::crt {
   
   struct CRTTrack{
 
@@ -64,11 +63,9 @@ namespace crt {
   };
   
 }
-}
 
 
-namespace icarus {
-namespace crt {
+namespace icarus::crt {
   
   struct CRTTrack{
 
@@ -110,7 +107,6 @@ namespace crt {
     
   };
   
-}
 }
 
 #endif

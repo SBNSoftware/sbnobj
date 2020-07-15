@@ -16,8 +16,7 @@
 #include <vector>
 #include <map>
 
-namespace sbn {
-namespace crt {
+namespace sbn::crt {
   
   struct CRTTzero{
 
@@ -42,8 +41,7 @@ namespace crt {
     
   };
   
-}
-}
+} // namespace sbn::crt
 
 
 #endif
