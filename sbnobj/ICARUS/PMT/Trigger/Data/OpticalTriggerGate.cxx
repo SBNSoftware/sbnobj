@@ -1,9 +1,9 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/OpticalTriggerGate.cxx
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/OpticalTriggerGate.cxx
  * @brief  A trigger gate data object for optical detector electronics.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see   icaruscode/PMT/Trigger/Data/OpticalTriggerGate.h
+ * @see   sbnobj/ICARUS/PMT/Trigger/Data/OpticalTriggerGate.h
  * 
  */
 

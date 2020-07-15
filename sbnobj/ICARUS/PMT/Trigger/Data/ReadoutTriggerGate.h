@@ -1,5 +1,5 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/ReadoutTriggerGate.h
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.h
  * @brief  A trigger gate data object associated to one or more channels.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   December 16, 2019
@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
-#define ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
 
 
 // ICARUS libraries
@@ -376,4 +376,4 @@ class icarus::trigger::ReadoutTriggerGate
 
 //------------------------------------------------------------------------------
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H

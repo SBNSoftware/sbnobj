@@ -1,9 +1,9 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.cxx
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.cxx
  * @brief  Logical multi-level gate associated to one or more channels.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see    `icaruscode/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.h`
+ * @see    `sbnobj/ICARUS/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.h`
  * 
  */
 

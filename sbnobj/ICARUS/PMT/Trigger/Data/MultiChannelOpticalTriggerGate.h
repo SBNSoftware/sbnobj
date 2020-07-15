@@ -1,14 +1,14 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.h
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.h
  * @brief  Logical multi-level gate associated to one or more channels.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see    `icaruscode/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.cxx`
+ * @see    `sbnobj/ICARUS/PMT/Trigger/Data/MultiChannelOpticalTriggerGate.cxx`
  * 
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H
-#define ICARUSCODE_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H
 
 
 // ICARUS libraries
@@ -76,4 +76,4 @@ class icarus::trigger::MultiChannelOpticalTriggerGate
 }; // class icarus::trigger::MultiChannelOpticalTriggerGate
 
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_MULTICHANNELOPTICALTRIGGERGATE_H

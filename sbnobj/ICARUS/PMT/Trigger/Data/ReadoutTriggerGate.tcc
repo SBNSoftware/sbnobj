@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/ReadoutTriggerGate.tcc
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.tcc
  * @brief  A trigger gate data object associated to one or more channels.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   December 16, 2019
- * @see    icaruscode/PMT/Trigger/Data/ReadoutTriggerGate.h
+ * @see    sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.h
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_TCC
-#define ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_TCC
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_TCC
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_TCC
 
 // C/C++ standard libraries
 #include <ostream>
@@ -17,10 +17,10 @@
 
 
 // make "sure" this header is not included directly
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
 # error "ReadoutTriggerGate.tcc must not be directly included!"\
-        " #include \"icaruscode/PMT/Trigger/Data/ReadoutTriggerGate.h\" instead."
-#endif // !ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+        " #include \"sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.h\" instead."
+#endif // !SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
 
 
 //------------------------------------------------------------------------------
@@ -287,4 +287,4 @@ std::ostream& icarus::trigger::operator<< (
 
 //------------------------------------------------------------------------------
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_READOUTTRIGGERGATE_H

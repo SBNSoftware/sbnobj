@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/TriggerGateData.tcc
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.tcc
  * @brief  A logical multilevel gate for triggering (template implementation).
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
  * @see    `sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.h`
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
-#define ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
 
 // LArSoft libraries
 #include "larcorealg/CoreUtils/StdUtils.h" // util::to_string()
@@ -23,10 +23,10 @@
 
 
 // make "sure" this header is not included directly
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
 # error "TriggerGateData.tcc must not be directly included!"\
         " #include \"sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.h\" instead."
-#endif // !ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
+#endif // !SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
 
 
 //------------------------------------------------------------------------------
@@ -841,5 +841,5 @@ std::ostream& icarus::trigger::operator<< (
 //------------------------------------------------------------------------------
 
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
 

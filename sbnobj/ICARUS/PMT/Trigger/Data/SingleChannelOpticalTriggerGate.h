@@ -1,14 +1,14 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/SingleChannelOpticalTriggerGate.h
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/SingleChannelOpticalTriggerGate.h
  * @brief  Logical multi-level gate associated to a optical detector channel.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see    `icaruscode/PMT/Trigger/Data/SingleChannelOpticalTriggerGate.cxx`
+ * @see    `sbnobj/ICARUS/PMT/Trigger/Data/SingleChannelOpticalTriggerGate.cxx`
  * 
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H
-#define ICARUSCODE_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H
 
 
 // ICARUS libraries
@@ -105,4 +105,4 @@ class icarus::trigger::SingleChannelOpticalTriggerGate
 }; // class icarus::trigger::SingleChannelOpticalTriggerGate
 
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_SINGLECHANNELOPTICALTRIGGERGATE_H

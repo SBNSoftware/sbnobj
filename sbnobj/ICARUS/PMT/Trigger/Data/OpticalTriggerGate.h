@@ -1,5 +1,5 @@
 /**
- * @file   icaruscode/PMT/Trigger/Data/OpticalTriggerGate.h
+ * @file   sbnobj/ICARUS/PMT/Trigger/Data/OpticalTriggerGate.h
  * @brief  A trigger gate data object for optical detector electronics.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef ICARUSCODE_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
-#define ICARUSCODE_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
+#ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
+#define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
 
 
 // ICARUS libraries
@@ -267,4 +267,4 @@ class icarus::trigger::OpticalTriggerGate
 
 //------------------------------------------------------------------------------
 
-#endif // ICARUSCODE_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
+#endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_OPTICALTRIGGERGATE_H
