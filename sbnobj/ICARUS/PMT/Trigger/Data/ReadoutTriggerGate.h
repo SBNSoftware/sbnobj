@@ -14,6 +14,7 @@
 // ICARUS libraries
 #include "sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.h"
 
+
 // LArSoft libraries
 
 // C/C++ standard libraries
@@ -32,13 +33,17 @@
 // declarations
 //
 namespace icarus::trigger {
-  template <typename Tick, typename TickInterval, typename ChannelIDType>
-  class ReadoutTriggerGate;
+  
+  /// All `ReadoutTriggerGate` template instances derive from this tag.
+  struct ReadoutTriggerGateTag {};
   
   template <typename Tick, typename TickInterval, typename ChannelIDType>
-  std::ostream& operator<< (
-    std::ostream&, ReadoutTriggerGate<Tick, TickInterval, ChannelIDType> const&
-    );
+    class ReadoutTriggerGate;
+  
+  template <typename Tick, typename TickInterval, typename ChannelIDType>
+    std::ostream& operator<< (
+			      std::ostream&, ReadoutTriggerGate<Tick, TickInterval, ChannelIDType> const&
+			      );
   
   
   // --- BEGIN Exceptions ------------------------------------------------------
@@ -47,11 +52,11 @@ namespace icarus::trigger {
   
   /// Base class for all exceptions from `icarus::trigger::ReadoutTriggerGate`.
   struct ReadoutTriggerGateError: std::runtime_error
-    { using std::runtime_error::runtime_error; };
+  { using std::runtime_error::runtime_error; };
   
   /// No channel associated to the readout gate.
   struct NoChannelError: ReadoutTriggerGateError
-    { using ReadoutTriggerGateError::ReadoutTriggerGateError; };
+  { using ReadoutTriggerGateError::ReadoutTriggerGateError; };
   
   /// More than one channel associated to the readout gate.
   struct MoreThanOneChannelError: ReadoutTriggerGateError {
@@ -63,6 +68,14 @@ namespace icarus::trigger {
   }; // struct MoreThanOneChannelError
   
   // --- END Exceptions --------------------------------------------------------
+  
+  /// Type traits: `Gate` type derives from a `ReadoutTriggerGate` instance.
+  template <typename Gate>
+    struct isReadoutTriggerGate;
+  
+  /// Flag: `true` if `Gate` type derives from a `ReadoutTriggerGate` instance.
+  template <typename Gate>
+    constexpr bool isReadoutTriggerGate_v = isReadoutTriggerGate<Gate>::value;
   
 } // namespace icarus::trigger
 
@@ -87,17 +100,18 @@ namespace icarus::trigger {
  *       So we chicken out here and use simple data types instead.
  */
 template <typename Tick, typename TickInterval, typename ChannelIDType>
-class icarus::trigger::ReadoutTriggerGate
+  class icarus::trigger::ReadoutTriggerGate
   : public icarus::trigger::TriggerGateData<Tick, TickInterval>
-{
-  /// Type of the base class.
-  using Base_t = icarus::trigger::TriggerGateData<Tick, TickInterval>;
+  , public ReadoutTriggerGateTag
+  {
+    /// Type of the base class.
+    using Base_t = icarus::trigger::TriggerGateData<Tick, TickInterval>;
   
-  /// Type of this class.
+    /// Type of this class.
   using This_t
     = icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>;
   
-    public:
+  public:
   
   using ClockTick_t = Tick; ///< Tick point.
   using ClockTicks_t = TickInterval; ///< Tick interval.
@@ -295,17 +309,20 @@ class icarus::trigger::ReadoutTriggerGate
    * 
    */
   template <typename Op>
-  static ReadoutTriggerGate SymmetricCombination(
-    Op&& op, ReadoutTriggerGate const& a, ReadoutTriggerGate const& b,
-    ClockTicks_t aDelay = ClockTicks_t{ 0 },
-    ClockTicks_t bDelay = ClockTicks_t{ 0 }
-    );
+    static ReadoutTriggerGate SymmetricCombination(
+						   Op&& op, ReadoutTriggerGate const& a, ReadoutTriggerGate const& b,
+						   ClockTicks_t aDelay = ClockTicks_t{ 0 },
+						   ClockTicks_t bDelay = ClockTicks_t{ 0 }
+						   );
   
   /// @}
   // --- END Combination operations --------------------------------------------
   
+  // standard comparison operators: all must be the same
+  bool operator == (ReadoutTriggerGate const&) const;
+  bool operator != (ReadoutTriggerGate const&) const;
   
-    protected:
+  protected:
   // we allow some manipulation by the derived classes
   using GateEvolution_t = typename Base_t::GateEvolution_t;
   
@@ -316,7 +333,7 @@ class icarus::trigger::ReadoutTriggerGate
   
   /// Protected constructor: set the data directly.
   template <typename BIter, typename EIter>
-  ReadoutTriggerGate(GateEvolution_t&& gateLevel, BIter b, EIter e)
+    ReadoutTriggerGate(GateEvolution_t&& gateLevel, BIter b, EIter e)
     : Base_t(std::move(gateLevel)), fChannels(b, e)
     { normalizeChannels(); }
   
@@ -333,7 +350,7 @@ class icarus::trigger::ReadoutTriggerGate
   
   /// Associates this data with the channels from the `other` gate.
   void associateChannelsFromGate(ReadoutTriggerGate const& other)
-    { associateChannels(other.channels()); }
+  { associateChannels(other.channels()); }
   
   template <typename BIter, typename EIter>
   static ChannelList_t& mergeSortedChannelsInto
@@ -359,13 +376,13 @@ class icarus::trigger::ReadoutTriggerGate
   static ChannelList_t mergeChannels
     (ChannelList_t const& a, ChannelList_t const& b);
   
-    private:
+  private:
   
   /// List of readout channels associated to this data.
   ChannelList_t fChannels;
   
   
-}; // class icarus::trigger::ReadoutTriggerGate
+  }; // class icarus::trigger::ReadoutTriggerGate
 
 
 //------------------------------------------------------------------------------

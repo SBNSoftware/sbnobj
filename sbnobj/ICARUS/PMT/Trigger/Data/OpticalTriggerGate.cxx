@@ -22,23 +22,23 @@ namespace {
     
     /// Returns whether `a < b`.
     static bool less(raw::OpDetWaveform const& a, raw::OpDetWaveform const& b)
-      {
-        if (a.ChannelNumber() < b.ChannelNumber()) return true;
-        if (a.ChannelNumber() > b.ChannelNumber()) return false;
+    {
+      if (a.ChannelNumber() < b.ChannelNumber()) return true;
+      if (a.ChannelNumber() > b.ChannelNumber()) return false;
         
-        if (a.TimeStamp() < b.TimeStamp()) return true;
-        if (a.TimeStamp() > b.TimeStamp()) return false;
+      if (a.TimeStamp() < b.TimeStamp()) return true;
+      if (a.TimeStamp() > b.TimeStamp()) return false;
         
-        return false; // they're equivalent
-      } // less()
+      return false; // they're equivalent
+    } // less()
     
     bool operator()
-      (raw::OpDetWaveform const& a, raw::OpDetWaveform const& b) const
-      { return less(a, b); }
+    (raw::OpDetWaveform const& a, raw::OpDetWaveform const& b) const
+    { return less(a, b); }
     
     bool operator()
-      (raw::OpDetWaveform const* a, raw::OpDetWaveform const* b) const
-      { return less(*a, *b); }
+    (raw::OpDetWaveform const* a, raw::OpDetWaveform const* b) const
+    { return less(*a, *b); }
     
   }; // OpDetWaveformComp
   
@@ -52,7 +52,7 @@ namespace {
 //--- icarus::trigger::OpticalTriggerGate
 //------------------------------------------------------------------------------
 void icarus::trigger::OpticalTriggerGate::registerWaveforms
-  (Waveforms_t const& moreWaveforms)
+(Waveforms_t const& moreWaveforms)
 {
   //
   // add channels
@@ -65,7 +65,7 @@ void icarus::trigger::OpticalTriggerGate::registerWaveforms
   auto const middle = fWaveforms.insert
     (fWaveforms.end(), moreWaveforms.begin(), moreWaveforms.end());
   std::inplace_merge
-   (fWaveforms.begin(), middle, fWaveforms.end(), ::OpDetWaveformComp());
+    (fWaveforms.begin(), middle, fWaveforms.end(), ::OpDetWaveformComp());
 
   // finally remove any duplicate (there should be none, should it?)
   auto const actualEnd
@@ -78,14 +78,14 @@ void icarus::trigger::OpticalTriggerGate::registerWaveforms
 
 //------------------------------------------------------------------------------
 auto icarus::trigger::OpticalTriggerGate::mergeWaveforms
-  (Waveforms_t const& a, Waveforms_t const& b) -> Waveforms_t
+(Waveforms_t const& a, Waveforms_t const& b) -> Waveforms_t
 {
   Waveforms_t merged;
   merged.reserve(a.size() + b.size());
   std::merge(
-    a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(merged),
-    ::OpDetWaveformComp()
-    );
+	     a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(merged),
+	     ::OpDetWaveformComp()
+	     );
   
   // finally remove any duplicate (there should be non, should it?)
   auto const actualEnd
@@ -98,7 +98,7 @@ auto icarus::trigger::OpticalTriggerGate::mergeWaveforms
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Min
-  (OpticalTriggerGate const& other)
+(OpticalTriggerGate const& other)
 {
   GateData_t::Min(other);
   mergeWaveformsFromGate(other);
@@ -108,7 +108,7 @@ icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Min
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Max
-  (OpticalTriggerGate const& other)
+(OpticalTriggerGate const& other)
 {
   GateData_t::Max(other);
   mergeWaveformsFromGate(other);
@@ -118,7 +118,7 @@ icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Max
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Sum
-  (OpticalTriggerGate const& other)
+(OpticalTriggerGate const& other)
 {
   GateData_t::Sum(other);
   mergeWaveformsFromGate(other);
@@ -128,7 +128,7 @@ icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Sum
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Mul
-  (OpticalTriggerGate const& other)
+(OpticalTriggerGate const& other)
 {
   GateData_t::Mul(other);
   mergeWaveformsFromGate(other);
@@ -138,51 +138,69 @@ icarus::trigger::OpticalTriggerGate& icarus::trigger::OpticalTriggerGate::Mul
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate icarus::trigger::OpticalTriggerGate::Min
-  (OpticalTriggerGate const& a, OpticalTriggerGate const& b)
-  { auto combination { a }; combination.Min(b); return combination; }
+(OpticalTriggerGate const& a, OpticalTriggerGate const& b)
+{ auto combination { a }; combination.Min(b); return combination; }
 
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate icarus::trigger::OpticalTriggerGate::Max
-  (OpticalTriggerGate const& a, OpticalTriggerGate const& b)
-  { auto combination { a }; combination.Max(b); return combination; }
+(OpticalTriggerGate const& a, OpticalTriggerGate const& b)
+{ auto combination { a }; combination.Max(b); return combination; }
 
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate icarus::trigger::OpticalTriggerGate::Sum
-  (OpticalTriggerGate const& a, OpticalTriggerGate const& b)
-  { auto combination { a }; combination.Sum(b); return combination; }
+(OpticalTriggerGate const& a, OpticalTriggerGate const& b)
+{ auto combination { a }; combination.Sum(b); return combination; }
 
 
 //------------------------------------------------------------------------------
 icarus::trigger::OpticalTriggerGate icarus::trigger::OpticalTriggerGate::Mul
-  (OpticalTriggerGate const& a, OpticalTriggerGate const& b)
-  { auto combination { a }; combination.Mul(b); return combination; }
+(OpticalTriggerGate const& a, OpticalTriggerGate const& b)
+{ auto combination { a }; combination.Mul(b); return combination; }
 
 
 //------------------------------------------------------------------------------
 template <typename Op>
 icarus::trigger::OpticalTriggerGate
 icarus::trigger::OpticalTriggerGate::SymmetricCombination(
-  Op&& op, OpticalTriggerGate const& a, OpticalTriggerGate const& b,
-  TriggerGateTicks_t aDelay /* = TriggerGateTicks_t{ 0 } */,
-  TriggerGateTicks_t bDelay /* = TriggerGateTicks_t{ 0 } */
-  )
+							  Op&& op, OpticalTriggerGate const& a, OpticalTriggerGate const& b,
+							  TriggerGateTicks_t aDelay /* = TriggerGateTicks_t{ 0 } */,
+							  TriggerGateTicks_t bDelay /* = TriggerGateTicks_t{ 0 } */
+							  )
 {
   return { 
     GateData_t::SymmetricCombination
       (std::forward<Op>(op), a, b, aDelay, bDelay),
-    OpticalTriggerGate::mergeWaveforms(a.waveforms(), b.waveforms())
-  };
+      OpticalTriggerGate::mergeWaveforms(a.waveforms(), b.waveforms())
+      };
   
 } // icarus::trigger::OpticalTriggerGate::SymmetricCombination()
 
 
 //------------------------------------------------------------------------------
-bool icarus::trigger::OpticalTriggerGate::add
-  (raw::OpDetWaveform const& waveform)
+bool icarus::trigger::OpticalTriggerGate::operator==
+(OpticalTriggerGate const& other) const
 {
-  // insertion keeps the list ordered and the elemets unique
+  return
+    (gateLevels() == other.gateLevels()) && (waveforms() == other.waveforms());
+} // icarus::trigger::OpticalTriggerGate::operator==()
+
+
+//------------------------------------------------------------------------------
+bool icarus::trigger::OpticalTriggerGate::operator!=
+(OpticalTriggerGate const& other) const
+{
+  return
+    (gateLevels() != other.gateLevels()) || (waveforms() != other.waveforms());
+} // icarus::trigger::OpticalTriggerGate::operator==()
+
+
+//------------------------------------------------------------------------------
+bool icarus::trigger::OpticalTriggerGate::add
+(raw::OpDetWaveform const& waveform)
+{
+  // insertion keeps the list ordered and the elements unique
   auto const& insertionPoint = std::lower_bound
     (fWaveforms.begin(), fWaveforms.end(), &waveform, ::OpDetWaveformComp());
   if ((insertionPoint != fWaveforms.end()) && (*insertionPoint == &waveform))
@@ -195,21 +213,21 @@ bool icarus::trigger::OpticalTriggerGate::add
 
 //------------------------------------------------------------------------------
 auto icarus::trigger::OpticalTriggerGate::extractChannels
-  (Waveforms_t const& waveforms) -> GateData_t::ChannelList_t
+(Waveforms_t const& waveforms) -> GateData_t::ChannelList_t
 {
   GateData_t::ChannelList_t channels;
   channels.reserve(waveforms.size());
   std::transform(
-    waveforms.begin(), waveforms.end(), std::back_inserter(channels),
-    std::mem_fn(&raw::OpDetWaveform::ChannelNumber)
-    );
+		 waveforms.begin(), waveforms.end(), std::back_inserter(channels),
+		 std::mem_fn(&raw::OpDetWaveform::ChannelNumber)
+		 );
   return channels;
 } // icarus::trigger::OpticalTriggerGate::extractChannels()
 
 
 //------------------------------------------------------------------------------
 auto icarus::trigger::OpticalTriggerGate::waveformChannels
-  (Waveforms_t const& waveforms) -> GateData_t::ChannelList_t
+(Waveforms_t const& waveforms) -> GateData_t::ChannelList_t
 {
   return GateData_t::normalizeChannels(extractChannels(waveforms));
 } // icarus::trigger::OpticalTriggerGate::waveformChannels()
@@ -217,7 +235,7 @@ auto icarus::trigger::OpticalTriggerGate::waveformChannels
 
 //------------------------------------------------------------------------------
 std::ostream& icarus::trigger::operator<<
-  (std::ostream& out, icarus::trigger::OpticalTriggerGate const& gate)
+(std::ostream& out, icarus::trigger::OpticalTriggerGate const& gate)
 {
   out << gate.gateLevels();
   return out;
@@ -225,4 +243,3 @@ std::ostream& icarus::trigger::operator<<
 
 
 //------------------------------------------------------------------------------
-

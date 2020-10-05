@@ -25,8 +25,8 @@
 // make "sure" this header is not included directly
 #ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
 # error "TriggerGateData.tcc must not be directly included!"\
-        " #include \"sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.h\" instead."
-#endif // !SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
+        " #include \"icaruscode/PMT/Trigger/Data/TriggerGateData.h\" instead."
+#endif // !ICARUSCODE_PMT_TRIGGER_DATA_TRIGGERGATEDATA_H
 
 
 //------------------------------------------------------------------------------
@@ -583,6 +583,24 @@ auto icarus::trigger::TriggerGateData<TK, TI>::SymmetricCombination(
 
 //------------------------------------------------------------------------------
 template <typename TK, typename TI>
+bool icarus::trigger::TriggerGateData<TK, TI>::operator ==
+  (TriggerGateData const& other) const
+{
+  return fGateLevel == other.fGateLevel;
+} // bool icarus::trigger::TriggerGateData<>::operator==
+
+
+//------------------------------------------------------------------------------
+template <typename TK, typename TI>
+bool icarus::trigger::TriggerGateData<TK, TI>::operator !=
+  (TriggerGateData const& other) const
+{
+  return fGateLevel != other.fGateLevel;
+} // bool icarus::trigger::TriggerGateData<>::operator==
+
+
+//------------------------------------------------------------------------------
+template <typename TK, typename TI>
 auto icarus::trigger::TriggerGateData<TK, TI>::findLastStatusFor
   (ClockTick_t tick) -> std::optional<status_iterator>
 {
@@ -839,7 +857,6 @@ std::ostream& icarus::trigger::operator<< (
 
 
 //------------------------------------------------------------------------------
-
 
 #endif // SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
 

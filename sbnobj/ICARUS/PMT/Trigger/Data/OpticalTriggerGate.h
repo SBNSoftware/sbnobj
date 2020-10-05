@@ -40,7 +40,7 @@ namespace icarus::trigger {
   /// Type of trigger gate data serialized into _art_ data products.
   using OpticalTriggerGateData_t = icarus::trigger::ReadoutTriggerGate
     <TriggerGateTick_t, TriggerGateTicks_t, raw::Channel_t>
-//   <detinfo::timescales::optical_tick, detinfo::timescales::optical_time_ticks, raw::Channel_t>
+    //   <detinfo::timescales::optical_tick, detinfo::timescales::optical_time_ticks, raw::Channel_t>
     ;
 
 } // namespace icarus::trigger
@@ -62,13 +62,14 @@ namespace icarus::trigger {
  *       So we chicken out here and use simple data types instead.
  */
 class icarus::trigger::OpticalTriggerGate
-  : public icarus::trigger::OpticalTriggerGateData_t
+: public icarus::trigger::OpticalTriggerGateData_t
 {
   
-    public:
+ public:
   /// Type for gate data access.
   using GateData_t = OpticalTriggerGateData_t;
   
+  using ChannelID_t = GateData_t::ChannelID_t; ///< Type of channel identifier.
   
   /// Constructor: a closed gate with no associated waveform (`add()` them).
   OpticalTriggerGate() = default;
@@ -84,12 +85,15 @@ class icarus::trigger::OpticalTriggerGate
     , fWaveforms({ &waveform })
     {}
 
+  /// Constructor: a closed gate for the specified channel.
+ OpticalTriggerGate(ChannelID_t channel): GateData_t{ channel } {}
+
 
   /// Adds another waveform to the gate (unless it has already been added).
   bool add(raw::OpDetWaveform const& waveform);
 
   //@{
-  /// Copies/steals all the levels from the specified data.
+  /// Copies/steals all the levels and channels from the specified data.
   OpticalTriggerGate& operator= (GateData_t const& data)
     { GateData_t::operator=(data); return *this; }
   OpticalTriggerGate& operator= (GateData_t&& data)
@@ -214,17 +218,20 @@ class icarus::trigger::OpticalTriggerGate
    * 
    */
   template <typename Op>
-  static OpticalTriggerGate SymmetricCombination(
-    Op&& op, OpticalTriggerGate const& a, OpticalTriggerGate const& b,
-    TriggerGateTicks_t aDelay = TriggerGateTicks_t{ 0 },
-    TriggerGateTicks_t bDelay = TriggerGateTicks_t{ 0 }
-    );
+    static OpticalTriggerGate SymmetricCombination(
+						   Op&& op, OpticalTriggerGate const& a, OpticalTriggerGate const& b,
+						   TriggerGateTicks_t aDelay = TriggerGateTicks_t{ 0 },
+						   TriggerGateTicks_t bDelay = TriggerGateTicks_t{ 0 }
+						   );
   
   /// @}
   // --- END Combination operations --------------------------------------------
   
+  // standard comparison operators: all must be the same
+  bool operator== (OpticalTriggerGate const&) const;
+  bool operator!= (OpticalTriggerGate const&) const;
   
-    protected:
+ protected:
   // we allow some manipulation by the derived classes
   
   /// Internal list of registered waveforms.
@@ -242,13 +249,13 @@ class icarus::trigger::OpticalTriggerGate
   
   /// Registers the waveforms from the `other` gate into this one.
   void mergeWaveformsFromGate(OpticalTriggerGate const& other)
-    { registerWaveforms(other.waveforms()); }
+  { registerWaveforms(other.waveforms()); }
   
   
   /// Registers the waveforms from the `other` gate into this one.
   static Waveforms_t mergeWaveforms(Waveforms_t const& a, Waveforms_t const& b);
   
-    private:
+ private:
   
   /// List of waveforms involved in this channel.
   std::vector<raw::OpDetWaveform const*> fWaveforms;
@@ -263,7 +270,6 @@ class icarus::trigger::OpticalTriggerGate
     (Waveforms_t const& waveforms);
 
 }; // class icarus::trigger::OpticalTriggerGate
-
 
 //------------------------------------------------------------------------------
 
