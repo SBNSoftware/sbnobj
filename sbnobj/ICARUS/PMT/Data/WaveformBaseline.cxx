@@ -7,7 +7,7 @@
  */
 
 // library header
-#include "icaruscode/PMT/Data/WaveformBaseline.h"
+#include "sbnobj/ICARUS/PMT/Data/WaveformBaseline.h"
 
 // C/C++ standard library
 #include <ostream>
