@@ -1,0 +1,29 @@
+<lcgdict>
+  <class name="icarus::crt::CRTData" ClassVersion="10">
+   <version ClassVersion="10" checksum="3195129646"/>
+  </class>
+  <class name="std::vector<icarus::crt::CRTData>"/>
+  <class name="art::Wrapper<icarus::crt::CRTData>"/>
+  <class name="art::Wrapper<std::vector<icarus::crt::CRTData> >"/>
+
+  <class name="std::map< uint8_t, uint16_t >"/>
+  <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
+
+  <!-- associations  -->
+
+ <class name="art::Assns<icarus::crt::CRTData, sim::AuxDetIDE,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTData, sim::AuxDetIDE, void> >"           />
+ <class name="art::Assns<sim::AuxDetIDE, icarus::crt::CRTData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, icarus::crt::CRTData, void> >"           />
+
+ <class name="art::Assns<sbn::crt::CRTHit, icarus::crt::CRTData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, icarus::crt::CRTData, void> >"           />
+ <class name="art::Assns<icarus::crt::CRTData, sbn::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTData, sbn::crt::CRTHit, void> >"           />
+
+ <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTData,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTHit, icarus::crt::CRTData, void> >"           />
+ <class name="art::Assns<icarus::crt::CRTData, icarus::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<icarus::crt::CRTData, icarus::crt::CRTHit, void> >"           />
+
+</lcgdict>
