@@ -1,0 +1,11 @@
+#include "canvas/Persistency/Common/Assns.h"
+#include "lardataobj/RecoBase/Track.h"
+#include "lardataobj/RecoBase/Shower.h"
+#include "lardataobj/RecoBase/MCSFitResult.h"
+#include "lardataobj/AnalysisBase/T0.h"
+#include "sbnobj/Common/Reco/RangeP.h"
+#include "sbnobj/Common/Reco/ShowerSelectionVars.h"
+#include "sbnobj/Common/Reco/FlashTriggerPrimitive.hh"
+#include "sbnobj/Common/CRT/CRTHit.hh"
+#include <vector>
+#include <utility>

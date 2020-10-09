@@ -1,7 +1,6 @@
 # basic source code CMakeLists.txt
 
-art_make( )
+add_subdirectory(Common)
+add_subdirectory(ICARUS)
+add_subdirectory(SBND)
 
-install_headers()
-install_source()
-install_fhicl()
