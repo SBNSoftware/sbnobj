@@ -78,6 +78,11 @@
  <class name="art::Wrapper<art::Assns<icarus::crt::CRTHit,sim::AuxDetIDE,void> >"/>
  <class name="art::Wrapper<art::Assns<sim::AuxDetIDE,icarus::crt::CRTHit,void> >"/>
 
+ <class name="art::Assns<sbn::crt::CRTHit,sim::AuxDetIDE,void>"/>
+ <class name="art::Assns<sim::AuxDetIDE,sbn::crt::CRTHit,void>"/>
+ <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,sim::AuxDetIDE,void> >"/>
+ <class name="art::Wrapper<art::Assns<sim::AuxDetIDE,sbn::crt::CRTHit,void> >"/>
+
 
 
  <class name="icarus::crt::CRTHit" ClassVersion="10">
