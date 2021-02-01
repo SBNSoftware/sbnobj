@@ -72,4 +72,48 @@
   <class name="art::Wrapper<art::Assns<float,recob::Shower,void>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower,float,void>>" />
 
+  <class name="sbn::Stub" ClassVersion="10">
+   <version ClassVersion="10" checksum="3948825604"/>
+  </class>
+  <class name="std::vector<sbn::Stub>" />
+  <class name="art::Wrapper<sbn::Stub>" />
+  <class name="art::Wrapper<std::vector<sbn::Stub>>" />
+
+  <class name="art::Assns<recob::PFParticle, sbn::Stub>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::Stub>>" />
+  <class name="art::Assns<recob::Slice, sbn::Stub>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::Stub>>" />
+  <class name="art::Assns<recob::Hit, sbn::Stub>" />
+  <class name="art::Wrapper<art::Assns<recob::Hit, sbn::Stub>>" />
+  <class name="art::Assns<sbn::VertexHit, sbn::Stub>" />
+  <class name="art::Wrapper<art::Assns<sbn::VertexHit, sbn::Stub>>" />
+
+  <class name="sbn::VertexHit" ClassVersion="10">
+   <version ClassVersion="10" checksum="802899277"/>
+  </class>
+  <class name="std::vector<sbn::VertexHit>" />
+  <class name="art::Wrapper<sbn::VertexHit>" />
+  <class name="art::Wrapper<std::vector<sbn::VertexHit>>" />
+
+  <class name="art::Assns<recob::Hit, sbn::VertexHit>" />
+  <class name="art::Wrapper<art::Assns<recob::Hit, sbn::VertexHit>>" />
+  <class name="art::Assns<recob::Slice, sbn::VertexHit>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::VertexHit>>" />
+  <class name="art::Assns<recob::Vertex, sbn::VertexHit>" />
+  <class name="art::Wrapper<art::Assns<recob::Vertex, sbn::VertexHit>>" />
+
+  <class name="sbn::MergedTrackInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="252455777"/>
+  </class>
+  <class name="std::vector<sbn::MergedTrackInfo>" />
+  <class name="art::Wrapper<sbn::MergedTrackInfo>" />
+  <class name="art::Wrapper<std::vector<sbn::MergedTrackInfo>>" />
+
+  <class name="art::Assns<recob::PFParticle, sbn::MergedTrackInfo>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::MergedTrackInfo>>" />
+  <class name="art::Assns<recob::Track, sbn::MergedTrackInfo>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::MergedTrackInfo>>" />
+  <class name="art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>>" />
+
 </lcgdict>
