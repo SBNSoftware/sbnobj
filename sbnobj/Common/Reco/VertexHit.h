@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
-#include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
+#include "TVector3.h"
 
 namespace sbn {
   class VertexHit {
@@ -12,7 +12,7 @@ namespace sbn {
     float charge;
     float proj_dist_to_vertex;
     int spID;
-    geo::Point_t spXYZ;
+    TVector3 spXYZ;
     float pitch;
     float dqdx;
     float dedx;
