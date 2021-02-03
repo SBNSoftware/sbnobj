@@ -30,13 +30,15 @@ flcdir  product_dir     job
 # Add the dependent product and version
 
 product          version
-lardataobj       v09_00_07
+lardataobj       v09_20_00_rc0
 cetbuildtools    v7_17_01  -  only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
 # Make a table by adding columns before "notes". 
 qualifier   lardataobj     notes
+e20:debug   e20:debug
+e20:prof    e20:prof
 e19:debug   e19:debug
 e19:prof    e19:prof
 c7:debug    c7:debug
