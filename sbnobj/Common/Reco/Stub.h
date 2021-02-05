@@ -3,13 +3,13 @@
 
 #include <vector>
 #include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
-#include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
+#include "TVector3.h"
 
 namespace sbn {
   class Stub {
   public:
-    geo::Point_t vtx; //!< Interaction Vertex / Start of Stub [cm]
-    geo::Point_t end; //!< End of Stub [cm]
+    TVector3 vtx; //!< Interaction Vertex / Start of Stub [cm]
+    TVector3 end; //!< End of Stub [cm]
     float charge; //!< Total charge of stub, corrected for elec. lifetime [#elec]
     float pitch; //!< Pitch of stub on each wire [cm]
     geo::PlaneID plane; //!< Plane of stub
