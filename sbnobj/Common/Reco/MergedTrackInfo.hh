@@ -1,15 +1,15 @@
 #ifndef sbncode_MergedTrack_HH
 #define sbncode_MergedTrack_HH
 
-#include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
+#include "TVector3.h"
 
 namespace sbn {
   class MergedTrackInfo {
   public:
     // std::array<bool, 3> trunk_wire_direction_is_ascending;
     // std::array<int, 3> branch_wire_start;
-    geo::Point_t vertex;
-    geo::Vector_t direction;
+    TVector3 vertex;
+    TVector3 direction;
     int trunk;
     int branch;
     float branch_overlap;

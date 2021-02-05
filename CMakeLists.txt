@@ -13,8 +13,7 @@
 # ======================================================================
 
 
-# use cmake 3.12 or later
-cmake_minimum_required (VERSION 3.12...3.14 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.12...3.18 FATAL_ERROR)
 
 project(sbnobj LANGUAGES CXX)
 
@@ -26,11 +25,7 @@ message(STATUS
 # cetbuildtools contains our cmake modules
 find_package(cetbuildtools REQUIRED)
 
-list(APPEND CMAKE_MODULE_PATH
-     $ENV{CANVAS_ROOT_IO_DIR}/Modules
-     $ENV{ART_DIR}/Modules
-#     ${CMAKE_CURRENT_SOURCE_DIR}/Modules
-)
+list(APPEND CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -53,12 +48,11 @@ find_ups_product( lardataalg )
 find_ups_product( nusimdata )
 find_ups_boost( )
 find_ups_root()
-find_ups_product( cetbuildtools )
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
-include(ArtMake)
-include(BuildPlugins)
+include(CetMake)
+include(BasicPlugin)
 
 # add cet_find_library commands here when needed
 
