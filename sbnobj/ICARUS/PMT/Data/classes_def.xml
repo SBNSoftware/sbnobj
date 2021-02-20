@@ -41,6 +41,26 @@
   <class name="art::Wrapper<art::Assns<raw::OpDetWaveform, icarus::WaveformBaseline, void>>"/>
   
 
+  <!--   class -->
+  <class name="icarus::PMTconfiguration" ClassVersion="10" >
+   <version ClassVersion="10" checksum="3715080124"/>
+  </class>
+  
+    <!-- dependencies -->
+  <class name="std::vector<icarus::V1730Configuration>" />
+  <class name="icarus::V1730Configuration" ClassVersion="10" >
+   <version ClassVersion="10" checksum="1059138314"/>
+  </class>
+  <class name="std::vector<icarus::V1730channelConfiguration>" />
+  <class name="icarus::V1730channelConfiguration" ClassVersion="10" >
+   <version ClassVersion="10" checksum="315565871"/>
+  </class>
+
+    <!-- art pointers and wrappers -->
+  <class name="art::Ptr<icarus::PMTconfiguration>"/>
+  <class name="art::Wrapper<icarus::PMTconfiguration>"/>
+  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- copy&paste templates for: -->
   <!-- PROD -->

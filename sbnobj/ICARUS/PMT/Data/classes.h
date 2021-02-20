@@ -13,6 +13,7 @@
 
 // ICARUS libraries
 #include "sbnobj/ICARUS/PMT/Data/WaveformBaseline.h"
+#include "sbnobj/ICARUS/PMT/Data/PMTconfiguration.h"
 
 // LArSoft libraries
 #include "lardataobj/RawData/OpDetWaveform.h"
@@ -27,5 +28,6 @@
 namespace {
   
   icarus::WaveformBaseline baseline;
+  icarus::PMTconfiguration PMTconfig;
   
 } // local namespace
