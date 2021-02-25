@@ -1,0 +1,16 @@
+cet_make( 
+  NO_DICTIONARY
+  LIBRARIES
+    cetlib_except
+    ${ROOT_BASIC_LIB_LIST}
+    ${CLHEP}
+    ${ART_FRAMEWORK_SERVICES_REGISTRY}
+    ${ART_FRAMEWORK_SERVICES_OPTIONAL}
+    ${ART_FRAMEWORK_SERVICES_OPTIONAL_RANDOMNUMBERGENERATOR_SERVICE}
+)
+
+art_dictionary(DICTIONARY_LIBRARIES sbnobj_Common_SBNEventWeight)
+
+install_headers()
+install_source()
+
