@@ -1,14 +1,13 @@
 /**
- * @file   sbnobj/ICARUS/PMT/Data/V1730channelConfiguration.cxx
+ * @file   sbnobj/Common/PMT/Data/V1730Configuration.cxx
  * @brief  Information from the configuration of a V1730 PMT readout board.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   February 18, 2021
- * @see    sbnobj/ICARUS/PMT/Data/V1730channelConfiguration.h
+ * @see    sbnobj/Common/PMT/Data/V1730Configuration.h
  */
 
-
 // library header
-#include "sbnobj/ICARUS/PMT/Data/V1730channelConfiguration.h"
+#include "sbnobj/Common/PMT/Data/V1730Configuration.h"
 
 // C/C++ standard libraries
 #include <ostream>
@@ -16,10 +15,10 @@
 
 
 //------------------------------------------------------------------------------
-static_assert(icarus::V1730channelConfiguration::DefaultDumpVerbosity <= icarus::V1730channelConfiguration::MaxDumpVerbosity);
+static_assert(sbn::V1730Configuration::DefaultDumpVerbosity <= sbn::V1730Configuration::MaxDumpVerbosity);
 
 //------------------------------------------------------------------------------
-void icarus::V1730channelConfiguration::dump(std::ostream& out,
+void sbn::V1730Configuration::dump(std::ostream& out,
   std::string const& indent, std::string const& firstIndent,
   unsigned int verbosity /* = MaxDumpVerbosity */
 ) const{
@@ -32,21 +31,37 @@ void icarus::V1730channelConfiguration::dump(std::ostream& out,
     
     unsigned int level = 0U;
     
+    
     // --- verbosity: 0+ -------------------------------------------------------
     out << firstIndent
-      << "board channel #" << channelNo
-      << " (" << (enabled? "enabled": "disabled") << ")"
+      << "board name: '" << boardName << "' (ID: " << boardID
+      << "; fragment ID: " << fragmentID << "), "
+      << nChannels << " configured channels"
       ;
-    if (hasChannelID()) out << ", offline ID: " << channelID;
     
     if (++level > verbosity) break;
     // --- verbosity: 1+ -------------------------------------------------------
-    out << ", baseline: " << baseline << ", threshold: " << threshold
-      << " (delta=" << relativeThreshold() << ")"
+    outnl()
+      << "waveform: " << bufferLength << " ticks (" << bufferTime()
+      << " us), post-trigger fraction: " << (postTriggerFrac*100.0)
+      << "% (" << preTriggerTime() << " + " << postTriggerTime() << " us)"
       ;
+    out << '\n';
+    for (std::size_t iChannel = 0U; iChannel < nChannels; ++iChannel) {
+      
+      sbn::V1730channelConfiguration const& channel = channels[iChannel];
+      
+      out << indent << "[" << iChannel << "] ";
+      channel.dump(out, indent + "  ", "", verbosity - 1U);
+      
+    } // for channels
+    // ends on new line
     
     if (++level > verbosity) break;
     // --- verbosity: 2+ -------------------------------------------------------
+    
+    if (++level > verbosity) break;
+    // --- verbosity: 3+ -------------------------------------------------------
     
     assert(level == MaxDumpVerbosity + 1U);
     
@@ -55,9 +70,9 @@ void icarus::V1730channelConfiguration::dump(std::ostream& out,
   
   } while(false);
   
-  out << "\n";
+//   out << "\n";
   
-} // icarus::V1730channelConfiguration::dump()
+} // sbn::V1730Configuration::dump()
 
 
 //------------------------------------------------------------------------------

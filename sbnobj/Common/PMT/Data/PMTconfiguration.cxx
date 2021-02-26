@@ -1,14 +1,14 @@
 /**
- * @file   sbnobj/ICARUS/PMT/Data/PMTconfiguration.cxx
+ * @file   sbnobj/Common/PMT/Data/PMTconfiguration.cxx
  * @brief  Information from the configuration of a V1730 PMT readout board.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   February 18, 2021
- * @see    sbnobj/ICARUS/PMT/Data/PMTconfiguration.h
+ * @see    sbnobj/Common/PMT/Data/PMTconfiguration.h
  */
 
 
 // library header
-#include "sbnobj/ICARUS/PMT/Data/PMTconfiguration.h"
+#include "sbnobj/Common/PMT/Data/PMTconfiguration.h"
 
 // C/C++ standard libraries
 #include <ostream>
@@ -16,10 +16,10 @@
 
 
 //------------------------------------------------------------------------------
-static_assert(icarus::PMTconfiguration::DefaultDumpVerbosity <= icarus::PMTconfiguration::MaxDumpVerbosity);
+static_assert(sbn::PMTconfiguration::DefaultDumpVerbosity <= sbn::PMTconfiguration::MaxDumpVerbosity);
 
 //------------------------------------------------------------------------------
-void icarus::PMTconfiguration::dump(std::ostream& out,
+void sbn::PMTconfiguration::dump(std::ostream& out,
   std::string const& indent, std::string const& firstIndent,
   unsigned int verbosity /* = MaxDumpVerbosity */
 ) const{
@@ -45,7 +45,7 @@ void icarus::PMTconfiguration::dump(std::ostream& out,
       << "\n"; // since V1730Configuration::dump() ends line...
     for (std::size_t iBoard = 0U; iBoard != nReadoutBoards; ++iBoard) {
       
-      icarus::V1730Configuration const& boardConfig
+      sbn::V1730Configuration const& boardConfig
         = boards[iBoard];
       out << indent << "[B" << iBoard << "]: ";
       boardConfig.dump(out, indent + "  ", "", verbosity - 1U);
@@ -73,7 +73,7 @@ void icarus::PMTconfiguration::dump(std::ostream& out,
   
   out << "\n";
   
-} // icarus::PMTconfiguration::dump()
+} // sbn::PMTconfiguration::dump()
 
 
 //------------------------------------------------------------------------------

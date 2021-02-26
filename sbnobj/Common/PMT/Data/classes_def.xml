@@ -2,7 +2,7 @@
   
   ROOT dictionary generation for:
   
-  * `icarus::WaveformBaseline`
+  * `sbn::PMTconfiguration
   
   
   Reminder:
@@ -16,28 +16,29 @@
 
 <lcgdict>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- icarus::WaveformBaseline -->
+  <!-- sbn::PMTconfiguration -->
 
   <!--   class -->
-  <class name="icarus::WaveformBaseline" ClassVersion="10" >
-   <version ClassVersion="10" checksum="170126412"/>
+  <class name="sbn::PMTconfiguration" ClassVersion="11" >
+   <version ClassVersion="11" checksum="2540301784"/>
+   <version ClassVersion="10" checksum="3715080124"/>
   </class>
-    
+  
     <!-- dependencies -->
+  <class name="std::vector<sbn::V1730Configuration>" />
+  <class name="sbn::V1730Configuration" ClassVersion="11" >
+   <version ClassVersion="11" checksum="1152380560"/>
+   <version ClassVersion="10" checksum="1059138314"/>
+  </class>
+  <class name="std::vector<sbn::V1730channelConfiguration>" />
+  <class name="sbn::V1730channelConfiguration" ClassVersion="11" >
+   <version ClassVersion="11" checksum="566061189"/>
+   <version ClassVersion="10" checksum="315565871"/>
+  </class>
 
     <!-- art pointers and wrappers -->
-  <class name="art::Ptr<icarus::WaveformBaseline>"/>
-  <class name="std::vector<icarus::WaveformBaseline>"/>
-  <class name="art::Wrapper<std::vector<icarus::WaveformBaseline>>"/>
-
-    <!-- associations and wrappers -->
-      <!-- raw::OpDetWaveform -->
-  <class name="art::Assns<icarus::WaveformBaseline, raw::OpDetWaveform, void>"/>
-  <class name="art::Assns<raw::OpDetWaveform, icarus::WaveformBaseline, void>"/>
-  <class name="std::pair<icarus::WaveformBaseline, raw::OpDetWaveform>"/>
-  <class name="std::pair<raw::OpDetWaveform, icarus::WaveformBaseline>"/>
-  <class name="art::Wrapper<art::Assns<icarus::WaveformBaseline, raw::OpDetWaveform, void>>"/>
-  <class name="art::Wrapper<art::Assns<raw::OpDetWaveform, icarus::WaveformBaseline, void>>"/>
+  <class name="art::Ptr<sbn::PMTconfiguration>"/>
+  <class name="art::Wrapper<sbn::PMTconfiguration>"/>
   
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

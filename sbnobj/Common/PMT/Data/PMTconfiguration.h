@@ -1,38 +1,38 @@
 /**
- * @file   sbnobj/ICARUS/PMT/Data/V1730channelConfiguration.h
- * @brief  Information from the configuration of a V1730 PMT readout board.
+ * @file   sbnobj/Common/PMT/Data/PMTconfiguration.h
+ * @brief  Information from the configuration of PMT readout.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   February 18, 2021
- * @see    sbnobj/ICARUS/PMT/Data/V1730channelConfiguration.cxx
+ * @see    sbnobj/Common/PMT/Data/PMTconfiguration.cxx
  */
 
-#ifndef SBNOBJ_ICARUS_PMT_DATA_V1730CHANNELCONFIGURATION_H
-#define SBNOBJ_ICARUS_PMT_DATA_V1730CHANNELCONFIGURATION_H
+#ifndef SBNOBJ_COMMON_PMT_DATA_PMTCONFIGURATION_H
+#define SBNOBJ_COMMON_PMT_DATA_PMTCONFIGURATION_H
 
-// LArSoft libraries
-#include "lardataobj/RawData/OpDetWaveform.h" // raw::Channel_t
+// SBN libraries
+#include "sbnobj/Common/PMT/Data/V1730Configuration.h"
 
 // C/C++ standard libraries
 #include <iosfwd> // std::ostream
 #include <string>
-#include <limits>
+#include <vector>
 
 
 //------------------------------------------------------------------------------
-namespace icarus {
+namespace sbn {
   
-  struct V1730channelConfiguration;
+  struct PMTconfiguration;
   
   /// Prints the configuration into a stream with default verbosity.
   std::ostream& operator<<
-    (std::ostream& out, icarus::V1730channelConfiguration const& config);
+    (std::ostream& out, sbn::PMTconfiguration const& config);
   
-} // namespace icarus
+} // namespace sbn
 
 /**
- * @brief Class containing configuration for a V1730 channel.
+ * @brief Class containing configuration for PMT readout.
  * 
- * This is an informative class containing configuration of a V1730 channel
+ * This is an informative class containing configuration of all V1730 boards
  * extracted from some other source (typically, DAQ) made readily available
  * to the users.
  * 
@@ -42,62 +42,35 @@ namespace icarus {
  * element by element.
  * 
  */
-struct icarus::V1730channelConfiguration {
-  
-  /// Special value for unassigned channel ID.
-  static constexpr auto NoChannelID
-    = std::numeric_limits<raw::Channel_t>::max();
+struct sbn::PMTconfiguration {
   
   // --- BEGIN -- Data members -------------------------------------------------
   
   // NOTE when adding data members, remember to add an element to the comparison
   
-  /// Number of the channel on the board (0-15).
-  short unsigned int channelNo = std::numeric_limits<short unsigned int>::max();
-  
-  /// Offline channel ID.
-  raw::Channel_t channelID = NoChannelID;
-  
-  /// Baseline (`BaselineCh<N+1>`).
-  short signed int baseline = 0;
-  
-  /// Threshold (`triggerThreshold<N>`).
-  short signed int threshold = 0;
-  
-  /// Channel is enabled (`enable`).
-  bool enabled = false;
+  /// Configuration of all PMT readout boards.
+  std::vector<sbn::V1730Configuration> boards;
   
   // --- END ---- Data members -------------------------------------------------
-  
-  
-  // --- BEGIN -- Derived quantities -------------------------------------------
-  
-  /// Returns whether the channel ID is set.
-  bool hasChannelID() const;
-  
-  /// Threshold relative to the baseline (ticks).
-  short signed int relativeThreshold() const;
-  
-  // --- END ---- Derived quantities -------------------------------------------
-  
   
 #if __cplusplus < 202004L
   //@{
   /// Comparison: all fields need to have the same values.
-  bool operator== (V1730channelConfiguration const& other) const;
-  bool operator!= (V1730channelConfiguration const& other) const
+  bool operator== (PMTconfiguration const& other) const;
+  bool operator!= (PMTconfiguration const& other) const
     { return ! this->operator== (other); }
   //@}
 #else
 # error "With C++20 support, enable the default comparison operators"
   // probably the compiler will be generating these anyway, so don't bother
-//   bool operator== (V1730channelConfiguration const& other) const = default;
-//   bool operator!= (V1730channelConfiguration const& other) const = default;
+//   bool operator== (PMTconfiguration const& other) const = default;
+//   bool operator!= (PMTconfiguration const& other) const = default;
 #endif
   
   // -- BEGIN -- Dump facility -------------------------------------------------
   /// Maximum supported verbosity level supported by `dump()`.
-  static constexpr unsigned int MaxDumpVerbosity = 1U;
+  static constexpr unsigned int MaxDumpVerbosity
+    = V1730Configuration::MaxDumpVerbosity + 1U;
   
   /// Default verbosity level for `dump()`.
   static constexpr unsigned int DefaultDumpVerbosity = MaxDumpVerbosity;
@@ -116,8 +89,9 @@ struct icarus::V1730channelConfiguration {
    * 
    * The amount of information printed depends on the `verbosity` level:
    * 
-   * * `0`: channel number and whether it is enabled or not
-   * * `1`: also baseline and threshold
+   * * `0`: only the number of boards in the configuration
+   * * `1`: information on each board, as in `V1730Configuration::dump()` with
+   *        verbosity one level smaller than the value of `verbosity` argument
    * 
    */
   void dump(std::ostream& out,
@@ -154,43 +128,29 @@ struct icarus::V1730channelConfiguration {
   
   // -- END ---- Dump facility -------------------------------------------------
   
-}; // icarus::V1730channelConfiguration
+}; // sbn::PMTconfiguration
 
 
 
 //------------------------------------------------------------------------------
 //---  Inline implementation
 //------------------------------------------------------------------------------
-inline bool icarus::V1730channelConfiguration::hasChannelID() const
-  { return channelID != NoChannelID; }
-
-
-//------------------------------------------------------------------------------
-inline short signed int icarus::V1730channelConfiguration::relativeThreshold
-  () const
-  { return baseline - threshold; }
-
-
-//------------------------------------------------------------------------------
-inline bool icarus::V1730channelConfiguration::operator==
-  (icarus::V1730channelConfiguration const& other) const
+inline bool sbn::PMTconfiguration::operator==
+  (sbn::PMTconfiguration const& other) const
 {
-  if (channelNo != other.channelNo) return false;
-  if (channelID != other.channelID) return false;
-  if (baseline  != other.baseline ) return false;
-  if (threshold != other.threshold) return false;
-  if (enabled   != other.enabled  ) return false;
+  
+  if (boards != other.boards) return false;
   
   return true;
-} // icarus::V1730channelConfiguration::operator==()
+} // sbn::PMTconfiguration::operator==()
 
 
 //------------------------------------------------------------------------------
-inline std::ostream& icarus::operator<<
-  (std::ostream& out, icarus::V1730channelConfiguration const& config)
+inline std::ostream& sbn::operator<<
+  (std::ostream& out, sbn::PMTconfiguration const& config)
   { config.dump(out); return out; }
 
 
 //------------------------------------------------------------------------------
 
-#endif // SBNOBJ_ICARUS_PMT_DATA_V1730CHANNELCONFIGURATION_H
+#endif // SBNOBJ_COMMON_PMT_DATA_PMTCONFIGURATION_H
