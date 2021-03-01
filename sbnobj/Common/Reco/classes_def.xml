@@ -139,4 +139,15 @@
   <class name="art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>>" />
 
+  <class name="sbn::LGCFit" ClassVersion="11">
+   <version ClassVersion="11" checksum="2229586110"/>
+  </class>
+  <class name="std::vector<sbn::LGCFit>" />
+  <class name="art::Wrapper<sbn::LGCFit>" />
+  <class name="art::Wrapper<std::vector<sbn::LGCFit>>" />
+
+  <class name="art::Assns<recob::PFParticle, sbn::LGCFit>" />
+  <class name="art::Assns<recob::Track, sbn::LGCFit>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::LGCFit>>" />
 </lcgdict>

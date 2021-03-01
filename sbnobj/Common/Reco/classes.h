@@ -16,6 +16,7 @@
 #include "sbnobj/Common/Reco/SimpleFlashMatchVars.h"
 #include "sbnobj/Common/Reco/Stub.h"
 #include "sbnobj/Common/Reco/VertexHit.h"
+#include "sbnobj/Common/Reco/LGCFit.h"
 
 #include <vector>
 #include <utility>
