@@ -148,8 +148,10 @@
 
   <class name="art::Assns<recob::PFParticle, sbn::LGCFit>" />
   <class name="art::Assns<recob::Track, sbn::LGCFit>" />
-  <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
+  <class name="art::Assns<anab::Calorimetry, sbn::LGCFit>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::LGCFit>>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
+  <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::LGCFit>>" />
 
   <class name="sbn::StoppingChi2Fit" ClassVersion="11">
    <version ClassVersion="11" checksum="2006158955"/>
@@ -160,8 +162,10 @@
 
   <class name="art::Assns<recob::PFParticle, sbn::StoppingChi2Fit>" />
   <class name="art::Assns<recob::Track, sbn::StoppingChi2Fit>" />
-  <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
+  <class name="art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::StoppingChi2Fit>>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
+  <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>>" />
 
   <class name="sbn::MVAPID" ClassVersion="11">
    <version ClassVersion="11" checksum="3094290674"/>

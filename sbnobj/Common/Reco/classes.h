@@ -1,4 +1,5 @@
 #include "canvas/Persistency/Common/Assns.h"
+#include "lardataobj/AnalysisBase/Calorimetry.h"
 #include "lardataobj/AnalysisBase/T0.h"
 #include "lardataobj/RecoBase/Hit.h"
 #include "lardataobj/RecoBase/MCSFitResult.h"
