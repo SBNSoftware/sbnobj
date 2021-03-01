@@ -1,5 +1,5 @@
 /**
- * @file   icaruscode/PMT/Data/classes.h
+ * @file   sbnobj/ICARUS/PMT/Data/classes.h
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   September 11, 2020
  * 
@@ -8,7 +8,7 @@
  * * `icarus::WaveformBaseline`
  *   (and its associations with `raw::OpDetWaveform`)
  * 
- * See also `icaruscode/PMT/Data/classes_def.xml`.
+ * See also `sbnobj/ICARUS/PMT/Data/classes_def.xml`.
  */
 
 // ICARUS libraries
