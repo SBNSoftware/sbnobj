@@ -150,4 +150,18 @@
   <class name="art::Assns<recob::Track, sbn::LGCFit>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::LGCFit>>" />
+
+  <class name="sbn::MVAPID" ClassVersion="11">
+   <version ClassVersion="11" checksum="3094290674"/>
+  </class>
+  <class name="std::vector<sbn::MVAPID>" />
+  <class name="art::Wrapper<sbn::MVAPID>" />
+  <class name="art::Wrapper<std::vector<sbn::MVAPID>>" />
+
+  <class name="art::Assns<recob::Track, sbn::MVAPID>" />
+  <class name="art::Assns<recob::Shower, sbn::MVAPID>" />
+  <class name="art::Assns<recob::PFParticle, sbn::MVAPID>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::Shower, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MVAPID>>" />
 </lcgdict>
