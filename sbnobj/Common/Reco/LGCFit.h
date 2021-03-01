@@ -7,11 +7,11 @@ namespace sbn {
 class LGCFit {
   public:
   LGCFit()
-      : mLandauWidth(-5)
-      , mMPV(-5)
-      , mAmplitude(-5)
-      , mGaussWidth(-5)
-      , mChi2(-5)
+      : mLandauWidth(-5.f)
+      , mMPV(-5.f)
+      , mAmplitude(-5.f)
+      , mGaussWidth(-5.f)
+      , mChi2(-5.f)
       , mNDF(0)
   {
   }

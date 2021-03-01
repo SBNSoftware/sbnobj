@@ -151,6 +151,18 @@
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::LGCFit>>" />
 
+  <class name="sbn::StoppingChi2Fit" ClassVersion="11">
+   <version ClassVersion="11" checksum="2006158955"/>
+  </class>
+  <class name="std::vector<sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<std::vector<sbn::StoppingChi2Fit>>" />
+
+  <class name="art::Assns<recob::PFParticle, sbn::StoppingChi2Fit>" />
+  <class name="art::Assns<recob::Track, sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::StoppingChi2Fit>>" />
+
   <class name="sbn::MVAPID" ClassVersion="11">
    <version ClassVersion="11" checksum="3094290674"/>
   </class>
