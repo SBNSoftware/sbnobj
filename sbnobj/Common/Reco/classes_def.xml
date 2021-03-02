@@ -167,6 +167,16 @@
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
   <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>>" />
 
+  <class name="sbn::ScatterDCA" ClassVersion="11">
+   <version ClassVersion="11" checksum="3777664731"/>
+  </class>
+  <class name="std::vector<sbn::ScatterDCA>" />
+  <class name="art::Wrapper<sbn::ScatterDCA>" />
+  <class name="art::Wrapper<std::vector<sbn::ScatterDCA>>" />
+
+  <class name="art::Assns<recob::Track, sbn::ScatterDCA>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::ScatterDCA>>" />
+
   <class name="sbn::MVAPID" ClassVersion="11">
    <version ClassVersion="11" checksum="3094290674"/>
   </class>
