@@ -146,12 +146,15 @@
   <class name="art::Wrapper<sbn::LGCFit>" />
   <class name="art::Wrapper<std::vector<sbn::LGCFit>>" />
 
-  <class name="art::Assns<recob::PFParticle, sbn::LGCFit>" />
   <class name="art::Assns<recob::Track, sbn::LGCFit>" />
   <class name="art::Assns<anab::Calorimetry, sbn::LGCFit>" />
-  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::LGCFit>>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::LGCFit>>" />
   <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::LGCFit>>" />
+
+  <class name="art::Assns<sbn::LGCFit, recob::Track>" />
+  <class name="art::Assns<sbn::LGCFit, anab::Calorimetry>" />
+  <class name="art::Wrapper<art::Assns<sbn::LGCFit, recob::Track>>" />
+  <class name="art::Wrapper<art::Assns<sbn::LGCFit, anab::Calorimetry>>" />
 
   <class name="sbn::StoppingChi2Fit" ClassVersion="11">
    <version ClassVersion="11" checksum="2006158955"/>
@@ -160,12 +163,15 @@
   <class name="art::Wrapper<sbn::StoppingChi2Fit>" />
   <class name="art::Wrapper<std::vector<sbn::StoppingChi2Fit>>" />
 
-  <class name="art::Assns<recob::PFParticle, sbn::StoppingChi2Fit>" />
   <class name="art::Assns<recob::Track, sbn::StoppingChi2Fit>" />
   <class name="art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>" />
-  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::StoppingChi2Fit>>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
   <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>>" />
+
+  <class name="art::Assns<sbn::StoppingChi2Fit, recob::Track>" />
+  <class name="art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>" />
+  <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, recob::Track>>" />
+  <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>>" />
 
   <class name="sbn::ScatterDCA" ClassVersion="11">
    <version ClassVersion="11" checksum="3777664731"/>
@@ -176,6 +182,9 @@
 
   <class name="art::Assns<recob::Track, sbn::ScatterDCA>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::ScatterDCA>>" />
+
+  <class name="art::Assns<sbn::ScatterDCA, recob::Track>" />
+  <class name="art::Wrapper<art::Assns<sbn::ScatterDCA, recob::Track>>" />
 
   <class name="sbn::MVAPID" ClassVersion="11">
    <version ClassVersion="11" checksum="3094290674"/>
@@ -190,4 +199,11 @@
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MVAPID>>" />
+
+  <class name="art::Assns<sbn::MVAPID, recob::Track>" />
+  <class name="art::Assns<sbn::MVAPID, recob::Shower>" />
+  <class name="art::Assns<sbn::MVAPID, recob::PFParticle>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Track>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 </lcgdict>

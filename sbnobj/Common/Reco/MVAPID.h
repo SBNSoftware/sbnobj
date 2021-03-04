@@ -4,6 +4,7 @@
 #define sbncode_MVAPID_H
 
 #include <map>
+#include <string>
 
 namespace sbn {
 class MVAPID {
