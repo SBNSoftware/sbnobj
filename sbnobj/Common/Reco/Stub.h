@@ -10,12 +10,19 @@ namespace sbn {
   public:
     TVector3 vtx; //!< Interaction Vertex / Start of Stub [cm]
     TVector3 end; //!< End of Stub [cm]
-    float charge; //!< Total charge of stub, corrected for elec. lifetime [#elec]
-    float pitch; //!< Pitch of stub on each wire [cm]
-    geo::PlaneID plane; //!< Plane of stub
-    int nwire; //!< Number of wires/hits contributing charge to stub
 
-    float wire_dist; //!< not used
+    // per-plane information
+    std::vector<geo::PlaneID> plane; //!< The plane ID
+
+    /// Charge of each hit on the stub on the plane
+    /// Corrected for electron lifetime
+    /// Ordered vtx->end
+    /// In units of #elec
+    std::vector<std::vector<float>> charge;
+
+    std::vector<float> pitch; //!< Pitch of stub on each wire [cm]
+    std::vector<int> nwire; //!< Number of wires contributing charge to the stub
+
   };
 } // end namespace sbn
 
