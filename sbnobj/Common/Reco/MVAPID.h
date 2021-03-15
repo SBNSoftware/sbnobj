@@ -15,9 +15,9 @@ class MVAPID {
 
   void AddScore(int pdg, float score); // Function to call to add a new score to the map
 
-  std::pair<int, float> BestIter();                      // Funtion to return the map iterator with the highest score
-  int BestPDG() { return this->BestIter().first; };      // Funtion to return the hypothesis with the highest score
-  float BestScore() { return this->BestIter().second; }; // Function to return the highest score from any hypothesis
+  std::pair<int, float> BestIter() const;                             // Funtion to return the map iterator with the highest score
+  inline int BestPDG() const { return this->BestIter().first; };      // Funtion to return the hypothesis with the highest score
+  inline float BestScore() const { return this->BestIter().second; }; // Function to return the highest score from any hypothesis
 };
 }
 

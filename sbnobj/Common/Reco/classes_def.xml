@@ -186,6 +186,7 @@
   <class name="art::Assns<sbn::ScatterDCA, recob::Track>" />
   <class name="art::Wrapper<art::Assns<sbn::ScatterDCA, recob::Track>>" />
 
+  <class name="std::map<int, float> "/>
   <class name="sbn::MVAPID" ClassVersion="11">
    <version ClassVersion="11" checksum="3094290674"/>
   </class>

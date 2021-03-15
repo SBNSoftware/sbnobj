@@ -12,7 +12,7 @@ void sbn::MVAPID::AddScore(int pdg, float score)
     throw cet::exception("MVAPID") << "Failed to add entry: " << pdg << " to MVA PID score map as it already exists" << std::endl;
 }
 
-std::pair<int, float> sbn::MVAPID::BestIter()
+std::pair<int, float> sbn::MVAPID::BestIter() const
 {
   // if (mMVAScoreMap.empty()) {
   //   mf::LogError("MVAPID") << "Trying to find the max element of an empty map" << std::endl;
