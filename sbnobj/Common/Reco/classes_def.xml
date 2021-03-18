@@ -72,7 +72,10 @@
   <class name="art::Wrapper<art::Assns<float,recob::Shower,void>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower,float,void>>" />
 
-  <class name="sbn::Stub" ClassVersion="12">
+  <class name="sbn::Stub" ClassVersion="15">
+   <version ClassVersion="15" checksum="961565117"/>
+   <version ClassVersion="14" checksum="2410976659"/>
+   <version ClassVersion="13" checksum="2883383711"/>
    <version ClassVersion="12" checksum="703271609"/>
    <version ClassVersion="11" checksum="1552964364"/>
    <version ClassVersion="10" checksum="3948825604"/>
@@ -80,6 +83,11 @@
   <class name="std::vector<sbn::Stub>" />
   <class name="art::Wrapper<sbn::Stub>" />
   <class name="art::Wrapper<std::vector<sbn::Stub>>" />
+
+  <class name="sbn::StubHit"/>
+  <class name="std::vector<sbn::StubHit>" />
+  <class name="art::Wrapper<sbn::StubHit>" />
+  <class name="art::Wrapper<std::vector<sbn::StubHit>>" />
 
   <class name="art::Assns<recob::PFParticle, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::Stub>>" />

@@ -6,6 +6,14 @@
 #include "TVector3.h"
 
 namespace sbn {
+  class StubHit {
+    public:
+      float charge; //!< Calibrated and corrected for electron lifetime [#elec]
+      bool ontrack; //!< Whether the hit is also on a track
+      bool before_vtx; 
+      bool after_hit;
+  };
+
   class Stub {
   public:
     TVector3 vtx; //!< Interaction Vertex / Start of Stub [cm]
@@ -14,15 +22,11 @@ namespace sbn {
     // per-plane information
     std::vector<geo::PlaneID> plane; //!< The plane ID
 
-    /// Charge of each hit on the stub on the plane
-    /// Corrected for electron lifetime
-    /// Ordered vtx->end
-    /// In units of #elec
-    std::vector<std::vector<float>> charge;
-
     std::vector<float> pitch; //!< Pitch of stub on each wire [cm]
-    std::vector<int> nwire; //!< Number of wires contributing charge to the stub
+    std::vector<float> trkpitch; //!< Pitch of the matched track on each wire [cm]
+    std::vector<int> nwire;
 
+    std::vector<std::vector<StubHit>> hits; //!< Hits on each plane. Ordered vtx->end
   };
 } // end namespace sbn
 
