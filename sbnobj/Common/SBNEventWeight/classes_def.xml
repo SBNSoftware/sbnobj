@@ -1,0 +1,26 @@
+<lcgdict>
+  <class name="sbn::evwgh::EventWeightMap"/>
+  <class name="art::Wrapper<sbn::evwgh::EventWeightMap>"/>
+  <class name="std::vector<sbn::evwgh::EventWeightMap>"/>
+  <class name="art::Wrapper<std::vector<sbn::evwgh::EventWeightMap> >"/>
+
+  <class name="sbn::evwgh::EventWeightParameter"/>
+  <class name="art::Wrapper<sbn::evwgh::EventWeightParameter>"/>
+  <class name="map<sbn::evwgh::EventWeightParameter,vector<float> >"/>
+  <class name="art::Wrapper<map<sbn::evwgh::EventWeightParameter,vector<float> > >"/>
+
+  <class name="sbn::evwgh::EventWeightParameterSet"/>
+  <class name="art::Wrapper<sbn::evwgh::EventWeightParameterSet>"/>
+  <class name="vector<sbn::evwgh::EventWeightParameterSet>"/>
+  <class name="art::Wrapper<vector<sbn::evwgh::EventWeightParameterSet> >"/>
+  <enum name="sbn::evwgh::EventWeightParameterSet::ReweightType"/>
+  <enum name="art::Wrapper<sbn::evwgh::EventWeightParameterSet::ReweightType>"/>
+
+  <class name="art::Assns<simb::MCTruth,sbn::evwgh::EventWeightParameterSet,void>"/>
+  <class name="art::Wrapper<art::Assns<simb::MCTruth,sbn::evwgh::EventWeightParameterSet,void> >"/>
+  <class name="art::Assns<map<string,vector<float> >,simb::MCTruth,void>"/>
+  <class name="art::Assns<simb::MCTruth,map<string,vector<float> >,void>"/>
+  <class name="art::Wrapper<art::Assns<map<string,vector<float> >,simb::MCTruth,void> >"/>
+  <class name="art::Wrapper<art::Assns<simb::MCTruth,map<string,vector<float> >,void> >"/>
+</lcgdict>
+
