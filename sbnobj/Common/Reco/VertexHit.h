@@ -11,6 +11,7 @@ namespace sbn {
     geo::WireID wire;    
     float charge;
     float proj_dist_to_vertex;
+    float vtxw;
     int spID;
     TVector3 spXYZ;
     float pitch;

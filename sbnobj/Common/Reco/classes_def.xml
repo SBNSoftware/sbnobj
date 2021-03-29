@@ -99,7 +99,8 @@
   <class name="art::Assns<sbn::VertexHit, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<sbn::VertexHit, sbn::Stub>>" />
 
-  <class name="sbn::VertexHit" ClassVersion="11">
+  <class name="sbn::VertexHit" ClassVersion="12">
+   <version ClassVersion="12" checksum="1155278781"/>
    <version ClassVersion="11" checksum="4130374952"/>
    <version ClassVersion="10" checksum="802899277"/>
   </class>
