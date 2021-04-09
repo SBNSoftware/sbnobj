@@ -24,7 +24,7 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
     fNuniverses = 1;
   }
   else {
-    // cet exception here
+    std::cerr << "EventWeightParameterSet: Unknown reweight type " << fRWType << std::endl;
     assert(false);
   }
 }
@@ -35,7 +35,7 @@ void EventWeightParameterSet::Configure(std::string name, std::string rwtype_str
   else if (rwtype_string == "pmNsigma") Configure(name, kPMNSigma);
   else if (rwtype_string == "fixed") Configure(name, kFixed);
   else {
-    // cet exception here, unknown rw type string
+    std::cerr << "EventWeightParameterSet: Unknown reweight type " << rwtype_string << std::endl;
     assert(false);
   }
 }
@@ -50,7 +50,7 @@ void EventWeightParameterSet::AddParameter(
 
 void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
   if (fRWType == kDefault) {
-    // cet exception here, didn't configure
+    std::cerr << "EventWeightParameterSet: Must be configured before sampling." << std::endl;
     assert(false);
   }
 
@@ -76,14 +76,16 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
       }
 
       else {
-        // cet exception here
+        std::cerr << "EventWeightParameterSet: Unknown reweight type " << fRWType << std::endl;
+        assert(false);
       }
     }
   }
 
   // Multivariate Gaussian sampling
   else {
-
+    std::cerr << "EventWeightParameterSet: Multivariate Gaussian sampling is not implemented." << std::endl;
+    assert(false);
   }
 }
 
