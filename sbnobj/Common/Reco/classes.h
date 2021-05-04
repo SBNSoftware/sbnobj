@@ -10,6 +10,7 @@
 
 #include "sbnobj/Common/Reco/RangeP.h"
 #include "sbnobj/Common/Reco/ShowerSelectionVars.h"
+#include "sbnobj/Common/Reco/SimpleFlashMatchVars.h"
 #include "sbnobj/Common/Reco/FlashTriggerPrimitive.hh"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 

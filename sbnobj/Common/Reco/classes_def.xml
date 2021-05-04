@@ -31,6 +31,13 @@
   <class name="std::vector<sbn::FlashTriggerPrimitive>" />
   <class name="art::Wrapper<std::vector<sbn::FlashTriggerPrimitive>>" />
 
+  <class name="sbn::SimpleFlashMatch" />
+  <class name="std::vector<sbn::SimpleFlashMatch>" />
+  <class name="art::Wrapper<sbn::SimpleFlashMatch>" />
+  <class name="art::Wrapper<std::vector<sbn::SimpleFlashMatch>>" />   
+  <class name="art::Assns<recob::PFParticle, sbn::SimpleFlashMatch>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::SimpleFlashMatch>>" />
+
   <class name="art::Assns<recob::Track, sbn::crt::CRTHit, anab::T0>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::crt::CRTHit, anab::T0>>" />
   <class name="art::Assns<recob::Track, sbn::crt::CRTHit, void>" />
