@@ -8,7 +8,8 @@ namespace sbn
   class SimpleFlashMatch 
   {
   public:
-  SimpleFlashMatch(bool present = false, double time = -1, double score = -1, double scr_y = -1, double scr_z = -1, double scr_rr = -1, double scr_ratio = -1, double pe = -1, TVector3 chargeXYZ = TVector3(-999, -999, -999), TVector3 lightXYZ = TVector3(-999,-999,-999)):
+
+  SimpleFlashMatch(bool present = false, double time = -1, double score = -1, double scr_y = -1, double scr_z = -1, double scr_rr = -1, double scr_ratio = -1, double pe = -1, TVector3 chargeXYZ = TVector3(-999,-999,-999), TVector3 lightXYZ = TVector3(-999,-999,-999)):
     mPresent(present),
     mTime(time),
     mScore(score),
