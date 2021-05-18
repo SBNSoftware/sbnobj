@@ -212,6 +212,7 @@ void icarus::trigger::TriggerGateData<TK, TI>::setOpeningAt
         break;
     } // switch event type
   }
+  
 } // icarus::trigger::TriggerGateData<>::setOpeningAt()
 
 
@@ -798,6 +799,13 @@ auto icarus::trigger::TriggerGateData<TK, TI>::findMaxOpenStatus
   return iMaxOpening;
   
 } // icarus::trigger::TriggerGateData<>::findMaxOpenStatus()
+
+
+//------------------------------------------------------------------------------
+template <typename TK, typename TI>
+auto icarus::trigger::TriggerGateData<TK, TI>::startingGateLevel()
+  -> GateEvolution_t
+  { return { NewGateStatus }; }
 
 
 //------------------------------------------------------------------------------

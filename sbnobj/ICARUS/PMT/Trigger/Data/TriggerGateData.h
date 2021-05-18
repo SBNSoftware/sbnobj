@@ -161,7 +161,7 @@ class icarus::trigger::TriggerGateData {
   
   
   /// Constructor: a closed gate for the channel in `waveform`.
-  TriggerGateData(): fGateLevel({ NewGateStatus }) {}
+  TriggerGateData(): fGateLevel{ startingGateLevel() } {}
   
   
   // --- BEGIN Query -----------------------------------------------------------
@@ -278,6 +278,9 @@ class icarus::trigger::TriggerGateData {
   
   /// Completely close this gate at the specified time.
   void closeAllAt(ClockTick_t tick) { setOpeningAt(tick, 0U); }
+  
+  /// Sets the gate levels in the state at construction.
+  void clear() { fGateLevel = startingGateLevel(); }
   
   /// @}
   // --- END Gate opening and closing operations -------------------------------
@@ -486,6 +489,10 @@ class icarus::trigger::TriggerGateData {
 
   /// Maintenance operation: removes unconsequential stati.
   void compact();
+  
+  
+  /// Helper returning the starting state of the levels at construction time.
+  static GateEvolution_t startingGateLevel();
   
 }; // class icarus::trigger::TriggerGateData<>
 
