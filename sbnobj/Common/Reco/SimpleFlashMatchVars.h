@@ -9,14 +9,16 @@ namespace sbn
   {
   public:
   SimpleFlashMatch(
-    bool present = false, double time = -1, double pe = -1,
+    bool present = false, double time = -1,
+    double charge_q = -1, double light_pe = -1,
     double score = -1, double scr_y = -1, double scr_z = -1,
     double scr_rr = -1, double scr_ratio = -1,
     TVector3 chargeXYZ = TVector3(-999, -999, -999),
     TVector3 lightXYZ = TVector3(-999,-999,-999)):
     mPresent(present),
     mTime(time),
-    mPE(pe),
+    mChargeQ(charge_q),
+    mLightPE(light_pe),
     mScore(score),
     mScr_y(scr_y),
     mScr_z(scr_z),
@@ -28,7 +30,8 @@ namespace sbn
 
     bool mPresent;
     double mTime;
-    double mPE;
+    double mChargeQ;
+    double mLightPE;
     double mScore;
     double mScr_y;
     double mScr_z;
