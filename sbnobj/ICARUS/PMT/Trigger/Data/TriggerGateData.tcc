@@ -199,8 +199,8 @@ void icarus::trigger::TriggerGateData<TK, TI>::setOpeningAt
   // update all the following stati;
   // the "Set" action stops when another set happens, but overrides shifts
   //
-  auto const send = fGateLevel.end();
-  while (++iStatus != send) {
+  ++iStatus; // start from the status next to the one we just changed/added
+  while (iStatus != fGateLevel.end()) {
     switch (iStatus->event) {
       case EventType::Shift: // just remove the shift event
         iStatus = fGateLevel.erase(iStatus);
@@ -208,6 +208,7 @@ void icarus::trigger::TriggerGateData<TK, TI>::setOpeningAt
       case EventType::Set: // the later Set event takes over, we are done
         return;
       case EventType::Unknown: // not sure about this... let's keep going
+        ++iStatus;
         break;
     } // switch event type
   }
@@ -798,6 +799,13 @@ auto icarus::trigger::TriggerGateData<TK, TI>::findMaxOpenStatus
   return iMaxOpening;
   
 } // icarus::trigger::TriggerGateData<>::findMaxOpenStatus()
+
+
+//------------------------------------------------------------------------------
+template <typename TK, typename TI>
+auto icarus::trigger::TriggerGateData<TK, TI>::startingGateLevel()
+  -> GateEvolution_t
+  { return { NewGateStatus }; }
 
 
 //------------------------------------------------------------------------------
