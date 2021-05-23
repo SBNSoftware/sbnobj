@@ -8,37 +8,54 @@ namespace sbn
   class SimpleFlashMatch
   {
   public:
-  SimpleFlashMatch(
-    bool present = false, double time = -1,
-    double charge_q = -1, double light_pe = -1,
-    double score = -1, double scr_y = -1, double scr_z = -1,
-    double scr_rr = -1, double scr_ratio = -1,
-    TVector3 chargeXYZ = TVector3(-999, -999, -999),
-    TVector3 lightXYZ = TVector3(-999,-999,-999)):
-    mPresent(present),
-    mTime(time),
-    mChargeQ(charge_q),
-    mLightPE(light_pe),
-    mScore(score),
-    mScr_y(scr_y),
-    mScr_z(scr_z),
-    mScr_rr(scr_rr),
-    mScr_ratio(scr_ratio),
-    mChargeXYZ(chargeXYZ),
-    mLightXYZ(lightXYZ)
-    {}
+    struct Charge {
+      double q;        //!< charge in slc
+      TVector3 center; //!< Weighted center position [cm]
+      Charge(double q_ = -1., TVector3 center_ = TVector3(-999, -999, -999)) :
+        q(q_), center(center_)
+        {}
+    };
+    struct Flash {
+      double pe;       //!< photo-electrons on flash
+      TVector3 center; //!< Weighted center position [cm]
+      Flash(double pe_ = -1., TVector3 center_ = TVector3(-999, -999, -999)) :
+        pe(pe_), center(center_)
+        {}
+    };
+    struct Score {
+      double total; //!< total score, sum of terms
+      double y;     //!< score for y metric
+      double z;     //!< score for z metric
+      double rr;    //!< score for rr metric
+      double ratio; //!< score for ratio metric
+      Score (
+        double total_ = -1.,
+        double y_ = -1., double z_ = -1.,
+        double rr_ = -1., double ratio_ = -1.) :
+        total(total_), y(y_), z(z_), rr(rr_), ratio(ratio_)
+        {}
+      Score (int no_score) : // for no match fill all with the code
+        total(no_score), y(no_score), z(no_score), rr(no_score), ratio(no_score)
+        {}
+    };
 
-    bool mPresent;
-    double mTime;
-    double mChargeQ;
-    double mLightPE;
-    double mScore;
-    double mScr_y;
-    double mScr_z;
-    double mScr_rr;
-    double mScr_ratio;
-    TVector3 mChargeXYZ;
-    TVector3 mLightXYZ;
+    SimpleFlashMatch(
+      bool present_ = false, double time_ = -1,
+      Charge charge_ = Charge(),
+      Flash flash_ = Flash(),
+      Score score_ = Score()):
+      present(present_),
+      time(time_),
+      charge(charge_),
+      light(flash_),
+      score(score_)
+      {}
+
+    bool   present;     //!< Whether there's a match
+    double time;        //!< time of flash
+    Charge charge;      //!< object that contains charge and its position
+    Flash  light;       //!< object that contains flash pe and its position
+    Score  score;       //!< overall and partial scores to the match
   }; //end sbn::SimpleFlashMatch
 }
 
