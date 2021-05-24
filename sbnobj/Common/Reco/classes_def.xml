@@ -32,7 +32,7 @@
   <class name="art::Wrapper<std::vector<sbn::FlashTriggerPrimitive>>" />
 
   <class name="sbn::SimpleFlashMatch" ClassVersion="11">
-   <version ClassVersion="11" checksum="52074626"/>
+   <version ClassVersion="11" checksum="27328003"/>
   </class>
   <class name="sbn::SimpleFlashMatch::Charge" ClassVersion="11">
    <version ClassVersion="11" checksum="4057441913"/>
