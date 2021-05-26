@@ -23,9 +23,7 @@ void sbn::V1730Configuration::dump(std::ostream& out,
   unsigned int verbosity /* = MaxDumpVerbosity */
 ) const{
   
-  do {
-    // fake look for easy break: `goto` in disguise;
-    // `break` will add a final `'\n'`, `return` will not.
+  do { // fake look for easy break: `goto` in disguise
     
     // start a new line with indentation:
     auto const outnl
@@ -59,14 +57,8 @@ void sbn::V1730Configuration::dump(std::ostream& out,
     } // for channels
     // ends on new line
     
-    if (++level > verbosity) return;
+    if (++level > verbosity) break;
     // --- verbosity: 2+ -------------------------------------------------------
-    
-    out << indent // absorb the newline from the previous level
-      << "fragment timestamp "
-      << (useTimeTagForTimeStamp? "follows": "does not follow")
-      << " the Trigger Time Tag"
-      ;
     
     if (++level > verbosity) break;
     // --- verbosity: 3+ -------------------------------------------------------
@@ -78,7 +70,7 @@ void sbn::V1730Configuration::dump(std::ostream& out,
   
   } while(false);
   
-  out << "\n";
+//   out << "\n";
   
 } // sbn::V1730Configuration::dump()
 

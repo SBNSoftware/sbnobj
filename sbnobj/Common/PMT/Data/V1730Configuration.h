@@ -66,13 +66,8 @@ struct sbn::V1730Configuration {
   /// Number of channels (`nChannels`).
   unsigned int nChannels = 0U;
   
-  /// Whether fragment timestamp is synchronised with server NTP and with TTT.
-  bool useTimeTagForTimeStamp = false;
-  
   /// Configuration of each channel.
   std::vector<sbn::V1730channelConfiguration> channels;
-  
-  // NOTE when adding data members, remember to read the note above
   
   // --- END ---- Data members -------------------------------------------------
   
@@ -138,7 +133,6 @@ struct sbn::V1730Configuration {
    *     also: information on each channel, one per line, as with
    *     `V1730channelConfiguration::dump() with verbosity one level smaller
    *     than the value of `verbosity` argument
-   * * `2`: also setting of fragment timestamp
    * 
    */
   void dump(std::ostream& out,
@@ -215,14 +209,13 @@ inline bool sbn::V1730Configuration::operator==
   (sbn::V1730Configuration const& other) const
 {
   
-  if (boardName              != other.boardName             ) return false;
-  if (boardID                != other.boardID               ) return false;
-  if (fragmentID             != other.fragmentID            ) return false;
-  if (bufferLength           != other.bufferLength          ) return false;
-  if (postTriggerFrac        != other.postTriggerFrac       ) return false;
-  if (useTimeTagForTimeStamp != other.useTimeTagForTimeStamp) return false;
-  if (nChannels              != other.nChannels             ) return false;
-  if (channels               != other.channels              ) return false;
+  if (boardName       != other.boardName      ) return false;
+  if (boardID         != other.boardID        ) return false;
+  if (fragmentID      != other.fragmentID     ) return false;
+  if (bufferLength    != other.bufferLength   ) return false;
+  if (postTriggerFrac != other.postTriggerFrac) return false;
+  if (nChannels       != other.nChannels      ) return false;
+  if (channels        != other.channels       ) return false;
   
   return true;
 } // sbn::V1730Configuration::operator==()
