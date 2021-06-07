@@ -126,11 +126,11 @@ public:
   void Sample(CLHEP::HepRandomEngine& engine);
 
 public:
-  std::map<EventWeightParameter, std::vector<float> > fParameterMap;  //!< Mapping of parameter names to values
+  std::map<EventWeightParameter, std::vector<float> > fParameterMap;  //!< Mapping of definitions to the set of values
   TMatrixD* fCovarianceMatrix;  //!< Covariance matrix for correlated throws (optional)
   std::string fName;  //!< Name of the parameter set
   ReweightType fRWType;  //!< Type of throws (the same for all parameters in a set)
-  size_t fNuniverses;  //!< Number of universes (random throws)
+  size_t fNuniverses;  //!< Number of universes (i.e. random throws)
 };
 
   }  // namespace evwgh

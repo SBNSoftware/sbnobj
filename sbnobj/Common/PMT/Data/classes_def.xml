@@ -26,7 +26,8 @@
   
     <!-- dependencies -->
   <class name="std::vector<sbn::V1730Configuration>" />
-  <class name="sbn::V1730Configuration" ClassVersion="11" >
+  <class name="sbn::V1730Configuration" ClassVersion="12" >
+   <version ClassVersion="12" checksum="2136999953"/>
    <version ClassVersion="11" checksum="1152380560"/>
    <version ClassVersion="10" checksum="1059138314"/>
   </class>
