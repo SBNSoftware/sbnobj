@@ -1,4 +1,4 @@
-// Class for holding the result of fitting a Landau-Guassian convolution
+// Class for holding the result of fitting a Pol0 andf expo to find the Bragg peak for a track
 
 #ifndef sbncode_stoppingchi2fit_H
 #define sbncode_stoppingchi2fit_H

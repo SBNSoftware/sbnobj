@@ -14,10 +14,6 @@ void sbn::MVAPID::AddScore(int pdg, float score)
 
 std::pair<int, float> sbn::MVAPID::BestIter() const
 {
-  // if (mMVAScoreMap.empty()) {
-  //   mf::LogError("MVAPID") << "Trying to find the max element of an empty map" << std::endl;
-  //   return std::make_pair<int, float>(-1, std::numeric_limits<float>::lowest());
-  // }
   auto iter = std::max_element(mMVAScoreMap.begin(), mMVAScoreMap.end(), [](auto const& lhs, auto const& rhs) { return lhs.second < rhs.second; });
 
   if (iter == mMVAScoreMap.end()) {

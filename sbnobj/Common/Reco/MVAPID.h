@@ -1,4 +1,4 @@
-// Class for holding the result of fitting a Landau-Guassian convolution
+// Class for holding the result of an MVA PID
 
 #ifndef sbncode_MVAPID_H
 #define sbncode_MVAPID_H

@@ -16,7 +16,6 @@
 #include "sbnobj/Common/Reco/ShowerSelectionVars.h"
 #include "sbnobj/Common/Reco/SimpleFlashMatchVars.h"
 
-#include "sbnobj/Common/Reco/LGCFit.h"
 #include "sbnobj/Common/Reco/MVAPID.h"
 #include "sbnobj/Common/Reco/MergedTrackInfo.hh"
 #include "sbnobj/Common/Reco/ScatterDCA.h"
