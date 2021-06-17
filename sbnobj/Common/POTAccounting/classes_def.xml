@@ -1,13 +1,14 @@
 <lcgdict>
-  <class name="sbn::BeamSpillInfo" ClassVersion="14">
+  <class name="sbn::BNBSpillInfo" ClassVersion="15">
+   <version ClassVersion="15" checksum="1226979720"/>
    <version ClassVersion="14" checksum="2089752727"/>
    <version ClassVersion="13" checksum="1538708656"/>
    <version ClassVersion="12" checksum="2483311428"/>
    <version ClassVersion="11" checksum="4133298356"/>
    <version ClassVersion="10" checksum="13541"/>
   </class>
-  <class name="std::vector<sbn::BeamSpillInfo>" />
-  <class name="art::Wrapper<sbn::BeamSpillInfo>" />
-  <class name="art::Wrapper<std::vector<sbn::BeamSpillInfo>>" />
+  <class name="std::vector<sbn::BNBSpillInfo>" />
+  <class name="art::Wrapper<sbn::BNBSpillInfo>" />
+  <class name="art::Wrapper<std::vector<sbn::BNBSpillInfo>>" />
 
 </lcgdict>

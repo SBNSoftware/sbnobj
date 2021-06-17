@@ -1,10 +1,10 @@
-#ifndef sbncode_BeamSpillInfo_HH
-#define sbncode_BeamSpillInfo_HH
+#ifndef sbncode_BNBSpillInfo_HH
+#define sbncode_BNBSpillInfo_HH
 
 #include <vector>
 
 namespace sbn {
-  class BeamSpillInfo {
+  class BNBSpillInfo {
   public:
     //typedef enum triggertype { kBNB, kEXT, kUnbiased, kNUMI } TriggerType; //!< Which beamline are we looking at
     
