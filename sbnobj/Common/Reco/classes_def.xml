@@ -72,12 +72,8 @@
   <class name="art::Wrapper<art::Assns<float,recob::Shower,void>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower,float,void>>" />
 
-  <class name="sbn::Stub" ClassVersion="16">
-   <version ClassVersion="16" checksum="1338933861"/>
-   <version ClassVersion="15" checksum="961565117"/>
-   <version ClassVersion="14" checksum="2410976659"/>
-   <version ClassVersion="13" checksum="2883383711"/>
-   <version ClassVersion="12" checksum="703271609"/>
+  <class name="sbn::Stub" ClassVersion="12">
+   <version ClassVersion="12" checksum="1338933861"/>
    <version ClassVersion="11" checksum="1552964364"/>
    <version ClassVersion="10" checksum="3948825604"/>
   </class>

@@ -31,6 +31,11 @@ namespace sbn {
     /// Helper functions
     float CoreCharge(unsigned plane_index=0) const; //!< Returns the charge along the core of the stub on the given plane index
     int CoreNHit(unsigned plane_index=0) const; //!< Returns the number of hits along the core of the stub on the given plane index
+    float CoreCharge(const geo::PlaneID &p) const;
+    int CoreNHit(const geo::PlaneID &p) const;
+
+    int PlaneIndex(const geo::PlaneID &p) const;
+
     bool OnCore(const geo::WireID &w) const; //!< Returns whether the input wire-ID is on the core of the stub 
 
   };
