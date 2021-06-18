@@ -1,6 +1,12 @@
 <lcgdict>
-  <class name="sbn::TrackInfo" />
-  <class name="sbn::MetaInfo" />
-  <class name="sbn::HitInfo" />
+  <class name="sbn::TrackInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="4229912003"/>
+  </class>
+  <class name="sbn::MetaInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="3299606728"/>
+  </class>
+  <class name="sbn::HitInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="1588463342"/>
+  </class>
   <class name="std::vector<sbn::HitInfo>" />
 </lcgdict>
