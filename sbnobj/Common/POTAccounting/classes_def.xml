@@ -1,10 +1,6 @@
 <lcgdict>
-  <class name="sbn::BNBSpillInfo" ClassVersion="15">
-   <version ClassVersion="15" checksum="1226979720"/>
-   <version ClassVersion="14" checksum="2089752727"/>
-   <version ClassVersion="13" checksum="1538708656"/>
-   <version ClassVersion="12" checksum="2483311428"/>
-   <version ClassVersion="11" checksum="4133298356"/>
+  <class name="sbn::BNBSpillInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="3354055579"/>
    <version ClassVersion="10" checksum="13541"/>
   </class>
   <class name="std::vector<sbn::BNBSpillInfo>" />

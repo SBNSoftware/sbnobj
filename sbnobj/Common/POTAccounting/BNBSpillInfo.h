@@ -1,5 +1,11 @@
-#ifndef sbncode_BNBSpillInfo_HH
-#define sbncode_BNBSpillInfo_HH
+#ifndef sbncode_BNBSpillInfo_H
+#define sbncode_BNBSpillInfo_H
+
+/**
+
+ * @file sbnobj/Common/POTAccounting/BNBSpillInfo.h
+ * @author Joseph Zennamo, FNAL (jaz8600@fnal.gov)
+ */
 
 #include <vector>
 
