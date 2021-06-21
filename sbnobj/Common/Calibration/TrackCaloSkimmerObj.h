@@ -4,6 +4,21 @@
 #include <vector>
 
 namespace sbn {
+  struct WireInfo {
+    uint16_t wire;
+    uint16_t plane;
+    uint16_t tpc;
+    int16_t tdc0;
+    std::vector<short> adcs;
+
+    WireInfo():
+      wire((uint16_t)-1),
+      plane((uint16_t)-1),
+      tpc((uint16_t)-1),
+      tdc0((uint16_t)-1) {}
+
+  };
+
   struct HitInfo {
     float integral;
     float sumadc;
@@ -25,10 +40,6 @@ namespace sbn {
     bool ontraj;
     bool oncalo;
 
-    // raw adc info
-    short tdc0;
-    std::vector<short> adcs;
-
     HitInfo():
       integral(-1),
       sumadc(-1),
@@ -48,8 +59,7 @@ namespace sbn {
       start(-1),
       end(-1),
       ontraj(false),
-      oncalo(false),
-      tdc0(-1) {}
+      oncalo(false) {}
   };
 
   struct MetaInfo {
@@ -72,6 +82,10 @@ namespace sbn {
     std::vector<HitInfo> hits0; 
     std::vector<HitInfo> hits1; 
     std::vector<HitInfo> hits2; 
+    std::vector<WireInfo> wires0;
+    std::vector<WireInfo> wires1;
+    std::vector<WireInfo> wires2;
+
     float t0; 
     int id;
     int cryostat;
