@@ -12,9 +12,6 @@ namespace sbn {
     unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
  
     //BeamQuaility 
-    //quality//EXT
-    //int EXTGates;
-
     //quality//BNB
     
     double TOR860; //!< Toroid before Mag 875, units e12 Protons
@@ -41,22 +38,6 @@ namespace sbn {
     std::vector< int > M876BB; //!< Multiwire station after Mag 875...?
     std::vector< int > MMBTBB; //!< Multiwire station at the target station, 
 
-    //quality//numi
-    /* add 2 toroids, TOR101, TORTGT */
-    /*
-    std::vector< double > HP121;
-    std::vector< double > VP121;
-    std::vector< double > HPTGT;
-    std::vector< double > VPTGT;
-    std::vector< double > HITGT;
-    std::vector< double > VITGT; 
-    std::vector< double > MTGTDS; //MULTIWIRES
-    double HRNDIR; // horn polarity (based on sign)
-    double NSLINA; // horn current /4 
-    double NSLINB; // horn current /4  
-    double NSLINC; // horn current /4 
-    double NSLIND; // horn current /4 
-    */
   };
 } // end namespace sbn
 
