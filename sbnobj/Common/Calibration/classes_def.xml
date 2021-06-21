@@ -1,5 +1,6 @@
 <lcgdict>
-  <class name="sbn::TrackInfo" ClassVersion="10">
+  <class name="sbn::TrackInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="3992091079"/>
    <version ClassVersion="10" checksum="4229912003"/>
   </class>
   <class name="sbn::MetaInfo" ClassVersion="10">

@@ -74,6 +74,7 @@ namespace sbn {
     std::vector<HitInfo> hits2; 
     float t0; 
     int id;
+    int cryostat;
     bool clear_cosmic_muon;
     float start_x; 
     float start_y;
@@ -118,6 +119,7 @@ namespace sbn {
     TrackInfo():
       t0(-1),
       id(-1),
+      cryostat(-1),
       clear_cosmic_muon(false),
       start_x(-1),
       start_y(-1),
