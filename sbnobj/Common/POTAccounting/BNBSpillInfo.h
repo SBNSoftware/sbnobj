@@ -14,24 +14,24 @@ namespace sbn {
     //BeamQuaility 
     //quality//BNB
     
-    double TOR860; //!< Toroid before Mag 875, units e12 Protons
-    double TOR875; //!< Toroid after Mag 875, units e12 Protons
+    float TOR860; //!< Toroid before Mag 875, units e12 Protons
+    float TOR875; //!< Toroid after Mag 875, units e12 Protons
     
-    double LM875A; //!< Loss Monitor before the RWM, unit R/s
-    double LM875B; //!< Loss Monitor after the RWM, unit R/s
-    double LM875C; //!< Loss Monitor after the RWM, unit R/s
-    double HP875; //!< Horizontal Position Monitor after Mag 875, units mm
-    double VP875; //!< Verticle Position Monitor after Mag 875, units mm
+    float LM875A; //!< Loss Monitor before the RWM, unit R/s
+    float LM875B; //!< Loss Monitor after the RWM, unit R/s
+    float LM875C; //!< Loss Monitor after the RWM, unit R/s
+    float HP875; //!< Horizontal Position Monitor after Mag 875, units mm
+    float VP875; //!< Verticle Position Monitor after Mag 875, units mm
 
-    double HPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm 
-    double VPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm
+    float HPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm 
+    float VPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm
 
-    double HPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
-    double VPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
+    float HPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
+    float VPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
     
-    double BTJT2; //!< Temperature of air exiting target, units Deg C
+    float BTJT2; //!< Temperature of air exiting target, units Deg C
 
-    double THCURR; //!< Current applied to Horn, units kiloAmperes 
+    float THCURR; //!< Current applied to Horn, units kiloAmperes 
     
     // https://cdcvs.fnal.gov/redmine/projects/ubraw/repository/revisions/master/entry/ubraw/BeamDAQ/MWRData.cpp
     std::vector< int > M875BB; //!< Multiwire station before Mag 875...?
