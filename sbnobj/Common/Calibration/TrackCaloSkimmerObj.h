@@ -29,6 +29,9 @@ namespace sbn {
     float x;
     float y;
     float z;
+    float dir_x;
+    float dir_y;
+    float dir_z;
     float time;
     uint16_t wire;
     uint16_t plane;

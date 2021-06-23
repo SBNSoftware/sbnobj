@@ -7,7 +7,7 @@
    <version ClassVersion="10" checksum="3299606728"/>
   </class>
   <class name="sbn::HitInfo" ClassVersion="11">
-   <version ClassVersion="11" checksum="1981145577"/>
+   <version ClassVersion="11" checksum="3951169440"/>
    <version ClassVersion="10" checksum="1588463342"/>
   </class>
   <class name="sbn::WireInfo" ClassVersion="10">
