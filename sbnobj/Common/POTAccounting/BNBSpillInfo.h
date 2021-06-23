@@ -43,6 +43,11 @@ namespace sbn {
     std::vector< int > M875BB; //!< Multiwire station before Mag 875...?
     std::vector< int > M876BB; //!< Multiwire station after Mag 875...?
     std::vector< int > MMBTBB; //!< Multiwire station at the target station, 
+    
+    float M875BB_spill_time_diff; //!< the time difference between M875BB and the matched spill
+    float M876BB_spill_time_diff; //!< the time difference between M876BB and the matched spill
+    float MMBTBB_spill_time_diff; //!< the time difference between MMBTBB and the matched spill
+
 
   };
 } // end namespace sbn
