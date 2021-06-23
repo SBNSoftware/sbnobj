@@ -18,6 +18,9 @@ namespace sbn {
     TVector3 vtx; //!< Interaction Vertex / Start of Stub [cm]
     TVector3 end; //!< End of Stub [cm]
 
+    float efield_end; //!< The E-Field at the stub end point
+    float efield_vtx; //!< The E-Field at the reconstructed vertex
+
     // Per-plane information: sorted so that the "best" plane is the first index
     std::vector<geo::PlaneID> plane; //!< The plane ID
 
