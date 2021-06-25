@@ -22,7 +22,7 @@ class StoppingChi2Fit {
 
   float mPol0Chi2; // Chi^2 of fitting a 0 degree polynomial
   float mExpChi2;  // Chi^2 of fitting an exponential
-  float mPol0Fit;  // Best fit value of a 0 degree polynomial
+  float mPol0Fit;  // Best fit value of a 0 degree polynomial [MeV/cm]
 };
 }
 

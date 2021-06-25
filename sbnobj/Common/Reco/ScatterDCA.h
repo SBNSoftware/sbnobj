@@ -20,9 +20,9 @@ class ScatterDCA {
   {
   }
 
-  float mMean;   // Average DCA
-  float mStdDev; // Standard Deviation DCA
-  float mMax;    // Maximum DCA
+  float mMean;   // Average DCA [cm]
+  float mStdDev; // Standard Deviation DCA [cm]
+  float mMax;    // Maximum DCA [cm]
 };
 }
 
