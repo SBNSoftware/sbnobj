@@ -156,18 +156,19 @@
   <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, recob::Track>>" />
   <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>>" />
 
-  <class name="sbn::ScatterDCA" ClassVersion="11">
+  <class name="sbn::ScatterClosestApproach" ClassVersion="12">
+   <version ClassVersion="12" checksum="1698147320"/>
    <version ClassVersion="11" checksum="3777664731"/>
   </class>
-  <class name="std::vector<sbn::ScatterDCA>" />
-  <class name="art::Wrapper<sbn::ScatterDCA>" />
-  <class name="art::Wrapper<std::vector<sbn::ScatterDCA>>" />
+  <class name="std::vector<sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<std::vector<sbn::ScatterClosestApproach>>" />
 
-  <class name="art::Assns<recob::Track, sbn::ScatterDCA>" />
-  <class name="art::Wrapper<art::Assns<recob::Track, sbn::ScatterDCA>>" />
+  <class name="art::Assns<recob::Track, sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::ScatterClosestApproach>>" />
 
-  <class name="art::Assns<sbn::ScatterDCA, recob::Track>" />
-  <class name="art::Wrapper<art::Assns<sbn::ScatterDCA, recob::Track>>" />
+  <class name="art::Assns<sbn::ScatterClosestApproach, recob::Track>" />
+  <class name="art::Wrapper<art::Assns<sbn::ScatterClosestApproach, recob::Track>>" />
 
   <class name="std::map<int, float> "/>
   <class name="sbn::MVAPID" ClassVersion="11">
