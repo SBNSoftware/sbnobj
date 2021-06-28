@@ -129,6 +129,7 @@ namespace sbn {
     int n_fit_point;
 
     int selected;
+    int nprescale;
 
     std::vector<float> tracks_near_end_dist;
     std::vector<float> tracks_near_end_costh;
@@ -167,7 +168,8 @@ namespace sbn {
       exp_fit_R(-1),
       exp_fit_residuals(-1),
       n_fit_point(-1),
-      selected(-1) {}
+      selected(-1),
+      nprescale(-1) {}
   };
 
 }
