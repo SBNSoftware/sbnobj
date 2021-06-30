@@ -1,0 +1,18 @@
+<lcgdict>
+  <class name="sbn::TrackInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="627908269"/>
+   <version ClassVersion="10" checksum="4229912003"/>
+  </class>
+  <class name="sbn::MetaInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="3299606728"/>
+  </class>
+  <class name="sbn::HitInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="3951169440"/>
+   <version ClassVersion="10" checksum="1588463342"/>
+  </class>
+  <class name="sbn::WireInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="440398080"/>
+  </class>
+  <class name="std::vector<sbn::HitInfo>" />
+  <class name="std::vector<sbn::WireInfo>" />
+</lcgdict>
