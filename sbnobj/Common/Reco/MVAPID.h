@@ -10,7 +10,7 @@ class MVAPID {
   public:
   MVAPID() {}
 
-  std::map<int, float> MVAScoreMap; // MVA Scores: Key is PDG of hypothesis and value is the MVA score
+  std::map<int, float> mvaScoreMap; // MVA Scores: Key is PDG of hypothesis and value is the MVA score
 
   void AddScore(int pdg, float score); // Add a new score to the map
 
