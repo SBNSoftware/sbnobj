@@ -140,7 +140,7 @@
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>>" />
 
   <class name="sbn::StoppingChi2Fit" ClassVersion="11">
-   <version ClassVersion="11" checksum="2006158955"/>
+   <version ClassVersion="11" checksum="1140753342"/>
   </class>
   <class name="std::vector<sbn::StoppingChi2Fit>" />
   <class name="art::Wrapper<sbn::StoppingChi2Fit>" />
@@ -156,9 +156,8 @@
   <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, recob::Track>>" />
   <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>>" />
 
-  <class name="sbn::ScatterClosestApproach" ClassVersion="12">
-   <version ClassVersion="12" checksum="1698147320"/>
-   <version ClassVersion="11" checksum="3777664731"/>
+  <class name="sbn::ScatterClosestApproach" ClassVersion="11">
+   <version ClassVersion="11" checksum="2052133017"/>
   </class>
   <class name="std::vector<sbn::ScatterClosestApproach>" />
   <class name="art::Wrapper<sbn::ScatterClosestApproach>" />
@@ -172,7 +171,7 @@
 
   <class name="std::map<int, float> "/>
   <class name="sbn::MVAPID" ClassVersion="11">
-   <version ClassVersion="11" checksum="3094290674"/>
+   <version ClassVersion="11" checksum="2622586263"/>
   </class>
   <class name="std::vector<sbn::MVAPID>" />
   <class name="art::Wrapper<sbn::MVAPID>" />

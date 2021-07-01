@@ -7,22 +7,22 @@ namespace sbn {
 class StoppingChi2Fit {
   public:
   StoppingChi2Fit()
-      : mPol0Chi2(-5.f)
-      , mExpChi2(-5.f)
-      , mPol0Fit(-5.f)
+      : Pol0Chi2(-5.f)
+      , ExpChi2(-5.f)
+      , Pol0Fit(-5.f)
   {
   }
 
-  StoppingChi2Fit(const float Pol0Chi2, const float ExpChi2, const float Pol0Fit)
-      : mPol0Chi2(Pol0Chi2)
-      , mExpChi2(ExpChi2)
-      , mPol0Fit(Pol0Fit)
+  StoppingChi2Fit(const float pol0Chi2, const float expChi2, const float pol0Fit)
+      : Pol0Chi2(pol0Chi2)
+      , ExpChi2(expChi2)
+      , Pol0Fit(pol0Fit)
   {
   }
 
-  float mPol0Chi2; // Chi^2 of fitting a 0 degree polynomial
-  float mExpChi2;  // Chi^2 of fitting an exponential
-  float mPol0Fit;  // Best fit value of a 0 degree polynomial [MeV/cm]
+  float Pol0Chi2; // Chi^2 of fitting a 0 degree polynomial
+  float ExpChi2;  // Chi^2 of fitting an exponential
+  float Pol0Fit;  // Best fit value of a 0 degree polynomial [MeV/cm]
 };
 }
 

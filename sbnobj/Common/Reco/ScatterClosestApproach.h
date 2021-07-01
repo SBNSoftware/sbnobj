@@ -7,22 +7,22 @@ namespace sbn {
 class ScatterClosestApproach {
   public:
   ScatterClosestApproach()
-      : mMean(-5.f)
-      , mStdDev(-5.f)
-      , mMax(-5.f)
+      : Mean(-5.f)
+      , StdDev(-5.f)
+      , Max(-5.f)
   {
   }
 
   ScatterClosestApproach(const float mean, const float stdDev, const float max)
-      : mMean(mean)
-      , mStdDev(stdDev)
-      , mMax(max)
+      : Mean(mean)
+      , StdDev(stdDev)
+      , Max(max)
   {
   }
 
-  float mMean;   // Average ClosestApproach [cm]
-  float mStdDev; // Standard Deviation ClosestApproach [cm]
-  float mMax;    // Maximum ClosestApproach [cm]
+  float Mean;   // Average ClosestApproach [cm]
+  float StdDev; // Standard Deviation ClosestApproach [cm]
+  float Max;    // Maximum ClosestApproach [cm]
 };
 }
 
