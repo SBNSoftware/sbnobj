@@ -92,13 +92,19 @@
   <class name="art::Wrapper<art::Assns<float,recob::Shower,void>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower,float,void>>" />
 
-  <class name="sbn::Stub" ClassVersion="11">
+  <class name="sbn::Stub" ClassVersion="12">
+   <version ClassVersion="12" checksum="1338933861"/>
    <version ClassVersion="11" checksum="1552964364"/>
    <version ClassVersion="10" checksum="3948825604"/>
   </class>
   <class name="std::vector<sbn::Stub>" />
   <class name="art::Wrapper<sbn::Stub>" />
   <class name="art::Wrapper<std::vector<sbn::Stub>>" />
+
+  <class name="sbn::StubHit"/>
+  <class name="std::vector<sbn::StubHit>" />
+  <class name="art::Wrapper<sbn::StubHit>" />
+  <class name="art::Wrapper<std::vector<sbn::StubHit>>" />
 
   <class name="art::Assns<recob::PFParticle, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::Stub>>" />
@@ -109,7 +115,8 @@
   <class name="art::Assns<sbn::VertexHit, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<sbn::VertexHit, sbn::Stub>>" />
 
-  <class name="sbn::VertexHit" ClassVersion="11">
+  <class name="sbn::VertexHit" ClassVersion="12">
+   <version ClassVersion="12" checksum="1155278781"/>
    <version ClassVersion="11" checksum="4130374952"/>
    <version ClassVersion="10" checksum="802899277"/>
   </class>
@@ -139,4 +146,55 @@
   <class name="art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MergedTrackInfo>>" />
 
+  <class name="sbn::StoppingChi2Fit" ClassVersion="11">
+   <version ClassVersion="11" checksum="577431198"/>
+  </class>
+  <class name="std::vector<sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<std::vector<sbn::StoppingChi2Fit>>" />
+
+  <class name="art::Assns<recob::Track, sbn::StoppingChi2Fit>" />
+  <class name="art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::StoppingChi2Fit>>" />
+  <class name="art::Wrapper<art::Assns<anab::Calorimetry, sbn::StoppingChi2Fit>>" />
+
+  <class name="art::Assns<sbn::StoppingChi2Fit, recob::Track>" />
+  <class name="art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>" />
+  <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, recob::Track>>" />
+  <class name="art::Wrapper<art::Assns<sbn::StoppingChi2Fit, anab::Calorimetry>>" />
+
+  <class name="sbn::ScatterClosestApproach" ClassVersion="11">
+   <version ClassVersion="11" checksum="2117354105"/>
+  </class>
+  <class name="std::vector<sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<std::vector<sbn::ScatterClosestApproach>>" />
+
+  <class name="art::Assns<recob::Track, sbn::ScatterClosestApproach>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::ScatterClosestApproach>>" />
+
+  <class name="art::Assns<sbn::ScatterClosestApproach, recob::Track>" />
+  <class name="art::Wrapper<art::Assns<sbn::ScatterClosestApproach, recob::Track>>" />
+
+  <class name="std::map<int, float> "/>
+  <class name="sbn::MVAPID" ClassVersion="11">
+   <version ClassVersion="11" checksum="442803767"/>
+  </class>
+  <class name="std::vector<sbn::MVAPID>" />
+  <class name="art::Wrapper<sbn::MVAPID>" />
+  <class name="art::Wrapper<std::vector<sbn::MVAPID>>" />
+
+  <class name="art::Assns<recob::Track, sbn::MVAPID>" />
+  <class name="art::Assns<recob::Shower, sbn::MVAPID>" />
+  <class name="art::Assns<recob::PFParticle, sbn::MVAPID>" />
+  <class name="art::Wrapper<art::Assns<recob::Track, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::Shower, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MVAPID>>" />
+
+  <class name="art::Assns<sbn::MVAPID, recob::Track>" />
+  <class name="art::Assns<sbn::MVAPID, recob::Shower>" />
+  <class name="art::Assns<sbn::MVAPID, recob::PFParticle>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Track>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 </lcgdict>
