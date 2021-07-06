@@ -16,7 +16,9 @@ namespace sbn {
     
     unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
     unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
- 
+
+    unsigned int event;
+        
     //BeamQuaility 
     //quality//BNB
     
@@ -48,7 +50,8 @@ namespace sbn {
     float M876BB_spill_time_diff; //!< the time difference between M876BB and the matched spill
     float MMBTBB_spill_time_diff; //!< the time difference between MMBTBB and the matched spill
 
-
+    double POT() const{return TOR875;}
+    
   };
 } // end namespace sbn
 
