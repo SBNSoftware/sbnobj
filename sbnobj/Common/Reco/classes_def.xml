@@ -72,7 +72,8 @@
   <class name="art::Wrapper<art::Assns<float,recob::Shower,void>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower,float,void>>" />
 
-  <class name="sbn::Stub" ClassVersion="13">
+  <class name="sbn::Stub" ClassVersion="14">
+   <version ClassVersion="14" checksum="3533111376"/>
    <version ClassVersion="13" checksum="3160890792"/>
    <version ClassVersion="12" checksum="1338933861"/>
    <version ClassVersion="11" checksum="1552964364"/>
@@ -96,7 +97,8 @@
   <class name="art::Assns<sbn::VertexHit, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<sbn::VertexHit, sbn::Stub>>" />
 
-  <class name="sbn::VertexHit" ClassVersion="12">
+  <class name="sbn::VertexHit" ClassVersion="13">
+   <version ClassVersion="13" checksum="4209046416"/>
    <version ClassVersion="12" checksum="1155278781"/>
    <version ClassVersion="11" checksum="4130374952"/>
    <version ClassVersion="10" checksum="802899277"/>
