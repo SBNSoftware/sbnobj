@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
-#include "TVector3.h"
+#include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 
 namespace sbn {
   class StubHit {
@@ -15,8 +15,11 @@ namespace sbn {
 
   class Stub {
   public:
-    TVector3 vtx; //!< Interaction Vertex / Start of Stub [cm]
-    TVector3 end; //!< End of Stub [cm]
+    geo::Point_t vtx; //!< Interaction Vertex / Start of Stub. Space charge corrected. [cm]
+    geo::Point_t end; //!< End of Stub. Space charge corrected. [cm]
+
+    float efield_end; //!< The E-Field at the stub end point
+    float efield_vtx; //!< The E-Field at the reconstructed vertex
 
     // Per-plane information: sorted so that the "best" plane is the first index
     std::vector<geo::PlaneID> plane; //!< The plane ID
