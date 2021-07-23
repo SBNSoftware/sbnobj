@@ -195,8 +195,6 @@ namespace sbn {
     Vector3D dir; //!< Direction of track 
     float length; //!< Length of track [cm]
 
-    unsigned ndaughters; //!< Number of daughters of track
-
     float hit_min_time_p0_tpcE; //!< Min hit time of track on plane 0 TPC E
     float hit_max_time_p0_tpcE; //!< Max hit time of track on plane 0 TPC E
     float hit_min_time_p1_tpcE; //!< Min hit time of track on plane 1 TPC E
@@ -222,6 +220,10 @@ namespace sbn {
     int selected; //!< Index of the tool that selected this track
     int nprescale; //!< Prescale of the tool that selected this track
 
+    std::vector<int> daughter_pdg; //!< Pandora PDG codes of daughter PFP's
+    std::vector<unsigned> daughter_nsp; //!< Number of space points in each daughter
+    std::vector<float> daughter_sp_toend_dist; //!< Smallest distance from any daughter Space Point to Track End [cm]
+
     std::vector<float> tracks_near_end_dist; //!< List of tracks near the end of this track
     std::vector<float> tracks_near_end_costh; //!< List of tracks near the end of this track
 
@@ -235,7 +237,6 @@ namespace sbn {
       cryostat(-1),
       clear_cosmic_muon(false),
       length(-1),
-      ndaughters(0),
       hit_min_time_p0_tpcE(-100000),
       hit_max_time_p0_tpcE(-100000),
       hit_min_time_p1_tpcE(-100000),
