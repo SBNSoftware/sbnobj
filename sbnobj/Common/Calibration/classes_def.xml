@@ -1,12 +1,27 @@
 <lcgdict>
-  <class name="sbn::TrackInfo" ClassVersion="11">
+  <class name="sbn::Vector3D" ClassVersion="10">
+   <version ClassVersion="10" checksum="4119385400"/>
+  </class>
+  <class name="sbn::TrackTruth" ClassVersion="10">
+   <version ClassVersion="10" checksum="2749399767"/>
+  </class>
+  <class name="sbn::TrueParticle" ClassVersion="10">
+   <version ClassVersion="10" checksum="2150513055"/>
+  </class>
+  <class name="sbn::TrackInfo" ClassVersion="12">
+   <version ClassVersion="12" checksum="2151440214"/>
    <version ClassVersion="11" checksum="627908269"/>
    <version ClassVersion="10" checksum="4229912003"/>
   </class>
-  <class name="sbn::MetaInfo" ClassVersion="10">
+  <class name="sbn::MetaInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="4148752898"/>
    <version ClassVersion="10" checksum="3299606728"/>
   </class>
-  <class name="sbn::HitInfo" ClassVersion="11">
+  <class name="sbn::TrackHitInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="1082490970"/>
+  </class>
+  <class name="sbn::HitInfo" ClassVersion="12">
+   <version ClassVersion="12" checksum="2608034612"/>
    <version ClassVersion="11" checksum="3951169440"/>
    <version ClassVersion="10" checksum="1588463342"/>
   </class>
