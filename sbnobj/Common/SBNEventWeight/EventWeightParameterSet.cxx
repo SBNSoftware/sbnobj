@@ -42,8 +42,8 @@ void EventWeightParameterSet::Configure(std::string name, std::string rwtype_str
 
 
 void EventWeightParameterSet::AddParameter(
-    std::string name, float width, float mean, size_t covIndex) {
-  EventWeightParameter p(name, mean, width, covIndex);
+    std::string name, float width1, float mean, float width2, size_t covIndex) {
+  EventWeightParameter p(name, mean, width1, width2, covIndex);
   fParameterMap.insert({ p, std::vector<float>() });
 }
 
@@ -61,18 +61,18 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
 
       if (fRWType == kMultisim) {
         for (size_t i=0; i<fNuniverses; i++) {
-          float r = CLHEP::RandGaussQ::shoot(&engine, p.fMean, p.fWidth);
+          float r = p.fWidth1*CLHEP::RandGaussQ::shoot(&engine, p.fMean, 1);
           it.second.push_back(r);
         }
       }
 
       else if (fRWType == kPMNSigma) {
-        it.second.push_back(p.fMean + p.fWidth);
-        it.second.push_back(p.fMean - p.fWidth);
+        it.second.push_back(p.fMean + p.fWidth1);
+        it.second.push_back(p.fMean + p.fWidth2);
       }
 
       else if (fRWType == kFixed) {
-        it.second.push_back(p.fMean + p.fWidth);
+        it.second.push_back(p.fMean + p.fWidth1);
       }
 
       else {
