@@ -1,24 +1,7 @@
 <lcgdict>
-
-  <class name="sbn::crt::CRTHit" ClassVersion="14">
+  <class name="sbnd::comm::MuonTrack" ClassVersion="10">
   </class>
-  <class name="std::vector<sbn::crt::CRTHit>"/>
-  <class name="art::Wrapper<sbn::crt::CRTHit>"/>
-  <class name="art::Wrapper<std::vector<sbn::crt::CRTHit> >"/>
-
-  <class name="std::map< uint8_t, uint16_t >"/>
-  <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
-
-  <class name="sbn::crt::CRTTrack" ClassVersion="10">
-  </class>
-  <class name="std::vector<sbn::crt::CRTTrack>"/>
-  <class name="art::Wrapper< std::vector<sbn::crt::CRTTrack> >"/>
-
-  <!-- associations  -->
-
- <class name="art::Assns<sbn::crt::CRTTrack, sbn::crt::CRTHit,    void>"           />
- <class name="art::Wrapper< art::Assns<sbn::crt::CRTTrack, sbn::crt::CRTHit, void> >"           />
- <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack,    void>"           />
- <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack, void> >"           />
+  <class name="std::vector<sbnd::comm::MuonTrack>"/>
+  <class name="art::Wrapper< std::vector<sbnd::comm::MuonTrack> >"/>
 
 </lcgdict>

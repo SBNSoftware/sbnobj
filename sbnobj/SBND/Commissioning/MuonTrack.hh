@@ -9,10 +9,6 @@ namespace sbnd::comm {
   
   struct MuonTrack{
 
-    std::vector<uint8_t> feb_id;
-    std::map< uint8_t, std::vector<std::pair<int,float> > > pesmap;
-    float peshit;
-
     int32_t t0_us; 
                            
     float x1_pos;
