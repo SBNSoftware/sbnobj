@@ -3,7 +3,6 @@
 #include <cstdint>
 
 #include <vector>
-#include <map>
 
 namespace sbnd::comm {
   
@@ -18,16 +17,11 @@ namespace sbnd::comm {
     float y2_pos;
     float z2_pos;
 
-    float thetaxz;
-    float thetayz;
+    float theta_xz;
+    float theta_yz;
 
     uint8_t tpc; 
-    bool top;
-    bool bottom;
-    bool upstream;
-    bool downstream;
-    bool anode;
-    bool cathode;
+    int type;
 
     MuonTrack() {}
     

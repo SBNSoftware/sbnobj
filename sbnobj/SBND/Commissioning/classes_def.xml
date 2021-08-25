@@ -1,5 +1,7 @@
 <lcgdict>
-  <class name="sbnd::comm::MuonTrack" ClassVersion="10">
+  <class name="sbnd::comm::MuonTrack" ClassVersion="11">
+   <version ClassVersion="11" checksum="1508537814"/>
+   <version ClassVersion="10" checksum="2548997946"/>
   </class>
   <class name="std::vector<sbnd::comm::MuonTrack>"/>
   <class name="art::Wrapper< std::vector<sbnd::comm::MuonTrack> >"/>
