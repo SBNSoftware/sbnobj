@@ -98,6 +98,34 @@ namespace sbn {
      iproc(-1) {}
   };
 
+  struct TrueHit {
+    int16_t cryo; //!< Cryostat of hit
+    int16_t tpc; //!< TPC of hit
+    int16_t plane; //!< Plane of hit
+    int wire; //!< Wire of hit
+
+    unsigned ndep; //!< Number of depsotions in hit
+    float nelec; //!< Number of electrons in hit
+    float e; //!< energy in hit
+    float pitch; //!< Track pitch for hit
+    Vector3D p; //!< Location of hit
+
+    TrueHit():
+      cryo(-1),
+      tpc(-1),
+      wire(-1),
+      ndep(0),
+      nelec(0.),
+      e(0.),
+      pitch(0.)
+      {
+        // set the location to 0.
+        p.x = 0;
+        p.y = 0;
+        p.z = 0;
+      }
+  };
+
   struct TrueParticle {
     float    plane0VisE;   //!< Sum of energy deposited on plane 0 (1st Ind.) [GeV]
     float    plane1VisE;   //!< Sum of energy deposited on plane 1 (2nd Ind.) [GeV]
@@ -135,6 +163,8 @@ namespace sbn {
     
     int   start_process; //!< Start G4 process of the particle. Values defned as enum in StandardRecord
     int   end_process; //!< End G4 process of the particle. Values defined as enum in StandardRecord
+
+    std::vector<TrueHit> truehits; //!< List of True "hits" of this particle
 
     TrueParticle():
       plane0VisE(std::numeric_limits<float>::signaling_NaN()),
