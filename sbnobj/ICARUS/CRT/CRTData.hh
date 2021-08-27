@@ -12,8 +12,7 @@ namespace icarus::crt {
       uint64_t fTs0;     //Absolute hit timestamp [ns]
       uint64_t fTs1;     //Trigger time, not well defined as of Apr 14, 2021
       uint16_t fAdc[64]; //ADC readout for each channel. CAEN (Bern) CRT FEBs use only indices 0-31
-
-      CRTData() {}
+      
   };
 
 } // namespace icarus::crt
