@@ -6,4 +6,13 @@
   <class name="std::vector<sbnd::comm::MuonTrack>"/>
   <class name="art::Wrapper< std::vector<sbnd::comm::MuonTrack> >"/>
 
+  <!-- associations  -->
+  <!-- I use the below association explicitly in the module  -->
+  <class name="art::Assns<sbnd::comm::MuonTrack, recob::Hit,      void>" /> 
+
+  <!-- I do not use the below associations/wrappers explicitly in the module -->
+  <class name="art::Wrapper< art::Assns<sbnd::comm::MuonTrack, recob::Hit,    void" />
+  <class name="art::Assns<recob::Hit, sbnd::comm::MuonTrack,      void>" />
+  <class name="art::Wrapper< art::Assns<recob::Hit, sbnd::comm::MuonTrack,    void" /> 
+  
 </lcgdict>
