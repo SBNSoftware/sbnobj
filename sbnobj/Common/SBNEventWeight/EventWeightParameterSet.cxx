@@ -61,18 +61,18 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
 
       if (fRWType == kMultisim) {
         for (size_t i=0; i<fNuniverses; i++) {
-          float r = p.fWidth1*CLHEP::RandGaussQ::shoot(&engine, p.fMean, 1);
+          float r = p.fWidth*CLHEP::RandGaussQ::shoot(&engine, p.fMean, 1);
           it.second.push_back(r);
         }
       }
 
       else if (fRWType == kPMNSigma) {
-        it.second.push_back(p.fMean + p.fWidth1);
+        it.second.push_back(p.fMean + p.fWidth);
         it.second.push_back(p.fMean + p.fWidth2);
       }
 
       else if (fRWType == kFixed) {
-        it.second.push_back(p.fMean + p.fWidth1);
+        it.second.push_back(p.fMean + p.fWidth);
       }
 
       else {
