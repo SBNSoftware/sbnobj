@@ -15,7 +15,7 @@
 
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-project(sbnobj VERSION 09.12.02 LANGUAGES CXX)
+project(sbnobj VERSION 09.12.03 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
