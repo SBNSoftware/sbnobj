@@ -2,7 +2,7 @@
 
 # The *parent* line must the first non-commented line and defines this product and version
 # The version should be of the form vxx_yy_zz (e.g. v01_02_03)
-parent sbnobj v09_11_19
+parent sbnobj
 defaultqual e20
 
 # These optional lines define the installed directories where headers,
@@ -30,8 +30,8 @@ flcdir  product_dir     job
 # Add the dependent product and version
 
 product          version
-lardataobj       v09_01_06
-cetbuildtools    v7_17_01  -  only_for_build
+lardataobj       v09_03_02
+cetbuildtools    v8_17_03  -  only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.

@@ -13,9 +13,9 @@
 # ======================================================================
 
 
-cmake_minimum_required (VERSION 3.12...3.18 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-project(sbnobj LANGUAGES CXX)
+project(sbnobj VERSION 09.12.03 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -46,6 +46,7 @@ find_ups_product( lardataobj )
 find_ups_product( larcorealg )
 find_ups_product( lardataalg )
 find_ups_product( nusimdata )
+find_ups_product(clhep)
 find_ups_boost( )
 find_ups_root()
 
