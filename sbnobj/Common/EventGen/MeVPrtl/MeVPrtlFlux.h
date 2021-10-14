@@ -15,12 +15,12 @@ public:
   TLorentzVector mom_beamcoord;
   TLorentzVector sec;
   TLorentzVector sec_beamcoord;
-  float C1;
-  float C2;
-  float C3;
-  float C4;
-  float C5;
-  float mass;
+  double C1;
+  double C2;
+  double C3;
+  double C4;
+  double C5;
+  double mass;
   int kaon_pdg;
   int secondary_pdg;
   int generator;

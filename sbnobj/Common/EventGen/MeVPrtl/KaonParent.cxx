@@ -27,7 +27,7 @@ evgen::ldm::KaonParent::KaonParent(const simb::MCFlux &flux) {
   mode = flux.fndecay;
 
   TVector3 pos3 = TVector3(flux.fvx, flux.fvy, flux.fvz);
-  float time = flux.fxpoint; /* README: the MCFlux for some reason does not have any time variable, so I have chosen to canibalize this one, 
+  double time = flux.fxpoint; /* README: the MCFlux for some reason does not have any time variable, so I have chosen to canibalize this one, 
                               which according to documentation is just for debugging. (I am very sorry). */
 
   pos.SetVect(pos3);
