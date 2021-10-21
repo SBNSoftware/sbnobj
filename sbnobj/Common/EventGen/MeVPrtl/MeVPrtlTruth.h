@@ -33,7 +33,7 @@ public:
   // available in art. I don't want to build this myself,
   // so don't use it as a workaround
   std::vector<TVector3> daughter_mom;
-  std::vector<float> daughter_e;
+  std::vector<double> daughter_e;
   std::vector<int> daughter_pdg;
   double pot;
   double flux_weight;
