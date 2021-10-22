@@ -104,17 +104,26 @@
 
   <class name="sbn::StubHit"/>
   <class name="std::vector<sbn::StubHit>" />
+  <class name="std::vector<std::vector<sbn::StubHit>>" />
   <class name="art::Wrapper<sbn::StubHit>" />
   <class name="art::Wrapper<std::vector<sbn::StubHit>>" />
 
   <class name="art::Assns<recob::PFParticle, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::Stub>>" />
+  <class name="art::Assns<sbn::Stub, recob::PFParticle, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::Stub, recob::PFParticle, void>>" />
   <class name="art::Assns<recob::Slice, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<recob::Slice, sbn::Stub>>" />
+  <class name="art::Assns<sbn::Stub, recob::Slice, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::Stub, recob::Slice, void>>" />
   <class name="art::Assns<recob::Hit, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<recob::Hit, sbn::Stub>>" />
+  <class name="art::Assns<sbn::Stub, recob::Hit, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::Stub, recob::Hit, void>>" />
   <class name="art::Assns<sbn::VertexHit, sbn::Stub>" />
   <class name="art::Wrapper<art::Assns<sbn::VertexHit, sbn::Stub>>" />
+  <class name="art::Assns<sbn::Stub, sbn::VertexHit, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::Stub, sbn::VertexHit, void>>" />
 
   <class name="sbn::VertexHit" ClassVersion="13">
    <version ClassVersion="13" checksum="4209046416"/>
@@ -128,10 +137,16 @@
 
   <class name="art::Assns<recob::Hit, sbn::VertexHit>" />
   <class name="art::Wrapper<art::Assns<recob::Hit, sbn::VertexHit>>" />
+  <class name="art::Assns<sbn::VertexHit, recob::Hit, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::VertexHit, recob::Hit, void>>" />
   <class name="art::Assns<recob::Slice, sbn::VertexHit>" />
   <class name="art::Wrapper<art::Assns<recob::Slice, sbn::VertexHit>>" />
+  <class name="art::Assns<sbn::VertexHit, recob::Slice, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::VertexHit, recob::Slice, void>>" />
   <class name="art::Assns<recob::Vertex, sbn::VertexHit>" />
   <class name="art::Wrapper<art::Assns<recob::Vertex, sbn::VertexHit>>" />
+  <class name="art::Assns<sbn::VertexHit, recob::Vertex, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::VertexHit, recob::Vertex, void>>" />
 
   <class name="sbn::MergedTrackInfo" ClassVersion="11">
    <version ClassVersion="11" checksum="72646431"/>
@@ -199,4 +214,6 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Track>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
+
+  <class name="std::vector<geo::PlaneID>"/>
 </lcgdict>
