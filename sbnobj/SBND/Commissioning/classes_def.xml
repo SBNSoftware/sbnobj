@@ -1,0 +1,16 @@
+<lcgdict>
+  <class name="sbnd::comm::MuonTrack" ClassVersion="11">
+   <version ClassVersion="11" checksum="1508537814"/>
+   <version ClassVersion="10" checksum="2548997946"/>
+  </class>
+  <class name="std::vector<sbnd::comm::MuonTrack>"/>
+  <class name="art::Wrapper< std::vector<sbnd::comm::MuonTrack> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::comm::MuonTrack, recob::Hit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::comm::MuonTrack, recob::Hit, void> >"           />
+  <class name="art::Assns<recob::Hit, sbnd::comm::MuonTrack,    void>"           />
+  <class name="art::Wrapper< art::Assns<recob::Hit, sbnd::comm::MuonTrack, void> >"           />
+   
+</lcgdict>
