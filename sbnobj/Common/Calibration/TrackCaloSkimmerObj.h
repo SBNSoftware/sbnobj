@@ -108,7 +108,7 @@ namespace sbn {
     int16_t wire; //!< Wire of hit
     int16_t channel; //!< Channel of hit
 
-    unsigned ndep; //!< Number of depsotions in hit
+    unsigned ndep; //!< Number of depositions in hit
     float nelec; //!< Number of electrons in hit
     float e; //!< energy in hit [MeV]
     float pitch; //!< Track pitch for hit [cm]
