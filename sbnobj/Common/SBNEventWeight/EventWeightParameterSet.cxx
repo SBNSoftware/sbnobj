@@ -42,8 +42,8 @@ void EventWeightParameterSet::Configure(std::string name, std::string rwtype_str
 
 
 void EventWeightParameterSet::AddParameter(
-    std::string name, float width1, float mean, float width2, size_t covIndex) {
-  EventWeightParameter p(name, mean, width1, width2, covIndex);
+    std::string name, float width, float mean, size_t covIndex) {
+  EventWeightParameter p(name, mean, width, covIndex);
   fParameterMap.insert({ p, std::vector<float>() });
 }
 
@@ -68,7 +68,7 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
 
       else if (fRWType == kPMNSigma) {
         it.second.push_back(p.fMean + p.fWidth);
-        it.second.push_back(p.fMean + p.fWidth2);
+        it.second.push_back(p.fMean - p.fWidth);
       }
 
       else if (fRWType == kFixed) {

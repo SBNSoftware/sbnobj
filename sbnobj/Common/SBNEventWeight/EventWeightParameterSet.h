@@ -17,11 +17,11 @@ namespace sbn {
  */
 struct EventWeightParameter {
   /** Default constructor. */
-  EventWeightParameter() : fName(""), fMean(0), fWidth(1), fWidth2(0),fCovIndex(0) {}
+  EventWeightParameter() : fName(""), fMean(0), fWidth(1), fCovIndex(0) {}
 
   /** Constructor specifying all parameter properties. */
-  EventWeightParameter(std::string name, float mean, float width1, float width2, size_t covIndex=0)
-      : fName(name), fMean(mean), fWidth(width1), fWidth2(width2), fCovIndex(covIndex) {}
+  EventWeightParameter(std::string name, float mean, float width, size_t covIndex=0)
+      : fName(name), fMean(mean), fWidth(width), fCovIndex(covIndex) {}
 
   /** Comparison operator (required for use as an std::map key). */
   inline friend bool operator<(const EventWeightParameter& lhs,
@@ -35,14 +35,12 @@ struct EventWeightParameter {
     return (lhs.fName == rhs.fName &&
             lhs.fMean == rhs.fMean &&
             lhs.fWidth == rhs.fWidth &&
-            lhs.fWidth2 == rhs.fWidth2 &&
             lhs.fCovIndex == rhs.fCovIndex);
   }
 
   std::string fName;  //!< Parameter name
   float fMean;  //!< Gaussian mean
   float fWidth;  //!< Gaussian sigma
-  float fWidth2;  //!< Gaussian sigma, if one more variation is needed
   size_t fCovIndex;  //!< Index in the covariance matrix (if any)
 };
 
@@ -95,12 +93,11 @@ public:
    * Add a new parameter to the set.
    *
    * @param name Name of the parameter
-   * @param width1 1st Standard deviation for Gaussian throws
-   * @param width2 2nd Standard deviation for Gaussian throws
+   * @param width Standard deviation for Gaussian throws
    * @param mean Optional nonzero mean for Gaussian throws
    * @param covIndex Optional Index in the (optional) covariance matrix
    */
-  void AddParameter(std::string name, float width1, float mean=0, float width2=0, size_t covIndex=0);
+  void AddParameter(std::string name, float width, float mean=0, size_t covIndex=0);
 
   /**
    * Specify a covariance matrix for correlated throws.
