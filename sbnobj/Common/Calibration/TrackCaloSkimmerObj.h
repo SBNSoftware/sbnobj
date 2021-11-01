@@ -69,7 +69,7 @@ namespace sbn {
     HitInfo h; //!< Hit information by itself
     float pitch; //!< Pitch of track across wire the hit is on [cm]
     float dqdx; //!< Initial computed dq/dx of hit [ADC/cm]
-    float rr; //!< Residual range of hit along track [sm]
+    float rr; //!< Residual range of hit along track [cm]
     Vector3D dir; //!< Direction of track at hit location
     uint16_t i_snippet; //!< Index of hit into snippet 
     bool ontraj; //!< Whether the hit is on the track trajectory
@@ -105,16 +105,16 @@ namespace sbn {
     int16_t cryo; //!< Cryostat of hit
     int16_t tpc; //!< TPC of hit
     int16_t plane; //!< Plane of hit
-    int wire; //!< Wire of hit
-    int channel; //!< Channel of hit
+    int16_t wire; //!< Wire of hit
+    int16_t channel; //!< Channel of hit
 
     unsigned ndep; //!< Number of depsotions in hit
     float nelec; //!< Number of electrons in hit
-    float e; //!< energy in hit
-    float pitch; //!< Track pitch for hit
-    float rr; //!< Track residual range for hit
+    float e; //!< energy in hit [MeV]
+    float pitch; //!< Track pitch for hit [cm]
+    float rr; //!< Track residual range for hit [cm]
     int itraj; //!< Index of hit along trajectory
-    Vector3D p; //!< Location of hit
+    Vector3D p; //!< Location of hit [cm]
     float time; //!< Time of hit [ticks]
 
     TrueHit():
@@ -125,7 +125,10 @@ namespace sbn {
       ndep(0),
       nelec(0.),
       e(0.),
-      pitch(0.)
+      pitch(0.),
+      rr(0.),
+      itraj(-1),
+      time(0.)
       {
         // set the location to 0.
         p.x = 0;
