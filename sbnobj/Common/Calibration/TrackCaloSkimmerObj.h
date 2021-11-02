@@ -105,8 +105,8 @@ namespace sbn {
     int16_t cryo; //!< Cryostat of hit
     int16_t tpc; //!< TPC of hit
     int16_t plane; //!< Plane of hit
-    int16_t wire; //!< Wire of hit
-    int16_t channel; //!< Channel of hit
+    int wire; //!< Wire of hit
+    int channel; //!< Channel of hit
 
     unsigned ndep; //!< Number of depositions in hit
     float nelec; //!< Number of electrons in hit

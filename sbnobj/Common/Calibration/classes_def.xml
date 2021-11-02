@@ -10,7 +10,7 @@
    <version ClassVersion="10" checksum="2150513055"/>
   </class>
   <class name="sbn::TrueHit" ClassVersion="10">
-   <version ClassVersion="10" checksum="200365264"/>
+   <version ClassVersion="10" checksum="118230262"/>
   </class>
   <class name="sbn::TrackInfo" ClassVersion="12">
    <version ClassVersion="12" checksum="2151440214"/>
