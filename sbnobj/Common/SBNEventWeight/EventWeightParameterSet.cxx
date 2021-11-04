@@ -61,7 +61,7 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
 
       if (fRWType == kMultisim) {
         for (size_t i=0; i<fNuniverses; i++) {
-          float r = CLHEP::RandGaussQ::shoot(&engine, p.fMean, p.fWidth);
+          float r = p.fWidth*CLHEP::RandGaussQ::shoot(&engine, p.fMean, 1);
           it.second.push_back(r);
         }
       }
