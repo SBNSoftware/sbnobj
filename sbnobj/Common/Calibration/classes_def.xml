@@ -10,7 +10,10 @@
    <version ClassVersion="11" checksum="3478510212"/>
    <version ClassVersion="10" checksum="2150513055"/>
   </class>
-  <class name="sbn::TrueHit" ClassVersion="11">
+  <class name="sbn::TrueHit" ClassVersion="14">
+   <version ClassVersion="14" checksum="903476586"/>
+   <version ClassVersion="13" checksum="3166785762"/>
+   <version ClassVersion="12" checksum="4238167484"/>
    <version ClassVersion="11" checksum="118230262"/>
    <version ClassVersion="10" checksum="1579485728"/>
   </class>
@@ -26,7 +29,11 @@
   <class name="sbn::TrackHitInfo" ClassVersion="10">
    <version ClassVersion="10" checksum="1082490970"/>
   </class>
-  <class name="sbn::HitInfo" ClassVersion="13">
+  <class name="sbn::HitTruth" ClassVersion="10">
+   <version ClassVersion="10" checksum="2374511199"/>
+  </class>
+  <class name="sbn::HitInfo" ClassVersion="14">
+   <version ClassVersion="14" checksum="2279804458"/>
    <version ClassVersion="13" checksum="3388532746"/>
    <version ClassVersion="12" checksum="2608034612"/>
    <version ClassVersion="11" checksum="3951169440"/>
