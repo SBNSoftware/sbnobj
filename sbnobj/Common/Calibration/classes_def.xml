@@ -9,12 +9,9 @@
    <version ClassVersion="11" checksum="855399631"/>
    <version ClassVersion="10" checksum="2150513055"/>
   </class>
-  <class name="sbn::TrueHit" ClassVersion="14">
-   <version ClassVersion="14" checksum="903476586"/>
-   <version ClassVersion="13" checksum="3166785762"/>
-   <version ClassVersion="12" checksum="4238167484"/>
-   <version ClassVersion="11" checksum="118230262"/>
-   <version ClassVersion="10" checksum="1579485728"/>
+  <class name="sbn::TrueHit" ClassVersion="11">
+   <version ClassVersion="11" checksum="903476586"/>
+   <version ClassVersion="10" checksum="118230262"/>
   </class>
   <class name="sbn::TrackInfo" ClassVersion="12">
    <version ClassVersion="12" checksum="2151440214"/>
