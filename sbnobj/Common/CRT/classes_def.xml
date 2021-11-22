@@ -36,6 +36,11 @@
  <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack,    void>"           />
  <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack, void> >"           />
 
+ <class name="art::Assns<anab::T0, sbn::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<anab::T0, sbn::crt::CRTHit, void> >"           />
+ <class name="art::Assns<sbn::crt::CRTHit, anab::T0,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, anab::T0, void> >"           />
+
 
   <class name="sbnd::crt::CRTHit" ClassVersion="14">
    <version ClassVersion="14" checksum="1444826046"/>
