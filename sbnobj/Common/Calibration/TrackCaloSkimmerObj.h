@@ -35,6 +35,11 @@ namespace sbn {
 
   };
 
+  struct HitTruth {
+    float e;
+    float nelec;
+  };
+
   struct HitInfo {
     float integral; //!< Integral of gaussian fit to ADC values in hit [ADC]
     float sumadc; //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
@@ -49,6 +54,8 @@ namespace sbn {
     uint16_t mult; //!< Multiplicity of hit
     int16_t start; //!< Start tick of hit [ticks]
     int16_t end; //!< End tick of hit [ticks]
+
+    HitTruth truth;
 
     HitInfo():
       integral(-1),
@@ -111,11 +118,17 @@ namespace sbn {
     unsigned ndep; //!< Number of depositions in hit
     float nelec; //!< Number of electrons in hit
     float e; //!< energy in hit [MeV]
-    float pitch; //!< Track pitch for hit [cm]
+    float pitch; //!< Track pitch for hit, using true direction [cm]
+    float pitch_sce; //!< Track pitch for hit, after distortion to pitch caused by space charge [cm]
+    
     float rr; //!< Track residual range for hit [cm]
     int itraj; //!< Index of hit along trajectory
-    Vector3D p; //!< Location of hit [cm]
+    Vector3D p; //!< Location of hit, computed after space charge [cm]
+    Vector3D p_scecorr; //!< Location of the hit after un-doing space charge [cm]
+    Vector3D p_width; //!< Width of depositions going into hit [cm^2]
+    Vector3D p_scecorr_width; //!< Width of depositions going into hit after un-doing space charge [cm^2]
     float time; //!< Time of hit [ticks]
+    float tdrift; //!< Drift time [us]
 
     TrueHit():
       cryo(-1),
@@ -134,6 +147,18 @@ namespace sbn {
         p.x = 0;
         p.y = 0;
         p.z = 0;
+
+        p_scecorr.x = 0;
+        p_scecorr.y = 0;
+        p_scecorr.z = 0;
+
+        p_width.x = 0;
+        p_width.y = 0;
+
+        p_scecorr_width.z = 0;
+        p_scecorr_width.x = 0;
+        p_scecorr_width.y = 0;
+        p_scecorr_width.z = 0;
       }
   };
 
