@@ -1,5 +1,6 @@
 #include "canvas/Persistency/Common/Wrapper.h"
 #include "canvas/Persistency/Common/Assns.h"
+#include "lardataobj/AnalysisBase/T0.h"
 #include "lardataobj/Simulation/AuxDetSimChannel.h"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/CRT/CRTTrack.hh"
