@@ -1,6 +1,6 @@
 cet_make( 
   LIBRARIES
-    cetlib_except
+    cetlib_except::cetlib_except
   NO_DICTIONARY
   )
 

@@ -1,12 +1,12 @@
 cet_make( 
   NO_DICTIONARY
   LIBRARIES
-    cetlib_except
+    cetlib_except::cetlib_except
     ${ROOT_BASIC_LIB_LIST}
-    ${CLHEP}
-    ${ART_FRAMEWORK_SERVICES_REGISTRY}
+    CLHEP::CLHEP
+    art::Framework_Services_Registry
     ${ART_FRAMEWORK_SERVICES_OPTIONAL}
-    ${ART_FRAMEWORK_SERVICES_OPTIONAL_RANDOMNUMBERGENERATOR_SERVICE}
+    art::Framework_Services_Optional_RandomNumberGenerator_service
 )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj_Common_SBNEventWeight)
