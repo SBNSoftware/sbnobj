@@ -5,8 +5,13 @@
   <class name="sbn::TrackTruth" ClassVersion="10">
    <version ClassVersion="10" checksum="2749399767"/>
   </class>
-  <class name="sbn::TrueParticle" ClassVersion="10">
+  <class name="sbn::TrueParticle" ClassVersion="11">
+   <version ClassVersion="11" checksum="855399631"/>
    <version ClassVersion="10" checksum="2150513055"/>
+  </class>
+  <class name="sbn::TrueHit" ClassVersion="11">
+   <version ClassVersion="11" checksum="903476586"/>
+   <version ClassVersion="10" checksum="118230262"/>
   </class>
   <class name="sbn::TrackInfo" ClassVersion="12">
    <version ClassVersion="12" checksum="2151440214"/>
@@ -20,14 +25,21 @@
   <class name="sbn::TrackHitInfo" ClassVersion="10">
    <version ClassVersion="10" checksum="1082490970"/>
   </class>
-  <class name="sbn::HitInfo" ClassVersion="12">
+  <class name="sbn::HitTruth" ClassVersion="10">
+   <version ClassVersion="10" checksum="2374511199"/>
+  </class>
+  <class name="sbn::HitInfo" ClassVersion="14">
+   <version ClassVersion="14" checksum="2279804458"/>
+   <version ClassVersion="13" checksum="3388532746"/>
    <version ClassVersion="12" checksum="2608034612"/>
    <version ClassVersion="11" checksum="3951169440"/>
    <version ClassVersion="10" checksum="1588463342"/>
   </class>
-  <class name="sbn::WireInfo" ClassVersion="10">
+  <class name="sbn::WireInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="651165150"/>
    <version ClassVersion="10" checksum="440398080"/>
   </class>
+  <class name="std::vector<sbn::TrueHit>" />
   <class name="std::vector<sbn::HitInfo>" />
   <class name="std::vector<sbn::WireInfo>" />
 </lcgdict>

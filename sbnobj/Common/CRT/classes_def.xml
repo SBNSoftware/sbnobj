@@ -115,4 +115,9 @@
  <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero,    void>"           />
  <class name="art::Wrapper< art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero, void> >"           />
 
+ <class name="art::Assns<sbn::crt::CRTHit, anab::T0, void>"/>
+ <class name="art::Assns<anab::T0, sbn::crt::CRTHit, void>"/>
+ <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, anab::T0, void> >"/>
+ <class name="art::Wrapper<art::Assns<anab::T0, sbn::crt::CRTHit, void> >"/>
+
 </lcgdict>

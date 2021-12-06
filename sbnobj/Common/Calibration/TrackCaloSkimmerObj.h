@@ -23,6 +23,7 @@ namespace sbn {
     uint16_t wire; //!< Wire number
     uint16_t plane; //!< Plane number
     uint16_t tpc; //!< TPC number
+    uint16_t channel; //!< Channel number
     int16_t tdc0; //!< TDC tick of the first ADC value
     std::vector<short> adcs; //!< List of ADC values
 
@@ -34,6 +35,11 @@ namespace sbn {
 
   };
 
+  struct HitTruth {
+    float e;
+    float nelec;
+  };
+
   struct HitInfo {
     float integral; //!< Integral of gaussian fit to ADC values in hit [ADC]
     float sumadc; //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
@@ -41,6 +47,7 @@ namespace sbn {
     Vector3D p; //!< Position of hit [cm]
     float time; //!< Peak time of hit [ticks]
     int id; //!< ID of hit
+    uint16_t channel; //!< Channel number of hit
     uint16_t wire; //!< Wire number of hit
     uint16_t plane; //!< Plane number of hit
     uint16_t tpc; //!< TPC number of hit
@@ -48,12 +55,15 @@ namespace sbn {
     int16_t start; //!< Start tick of hit [ticks]
     int16_t end; //!< End tick of hit [ticks]
 
+    HitTruth truth;
+
     HitInfo():
       integral(-1),
       sumadc(-1),
       width(-1),
       time(-1),
       id(-1),
+      channel((uint16_t)-1),
       wire((uint16_t)-1),
       plane((uint16_t)-1),
       tpc((uint16_t)-1),
@@ -66,7 +76,7 @@ namespace sbn {
     HitInfo h; //!< Hit information by itself
     float pitch; //!< Pitch of track across wire the hit is on [cm]
     float dqdx; //!< Initial computed dq/dx of hit [ADC/cm]
-    float rr; //!< Residual range of hit along track [sm]
+    float rr; //!< Residual range of hit along track [cm]
     Vector3D dir; //!< Direction of track at hit location
     uint16_t i_snippet; //!< Index of hit into snippet 
     bool ontraj; //!< Whether the hit is on the track trajectory
@@ -96,6 +106,60 @@ namespace sbn {
      subrun(-1),
      ifile(-1),
      iproc(-1) {}
+  };
+
+  struct TrueHit {
+    int16_t cryo; //!< Cryostat of hit
+    int16_t tpc; //!< TPC of hit
+    int16_t plane; //!< Plane of hit
+    int wire; //!< Wire of hit
+    int channel; //!< Channel of hit
+
+    unsigned ndep; //!< Number of depositions in hit
+    float nelec; //!< Number of electrons in hit
+    float e; //!< energy in hit [MeV]
+    float pitch; //!< Track pitch for hit, using true direction [cm]
+    float pitch_sce; //!< Track pitch for hit, after distortion to pitch caused by space charge [cm]
+    
+    float rr; //!< Track residual range for hit [cm]
+    int itraj; //!< Index of hit along trajectory
+    Vector3D p; //!< Location of hit, computed after space charge [cm]
+    Vector3D p_scecorr; //!< Location of the hit after un-doing space charge [cm]
+    Vector3D p_width; //!< Width of depositions going into hit [cm^2]
+    Vector3D p_scecorr_width; //!< Width of depositions going into hit after un-doing space charge [cm^2]
+    float time; //!< Time of hit [ticks]
+    float tdrift; //!< Drift time [us]
+
+    TrueHit():
+      cryo(-1),
+      tpc(-1),
+      wire(-1),
+      channel(-1),
+      ndep(0),
+      nelec(0.),
+      e(0.),
+      pitch(0.),
+      rr(0.),
+      itraj(-1),
+      time(0.)
+      {
+        // set the location to 0.
+        p.x = 0;
+        p.y = 0;
+        p.z = 0;
+
+        p_scecorr.x = 0;
+        p_scecorr.y = 0;
+        p_scecorr.z = 0;
+
+        p_width.x = 0;
+        p_width.y = 0;
+
+        p_scecorr_width.z = 0;
+        p_scecorr_width.x = 0;
+        p_scecorr_width.y = 0;
+        p_scecorr_width.z = 0;
+      }
   };
 
   struct TrueParticle {
@@ -135,6 +199,10 @@ namespace sbn {
     
     int   start_process; //!< Start G4 process of the particle. Values defned as enum in StandardRecord
     int   end_process; //!< End G4 process of the particle. Values defined as enum in StandardRecord
+
+    std::vector<TrueHit> truehits0; //!< List of True "hits" of this particle on Plane 0
+    std::vector<TrueHit> truehits1; //!< List of True "hits" of this particle on Plane 1
+    std::vector<TrueHit> truehits2; //!< List of True "hits" of this particle on Plane 2
 
     TrueParticle():
       plane0VisE(std::numeric_limits<float>::signaling_NaN()),
