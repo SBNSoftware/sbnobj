@@ -1,7 +1,7 @@
 cet_make( 
   LIBRARIES
     lardataobj_RawData
-    cetlib_except
+    cetlib_except::cetlib_except
   NO_DICTIONARY
   )
 
