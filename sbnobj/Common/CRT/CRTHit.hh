@@ -26,12 +26,12 @@ namespace sbn::crt {
       std::map< uint8_t, std::vector<std::pair<int,float> > > pesmap;
       float peshit;
      
-      uint32_t ts0_s;
+      uint64_t ts0_s;
       int8_t ts0_s_corr;
       
-      uint32_t ts0_ns;
-      int32_t ts0_ns_corr;
-      int32_t ts1_ns;
+      uint64_t ts0_ns;
+      int64_t ts0_ns_corr;
+      int64_t ts1_ns;
      
       int plane;
 
