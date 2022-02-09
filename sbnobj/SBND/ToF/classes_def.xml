@@ -3,5 +3,5 @@
    <version ClassVersion="10" checksum="289199695"/>
   </class>
   <class name="std::vector<sbnd::ToF::ToF>"/>
-  <class name="art::Wrapper<sbnd::ToF::ToF>"/> 
+  <class name="art::Wrapper< std::vector<sbnd::ToF::ToF> >"/> 
 </lcgdict>
