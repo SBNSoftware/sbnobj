@@ -21,7 +21,7 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
   else if (fRWType == kPMNSigma) {
     fNuniverses = 2;
   }
-  else if (fRWType == kPMMultiNSigma) {
+  else if (fRWType == kMultisigma) {
     fNuniverses = nuni;
   }
   else if (fRWType == kFixed) {
@@ -39,7 +39,7 @@ void EventWeightParameterSet::Configure(std::string name, std::string rwtype_str
 
   if (rwtype_string == "multisim") Configure(name, kMultisim, nuni);
   else if (rwtype_string == "pmNsigma") Configure(name, kPMNSigma);
-  else if (rwtype_string == "pmMultiNsigma") Configure(name, kPMMultiNSigma, nuni);
+  else if (rwtype_string == "multisigma") Configure(name, kMultisigma, nuni);
   else if (rwtype_string == "fixed") Configure(name, kFixed);
   else {
     std::cerr << "EventWeightParameterSet: Unknown reweight type " << rwtype_string << std::endl;
@@ -83,11 +83,10 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
         it.second.push_back(p.fMean - p.fWidth);
       }
 
-      else if (fRWType == kPMMultiNSigma) {
+      else if (fRWType == kMultisigma) {
 
         for(size_t j=0; j<p.fWidths.size(); j++){
           it.second.push_back(p.fMean + p.fWidths.at(j));
-          it.second.push_back(p.fMean - p.fWidths.at(j));
         }
 
       }

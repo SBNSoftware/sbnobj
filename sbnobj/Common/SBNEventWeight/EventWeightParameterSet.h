@@ -45,7 +45,7 @@ struct EventWeightParameter {
   float fMean;  //!< Gaussian mean
   float fWidth;  //!< Gaussian sigma
   size_t fCovIndex;  //!< Index in the covariance matrix (if any)
-  std::vector<float> fWidths; //!< for multi N-sigma modes
+  std::vector<float> fWidths; //!< for multi sigma modes
 };
 
 
@@ -60,7 +60,7 @@ struct EventWeightParameter {
 class EventWeightParameterSet {
 public:
   /** The type of random throws to perform. */
-  typedef enum rwtype { kMultisim, kPMNSigma, kPMMultiNSigma, kFixed, kDefault } ReweightType;
+  typedef enum rwtype { kMultisim, kPMNSigma, kMultisigma, kFixed, kDefault } ReweightType;
 
   /** Default constructor. */
   EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefault) {}
