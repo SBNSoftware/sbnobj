@@ -23,6 +23,9 @@ struct EventWeightParameter {
   EventWeightParameter(std::string name, float mean, float width, size_t covIndex=0)
       : fName(name), fMean(mean), fWidth(width), fCovIndex(covIndex) {}
 
+  EventWeightParameter(std::string name, float mean, std::vector<float> widths, size_t covIndex=0)
+      : fName(name), fMean(mean), fCovIndex(covIndex), fWidths(widths) {}
+
   /** Comparison operator (required for use as an std::map key). */
   inline friend bool operator<(const EventWeightParameter& lhs,
                                const EventWeightParameter& rhs) {
@@ -42,6 +45,7 @@ struct EventWeightParameter {
   float fMean;  //!< Gaussian mean
   float fWidth;  //!< Gaussian sigma
   size_t fCovIndex;  //!< Index in the covariance matrix (if any)
+  std::vector<float> fWidths; //!< for multi N-sigma modes
 };
 
 
@@ -56,7 +60,7 @@ struct EventWeightParameter {
 class EventWeightParameterSet {
 public:
   /** The type of random throws to perform. */
-  typedef enum rwtype { kMultisim, kPMNSigma, kFixed, kDefault } ReweightType;
+  typedef enum rwtype { kMultisim, kPMNSigma, kPMMultiNSigma, kFixed, kDefault } ReweightType;
 
   /** Default constructor. */
   EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefault) {}
@@ -98,6 +102,7 @@ public:
    * @param covIndex Optional Index in the (optional) covariance matrix
    */
   void AddParameter(std::string name, float width, float mean=0, size_t covIndex=0);
+  void AddParameter(std::string name, std::vector<float> widths, float mean=0, size_t covIndex=0);
 
   /**
    * Specify a covariance matrix for correlated throws.
