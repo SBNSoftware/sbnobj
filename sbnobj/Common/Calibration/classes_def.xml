@@ -22,13 +22,15 @@
    <version ClassVersion="11" checksum="4148752898"/>
    <version ClassVersion="10" checksum="3299606728"/>
   </class>
-  <class name="sbn::TrackHitInfo" ClassVersion="10">
+  <class name="sbn::TrackHitInfo" ClassVersion="11">
+   <version ClassVersion="11" checksum="2216849023"/>
    <version ClassVersion="10" checksum="1082490970"/>
   </class>
   <class name="sbn::HitTruth" ClassVersion="10">
    <version ClassVersion="10" checksum="2374511199"/>
   </class>
-  <class name="sbn::HitInfo" ClassVersion="14">
+  <class name="sbn::HitInfo" ClassVersion="15">
+   <version ClassVersion="15" checksum="2112326324"/>
    <version ClassVersion="14" checksum="2279804458"/>
    <version ClassVersion="13" checksum="3388532746"/>
    <version ClassVersion="12" checksum="2608034612"/>
