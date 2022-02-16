@@ -60,7 +60,15 @@ struct EventWeightParameter {
 class EventWeightParameterSet {
 public:
   /** The type of random throws to perform. */
-  typedef enum rwtype { kMultisim, kPMNSigma, kMultisigma, kFixed, kDefault } ReweightType;
+  //==== ReweightType_t in sbnanaobj/StandardRecord/SREnums.h should be synchronized to this
+  typedef enum rwtype
+  {
+    kDefault = -1,
+    kMultisim = 0,
+    kPMNSigma = 1,
+    kFixed = 2,
+    kMultisigma = 3,
+  } ReweightType;
 
   /** Default constructor. */
   EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefault) {}
