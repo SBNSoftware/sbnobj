@@ -7,4 +7,10 @@
   </class>
   <class name="std::vector<sbnd::comm::pmtTrigger>"/>
   <class name="art::Wrapper< std::vector<sbnd::comm::pmtTrigger> >"/>
+  
+  <class name="sbnd::trigger::pmtSoftwareTrigger"/>
+  <class name="art::Wrapper<sbnd::trigger::pmtSoftwareTrigger>"/>
+  <class name="std::vector<sbnd::trigger::pmtSoftwareTrigger>"/>
+  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtSoftwareTrigger> >"/>
+
 </lcgdict>
