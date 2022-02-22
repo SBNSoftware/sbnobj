@@ -6,6 +6,17 @@
 namespace sbn {
   class CRUMBSResult {
   public:
+
+    CRUMBSResult() 
+      : score(-5.f)
+    {
+    }
+    
+    CRUMBSResult(const float score)
+      : score(score)
+    {
+    }
+
     float score;
   };
 }
