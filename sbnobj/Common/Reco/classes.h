@@ -23,6 +23,7 @@
 #include "sbnobj/Common/Reco/Stub.h"
 #include "sbnobj/Common/Reco/VertexHit.h"
 #include "sbnobj/Common/Reco/MVAPID.h"
+#include "sbnobj/Common/Reco/CRUMBSResult.h"
 
 #include <utility>
 #include <vector>
