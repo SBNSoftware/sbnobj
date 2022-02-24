@@ -1,0 +1,7 @@
+<lcgdict>
+  <class name="sbnd::ToF::ToF" ClassVersion="10">
+   <version ClassVersion="10" checksum="289199695"/>
+  </class>
+  <class name="std::vector<sbnd::ToF::ToF>"/>
+  <class name="art::Wrapper< std::vector<sbnd::ToF::ToF> >"/> 
+</lcgdict>
