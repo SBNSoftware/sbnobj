@@ -44,7 +44,7 @@ namespace sbn {
     float integral; //!< Integral of gaussian fit to ADC values in hit [ADC]
     float sumadc; //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
     float width; //!< Width of fitted gaussian hit [ticks]
-    Vector3D p; //!< Position of hit [cm]
+    Vector3D sp; //!< Space-Point Position of hit [cm]
     float time; //!< Peak time of hit [ticks]
     int id; //!< ID of hit
     uint16_t channel; //!< Channel number of hit
@@ -54,6 +54,7 @@ namespace sbn {
     uint16_t mult; //!< Multiplicity of hit
     int16_t start; //!< Start tick of hit [ticks]
     int16_t end; //!< End tick of hit [ticks]
+    bool hasSP; //!< Whether the hit has a SpacePoint
 
     HitTruth truth;
 
@@ -77,6 +78,7 @@ namespace sbn {
     float pitch; //!< Pitch of track across wire the hit is on [cm]
     float dqdx; //!< Initial computed dq/dx of hit [ADC/cm]
     float rr; //!< Residual range of hit along track [cm]
+    Vector3D tp; //!< Track Trajectory position of hit [cm]
     Vector3D dir; //!< Direction of track at hit location
     uint16_t i_snippet; //!< Index of hit into snippet 
     bool ontraj; //!< Whether the hit is on the track trajectory
