@@ -7,8 +7,9 @@ namespace sbnd::trigger {
 
   struct pmtSoftwareTrigger{
 
-    size_t nAboveThreshold;
+    bool foundBeamTrigger;
     int triggerTimestamp; // relative to beam window start, in ns
+    size_t nAboveThreshold;
 
     pmtSoftwareTrigger() {}
 
