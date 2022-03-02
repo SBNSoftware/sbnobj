@@ -3,6 +3,14 @@
 
 #include <cstdint>
 
+/// icarus::crt::CRTData flag mnemonics
+namespace icarus::crt::CRTDataFlags {
+  static constexpr uint32_t TS0Present   = 0x0001; ///< TS0 counter was restarted in time
+  static constexpr uint32_t TS1Present   = 0x0002; ///< TS1 counter was restarted in time
+  static constexpr uint32_t TS0Reference = 0x0004; ///< This hit is a T0 reference signal
+  static constexpr uint32_t TS1Reference = 0x0008; ///< This hit is a T1 reference signal
+}
+
 namespace icarus::crt {
 
   struct CRTData {
@@ -13,24 +21,25 @@ namespace icarus::crt {
       uint64_t fTs1     { 0 }; ///< Trigger time, not well defined as of Apr 14, 2021.
       uint16_t fAdc[64] {};    ///< ADC readout for each channel. CAEN (Bern) CRT FEBs use only indices 0-31.
 
-      uint8_t  fFlags    { 0 };
-      uint64_t fThis_poll_start         { 0 };
-      uint64_t fLast_poll_start         { 0 };
-      uint32_t fHits_in_poll            { 0 };
+      uint32_t fFlags    { 0 }; ///< DAQ uses 8 bits, remaining bits reserved for future use
+      uint64_t fThisPollStart         { 0 };
+      uint64_t fLastPollStart         { 0 };
+      uint32_t fHitsInPoll            { 0 };
 
       uint32_t fCoinc                   { 0 };
 
-      uint64_t fLast_accepted_timestamp { 0 };
-      uint16_t fLost_hits               { 0 };
+      uint64_t fLastAcceptedTimestamp  { 0 };
+      uint16_t fLostHits               { 0 };
 
 
-      bool IsOverflow_TS0()  const { return !(fFlags&1); } // TODO double check the logic, it may change with
-      bool IsOverflow_TS1()  const { return !(fFlags&2); } // new FEB firmware (?)
-      bool IsReference_TS0() const { return   fFlags&4 ; }
-      bool IsReference_TS1() const { return   fFlags&8 ; }
+      bool IsOverflow_TS0()  const { return !(fFlags & CRTDataFlags::TS0Present); }
+      bool IsOverflow_TS1()  const { return !(fFlags & CRTDataFlags::TS1Present); }
+      bool IsReference_TS0() const { return   fFlags & CRTDataFlags::TS0Reference; }
+      bool IsReference_TS1() const { return   fFlags & CRTDataFlags::TS1Reference; }
       
   };
 
 } // namespace icarus::crt
+
 
 #endif
