@@ -13,4 +13,13 @@
   <class name="std::vector<sbnd::trigger::pmtSoftwareTrigger>"/>
   <class name="art::Wrapper< std::vector<sbnd::trigger::pmtSoftwareTrigger> >"/>
 
+  <class name="sbnd::trigger::pmtPulse"/>
+  <class name="art::Wrapper<sbnd::trigger::pmtPulse>"/>
+  <class name="std::vector<sbnd::trigger::pmtPulse>"/>
+  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtPulse> >"/>  
+
+  <class name="sbnd::trigger::pmtInfo"/>
+  <class name="art::Wrapper<sbnd::trigger::pmtInfo>"/>
+  <class name="std::vector<sbnd::trigger::pmtInfo>"/>
+  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtInfo> >"/>  
 </lcgdict>
