@@ -22,14 +22,14 @@ namespace icarus::crt {
       uint16_t fAdc[64] {};    ///< ADC readout for each channel. CAEN (Bern) CRT FEBs use only indices 0-31.
 
       uint32_t fFlags    { 0 }; ///< DAQ uses 8 bits, remaining bits reserved for future use
-      uint64_t fThisPollStart         { 0 };
-      uint64_t fLastPollStart         { 0 };
-      uint32_t fHitsInPoll            { 0 };
+      uint64_t fThisPollStart         { 0 }; ///< Absolute timestamp [ns] of the start of the data transfer from FEB
+      uint64_t fLastPollStart         { 0 }; ///< Absolute timestamp [ns] of the start of the previous data transfer from FEB
+      uint32_t fHitsInPoll            { 0 }; ///< Total number of hits in the data transfer (including hits omitted by FEB)
 
-      uint32_t fCoinc                   { 0 };
+      uint32_t fCoinc                 { 0 }; ///< Top CRT coincidence bit map
 
-      uint64_t fLastAcceptedTimestamp  { 0 };
-      uint16_t fLostHits               { 0 };
+      uint64_t fLastAcceptedTimestamp { 0 }; ///< Timestamp of the previous measured hit
+      uint16_t fLostHits              { 0 }; ///< Number of hits omitted by FEB since the previous measured hit
 
 
       bool IsOverflow_TS0()  const { return !(fFlags & CRTDataFlags::TS0Present); }
