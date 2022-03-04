@@ -12,6 +12,16 @@ namespace icarus::crt::CRTDataFlags {
 }
 
 namespace icarus::crt {
+  /**
+   * @brief Single hit (self trigger) of a CRT board
+   *
+   * The structure contains data related to a single 
+   * (self-triggered) hit in CRT FEB. The MAC address
+   * corresponds to a Monte Carlo mapping of FEBs.
+   * All timestamps are absolute Unix timestamps
+   * with 1 ns step.
+   *
+   */
 
   struct CRTData {
 
