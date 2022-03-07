@@ -1,5 +1,6 @@
 <lcgdict>
-  <class name="icarus::crt::CRTData" ClassVersion="10">
+  <class name="icarus::crt::CRTData" ClassVersion="11">
+   <version ClassVersion="11" checksum="184623782"/>
    <version ClassVersion="10" checksum="3195129646"/>
   </class>
   <class name="std::vector<icarus::crt::CRTData>"/>
