@@ -24,6 +24,14 @@ namespace sbn {
     float NSLIND; // horn current /4 
     float TRTGTD;
     float TR101D;
+
+    unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
+    unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
+
+    unsigned int event;
+    unsigned int daq_gates;
+
+    double POT() const{return TRTGTD;}
   };
 }
 
