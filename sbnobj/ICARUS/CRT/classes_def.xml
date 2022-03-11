@@ -1,5 +1,6 @@
 <lcgdict>
-  <class name="icarus::crt::CRTData" ClassVersion="10">
+  <class name="icarus::crt::CRTData" ClassVersion="11">
+   <version ClassVersion="11" checksum="184623782"/>
    <version ClassVersion="10" checksum="3195129646"/>
   </class>
   <class name="std::vector<icarus::crt::CRTData>"/>
@@ -8,7 +9,7 @@
 
   <class name="std::map< uint8_t, uint16_t >"/>
   <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
-
+  <class name="std::pair<unsigned char,std::vector<std::pair<int,float> > > "/>
   <!-- associations  -->
 
  <class name="art::Assns<icarus::crt::CRTData, sim::AuxDetIDE,    void>"           />

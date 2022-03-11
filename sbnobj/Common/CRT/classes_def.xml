@@ -1,6 +1,7 @@
 <lcgdict>
 
-  <class name="sbn::crt::CRTHit" ClassVersion="14">
+  <class name="sbn::crt::CRTHit" ClassVersion="15">
+   <version ClassVersion="15" checksum="3264936168"/>
    <version ClassVersion="14" checksum="1503901052"/>
   </class>
   <class name="std::vector<sbn::crt::CRTHit>"/>
@@ -36,6 +37,10 @@
  <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack,    void>"           />
  <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbn::crt::CRTTrack, void> >"           />
 
+ <class name="art::Assns<anab::T0,sbn::crt::CRTHit,void>" />
+ <class name="art::Assns<sbn::crt::CRTHit,anab::T0,void>" />
+ <class name="art::Wrapper<art::Assns<anab::T0,sbn::crt::CRTHit,void> >" />
+ <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,anab::T0,void> >" />
 
   <class name="sbnd::crt::CRTHit" ClassVersion="14">
    <version ClassVersion="14" checksum="1444826046"/>
@@ -114,10 +119,5 @@
  <class name="art::Wrapper< art::Assns<icarus::crt::CRTTzero, icarus::crt::CRTHit, void> >"           />
  <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero,    void>"           />
  <class name="art::Wrapper< art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero, void> >"           />
-
- <class name="art::Assns<sbn::crt::CRTHit, anab::T0, void>"/>
- <class name="art::Assns<anab::T0, sbn::crt::CRTHit, void>"/>
- <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, anab::T0, void> >"/>
- <class name="art::Wrapper<art::Assns<anab::T0, sbn::crt::CRTHit, void> >"/>
 
 </lcgdict>
