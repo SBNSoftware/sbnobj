@@ -25,6 +25,8 @@ namespace sbn {
       , pds_FMTime(-5.f)
       , crt_TrackScore(-5.f)
       , crt_HitScore(-5.f)
+      , crt_TrackTime(-5.f)
+      , crt_HitTime(-5.f)
     {
     }
     
@@ -46,13 +48,16 @@ namespace sbn {
       , pds_FMTime(-5.f)
       , crt_TrackScore(-5.f)
       , crt_HitScore(-5.f)
+      , crt_TrackTime(-5.f)
+      , crt_HitTime(-5.f)
     {
     }
 
     CRUMBSResult(const float score, const float tpc_CRFracHitsInLongestTrack, const float tpc_CRLongestTrackDeflection, const float tpc_CRLongestTrackDirY, 
 		 const float tpc_CRNHitsMax, const float tpc_NuEigenRatioInSphere, const float tpc_NuNFinalStatePfos, const float tpc_NuNHitsTotal, 
 		 const float tpc_NuNSpacePointsInSphere, const float tpc_NuVertexY, const float tpc_NuWeightedDirZ, const float tpc_StoppingChi2CosmicRatio, 
-		 const float pds_FMTotalScore, const float pds_FMPE, const float pds_FMTime, const float crt_TrackScore, const float crt_HitScore)
+		 const float pds_FMTotalScore, const float pds_FMPE, const float pds_FMTime, const float crt_TrackScore, const float crt_HitScore, 
+		 const float crt_TrackTime, const float crt_HitTime)
       : score(score)
       , tpc_CRFracHitsInLongestTrack(tpc_CRFracHitsInLongestTrack)
       , tpc_CRLongestTrackDeflection(tpc_CRLongestTrackDeflection)
@@ -70,6 +75,8 @@ namespace sbn {
       , pds_FMTime(pds_FMTime)
       , crt_TrackScore(crt_TrackScore)
       , crt_HitScore(crt_HitScore)
+      , crt_TrackTime(crt_TrackTime)
+      , crt_HitTime(crt_HitTime)
     {
     }
 
@@ -90,6 +97,8 @@ namespace sbn {
     float pds_FMTime;
     float crt_TrackScore;
     float crt_HitScore;
+    float crt_TrackTime;
+    float crt_HitTime;
   };
 }
 
