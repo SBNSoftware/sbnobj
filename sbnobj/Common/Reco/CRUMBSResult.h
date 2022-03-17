@@ -8,8 +8,8 @@ namespace sbn {
   public:
 
     CRUMBSResult(float score, float tpc_CRFracHitsInLongestTrack, float tpc_CRLongestTrackDeflection, float tpc_CRLongestTrackDirY, 
-		 float tpc_CRNHitsMax, float tpc_NuEigenRatioInSphere, float tpc_NuNFinalStatePfos, float tpc_NuNHitsTotal, 
-		 float tpc_NuNSpacePointsInSphere, float tpc_NuVertexY, float tpc_NuWeightedDirZ, float tpc_StoppingChi2CosmicRatio, 
+		 int tpc_CRNHitsMax, float tpc_NuEigenRatioInSphere, int tpc_NuNFinalStatePfos, int tpc_NuNHitsTotal, 
+		 int tpc_NuNSpacePointsInSphere, float tpc_NuVertexY, float tpc_NuWeightedDirZ, float tpc_StoppingChi2CosmicRatio, 
 		 float pds_FMTotalScore, float pds_FMPE, float pds_FMTime, float crt_TrackScore, float crt_HitScore, 
 		 float crt_TrackTime, float crt_HitTime);
     CRUMBSResult(float score);
@@ -19,11 +19,11 @@ namespace sbn {
     float tpc_CRFracHitsInLongestTrack;
     float tpc_CRLongestTrackDeflection;
     float tpc_CRLongestTrackDirY;
-    float tpc_CRNHitsMax;
+    int   tpc_CRNHitsMax;
     float tpc_NuEigenRatioInSphere;
-    float tpc_NuNFinalStatePfos;
-    float tpc_NuNHitsTotal;
-    float tpc_NuNSpacePointsInSphere;
+    int   tpc_NuNFinalStatePfos;
+    int   tpc_NuNHitsTotal;
+    int   tpc_NuNSpacePointsInSphere;
     float tpc_NuVertexY;
     float tpc_NuWeightedDirZ;
     float tpc_StoppingChi2CosmicRatio;
