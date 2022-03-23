@@ -30,7 +30,7 @@ flcdir  product_dir     job
 # Add the dependent product and version
 
 product          version
-lardataobj       v09_03_05
+lardataobj       v09_03_05_01
 cetbuildtools    v8_18_05  -  only_for_build
 end_product_list
 
