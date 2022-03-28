@@ -137,6 +137,7 @@ public:
    * @param engine The random number generator engine to use for sampling.
    */
   void Sample(CLHEP::HepRandomEngine& engine);
+  void Sample();
 
 public:
   std::map<EventWeightParameter, std::vector<float> > fParameterMap;  //!< Mapping of definitions to the set of values
