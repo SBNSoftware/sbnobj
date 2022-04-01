@@ -60,6 +60,21 @@ namespace crt{
     return fCoinc;
   }
 
+  void FEBData::SetMac5(uint16_t mac5)
+  {
+    fMac5 = mac5;
+  }
+
+  void FEBData::SetTs0(uint32_t ts0)
+  {
+    fTs0 = ts0;
+  }
+
+  void FEBData::SetTs1(uint32_t ts1)
+  {
+    fTs1 = ts1;
+  }
+
   void FEBData::SetADC(size_t sipmID, uint16_t adc)
   {
     if (sipmID >= N_CH) {
@@ -69,6 +84,10 @@ namespace crt{
     fADC[sipmID] = adc;
   }
 
+  void FEBData::SetCoinc(uint32_t coinc)
+  {
+    fCoinc = coinc;
+  }
 
 } // namespace crt
 } // namespace sbnd

@@ -87,12 +87,40 @@ namespace sbnd::crt {
     uint32_t Coinc() const;
 
     /**
+     * Setter method for Mac5
+     *
+     * @param mac5 The mac5 to set.
+     */
+    void SetMac5(uint16_t mac5);
+
+    /**
+     * Setter method for Ts0
+     *
+     * @param ts0 The ts0 value to set
+     */
+    void SetTs0(uint32_t ts0);
+
+    /**
+     * Setter method for Ts1
+     *
+     * @param ts1 The ts1 value to set
+     */
+    void SetTs1(uint32_t ts1);
+
+    /**
      * Adds ADC values on a certain sipm.
      *
      * @param sipmID The ID of the sipm in the module (0-31).
      * @param adc The ADC value for this sipm.
      */
     void SetADC(size_t sipmID, uint16_t adc);
+
+    /**
+     * Setter method for coinc
+     *
+     * @param coinc The coinc values to set
+     */
+    void SetCoinc(uint32_t coinc);
   };
 
 } // namespace sbnd::crt
