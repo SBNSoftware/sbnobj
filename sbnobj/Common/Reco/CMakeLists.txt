@@ -1,7 +1,7 @@
 cet_make( 
   LIBRARIES
-    cetlib_except
-    ${MF_MESSAGELOGGER}
+    cetlib_except::cetlib_except
+    messagefacility::MF_MessageLogger
     ${ROOT_BASIC_LIB_LIST}
   NO_DICTIONARY
   )
