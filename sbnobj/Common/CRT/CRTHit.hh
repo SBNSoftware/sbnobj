@@ -48,7 +48,6 @@ namespace sbn::crt {
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + ts0_ns; }
       int64_t ts1() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + ts1_ns; }
-
     };
 
 } // namespace sbn::crt
