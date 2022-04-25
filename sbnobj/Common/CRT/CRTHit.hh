@@ -20,6 +20,18 @@
 
 namespace sbn::crt {
 
+    struct CRTLayerHit{
+      float         peshit; ///< Total photo-electron (PE) in a crt hit.
+      uint64_t      ts0_ns; ///< Timestamp T0 (from White Rabbit), in UTC absolute time scale in nanoseconds from the Epoch
+      int64_t       ts1_ns; ///< Timestamp T1 ([signal time w.r.t. Trigger time]), in UTC absolute time scale in nanoseconds from the Epoch.
+      float          x_pos; ///< position in x-direction (cm).
+      float          x_err; ///< position uncertainty in x-direction (cm).
+      float          y_pos; ///< position in y-direction (cm).
+      float          y_err; ///< position uncertainty in y-direction (cm).
+      float          z_pos; ///< position in z-direction (cm).
+      float          z_err; ///< position uncertainty in z-direction (cm).
+    };
+
     struct CRTHit{
 
       std::vector<uint8_t> feb_id; ///< FEB address 
@@ -42,9 +54,16 @@ namespace sbn::crt {
       float          z_pos; ///< position in z-direction (cm).
       float          z_err; ///< position uncertainty in z-direction (cm).
 
+      int            nLayer; ///< True if the direction of a hit exists
+      CRTLayerHit*   layerHits; ///< per-layer information if exist
+      float          x_dir; ///< direction in x
+      float          y_dir; ///< direction in y
+      float          z_dir; ///< direction in z
+
       std::string   tagger; ///< Name of the CRT wall (in the form of strings).
 
-      CRTHit() {}
+      CRTHit() : nLayer(0), layerHits(NULL), x_dir(0.), y_dir(0.), z_dir(0.)
+      {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + ts0_ns; }
       int64_t ts1() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + ts1_ns; }
