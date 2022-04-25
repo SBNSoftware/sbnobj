@@ -2,7 +2,7 @@
 
   <class name="sbn::crt::CRTLayerHit"/>
   <class name="sbn::crt::CRTHit" ClassVersion="17">
-   <version ClassVersion="17" checksum="4142575823"/>
+   <version ClassVersion="17" checksum="571228775"/>
    <version ClassVersion="16" checksum="2855597518"/>
    <version ClassVersion="15" checksum="3264936168"/>
    <version ClassVersion="14" checksum="1503901052"/>
