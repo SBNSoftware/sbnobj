@@ -17,7 +17,7 @@
 #include <map>
 
 namespace sbn::crt {
-  
+
   struct CRTTrack{
 
     std::vector<uint8_t> feb_id;
@@ -27,11 +27,11 @@ namespace sbn::crt {
     double ts0_s_err;
     double ts0_ns;
     double ts0_ns_err;
-    double ts1_ns; 
-    double ts1_ns_err;                                                                                              
+    double ts1_ns;
+    double ts1_ns_err;
     int plane1;
     int plane2;
-                           
+
     float x1_pos;
     float x1_err;
     float y1_pos;
@@ -53,11 +53,11 @@ namespace sbn::crt {
     double ts0_ns_err_h2;
 
     bool complete;
-       
+
     CRTTrack() {}
-    
+
   };
-  
+
 } // namespace sbn::crt
 
 #endif
