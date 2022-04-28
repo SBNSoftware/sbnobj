@@ -22,17 +22,17 @@ namespace sbn::crt {
 
     struct CRTHit{
 
-      std::vector<uint8_t> feb_id; ///< FEB address 
+      std::vector<uint8_t> feb_id; ///< FEB address
       std::map< uint8_t, std::vector<std::pair<int,float> > > pesmap; ///< Saves signal hit information (FEB, local-channel and PE) .
       float         peshit; ///< Total photo-electron (PE) in a crt hit.
-     
+
       uint64_t       ts0_s; ///< Second-only part of timestamp T0.
       double    ts0_s_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
-      
+
       double        ts0_ns; ///< Timestamp T0 (from White Rabbit), in UTC absolute time scale in nanoseconds from the Epoch.
       double   ts0_ns_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
       double        ts1_ns; ///< Timestamp T1 ([signal time w.r.t. Trigger time]), in UTC absolute time scale in nanoseconds from the Epoch.
-     
+
       int            plane; ///< Name of the CRT wall (in the form of numbers).
 
       float          x_pos; ///< position in x-direction (cm).
