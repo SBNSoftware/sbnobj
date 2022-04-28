@@ -10,6 +10,7 @@ namespace sbn {
   namespace evwgh {
 
 void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, size_t nuni) {
+
   fName = name;
   fRWType = rwtype;
   fNuniverses = nuni;
@@ -20,6 +21,9 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
   else if (fRWType == kPMNSigma) {
     fNuniverses = 2;
   }
+  else if (fRWType == kMultisigma) {
+    fNuniverses = nuni;
+  }
   else if (fRWType == kFixed) {
     fNuniverses = 1;
   }
@@ -27,12 +31,15 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
     std::cerr << "EventWeightParameterSet: Unknown reweight type " << fRWType << std::endl;
     assert(false);
   }
+
 }
 
 
 void EventWeightParameterSet::Configure(std::string name, std::string rwtype_string, size_t nuni) {
+
   if (rwtype_string == "multisim") Configure(name, kMultisim, nuni);
   else if (rwtype_string == "pmNsigma") Configure(name, kPMNSigma);
+  else if (rwtype_string == "multisigma") Configure(name, kMultisigma, nuni);
   else if (rwtype_string == "fixed") Configure(name, kFixed);
   else {
     std::cerr << "EventWeightParameterSet: Unknown reweight type " << rwtype_string << std::endl;
@@ -47,6 +54,11 @@ void EventWeightParameterSet::AddParameter(
   fParameterMap.insert({ p, std::vector<float>() });
 }
 
+void EventWeightParameterSet::AddParameter(
+    std::string name, std::vector<float> widths, float mean, size_t covIndex) {
+  EventWeightParameter p(name, mean, widths, covIndex);
+  fParameterMap.insert({ p, std::vector<float>() });
+}
 
 void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
   if (fRWType == kDefault) {
@@ -69,6 +81,14 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
       else if (fRWType == kPMNSigma) {
         it.second.push_back(p.fMean + p.fWidth);
         it.second.push_back(p.fMean - p.fWidth);
+      }
+
+      else if (fRWType == kMultisigma) {
+
+        for(size_t j=0; j<p.fWidths.size(); j++){
+          it.second.push_back(p.fMean + p.fWidths.at(j));
+        }
+
       }
 
       else if (fRWType == kFixed) {

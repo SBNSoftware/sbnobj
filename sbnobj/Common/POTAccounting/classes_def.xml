@@ -5,6 +5,12 @@
    <version ClassVersion="11" checksum="3354055579"/>
    <version ClassVersion="10" checksum="13541"/>
   </class>
+  <class name="sbn::NuMISpillInfo" ClassVersion="13" >
+   <version ClassVersion="13" checksum="2749392018"/>
+   <version ClassVersion="12" checksum="1169010197"/>
+   <version ClassVersion="11" checksum="4062206176"/>
+   <version ClassVersion="10" checksum="3057205612"/>
+  </class>
   <class name="sbn::EXTCountInfo" ClassVersion="11">
    <version ClassVersion="11" checksum="2738807909"/>
    <version ClassVersion="10" checksum="1347272"/>
@@ -12,6 +18,9 @@
   <class name="std::vector<sbn::BNBSpillInfo>" />
   <class name="art::Wrapper<sbn::BNBSpillInfo>" />
   <class name="art::Wrapper<std::vector<sbn::BNBSpillInfo>>" />
+  <class name="std::vector<sbn::NuMISpillInfo>" />
+  <class name="art::Wrapper<sbn::NuMISpillInfo>" />
+  <class name="art::Wrapper<std::vector<sbn::NuMISpillInfo>>" />
   <class name="std::vector<sbn::EXTCountInfo>" />
   <class name="art::Wrapper<sbn::EXTCountInfo>" />
   <class name="art::Wrapper<std::vector<sbn::EXTCountInfo>>" />

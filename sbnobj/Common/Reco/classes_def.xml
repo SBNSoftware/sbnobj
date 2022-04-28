@@ -51,6 +51,17 @@
   <class name="art::Assns<sbn::SimpleFlashMatch,recob::PFParticle, void>" />
   <class name="art::Wrapper<art::Assns<sbn::SimpleFlashMatch, recob::PFParticle, void> >" />
 
+  <class name="sbn::CRUMBSResult" ClassVersion="10">
+   <version ClassVersion="10" checksum="1001500335"/>
+  </class>
+  <class name="std::vector<sbn::CRUMBSResult>" />
+  <class name="art::Wrapper<sbn::CRUMBSResult>" />
+  <class name="art::Wrapper<std::vector<sbn::CRUMBSResult>>" />
+  <class name="art::Assns<recob::Slice, sbn::CRUMBSResult>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::CRUMBSResult>>" />
+  <class name="art::Assns<sbn::CRUMBSResult,recob::Slice, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::CRUMBSResult, recob::Slice, void> >" />
+
   <class name="art::Assns<recob::Track, sbn::crt::CRTHit, anab::T0>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::crt::CRTHit, anab::T0>>" />
   <class name="art::Assns<recob::Track, sbn::crt::CRTHit, void>" />
