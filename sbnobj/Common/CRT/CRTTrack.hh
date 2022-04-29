@@ -20,8 +20,6 @@ namespace sbn::crt {
 
   struct CRTTrack{
 
-    std::vector<uint8_t> feb_id;
-    std::map< uint8_t, std::vector<std::pair<int,float> > > pesmap;
     float peshit; ///< Total photoelectrons for this track (sum of PEs from the two CRTHits)
     double ts0_s; ///< Average time (second) of the two hits making the track
     double ts0_s_err; ///< Average time (second) spread of the two hits making the track
