@@ -1,7 +1,13 @@
+/**
+ * \brief Dataproduct to store raw FEB data from the CRT
+ *
+ * \author Marco Del Tutto
+ */
+
 #ifndef SBND_FEBDATA_HH
 #define SBND_FEBDATA_HH
 
-#include <stdint.h> // uint32_t
+#include <stdint.h>
 #include <vector>
 #include <utility>
 #include <array>

@@ -54,4 +54,15 @@
  <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData, void> >"           />
  <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData,    void>"           />
  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData, void> >"           />
+
+
+ <!-- FEBTruthInfo  -->
+
+ <class name="sbnd::crt::FEBTruthInfo"/>
+ <class name="std::vector<sbnd::crt::FEBTruthInfo>"/>
+ <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    sbnd::crt::FEBTruthInfo>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, sbnd::crt::FEBTruthInfo> >"           />
+ <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    sbnd::crt::FEBTruthInfo>"           />
+ <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, sbnd::crt::FEBTruthInfo> >"           />
 </lcgdict>
+
