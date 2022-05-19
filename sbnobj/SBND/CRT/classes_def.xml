@@ -1,5 +1,8 @@
 <lcgdict>
-  <class name="sbnd::crt::CRTData" ClassVersion="13">
+
+   <!-- CRTData  -->
+
+   <class name="sbnd::crt::CRTData" ClassVersion="13">
    <version ClassVersion="13" checksum="2577240595"/>
    <version ClassVersion="12" checksum="4014796032"/>
    <version ClassVersion="11" checksum="3272996027"/>
@@ -29,4 +32,37 @@
  <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit,    void>"           />
  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit, void> >"           />
 
+
+
+ <!-- FEBData  -->
+
+ <class name="sbnd::crt::FEBData" ClassVersion="10">
+   <version ClassVersion="10" checksum="2102366268"/>
+  </class>
+  <class name="std::vector<sbnd::crt::FEBData>"/>
+  <class name="art::Wrapper<sbnd::crt::FEBData>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::FEBData> >"/>
+
+  <!-- associations  -->
+
+ <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, void> >"           />
+ <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, void> >"           />
+
+ <class name="art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData, void> >"           />
+ <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData, void> >"           />
+
+
+ <!-- FEBTruthInfo  -->
+
+ <class name="sbnd::crt::FEBTruthInfo"/>
+ <class name="std::vector<sbnd::crt::FEBTruthInfo>"/>
+ <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    sbnd::crt::FEBTruthInfo>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, sbnd::crt::FEBTruthInfo> >"           />
+ <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    sbnd::crt::FEBTruthInfo>"           />
+ <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, sbnd::crt::FEBTruthInfo> >"           />
 </lcgdict>
+
