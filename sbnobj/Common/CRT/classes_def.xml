@@ -19,7 +19,8 @@
   <class name="std::vector<sbn::crt::CRTTzero>"/>
   <class name="art::Wrapper< std::vector<sbn::crt::CRTTzero> >"/>
 
-  <class name="sbn::crt::CRTTrack" ClassVersion="11">
+  <class name="sbn::crt::CRTTrack" ClassVersion="12">
+   <version ClassVersion="12" checksum="197963098"/>
    <version ClassVersion="11" checksum="197963098"/>
    <version ClassVersion="10" checksum="3848331120"/>
   </class>

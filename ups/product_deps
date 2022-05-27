@@ -30,8 +30,8 @@ flcdir  product_dir     job
 # Add the dependent product and version
 
 product          version
-lardataobj       v09_07_00
-cetbuildtools    v8_19_02  -  only_for_build
+lardataobj       v09_07_01
+cetbuildtools    v8_20_00  -  only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
