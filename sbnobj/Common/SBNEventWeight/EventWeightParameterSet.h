@@ -21,9 +21,7 @@ struct EventWeightParameter {
 
   /** Constructor specifying all parameter properties. */
   EventWeightParameter(std::string name, float mean, float width, size_t covIndex=0)
-      : fName(name), fMean(mean), fWidth(width), fCovIndex(covIndex) {
-    fWidths.clear();
-  }
+      : fName(name), fMean(mean), fWidth(width), fCovIndex(covIndex) {}
 
   EventWeightParameter(std::string name, float mean, std::vector<float> widths, size_t covIndex=0)
       : fName(name), fMean(mean), fWidth(0), fCovIndex(covIndex), fWidths(widths) {}
