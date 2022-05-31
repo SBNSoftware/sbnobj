@@ -113,7 +113,7 @@ public:
   void AddParameter(std::string name, float width, float mean=0, size_t covIndex=0);
   void AddParameter(std::string name, std::vector<float> widths, float mean=0, size_t covIndex=0);
 
-  void FillKnowValues();
+  void FillKnobValues();
 
   /**
    * Specify a covariance matrix for correlated throws.

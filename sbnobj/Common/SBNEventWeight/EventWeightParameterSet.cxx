@@ -109,7 +109,7 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
   }
 }
 
-void EventWeightParameterSet::FillKnowValues() {
+void EventWeightParameterSet::FillKnobValues() {
 
   for (auto& it : fParameterMap) {
     const EventWeightParameter& p = it.first;
