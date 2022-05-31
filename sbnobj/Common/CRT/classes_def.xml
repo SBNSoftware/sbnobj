@@ -1,6 +1,7 @@
 <lcgdict>
 
-  <class name="sbn::crt::CRTHit" ClassVersion="16">
+  <class name="sbn::crt::CRTHit" ClassVersion="17">
+   <version ClassVersion="17" checksum="1557935027"/>
    <version ClassVersion="16" checksum="2855597518"/>
    <version ClassVersion="15" checksum="3264936168"/>
    <version ClassVersion="14" checksum="1503901052"/>
@@ -18,7 +19,9 @@
   <class name="std::vector<sbn::crt::CRTTzero>"/>
   <class name="art::Wrapper< std::vector<sbn::crt::CRTTzero> >"/>
 
-  <class name="sbn::crt::CRTTrack" ClassVersion="10">
+  <class name="sbn::crt::CRTTrack" ClassVersion="12">
+   <version ClassVersion="12" checksum="197963098"/>
+   <version ClassVersion="11" checksum="3493836226"/>
    <version ClassVersion="10" checksum="3848331120"/>
   </class>
   <class name="std::vector<sbn::crt::CRTTrack>"/>
