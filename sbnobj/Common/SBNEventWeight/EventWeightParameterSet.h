@@ -113,6 +113,8 @@ public:
   void AddParameter(std::string name, float width, float mean=0, size_t covIndex=0);
   void AddParameter(std::string name, std::vector<float> widths, float mean=0, size_t covIndex=0);
 
+  void FillKnowValues();
+
   /**
    * Specify a covariance matrix for correlated throws.
    *
@@ -138,7 +140,6 @@ public:
    * @param engine The random number generator engine to use for sampling.
    */
   void Sample(CLHEP::HepRandomEngine& engine);
-  void Sample();
 
 public:
   std::map<EventWeightParameter, std::vector<float> > fParameterMap;  //!< Mapping of definitions to the set of values

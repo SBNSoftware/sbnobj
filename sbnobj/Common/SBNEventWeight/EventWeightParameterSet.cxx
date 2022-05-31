@@ -109,24 +109,13 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
   }
 }
 
-void EventWeightParameterSet::Sample() {
+void EventWeightParameterSet::FillKnowValues() {
 
-  // No covariance matrix, uncorrelated sampling
-  if (!fCovarianceMatrix) {
-    for (auto& it : fParameterMap) {
-      const EventWeightParameter& p = it.first;
-
-      for(size_t j=0; j<p.fWidths.size(); j++){
-        it.second.push_back(p.fMean + p.fWidths.at(j));
-      }
-
+  for (auto& it : fParameterMap) {
+    const EventWeightParameter& p = it.first;
+    for(size_t j=0; j<p.fWidths.size(); j++){
+      it.second.push_back(p.fMean + p.fWidths.at(j));
     }
-  }
-
-  // Multivariate Gaussian sampling
-  else {
-    std::cerr << "EventWeightParameterSet: Multivariate Gaussian sampling is not implemented." << std::endl;
-    assert(false);
   }
 
 }
