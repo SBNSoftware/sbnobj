@@ -257,6 +257,7 @@ namespace sbn {
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
     float t0; //!< T0 of track [us]
+    int whicht0; //!< Which T0 producer was used to tag
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
     bool clear_cosmic_muon; //!< Whether Pandora thinks the track is "clearly" a cosmic
@@ -296,6 +297,9 @@ namespace sbn {
 
     std::vector<float> tracks_near_end_dist; //!< List of tracks near the end of this track
     std::vector<float> tracks_near_end_costh; //!< List of tracks near the end of this track
+
+    std::vector<float> tracks_near_start_dist; //!< List of tracks near the start of this track
+    std::vector<float> tracks_near_start_costh; //!< List of tracks near the start of this track
 
     std::vector<HitInfo> endhits; //!< List of hits near the endpoint of the track on the collection plane
 
