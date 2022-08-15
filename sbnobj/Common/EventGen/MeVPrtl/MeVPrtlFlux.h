@@ -15,6 +15,7 @@ public:
   TLorentzVector mom_beamcoord;
   TLorentzVector sec;
   TLorentzVector sec_beamcoord;
+  double equiv_enu;
   double C1;
   double C2;
   double C3;

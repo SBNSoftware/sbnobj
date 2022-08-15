@@ -24,6 +24,7 @@ public:
   TLorentzVector mevprtl_mom_beamcoord;
   TLorentzVector mevprtl_mom;
   TLorentzVector mevprtl_start;
+  double equiv_enu;
   TVector3 mevprtl_enter;
   TVector3 mevprtl_exit;
   TLorentzVector decay_pos;
