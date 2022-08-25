@@ -14,6 +14,10 @@ namespace sbn {
   public:
 
     int gates_since_last_trigger;
+    bool isBNBOffBeam;
+    bool isNuMIOffBeam;
+    bool isMajority;
+    bool isMinBias;
 
   };
 } // end namespace sbn
