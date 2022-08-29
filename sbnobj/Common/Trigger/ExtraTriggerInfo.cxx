@@ -19,20 +19,19 @@ namespace {
   
   // ---------------------------------------------------------------------------
   template <typename T = std::uint64_t>
-    struct TimestampDumper { T timestamp; };
+  struct TimestampDumper { T timestamp; };
   
   template <typename T>
-    TimestampDumper<T> dumpTimestamp(T timestamp)
+  TimestampDumper<T> dumpTimestamp(T timestamp)
     { return { timestamp }; }
   
   template <typename T>
-    std::ostream& operator<< (std::ostream& out, TimestampDumper<T> wrapper) {
+  std::ostream& operator<< (std::ostream& out, TimestampDumper<T> wrapper) {
     T const timestamp = wrapper.timestamp;
-    //std::uint64_t const timestamp = wrapper.timestamp;
     if (sbn::ExtraTriggerInfo::isValidTimestamp(timestamp)) {
       out << (timestamp / 1'000'000'000) << "."
         << std::setfill('0') << std::setw(9) << (timestamp % 1'000'000'000)
-	  << " s";
+        << " s";
     }
     else out << "<n/a>";
     return out;
@@ -122,43 +121,43 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
   // quite a load:
   out
     <<   "trigger ID=" << dumpTriggerID(info.triggerID) << " from source "
-    << name(info.sourceType)
-    << " at " << dumpTimestamp(info.triggerTimestamp)
-    << " on beam gate ID=" << dumpTriggerID(info.gateID)
-    << " at " << dumpTimestamp(info.beamGateTimestamp)
+      << name(info.sourceType)
+      << " at " << dumpTimestamp(info.triggerTimestamp)
+      << " on beam gate ID=" << dumpTriggerID(info.gateID)
+      << " at " << dumpTimestamp(info.beamGateTimestamp)
       << " (diff: "
-    << timestampDiff(info.beamGateTimestamp, info.triggerTimestamp) << " ns)"
+      << timestampDiff(info.beamGateTimestamp, info.triggerTimestamp) << " ns)"
     << "\n"
     << "enable gate opened at " << dumpTimestamp(info.enableGateTimestamp)
     << " (" << timestampDiff(info.beamGateTimestamp, info.enableGateTimestamp)
     << " ns before the gate)"
     << "\n"
       << "counts from this source: trigger="
-    << dumpTriggerCount(info.triggerCount)
-    << " beam=" << dumpTriggerCount(info.gateCount)
+        << dumpTriggerCount(info.triggerCount)
+      << " beam=" << dumpTriggerCount(info.gateCount)
     << "\n"
       << "previous trigger from this source at "
-    << dumpTimestamp(info.previousTriggerTimestamp)
+      << dumpTimestamp(info.previousTriggerTimestamp)
       << ", triggers since: "
-    << dumpTriggerCount(info.anyTriggerCountFromPreviousTrigger)
+      << dumpTriggerCount(info.anyTriggerCountFromPreviousTrigger)
       << ", gates since: "
-    << dumpTriggerCount(info.anyGateCountFromPreviousTrigger)
+      << dumpTriggerCount(info.anyGateCountFromPreviousTrigger)
       << " ("
-    << dumpTriggerCount(info.gateCountFromPreviousTrigger)
+      << dumpTriggerCount(info.gateCountFromPreviousTrigger)
       << " from this same source)"
     << "\n"
       << "most recent trigger was from source "
-    << name(info.anyPreviousTriggerSourceType) << " at "
-    << dumpTimestamp(info.anyPreviousTriggerTimestamp)
+      << name(info.anyPreviousTriggerSourceType) << " at "
+      << dumpTimestamp(info.anyPreviousTriggerTimestamp)
     ;
   if (sbn::ExtraTriggerInfo::isValidTimestamp(info.anyPreviousTriggerTimestamp)
-      && sbn::ExtraTriggerInfo::isValidTimestamp(info.triggerTimestamp))
-    {
+    && sbn::ExtraTriggerInfo::isValidTimestamp(info.triggerTimestamp))
+  {
     out
       << " ("
       << dumpTimestamp(info.triggerTimestamp - info.anyPreviousTriggerTimestamp)
       << " earlier)";
-    }
+  }
   out
       << ", and "
       << dumpTriggerCount(info.anyGateCountFromAnyPreviousTrigger)
@@ -166,7 +165,7 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
     ;
   if (info.WRtimeToTriggerTime != ExtraTriggerInfo::UnknownCorrection) {
     out << "\nCorrection applied to the timestamps: "
-	<< dumpTimestamp(info.WRtimeToTriggerTime);
+      << dumpTimestamp(info.WRtimeToTriggerTime);
   }
   if (info.triggerLocationBits != 0) {
     out << "\nLocation(s) of trigger:";
@@ -204,3 +203,6 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
   
   return out;
 } // sbn::operator<< (ExtraTriggerInfo)
+
+
+// -----------------------------------------------------------------------------

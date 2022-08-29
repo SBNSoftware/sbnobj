@@ -255,20 +255,20 @@ struct sbn::ExtraTriggerInfo {
   
   /// Returns whether this object contains any valid information.
   constexpr bool isValid() const noexcept
-  { return sourceType != sbn::triggerSource::NBits; }
+    { return sourceType != sbn::triggerSource::NBits; }
   
   
   /// Returns whether the specified `ID` is valid (i.e. is not `NoID`).
   static constexpr bool isValidID(unsigned int ID) noexcept
-  { return ID != NoID; }
+    { return ID != NoID; }
   
   /// Returns whether the timestamp `ts` is valid (i.e. is not `NoTimestamp`).
   static constexpr bool isValidTimestamp(std::uint64_t ts) noexcept
-  { return ts != NoTimestamp; }
+    { return ts != NoTimestamp; }
   
   /// Returns whether the `count` is valid (i.e. is not `0`).
   static constexpr bool isValidCount(unsigned int count) noexcept
-  { return count != 0U; }
+    { return count != 0U; }
   
   
 }; // sbn::ExtraTriggerInfo
