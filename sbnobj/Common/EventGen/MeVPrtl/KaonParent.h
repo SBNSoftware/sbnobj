@@ -10,7 +10,8 @@ namespace ldm {
 class KaonParent {
 public:
   TLorentzVector pos;
-  TLorentzVector mom;
+  TLorentzVector mom; //decay momentum
+  TLorentzVector pmom; //production momentum
   int kaon_pdg;
   double weight;
   int mode;

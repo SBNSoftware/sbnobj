@@ -9,6 +9,7 @@ class MeVPrtlFlux {
 public:
   TLorentzVector pos_beamcoord;
   TLorentzVector pos;
+  TLorentzVector kpmom_beamcoord; //kaon production mom
   TLorentzVector kmom_beamcoord;
   TLorentzVector kmom;
   TLorentzVector mom;

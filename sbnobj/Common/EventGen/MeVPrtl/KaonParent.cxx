@@ -49,8 +49,10 @@ evgen::ldm::KaonParent::KaonParent(const simb::MCFlux &flux) {
   // this gives precise results to 6 digits up to the energies relevant for numi (50GeV),
   // provided one uses doubles.
   double mass = sqrt(flux.fppenergy*flux.fppenergy - production_momentum*production_momentum);
-
-  mom.SetVectM(TVector3(flux.fpdpx, flux.fpdpy, flux.fpdpz), mass);
+  double apppz = flux.fpppz > 1.0e-30 ? flux.fpppz : 1.0e-30;
+  
+  pmom.SetPxPyPzE(flux.fppdxdz*apppz, flux.fppdydz*apppz, flux.fpppz, flux.fppenergy);
+  mom.SetVectM(TVector3(flux.fpdpx, flux.fpdpy, flux.fpdpz), mass); //momentum at decay position
 
   weight = flux.fnimpwt;
 }
