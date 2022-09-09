@@ -6,4 +6,4 @@ add_subdirectory(Reco)
 add_subdirectory(SBNEventWeight)
 add_subdirectory(POTAccounting)
 add_subdirectory(EventGen)
-
+add_subdirectory(Trigger)
