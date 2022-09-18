@@ -824,7 +824,9 @@ std::ostream& icarus::trigger::operator<<
   }
   else {
     auto current = iStatus->opening;
-    out << " opened at " << iStatus->tick;
+    out << " opened";
+    if (current > 1) out << " with " << current;
+    out << " at " << iStatus->tick;
     while (++iStatus != send) {
       if (iStatus->opening == current) continue;
       if ((current == 0) && (iStatus->opening > current)) {
