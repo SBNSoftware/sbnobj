@@ -1,11 +1,17 @@
 #include "sbnobj/Common/Reco/CRUMBSResult.h"
 
-sbn::CRUMBSResult::CRUMBSResult(float score, float tpc_CRFracHitsInLongestTrack, float tpc_CRLongestTrackDeflection, float tpc_CRLongestTrackDirY,
+sbn::CRUMBSResult::CRUMBSResult(float score, float ccnumuscore, float ccnuescore, float ncscore, float bestscore, int bestid, 
+				float tpc_CRFracHitsInLongestTrack, float tpc_CRLongestTrackDeflection, float tpc_CRLongestTrackDirY,
 				int tpc_CRNHitsMax, float tpc_NuEigenRatioInSphere, int tpc_NuNFinalStatePfos, int tpc_NuNHitsTotal,
 				int tpc_NuNSpacePointsInSphere, float tpc_NuVertexY, float tpc_NuWeightedDirZ, float tpc_StoppingChi2CosmicRatio,
 				float pds_FMTotalScore, float pds_FMPE, float pds_FMTime, float crt_TrackScore, float crt_HitScore,
 				float crt_TrackTime, float crt_HitTime)
   : score(score)
+  , ccnumuscore(ccnumuscore)
+  , ccnuescore(ccnuescore)
+  , ncscore(ncscore)
+  , bestscore(bestscore)
+  , bestid(bestid)
   , tpc_CRFracHitsInLongestTrack(tpc_CRFracHitsInLongestTrack)
   , tpc_CRLongestTrackDeflection(tpc_CRLongestTrackDeflection)
   , tpc_CRLongestTrackDirY(tpc_CRLongestTrackDirY)
