@@ -51,7 +51,8 @@
   <class name="art::Assns<sbn::SimpleFlashMatch,recob::PFParticle, void>" />
   <class name="art::Wrapper<art::Assns<sbn::SimpleFlashMatch, recob::PFParticle, void> >" />
 
-  <class name="sbn::CRUMBSResult" ClassVersion="10">
+  <class name="sbn::CRUMBSResult" ClassVersion="11">
+   <version ClassVersion="11" checksum="2038758639"/>
    <version ClassVersion="10" checksum="1001500335"/>
   </class>
   <class name="std::vector<sbn::CRUMBSResult>" />
