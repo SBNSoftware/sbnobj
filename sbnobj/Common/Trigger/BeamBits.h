@@ -98,9 +98,9 @@ namespace sbn {
       Unknown,     ///< Type of beam unknown.
       BNB,         ///< Type of beam: BNB.
       NuMI,        ///< Type of beam: NuMI.
-      OffbeamBNB,  ///< Type of Offbeam: BNB
-      OffbeamNuMI, ///< Type of Offbeam: NuMI
-      Calib,     ///< Type of Offbeam: Calibration
+      OffbeamBNB,  ///< Type of Offbeam: BNB.
+      OffbeamNuMI, ///< Type of Offbeam: NuMI.
+      Calib,       ///< Type of source: calibration trigger.
       // ==> add here if more are needed <==
       NBits    ///< Number of bits currently supported.
     }; // triggerSource
