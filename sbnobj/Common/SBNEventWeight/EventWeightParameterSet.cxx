@@ -109,6 +109,19 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
   }
 }
 
+void EventWeightParameterSet::FillKnobValues() {
+
+  for (auto& it : fParameterMap) {
+    const EventWeightParameter& p = it.first;
+    for(size_t j=0; j<p.fWidths.size(); j++){
+      it.second.push_back(p.fMean + p.fWidths.at(j));
+    }
+  }
+
+}
+
+
+
   }  // namespace evwgh
 }  // namespace sbn
 
