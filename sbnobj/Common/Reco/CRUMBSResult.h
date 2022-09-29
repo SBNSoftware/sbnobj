@@ -20,7 +20,7 @@ namespace sbn {
 		 float pds_FMTotalScore = default_float, float pds_FMPE = default_float, float pds_FMTime = default_float, float crt_TrackScore = default_float, 
 		 float crt_HitScore = default_float, float crt_TrackTime = default_float, float crt_HitTime = default_float);
     
-    float score;                         //!< CRUMBS result
+    float score;                         //!< CRUMBS result, for inclusive neutrino signal
     float ccnumuscore;                   //!< CRUMBS result, for CCNuMu signal
     float ccnuescore;                    //!< CRUMBS result, for CCNuE signal
     float ncscore;                       //!< CRUMBS result, for NC signal
