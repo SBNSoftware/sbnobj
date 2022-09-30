@@ -21,5 +21,8 @@
   <class name="sbnd::trigger::pmtInfo"/>
   <class name="art::Wrapper<sbnd::trigger::pmtInfo>"/>
   <class name="std::vector<sbnd::trigger::pmtInfo>"/>
-  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtInfo> >"/>  
+  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtInfo> >"/>
+
+  <class name="sbndaq::CRTmetric"/>
+  <class name="art::Wrapper<sbndaq::CRTmetric>"/>
 </lcgdict>
