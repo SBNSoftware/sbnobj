@@ -55,6 +55,10 @@
  <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData,    void>"           />
  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData, void> >"           />
 
+ <class name="art::Assns<sbn::crt::CRTHit, sbnd::crt::FEBData,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbnd::crt::FEBData, void> >"           />
+ <class name="art::Assns<sbnd::crt::FEBData, sbn::crt::CRTHit,    void>"           />
+ <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbn::crt::CRTHit, void> >"           />
 
  <!-- FEBTruthInfo  -->
 
