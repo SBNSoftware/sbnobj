@@ -12,6 +12,7 @@
 #ifndef CRTHit_hh_
 #define CRTHit_hh_
 
+#include "TVector3.h"
 #include <cstdint>
 #include <vector>
 #include <map>
@@ -45,6 +46,19 @@ namespace sbn::crt {
       std::string   tagger; ///< Name of the CRT wall (in the form of strings).
 
       CRTHit() {}
+      CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const uint32_t &_t0, const uint32_t &_t1, const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger)
+	: feb_id(_feb_id)
+	, peshit(_pe)
+	, ts0_ns(_t0)
+	, ts1_ns(_t1)
+	, x_pos(_pos.X())
+	, x_err(_err.X())
+	, y_pos(_pos.Y())
+	, y_err(_err.Y())
+	, z_pos(_pos.Z())
+	, z_err(_err.Z())
+	, tagger(_tagger)
+      {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
       int64_t ts1() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts1_ns); }
