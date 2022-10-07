@@ -2,7 +2,8 @@
   <enum name="evgen::ldm::Generator" ClassVersion="10"/>
   <class name="art::Wrapper<evgen::ldm::Generator>" />
 
-  <class name="evgen::ldm::MeVPrtlTruth" ClassVersion="12" >
+  <class name="evgen::ldm::MeVPrtlTruth" ClassVersion="13" >
+   <version ClassVersion="13" checksum="595941781"/>
    <version ClassVersion="12" checksum="3242977751"/>
    <version ClassVersion="11" checksum="2512756796"/>
    <version ClassVersion="10" checksum="798032546"/>
@@ -20,7 +21,8 @@
   <class name="art::Wrapper<evgen::ldm::MeVPrtlDecay>" />
   <class name="art::Wrapper<std::vector<evgen::ldm::MeVPrtlDecay>>" />
 
-  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="11" >
+  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="12" >
+   <version ClassVersion="12" checksum="58715042"/>
    <version ClassVersion="11" checksum="2679592796"/>
    <version ClassVersion="10" checksum="2168957026"/>
   </class>
