@@ -31,7 +31,7 @@ namespace sbn::crt {
       double    ts0_s_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
 
       double        ts0_ns; ///< Timestamp T0 (from White Rabbit), in UTC absolute time scale in nanoseconds from the Epoch.
-      double   ts0_ns_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
+      double   ts0_ns_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]         Used as a placeholder for the t1 difference between strips (Henry 10.10.2022)
       double        ts1_ns; ///< Timestamp T1 ([signal time w.r.t. Trigger time]), in UTC absolute time scale in nanoseconds from the Epoch.
 
       int            plane; ///< Name of the CRT wall (in the form of numbers).
@@ -44,13 +44,17 @@ namespace sbn::crt {
       float          z_err; ///< position uncertainty in z-direction (cm).
 
       std::string   tagger; ///< Name of the CRT wall (in the form of strings).
+      uint32_t    channel0; ///< SiPM channel from one of the SiPMs in strip 0.
+      uint32_t    channel1; ///< SiPM channel from one of the SiPMs in strips1 1.
 
       CRTHit() {}
-      CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const uint32_t &_t0, const uint32_t &_t1, const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger)
+      CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, 
+	     const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger, const uint32_t &_channel0, const uint32_t &_channel1)
 	: feb_id(_feb_id)
 	, peshit(_pe)
 	, ts0_ns(_t0)
 	, ts1_ns(_t1)
+	, ts0_ns_corr(_diff)
 	, x_pos(_pos.X())
 	, x_err(_err.X())
 	, y_pos(_pos.Y())
