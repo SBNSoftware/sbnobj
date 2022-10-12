@@ -16,8 +16,8 @@ namespace sbn {
     int gates_since_last_trigger;
     bool isBNBOffBeam;
     bool isNuMIOffBeam;
-    bool isMajority;
-    bool isMinBias;
+    bool isMajority; //< Does trigger pass scintillation-based trigger?
+    bool isMinBias;  //< Is this a non-scintillation-based trigger?
 
   };
 } // end namespace sbn
