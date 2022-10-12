@@ -36,7 +36,8 @@
 
  <!-- FEBData  -->
 
- <class name="sbnd::crt::FEBData" ClassVersion="10">
+ <class name="sbnd::crt::FEBData" ClassVersion="11">
+  <version ClassVersion="11" checksum="3560291659"/>
    <version ClassVersion="10" checksum="2102366268"/>
   </class>
   <class name="std::vector<sbnd::crt::FEBData>"/>
