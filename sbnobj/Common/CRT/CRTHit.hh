@@ -48,10 +48,11 @@ namespace sbn::crt {
       uint32_t    channel1; ///< SiPM channel from one of the SiPMs in strips1 1.
 
       CRTHit() {}
-      CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, 
+      CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, const uint64_t _ts0_s,
 	     const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger, const uint32_t &_channel0, const uint32_t &_channel1)
 	: feb_id(_feb_id)
 	, peshit(_pe)
+	, ts0_s(_ts0_s)
 	, ts0_ns(_t0)
 	, ts0_ns_corr(_diff)
 	, ts1_ns(_t1)
