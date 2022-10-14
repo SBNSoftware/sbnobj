@@ -1,6 +1,6 @@
 cet_make(
   LIBRARIES
-    ${ROOT_BASIC_LIB_LIST}	
+    ROOT::Core
   NO_DICTIONARY
 )
 
