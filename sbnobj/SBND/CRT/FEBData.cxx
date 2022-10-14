@@ -28,16 +28,6 @@ namespace crt{
   , fCoinc(coinc)
   {}
 
-  FEBData::FEBData(uint16_t mac5, uint32_t ts0, uint32_t ts1, adc_array_t ADC, uint32_t coinc)
-  : fMac5(mac5)
-  , fFlags(0)
-  , fTs0(ts0)
-  , fTs1(ts1)
-  , fUnixS(0)
-  , fADC(ADC)
-  , fCoinc(coinc)
-  {}
-
   FEBData::~FEBData() {}
 
   uint16_t FEBData::Mac5() const
