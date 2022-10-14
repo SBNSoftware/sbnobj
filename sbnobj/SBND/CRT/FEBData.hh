@@ -48,17 +48,6 @@ namespace sbnd::crt {
      */
     FEBData(uint16_t mac5, uint16_t flags, uint32_t ts0, uint32_t ts1, uint32_t unixs, adc_array_t ADC, uint32_t coinc);
 
-    /**
-     * Constructor to set all OLD parameters and default set newer ones                         /////THIS SHOULD BE REMOVED ONCE ALL USES ARE UPDATED
-     *
-     * @param mac5 The ID of the CRT module (FEB).
-     * @param ts0 The value of the t0 counter.
-     * @param ts1 The value of the t1 counter.
-     * @param ADC The 32-size array with ADC values.
-     * @param coinc The ID of the strip that fired the trigger.
-     */
-    FEBData(uint16_t mac5, uint32_t ts0, uint32_t ts1, adc_array_t ADC, uint32_t coinc);
-
     virtual ~FEBData();
 
     /**
