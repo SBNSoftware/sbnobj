@@ -1,4 +1,3 @@
-find_package(dk2nudata REQUIRED)
 
 cet_make(
   LIBRARIES

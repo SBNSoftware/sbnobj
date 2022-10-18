@@ -13,7 +13,7 @@
 # ======================================================================
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-find_package(cetmodules 2.29.02 REQUIRED)
+find_package(cetmodules 3.19.02 REQUIRED)
 project(sbnobj VERSION 09.14.10 LANGUAGES CXX)
 
 message(STATUS
@@ -36,15 +36,16 @@ cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
 # these are minimum required versions, not the actual product versions
 find_package( messagefacility REQUIRED )
-find_package( canvas REQUIRED)
-find_package( larcoreobj REQUIRED)
-find_package( lardataobj REQUIRED)
-find_package( larcorealg REQUIRED)
-find_package( lardataalg REQUIRED)
-find_package( nusimdata REQUIRED)
-find_package( Boost COMPONENTS system)
-find_package( ROOT REQUIRED)
-find_package( CLHEP REQUIRED)
+find_package( canvas REQUIRED )
+find_package( larcoreobj REQUIRED )
+find_package( lardataobj REQUIRED )
+find_package( larcorealg REQUIRED )
+find_package( lardataalg REQUIRED )
+find_package( nusimdata REQUIRED )
+find_package( Boost COMPONENTS system )
+find_package( ROOT REQUIRED )
+find_package( CLHEP REQUIRED )
+find_package( dk2nudata REQUIRED )
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
