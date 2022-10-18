@@ -63,6 +63,8 @@ namespace sbn::crt {
 	, z_pos(_pos.Z())
 	, z_err(_err.Z())
 	, tagger(_tagger)
+	, channel0(_channel0)
+	, channel1(_channel1)
       {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
