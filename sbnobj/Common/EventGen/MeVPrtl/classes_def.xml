@@ -2,7 +2,8 @@
   <enum name="evgen::ldm::Generator" ClassVersion="10"/>
   <class name="art::Wrapper<evgen::ldm::Generator>" />
 
-  <class name="evgen::ldm::MeVPrtlTruth" ClassVersion="13" >
+  <class name="evgen::ldm::MeVPrtlTruth" ClassVersion="14" >
+   <version ClassVersion="14" checksum="2705813761"/>
    <version ClassVersion="13" checksum="595941781"/>
    <version ClassVersion="12" checksum="3242977751"/>
    <version ClassVersion="11" checksum="2512756796"/>
@@ -21,7 +22,8 @@
   <class name="art::Wrapper<evgen::ldm::MeVPrtlDecay>" />
   <class name="art::Wrapper<std::vector<evgen::ldm::MeVPrtlDecay>>" />
 
-  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="12" >
+  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="13" >
+   <version ClassVersion="13" checksum="2581972823"/>
    <version ClassVersion="12" checksum="58715042"/>
    <version ClassVersion="11" checksum="2679592796"/>
    <version ClassVersion="10" checksum="2168957026"/>
@@ -30,10 +32,11 @@
   <class name="art::Wrapper<evgen::ldm::MeVPrtlFlux>" />
   <class name="art::Wrapper<std::vector<evgen::ldm::MeVPrtlFlux>>" />
 
-  <class name="evgen::ldm::KaonParent" ClassVersion="10" >
+  <class name="evgen::ldm::MesonParent" ClassVersion="11" >
+   <version ClassVersion="11" checksum="1463265797"/>
    <version ClassVersion="10" checksum="3560353853"/>
   </class>
-  <class name="std::vector<evgen::ldm::KaonParent>" />
-  <class name="art::Wrapper<evgen::ldm::KaonParent>" />
-  <class name="art::Wrapper<std::vector<evgen::ldm::KaonParent>>" />
+  <class name="std::vector<evgen::ldm::MesonParent>" />
+  <class name="art::Wrapper<evgen::ldm::MesonParent>" />
+  <class name="art::Wrapper<std::vector<evgen::ldm::MesonParent>>" />
 </lcgdict>

@@ -9,8 +9,8 @@ class MeVPrtlFlux {
 public:
   TLorentzVector pos_beamcoord;
   TLorentzVector pos;
-  TLorentzVector kmom_beamcoord;
-  TLorentzVector kmom;
+  TLorentzVector mmom_beamcoord;
+  TLorentzVector mmom;
   TLorentzVector mom;
   TLorentzVector mom_beamcoord;
   TLorentzVector sec;
@@ -22,7 +22,7 @@ public:
   double C4;
   double C5;
   double mass;
-  int kaon_pdg;
+  int meson_pdg;
   int secondary_pdg;
   int generator;
 
