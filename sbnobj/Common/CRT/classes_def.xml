@@ -1,6 +1,7 @@
 <lcgdict>
 
-  <class name="sbn::crt::CRTHit" ClassVersion="18">
+  <class name="sbn::crt::CRTHit" ClassVersion="19">
+   <version ClassVersion="19" checksum="1207005573"/>
    <version ClassVersion="18" checksum="2729948134"/>
    <version ClassVersion="17" checksum="1557935027"/>
    <version ClassVersion="16" checksum="2855597518"/>
