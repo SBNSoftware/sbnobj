@@ -18,6 +18,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include <iostream>
 
 namespace sbn::crt {
 
@@ -47,9 +48,13 @@ namespace sbn::crt {
       uint32_t    channel0; ///< SiPM channel from one of the SiPMs in strip 0.
       uint32_t    channel1; ///< SiPM channel from one of the SiPMs in strips1 1.
 
+      std::array<uint16_t, 4> raw_adcs; ///< The 4 ADC values contributing to the 3D hit (pedestal subtracted)
+      std::array<uint16_t, 4>     adcs; ///< The 4 ADC values contributing to the 3D hit, following corrections for attenuation along strip
+
       CRTHit() {}
       CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, const uint64_t _ts0_s,
-	     const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger, const uint32_t &_channel0, const uint32_t &_channel1)
+	     const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger, const uint32_t &_channel0, const uint32_t &_channel1, const std::array<uint16_t, 4> _raw_adcs,
+	     const std::array<uint16_t, 4> _adcs)
 	: feb_id(_feb_id)
 	, peshit(_pe)
 	, ts0_s(_ts0_s)
@@ -65,11 +70,12 @@ namespace sbn::crt {
 	, tagger(_tagger)
 	, channel0(_channel0)
 	, channel1(_channel1)
+	, raw_adcs(_raw_adcs)
+	, adcs(_adcs)
       {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
       int64_t ts1() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts1_ns); }
-
     };
 
 } // namespace sbn::crt
