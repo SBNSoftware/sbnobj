@@ -16,12 +16,10 @@ namespace sbnd {
       , err          (0)
       , adc1         (0)
       , adc2         (0)
-      , xyz          (0, 0, 0)
-      , exyz         (0, 0, 0)
     {}
 
     CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
-			     double _err, uint16_t _adc1, uint16_t _adc2, TVector3 _xyz, TVector3 _exyz)
+			     double _err, uint16_t _adc1, uint16_t _adc2)
       : channel      (_channel)
       , ts0          (_ts0)
       , ts1          (_ts1)
@@ -30,8 +28,6 @@ namespace sbnd {
       , err          (_err)
       , adc1         (_adc1)
       , adc2         (_adc2)
-      , xyz          (_xyz)
-      , exyz         (_exyz)
     {}
 
     CRTStripHit::~CRTStripHit() {}
@@ -44,8 +40,6 @@ namespace sbnd {
     double   CRTStripHit::Error() const { return err; }
     uint16_t CRTStripHit::ADC1() const { return adc1; }
     uint16_t CRTStripHit::ADC2() const { return adc2; }
-    TVector3 CRTStripHit::XYZ() const { return xyz; }
-    TVector3 CRTStripHit::XYZ_Error() const { return exyz; }
   }
 }
 

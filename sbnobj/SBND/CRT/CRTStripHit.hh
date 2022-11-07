@@ -11,7 +11,6 @@
 #define SBND_CRTSTRIPHIT_HH
 
 #include <stdint.h>
-#include "TVector3.h"
 
 namespace sbnd::crt {
 
@@ -25,15 +24,13 @@ namespace sbnd::crt {
     double   err;          // Error on lateral position [cm]
     uint16_t adc1;         // ADC 1st SiPM
     uint16_t adc2;         // ADC 2nd SiPM
-    TVector3 xyz;          // Global position [cm]
-    TVector3 exyz;         // Global position error [cm]
 
   public:
 
     CRTStripHit();
     
     CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
-		double _err, uint16_t _adc1, uint16_t _adc2, TVector3 _xyz, TVector3 _exyz);
+		double _err, uint16_t _adc1, uint16_t _adc2);
 
     virtual ~CRTStripHit();
 
@@ -45,8 +42,6 @@ namespace sbnd::crt {
     double   Error() const;
     uint16_t ADC1() const;
     uint16_t ADC2() const;
-    TVector3 XYZ() const;
-    TVector3 XYZ_Error() const;
   };
 }
 
