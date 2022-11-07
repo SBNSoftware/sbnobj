@@ -37,16 +37,16 @@ namespace sbnd::crt {
 
     virtual ~CRTStripHit();
 
-    uint32_t Channel();
-    uint32_t Ts0();
-    uint32_t Ts1();
-    uint32_t UnixS();
-    double   Pos();
-    double   Error();
-    uint16_t ADC1();
-    uint16_t ADC2();
-    TVector3 XYZ();
-    TVector3 XYZ_Error();
+    uint32_t Channel() const;
+    uint32_t Ts0() const;
+    uint32_t Ts1() const;
+    uint32_t UnixS() const;
+    double   Pos() const;
+    double   Error() const;
+    uint16_t ADC1() const;
+    uint16_t ADC2() const;
+    TVector3 XYZ() const;
+    TVector3 XYZ_Error() const;
   };
 }
 

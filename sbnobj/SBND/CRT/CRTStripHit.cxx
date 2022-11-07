@@ -36,16 +36,16 @@ namespace sbnd {
 
     CRTStripHit::~CRTStripHit() {}
 
-    uint32_t CRTStripHit::Channel() { return channel; }
-    uint32_t CRTStripHit::Ts0() { return ts0; }
-    uint32_t CRTStripHit::Ts1() { return ts1; }
-    uint32_t CRTStripHit::UnixS() { return s; }
-    double   CRTStripHit::Pos() { return pos; }
-    double   CRTStripHit::Error() { return err; }
-    uint16_t CRTStripHit::ADC1() { return adc1; }
-    uint16_t CRTStripHit::ADC2() { return adc2; }
-    TVector3 CRTStripHit::XYZ() { return xyz; }
-    TVector3 CRTStripHit::XYZ_Error() { return exyz; }
+    uint32_t CRTStripHit::Channel() const { return channel; }
+    uint32_t CRTStripHit::Ts0() const { return ts0; }
+    uint32_t CRTStripHit::Ts1() const { return ts1; }
+    uint32_t CRTStripHit::UnixS() const { return s; }
+    double   CRTStripHit::Pos() const { return pos; }
+    double   CRTStripHit::Error() const { return err; }
+    uint16_t CRTStripHit::ADC1() const { return adc1; }
+    uint16_t CRTStripHit::ADC2() const { return adc2; }
+    TVector3 CRTStripHit::XYZ() const { return xyz; }
+    TVector3 CRTStripHit::XYZ_Error() const { return exyz; }
   }
 }
 
