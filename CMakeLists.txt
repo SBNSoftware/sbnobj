@@ -11,21 +11,16 @@
 #  make install
 #  make package (builds distribution tarfile)
 # ======================================================================
-
-
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-project(sbnobj VERSION 09.14.12 LANGUAGES CXX)
+find_package(cetmodules 3.20.00 REQUIRED)
+project(sbnobj VERSION 09.14.12.01 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
   "\n-- === *** Start of configuration of ${PROJECT_NAME} ***"
   "\n-- ===")
 
-# cetbuildtools contains our cmake modules
-find_package(cetbuildtools REQUIRED)
-
-list(APPEND CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -37,18 +32,20 @@ cet_set_compiler_flags(DIAGS CAUTIOUS
   EXTRA_CXX_FLAGS -Wno-unused-local-typedefs
 )
 
-cet_report_compiler_flags()
+cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
 # these are minimum required versions, not the actual product versions
-find_ups_product( canvas )
-find_ups_product( larcoreobj )
-find_ups_product( lardataobj )
-find_ups_product( larcorealg )
-find_ups_product( lardataalg )
-find_ups_product( nusimdata )
-find_ups_product(clhep)
-find_ups_boost( )
-find_ups_root()
+find_package( messagefacility REQUIRED )
+find_package( canvas REQUIRED )
+find_package( larcoreobj REQUIRED )
+find_package( lardataobj REQUIRED )
+find_package( larcorealg REQUIRED )
+find_package( lardataalg REQUIRED )
+find_package( nusimdata REQUIRED )
+find_package( Boost COMPONENTS system )
+find_package( ROOT REQUIRED )
+find_package( CLHEP REQUIRED )
+find_package( dk2nudata REQUIRED )
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
@@ -65,10 +62,8 @@ add_subdirectory(test)
 
 # ups - table and config files
 # must be AFTER all other subdirectories
-add_subdirectory(ups)
 
 # packaging utility - must be last
-include(UseCPack)
 
 
 message(STATUS
@@ -77,3 +72,4 @@ message(STATUS
   "\n-- ============================================================================="
   "\n-- "
   )
+cet_cmake_config()
