@@ -30,9 +30,10 @@ evgen::ldm::MeVPrtlTruth::MeVPrtlTruth(const MeVPrtlFlux &flux,
   C3(flux.C3),
   C4(flux.C4),
   C5(flux.C5),
-  decay_width(decay.decay_width),
-  mean_lifetime(decay.mean_lifetime),
-  mean_distance(decay.mean_distance)
+  total_decay_width(decay.total_decay_width),
+  total_mean_lifetime(decay.total_mean_lifetime),
+  total_mean_distance(decay.total_mean_distance),
+  allowed_decay_fraction(decay.allowed_decay_fraction)
   {
      gen = (evgen::ldm::Generator)flux.generator;
   }
