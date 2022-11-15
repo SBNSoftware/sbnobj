@@ -120,8 +120,9 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
   
   // quite a load:
   out
-    <<   "trigger ID=" << dumpTriggerID(info.triggerID) << " from source "
-      << name(info.sourceType)
+    <<   "trigger ID=" << dumpTriggerID(info.triggerID)
+      << " (type " << name(info.triggerType) << ")"
+      << " from source " << name(info.sourceType)
       << " at " << dumpTimestamp(info.triggerTimestamp)
       << " on beam gate ID=" << dumpTriggerID(info.gateID)
       << " at " << dumpTimestamp(info.beamGateTimestamp)
