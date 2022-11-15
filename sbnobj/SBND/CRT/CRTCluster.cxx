@@ -41,6 +41,23 @@ namespace sbnd {
       , tagger       (_tagger)
     {}
 
+    CRTCluster::CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, std::array<double, 6> _edges,
+			   uint16_t _nHits, uint16_t _sumADC, uint16_t _sumADCCorr, std::string _tagger)
+      : ts0          (_ts0)
+      , ts1          (_ts1)
+      , s            (_s)
+      , minX         (_edges[0])
+      , maxX         (_edges[1])
+      , minY         (_edges[2])
+      , maxY         (_edges[3])
+      , minZ         (_edges[4])
+      , maxZ         (_edges[5])
+      , nHits        (_nHits)
+      , sumADC       (_sumADC)
+      , sumADCCorr   (_sumADCCorr)
+      , tagger       (_tagger)
+    {}
+
     CRTCluster::~CRTCluster() {}
 
     uint32_t    CRTCluster::Ts0() const { return ts0; }

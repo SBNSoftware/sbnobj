@@ -12,6 +12,7 @@
 
 #include <stdint.h>
 #include <string>
+#include <array>
 
 namespace sbnd::crt {
 
@@ -36,9 +37,12 @@ namespace sbnd::crt {
 
     CRTCluster();
     
-    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _minX, double _maxX, 
-	       double _minY, double _maxY, double _minZ, double _maxZ, uint16_t _nHits, 
+    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _minX, double _maxX,
+	       double _minY, double _maxY, double _minZ, double _maxZ, uint16_t _nHits,
 	       uint16_t _sumADC, uint16_t _sumADCCorr, std::string _tagger);
+
+    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, std::array<double, 6> _edges,
+               uint16_t _nHits, uint16_t _sumADC, uint16_t _sumADCCorr, std::string _tagger);
 
     virtual ~CRTCluster();
 
