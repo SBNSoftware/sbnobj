@@ -80,5 +80,19 @@
   <class name="art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::FEBData,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::FEBData, void> >"           />
 
+  <!-- CRTCluster -->
+
+  <class name="sbnd::crt::CRTCluster"/>
+  <class name="std::vector<sbnd::crt::CRTCluster>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTCluster> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::CRTCluster,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::CRTCluster, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit, void> >"           />
+
 </lcgdict>
 
