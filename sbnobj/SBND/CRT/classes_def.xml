@@ -68,7 +68,9 @@
 
   <!-- CRTStripHit -->
 
-  <class name="sbnd::crt::CRTStripHit"/>
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="10">
+    <version ClassVersion="10" checksum="3632641717"/>
+  </class>
   <class name="std::vector<sbnd::crt::CRTStripHit>"/>
   <class name="art::Wrapper<sbnd::crt::CRTStripHit>"/>
   <class name="art::Wrapper<std::vector<sbnd::crt::CRTStripHit> >"/>
@@ -82,7 +84,9 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster"/>
+  <class name="sbnd::crt::CRTCluster" ClassVersion="10">
+    <version ClassVersion="10" checksum="44784747"/>
+  </class>
   <class name="std::vector<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<std::vector<sbnd::crt::CRTCluster> >"/>
