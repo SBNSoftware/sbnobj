@@ -1,11 +1,13 @@
-cet_make( 
+cet_make(
   LIBRARIES
-    lardataobj_RawData
+    lardataobj::RawData
+    larcorealg::CoreUtils
+    lardataalg::DetectorInfo
     cetlib_except::cetlib_except
   NO_DICTIONARY
   )
 
-art_dictionary(DICTIONARY_LIBRARIES sbnobj_ICARUS_PMT_Trigger_Data)
+art_dictionary(DICTIONARY_LIBRARIES sbnobj::ICARUS_PMT_Trigger_Data)
 
 install_headers()
 install_source()

@@ -1,5 +1,5 @@
 add_subdirectory(CRT)
 add_subdirectory(Commissioning)
-add_subdirectory(Trigger) 
+add_subdirectory(Trigger)
 add_subdirectory(ToF)
 add_subdirectory(Timing)

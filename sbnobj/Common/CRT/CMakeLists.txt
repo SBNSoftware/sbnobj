@@ -1,11 +1,12 @@
-cet_make( 
+cet_make(
   LIBRARIES
     cetlib_except::cetlib_except
-    ${ROOT_BASIC_LIB_LIST}
+    lardataobj::Simulation
+    ROOT::Core
   NO_DICTIONARY
   )
 
-art_dictionary(DICTIONARY_LIBRARIES sbnobj_Common_CRT)
+art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_CRT)
 
 install_headers()
 install_source()
