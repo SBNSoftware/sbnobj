@@ -19,6 +19,16 @@ namespace sbnd::timing {
     , fName(name)
   {}
 
+  DAQTimestamp::DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::array<char, 8> name)
+    : fChannel(channel)
+    , fTimestamp(timestamp)
+    , fOffset(offset)
+    , fName("")
+  {
+    for(auto const& c : name)
+      fName.push_back(c);
+  }
+
   DAQTimestamp::~DAQTimestamp() {}
 
   uint32_t DAQTimestamp::Channel() const

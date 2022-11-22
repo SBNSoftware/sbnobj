@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <string>
+#include <array>
 
 namespace sbnd::timing {
 
@@ -36,6 +37,16 @@ namespace sbnd::timing {
      * @param name       Name of channel input
      */
     DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::string name);
+
+    /**
+     * Constructor to set all parameters, using array for name
+     *
+     * @param channel    Hardware channel
+     * @param timestamp  Timestamp of signal [ns]
+     * @param offset     Channel specific offset [ns]
+     * @param name       Name of channel input
+     */
+    DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::array<char, 8> name);
 
     /**
      * Destructor
