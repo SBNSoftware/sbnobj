@@ -30,7 +30,7 @@ namespace sbnd {
       , adc1         (_adc1)
       , adc2         (_adc2)
     {
-      saturated = adc1 == 4096 || adc2 == 4096;
+      saturated = adc1 == 4095 || adc2 == 4095;
     }
 
     CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
