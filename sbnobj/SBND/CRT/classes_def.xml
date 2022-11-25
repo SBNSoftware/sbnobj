@@ -69,7 +69,7 @@
   <!-- CRTStripHit -->
 
   <class name="sbnd::crt::CRTStripHit" ClassVersion="10">
-    <version ClassVersion="10" checksum="3632641717"/>
+    <version ClassVersion="10" checksum="4138806794"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTStripHit>"/>
   <class name="art::Wrapper<sbnd::crt::CRTStripHit>"/>
@@ -85,7 +85,7 @@
   <!-- CRTCluster -->
 
   <class name="sbnd::crt::CRTCluster" ClassVersion="10">
-    <version ClassVersion="10" checksum="44784747"/>
+    <version ClassVersion="10" checksum="1065888561"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
