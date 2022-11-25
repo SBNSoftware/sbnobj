@@ -24,13 +24,17 @@ namespace sbnd::crt {
     double   err;          // Error on lateral position [cm]
     uint16_t adc1;         // ADC 1st SiPM
     uint16_t adc2;         // ADC 2nd SiPM
+    bool     saturated;    // Did either SiPM record a saturated value?
 
   public:
 
     CRTStripHit();
     
     CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
-		double _err, uint16_t _adc1, uint16_t _adc2);
+                double _err, uint16_t _adc1, uint16_t _adc2);
+
+    CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
+                double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated);
 
     virtual ~CRTStripHit();
 
@@ -42,6 +46,7 @@ namespace sbnd::crt {
     double   Error() const;
     uint16_t ADC1() const;
     uint16_t ADC2() const;
+    bool     Saturated() const;
   };
 }
 
