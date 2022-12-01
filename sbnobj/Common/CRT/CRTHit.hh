@@ -28,10 +28,10 @@ namespace sbn::crt {
 
       uint64_t       ts0_s; ///< Second-only part of timestamp T0.
       double    ts0_s_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
-
       double        ts0_ns; ///< Timestamp T0 (from White Rabbit), in UTC absolute time scale in nanoseconds from the Epoch.
       double   ts0_ns_corr; ///< [Honestly, not sure at this point, it was there since long time (BB)]
-      double        ts1_ns; ///< Timestamp T1 ([signal time w.r.t. Trigger time]), in UTC absolute time scale in nanoseconds from the Epoch.
+
+      double        ts1_ns; ///< Timestamp T1 ([signal time w.r.t. Trigger time]), 
 
       int            plane; ///< Name of the CRT wall (in the form of numbers).
 
@@ -49,7 +49,7 @@ namespace sbn::crt {
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
       // T1 is a relative time not a timestamp, so we don't need second-part.
       // nano-second part is enough and we saved entire time there.
-      int64_t ts1() const { return static_cast<int64_t>(ts1_ns); }
+      int64_t ts1() const { return static_cast<int64_t>(ts1_ns); } ///< This is for ICARUS only. Need review from SBND
 
     };
 
