@@ -34,13 +34,16 @@
   <class name="sbn::SimpleFlashMatch" ClassVersion="11">
    <version ClassVersion="11" checksum="27328003"/>
   </class>
-  <class name="sbn::SimpleFlashMatch::Charge" ClassVersion="11">
+  <class name="sbn::SimpleFlashMatch::Charge" ClassVersion="12">
+   <version ClassVersion="12" checksum="3766218077"/>
    <version ClassVersion="11" checksum="4057441913"/>
   </class>
-  <class name="sbn::SimpleFlashMatch::Flash" ClassVersion="11">
+  <class name="sbn::SimpleFlashMatch::Flash" ClassVersion="12">
+   <version ClassVersion="12" checksum="3025111821"/>
    <version ClassVersion="11" checksum="3396465673"/>
   </class>
-  <class name="sbn::SimpleFlashMatch::Score" ClassVersion="11">
+  <class name="sbn::SimpleFlashMatch::Score" ClassVersion="12">
+   <version ClassVersion="12" checksum="3706842367"/>
    <version ClassVersion="11" checksum="3697420401"/>
   </class>
   <class name="std::vector<sbn::SimpleFlashMatch>" />
