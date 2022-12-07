@@ -11,15 +11,19 @@ namespace sbn
     struct Charge {
       double q;        //!< charge in slc
       TVector3 center; //!< Weighted center position [cm]
-      Charge(double q_ = -1., TVector3 center_ = TVector3(-999, -999, -999)) :
-        q(q_), center(center_)
+      TVector3 width;  //!< Weighted width [cm]
+      Charge(double q_ = -1., TVector3 center_ = TVector3(-999, -999, -999),
+             TVector3 width_ = TVector3(-999, -999, -999)) :
+        q(q_), center(center_), width(width_)
         {}
     };
     struct Flash {
       double pe;       //!< photo-electrons on flash
       TVector3 center; //!< Weighted center position [cm]
-      Flash(double pe_ = -1., TVector3 center_ = TVector3(-999, -999, -999)) :
-        pe(pe_), center(center_)
+      TVector3 width;  //!< Weighted width [cm]
+      Flash(double pe_ = -1., TVector3 center_ = TVector3(-999, -999, -999),
+            TVector3 width_ = TVector3(-999, -999, -999)) :
+        pe(pe_), center(center_), width(width_)
         {}
     };
     struct Score {
@@ -28,14 +32,19 @@ namespace sbn
       double z;     //!< score for z metric
       double rr;    //!< score for rr metric
       double ratio; //!< score for ratio metric
+      double slope; //!< score for z/y slope metric
+      double petoq; //!< score for light/charge quotient metric
       Score (
         double total_ = -1.,
         double y_ = -1., double z_ = -1.,
-        double rr_ = -1., double ratio_ = -1.) :
-        total(total_), y(y_), z(z_), rr(rr_), ratio(ratio_)
+        double rr_ = -1., double ratio_ = -1.,
+        double slope_ = -1., double petoq_ = -1.) :
+        total(total_), y(y_), z(z_), rr(rr_), ratio(ratio_),
+        slope(slope_), petoq(petoq_)
         {}
       Score (int no_score) : // for no match fill all with the code
-        total(no_score), y(no_score), z(no_score), rr(no_score), ratio(no_score)
+        total(no_score), y(no_score), z(no_score), rr(no_score), ratio(no_score),
+        slope(no_score), petoq(no_score)
         {}
     };
 
