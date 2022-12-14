@@ -49,7 +49,7 @@ namespace sbn::crt {
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
       // T1 is a relative time not a timestamp, so we don't need second-part.
       // nano-second part is enough and we saved entire time there.
-      int64_t ts1() const { return static_cast<int64_t>(ts1_ns); } ///< This is for ICARUS only. Need review from SBND
+      int64_t ts1() const { return static_cast<int64_t>(ts1_ns); }
 
     };
 
