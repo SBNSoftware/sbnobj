@@ -11,8 +11,6 @@
 #define SBND_CRTCLUSTER_HH
 
 #include <stdint.h>
-#include <string>
-#include <array>
 
 namespace sbnd::crt {
 
@@ -30,7 +28,7 @@ namespace sbnd::crt {
     kDownstreamTagger = kNorthTagger
   };
 
-  class CRTCluster{
+  class CRTCluster {
     
     uint32_t  ts0;          // T0 counter [ns]
     uint32_t  ts1;          // T1 counter [ns]

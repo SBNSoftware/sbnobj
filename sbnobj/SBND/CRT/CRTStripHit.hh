@@ -14,7 +14,7 @@
 
 namespace sbnd::crt {
 
-  class CRTStripHit{
+  class CRTStripHit {
     
     uint32_t channel;      // Channel ID for 1st SiPM
     uint32_t ts0;          // T0 counter [ns]
