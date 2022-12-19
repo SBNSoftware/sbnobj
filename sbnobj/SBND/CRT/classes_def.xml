@@ -84,12 +84,15 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster" ClassVersion="10">
+  <class name="sbnd::crt::CRTCluster" ClassVersion="11">
+   <version ClassVersion="11" checksum="1091671472"/>
     <version ClassVersion="10" checksum="1065888561"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<std::vector<sbnd::crt::CRTCluster> >"/>
+
+  <enum name="sbnd::crt::CRTTagger" ClassVersion="10"/>
 
   <!-- associations  -->
 
@@ -99,4 +102,3 @@
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit, void> >"           />
 
 </lcgdict>
-
