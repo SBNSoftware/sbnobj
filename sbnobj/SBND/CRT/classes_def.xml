@@ -85,7 +85,7 @@
   <!-- CRTCluster -->
 
   <class name="sbnd::crt::CRTCluster" ClassVersion="11">
-   <version ClassVersion="11" checksum="1091671472"/>
+    <version ClassVersion="11" checksum="1091671472"/>
     <version ClassVersion="10" checksum="1065888561"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTCluster>"/>
@@ -100,5 +100,21 @@
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::CRTCluster, void> >"           />
   <class name="art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit, void> >"           />
+
+  <!-- CRTSpacePoint -->
+
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="10">
+    <version ClassVersion="10" checksum="24757054"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTSpacePoint>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTSpacePoint>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTSpacePoint> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTSpacePoint, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster, void> >"           />
 
 </lcgdict>
