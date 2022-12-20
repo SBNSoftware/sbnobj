@@ -10,6 +10,8 @@
 #ifndef SBND_CRTSPACEPOINT_HH
 #define SBND_CRTSPACEPOINT_HH
 
+#include "TVector3.h"
+
 namespace sbnd::crt {
 
   class CRTSpacePoint {
@@ -27,6 +29,8 @@ namespace sbnd::crt {
     CRTSpacePoint();
     
     CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, double _pe);
+
+    CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe);
 
     virtual ~CRTSpacePoint();
 

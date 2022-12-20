@@ -27,6 +27,16 @@ namespace sbnd {
       , pe (_pe)
     {}
 
+    CRTSpacePoint::CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe)
+      : x  (_pos.X())
+      , ex (_err.X())
+      , y  (_pos.Y())
+      , ey (_err.Y())
+      , z  (_pos.Z())
+      , ez (_err.Z())
+      , pe (_pe)
+    {}
+
     CRTSpacePoint::~CRTSpacePoint() {}
 
     double CRTSpacePoint::X() const { return x; }
