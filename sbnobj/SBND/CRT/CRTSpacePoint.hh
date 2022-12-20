@@ -23,14 +23,15 @@ namespace sbnd::crt {
     double z;     // z position [cm]
     double ez;    // z positional error [cm]
     double pe;    // total PE
+    double time;  // time [ns]
 
   public:
 
     CRTSpacePoint();
     
-    CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, double _pe);
+    CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, double _pe, double _time);
 
-    CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe);
+    CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe, double time);
 
     virtual ~CRTSpacePoint();
 
@@ -41,6 +42,7 @@ namespace sbnd::crt {
     double Z() const;
     double ZErr() const;
     double PE() const;
+    double Time() const;
   };
 }
 
