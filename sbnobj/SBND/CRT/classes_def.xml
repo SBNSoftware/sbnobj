@@ -103,7 +103,8 @@
 
   <!-- CRTSpacePoint -->
 
-  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="11">
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="12">
+    <version ClassVersion="12" checksum="2172501779"/>
     <version ClassVersion="11" checksum="1593722908"/>
     <version ClassVersion="10" checksum="24757054"/>
   </class>
