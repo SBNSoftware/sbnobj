@@ -36,15 +36,17 @@ namespace sbnd::crt {
 
     virtual ~CRTSpacePoint();
 
-    double X() const;
-    double XErr() const;
-    double Y() const;
-    double YErr() const;
-    double Z() const;
-    double ZErr() const;
-    double PE() const;
-    double Time() const;
-    bool   Complete() const;
+    double   X() const;
+    double   XErr() const;
+    double   Y() const;
+    double   YErr() const;
+    double   Z() const;
+    double   ZErr() const;
+    TVector3 Pos() const;
+    TVector3 Err() const;
+    double   PE() const;
+    double   Time() const;
+    bool     Complete() const;
 
     CRTSpacePoint& operator= (CRTSpacePoint const&) = default;
   };

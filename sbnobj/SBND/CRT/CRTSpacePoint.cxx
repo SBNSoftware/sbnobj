@@ -46,15 +46,17 @@ namespace sbnd {
 
     CRTSpacePoint::~CRTSpacePoint() {}
 
-    double CRTSpacePoint::X() const { return x; }
-    double CRTSpacePoint::XErr() const { return ex; }
-    double CRTSpacePoint::Y() const { return y; }
-    double CRTSpacePoint::YErr() const { return ey; }
-    double CRTSpacePoint::Z() const { return z; }
-    double CRTSpacePoint::ZErr() const { return ez; }
-    double CRTSpacePoint::PE() const { return pe; }
-    double CRTSpacePoint::Time() const { return time; }
-    bool   CRTSpacePoint::Complete() const { return complete; }
+    double   CRTSpacePoint::X() const { return x; }
+    double   CRTSpacePoint::XErr() const { return ex; }
+    double   CRTSpacePoint::Y() const { return y; }
+    double   CRTSpacePoint::YErr() const { return ey; }
+    double   CRTSpacePoint::Z() const { return z; }
+    double   CRTSpacePoint::ZErr() const { return ez; }
+    TVector3 CRTSpacePoint::Pos() const { return TVector3(x, y, z); }
+    TVector3 CRTSpacePoint::Err() const { return TVector3(ex, ey, ez); }
+    double   CRTSpacePoint::PE() const { return pe; }
+    double   CRTSpacePoint::Time() const { return time; }
+    bool     CRTSpacePoint::Complete() const { return complete; }
   }
 }
 
