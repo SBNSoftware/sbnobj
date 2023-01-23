@@ -10,23 +10,9 @@
 #ifndef SBND_CRTCLUSTER_HH
 #define SBND_CRTCLUSTER_HH
 
-#include <stdint.h>
+#include "sbnobj/SBND/CRT/CRTEnums.hh"
 
 namespace sbnd::crt {
-
-  enum CRTTagger {
-    kUndefinedTagger = -1,
-    kBottomTagger,
-    kSouthTagger,
-    kNorthTagger,
-    kWestTagger,
-    kEastTagger,
-    kTopLowTagger,
-    kTopHighTagger,
-
-    kUpstreamTagger   = kSouthTagger,
-    kDownstreamTagger = kNorthTagger
-  };
 
   class CRTCluster {
     
@@ -35,13 +21,14 @@ namespace sbnd::crt {
     uint32_t  s;            // Unixtime of event [s]
     uint16_t  nHits;        // The number of strip hits forming the cluster
     CRTTagger tagger;       // The tagger this cluster exists on
-    bool      threeD;       // Does the cluster contain strips from both orientations?
+    CoordSet  composition;  // What combination of orientations does the cluster make up?
 
   public:
 
     CRTCluster();
     
-    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, uint16_t _nHits, CRTTagger _tagger, bool _threeD);
+    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, uint16_t _nHits, CRTTagger _tagger,
+               CoordSet composition);
 
     virtual ~CRTCluster();
 
@@ -50,7 +37,7 @@ namespace sbnd::crt {
     uint32_t  UnixS() const;
     uint16_t  NHits() const;
     CRTTagger Tagger() const;
-    bool      ThreeD() const;
+    CoordSet  Composition() const;
   };
 }
 
