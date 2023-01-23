@@ -16,7 +16,8 @@ namespace sbnd {
       , err          (0)
       , adc1         (0)
       , adc2         (0)
-      , saturated    (false)
+      , saturated1   (false)
+      , saturated2   (false)
     {}
 
     CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
@@ -30,11 +31,12 @@ namespace sbnd {
       , adc1         (_adc1)
       , adc2         (_adc2)
     {
-      saturated = adc1 == 4095 || adc2 == 4095;
+      saturated1 = adc1 == 4095;
+      saturated2 = adc2 == 4095;
     }
 
     CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
-                             double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated)
+                             double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated1, bool _saturated2)
       : channel      (_channel)
       , ts0          (_ts0)
       , ts1          (_ts1)
@@ -43,7 +45,8 @@ namespace sbnd {
       , err          (_err)
       , adc1         (_adc1)
       , adc2         (_adc2)
-      , saturated    (_saturated)
+      , saturated1   (_saturated1)
+      , saturated2   (_saturated2)
     {}
 
     CRTStripHit::~CRTStripHit() {}
@@ -56,7 +59,8 @@ namespace sbnd {
     double   CRTStripHit::Error() const { return err; }
     uint16_t CRTStripHit::ADC1() const { return adc1; }
     uint16_t CRTStripHit::ADC2() const { return adc2; }
-    bool     CRTStripHit::Saturated() const { return saturated; }
+    bool     CRTStripHit::Saturated1() const { return saturated1; }
+    bool     CRTStripHit::Saturated2() const { return saturated2; }
   }
 }
 
