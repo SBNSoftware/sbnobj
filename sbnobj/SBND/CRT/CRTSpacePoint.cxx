@@ -16,11 +16,12 @@ namespace sbnd {
       , ez       (0.)
       , pe       (0.)
       , time     (0.)
+      , etime    (0.)
       , complete (false)
     {}
 
     CRTSpacePoint::CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, 
-                                 double _pe, double _time, bool _complete)
+                                 double _pe, double _time, double _etime, bool _complete)
       : x        (_x)
       , ex       (_ex)
       , y        (_y)
@@ -29,10 +30,11 @@ namespace sbnd {
       , ez       (_ez)
       , pe       (_pe)
       , time     (_time)
+      , etime    (_etime)
       , complete (_complete)
     {}
 
-    CRTSpacePoint::CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe, double _time, bool _complete)
+    CRTSpacePoint::CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe, double _time, double _etime, bool _complete)
       : x        (_pos.X())
       , ex       (_err.X())
       , y        (_pos.Y())
@@ -41,6 +43,7 @@ namespace sbnd {
       , ez       (_err.Z())
       , pe       (_pe)
       , time     (_time)
+      , etime     (_etime)
       , complete (_complete)
     {}
 
@@ -56,6 +59,7 @@ namespace sbnd {
     TVector3 CRTSpacePoint::Err() const { return TVector3(ex, ey, ez); }
     double   CRTSpacePoint::PE() const { return pe; }
     double   CRTSpacePoint::Time() const { return time; }
+    double   CRTSpacePoint::TimeErr() const { return etime; }
     bool     CRTSpacePoint::Complete() const { return complete; }
   }
 }
