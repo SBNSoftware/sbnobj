@@ -68,7 +68,8 @@
 
   <!-- CRTStripHit -->
 
-  <class name="sbnd::crt::CRTStripHit" ClassVersion="10">
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="11">
+    <version ClassVersion="11" checksum="800304658"/>
     <version ClassVersion="10" checksum="4138806794"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTStripHit>"/>
@@ -84,7 +85,8 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster" ClassVersion="11">
+  <class name="sbnd::crt::CRTCluster" ClassVersion="12">
+    <version ClassVersion="12" checksum="2016992292"/>
     <version ClassVersion="11" checksum="1091671472"/>
     <version ClassVersion="10" checksum="1065888561"/>
   </class>
@@ -92,7 +94,11 @@
   <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
   <class name="art::Wrapper<std::vector<sbnd::crt::CRTCluster> >"/>
 
+  <!-- CRTEnums -->
+
   <enum name="sbnd::crt::CRTTagger" ClassVersion="10"/>
+
+  <enum name="sbnd::crt::CoordSet" ClassVersion="10"/>
 
   <!-- associations  -->
 
@@ -103,7 +109,8 @@
 
   <!-- CRTSpacePoint -->
 
-  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="12">
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="13">
+    <version ClassVersion="13" checksum="1940127766"/>
     <version ClassVersion="12" checksum="2172501779"/>
     <version ClassVersion="11" checksum="1593722908"/>
     <version ClassVersion="10" checksum="24757054"/>
