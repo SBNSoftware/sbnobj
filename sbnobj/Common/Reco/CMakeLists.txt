@@ -1,12 +1,13 @@
-cet_make( 
+cet_make(
   LIBRARIES
     cetlib_except::cetlib_except
     messagefacility::MF_MessageLogger
-    ${ROOT_BASIC_LIB_LIST}
+    larcorealg::Geometry
+    lardataobj::AnalysisBase
   NO_DICTIONARY
   )
 
-art_dictionary(DICTIONARY_LIBRARIES sbnobj_Common_Reco)
+art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_Reco)
 
 install_headers()
 install_source()

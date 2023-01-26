@@ -1,14 +1,15 @@
-cet_make( 
+cet_make(
   NO_DICTIONARY
   LIBRARIES
     cetlib_except::cetlib_except
-    ${ROOT_BASIC_LIB_LIST}
+    ROOT::Matrix
+    ROOT::Core
     CLHEP::CLHEP
-    ##art::Framework_Services_Registry
-    ##art::Framework_Services_Optional_RandomNumberGenerator_service
+    nusimdata::SimulationBase
+    dk2nu::Tree
 )
 
-art_dictionary(DICTIONARY_LIBRARIES sbnobj_Common_SBNEventWeight)
+art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_SBNEventWeight)
 
 install_headers()
 install_source()

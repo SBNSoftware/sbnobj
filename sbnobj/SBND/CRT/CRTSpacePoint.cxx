@@ -8,12 +8,8 @@ namespace sbnd {
   namespace crt {
 
     CRTSpacePoint::CRTSpacePoint()
-      : x        (0.)
-      , ex       (0.)
-      , y        (0.)
-      , ey       (0.)
-      , z        (0.)
-      , ez       (0.)
+      : pos      ({0., 0., 0.})
+      , epos     ({0., 0., 0.})
       , pe       (0.)
       , time     (0.)
       , etime    (0.)
@@ -22,45 +18,37 @@ namespace sbnd {
 
     CRTSpacePoint::CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, 
                                  double _pe, double _time, double _etime, bool _complete)
-      : x        (_x)
-      , ex       (_ex)
-      , y        (_y)
-      , ey       (_ey)
-      , z        (_z)
-      , ez       (_ez)
+      : pos      ({_x, _y, _z})
+      , epos     ({_ex, _ey, _ez})
       , pe       (_pe)
       , time     (_time)
       , etime    (_etime)
       , complete (_complete)
     {}
 
-    CRTSpacePoint::CRTSpacePoint(TVector3 _pos, TVector3 _err, double _pe, double _time, double _etime, bool _complete)
-      : x        (_pos.X())
-      , ex       (_err.X())
-      , y        (_pos.Y())
-      , ey       (_err.Y())
-      , z        (_pos.Z())
-      , ez       (_err.Z())
+    CRTSpacePoint::CRTSpacePoint(geo::Point_t _pos, geo::Point_t _err, double _pe, double _time, double _etime, bool _complete)
+      : pos      (_pos)
+      , epos     (_err)
       , pe       (_pe)
       , time     (_time)
-      , etime     (_etime)
+      , etime    (_etime)
       , complete (_complete)
     {}
 
     CRTSpacePoint::~CRTSpacePoint() {}
 
-    double   CRTSpacePoint::X() const { return x; }
-    double   CRTSpacePoint::XErr() const { return ex; }
-    double   CRTSpacePoint::Y() const { return y; }
-    double   CRTSpacePoint::YErr() const { return ey; }
-    double   CRTSpacePoint::Z() const { return z; }
-    double   CRTSpacePoint::ZErr() const { return ez; }
-    TVector3 CRTSpacePoint::Pos() const { return TVector3(x, y, z); }
-    TVector3 CRTSpacePoint::Err() const { return TVector3(ex, ey, ez); }
-    double   CRTSpacePoint::PE() const { return pe; }
-    double   CRTSpacePoint::Time() const { return time; }
-    double   CRTSpacePoint::TimeErr() const { return etime; }
-    bool     CRTSpacePoint::Complete() const { return complete; }
+    double       CRTSpacePoint::X() const { return pos.X(); }
+    double       CRTSpacePoint::XErr() const { return epos.X(); }
+    double       CRTSpacePoint::Y() const { return pos.Y(); }
+    double       CRTSpacePoint::YErr() const { return epos.Y(); }
+    double       CRTSpacePoint::Z() const { return pos.Z(); }
+    double       CRTSpacePoint::ZErr() const { return epos.Z(); }
+    geo::Point_t CRTSpacePoint::Pos() const { return pos; }
+    geo::Point_t CRTSpacePoint::Err() const { return epos; }
+    double       CRTSpacePoint::PE() const { return pe; }
+    double       CRTSpacePoint::Time() const { return time; }
+    double       CRTSpacePoint::TimeErr() const { return etime; }
+    bool         CRTSpacePoint::Complete() const { return complete; }
   }
 }
 

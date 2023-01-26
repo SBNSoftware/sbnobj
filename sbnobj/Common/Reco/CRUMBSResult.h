@@ -12,14 +12,20 @@ namespace sbn {
   class CRUMBSResult {
   public:
 
-    CRUMBSResult(float score = default_float, float tpc_CRFracHitsInLongestTrack = default_float, float tpc_CRLongestTrackDeflection = default_float, 
+    CRUMBSResult(float score = default_float, float ccnumuscore = default_float, float ccnuescore = default_float, float ncscore = default_float, 
+		 float bestscore = default_float, int bestid = default_int, float tpc_CRFracHitsInLongestTrack = default_float, float tpc_CRLongestTrackDeflection = default_float, 
 		 float tpc_CRLongestTrackDirY = default_float, int tpc_CRNHitsMax = default_int, float tpc_NuEigenRatioInSphere = default_float, 
 		 int tpc_NuNFinalStatePfos = default_int, int tpc_NuNHitsTotal = default_int, int tpc_NuNSpacePointsInSphere = default_int, 
 		 float tpc_NuVertexY = default_float, float tpc_NuWeightedDirZ = default_float, float tpc_StoppingChi2CosmicRatio = default_float, 
 		 float pds_FMTotalScore = default_float, float pds_FMPE = default_float, float pds_FMTime = default_float, float crt_TrackScore = default_float, 
 		 float crt_HitScore = default_float, float crt_TrackTime = default_float, float crt_HitTime = default_float);
     
-    float score;                         //!< CRUMBS result
+    float score;                         //!< CRUMBS result, for inclusive neutrino signal
+    float ccnumuscore;                   //!< CRUMBS result, for CCNuMu signal
+    float ccnuescore;                    //!< CRUMBS result, for CCNuE signal
+    float ncscore;                       //!< CRUMBS result, for NC signal
+    float bestscore;                     //!< Best score from the three signal-specific versions
+    int   bestid;                        //!< ID corresponding to the best score, 14 for CCNuMu, 12 for CCNuE, 1 for NC
     float tpc_CRFracHitsInLongestTrack;  //!< fraction of slice’s space points in longest track (cosmic reco)
     float tpc_CRLongestTrackDeflection;  //!< 1 - the cosine of the angle between the starting and finishing directions of the longest track (cosmic reco)
     float tpc_CRLongestTrackDirY;        //!< relative direction of the longest track in Y (cosmic reco)
