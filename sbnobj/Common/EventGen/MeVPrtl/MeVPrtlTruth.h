@@ -12,15 +12,16 @@ namespace ldm {
 enum Generator {
   kUnknown=-1,
   kDissonantHiggs=0,
-  kHNL=1
+  kHNL=1,
+  kALP=2
 };
 
 class MeVPrtlTruth {
 public:
-  TLorentzVector kaon_dmom;
-  TLorentzVector kaon_dmom_beamcoord;
-  TLorentzVector kaon_dpos_beamcoord;
-  int kaon_pdg;
+  TLorentzVector meson_dmom;
+  TLorentzVector meson_dmom_beamcoord;
+  TLorentzVector meson_dpos_beamcoord;
+  int meson_pdg;
   TLorentzVector mevprtl_mom_beamcoord;
   TLorentzVector mevprtl_mom;
   TLorentzVector mevprtl_start;
@@ -48,9 +49,13 @@ public:
   double C4;
   double C5;
 
-  double decay_width;
-  double mean_lifetime;
-  double mean_distance;
+  // Total widths / distances for all possible decays
+  double total_decay_width;
+  double total_mean_lifetime;
+  double total_mean_distance;
+
+  // Fraction of width for allowed decays
+  double allowed_decay_fraction;
 
   Generator gen;
 

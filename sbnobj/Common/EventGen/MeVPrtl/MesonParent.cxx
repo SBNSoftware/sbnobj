@@ -1,27 +1,30 @@
-#include "KaonParent.h"
+#include "MesonParent.h"
 #include <cassert>
 
-evgen::ldm::KaonParent::KaonParent(const simb::MCFlux &flux) {
+evgen::ldm::MesonParent::MesonParent(const simb::MCFlux &flux) {
   // set the particle codes
   switch (flux.fndecay) {
+    case -1 /* not a decay, use the ptype instead */:
+      meson_pdg = flux.fptype;
+      break;
     case 1 /*K0L -> nue pi- e+ */:
     case 2 /*K0L -> nuebar pi+ e-*/:
     case 3 /* K0L -> numu pi- mu+*/:
     case 4 /*K0L -> numubar pi+ mu-*/:
-      kaon_pdg = 130;
+      meson_pdg = 130;
       break;
     case 5  /*K+  -> numu mu+*/:
     case 6  /*K+  -> nue pi0 e+*/:
     case 7  /*K+  -> numu pi0 mu+*/:
-      kaon_pdg = 321;
+      meson_pdg = 321;
       break;
     case 8  /*K-  -> numubar mu-*/:
     case 9  /*K-  -> nuebar pi0 e-*/:
     case 10 /*K-  -> numubar pi0 mu-*/:
-      kaon_pdg = -321;
+      meson_pdg = -321;
       break;
     default:
-      kaon_pdg = 0;
+      meson_pdg = 0;
       return; // not a kaon decay
   }
   mode = flux.fndecay;
