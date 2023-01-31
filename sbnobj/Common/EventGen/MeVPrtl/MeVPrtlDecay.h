@@ -17,9 +17,14 @@ public:
   std::vector<double> daughter_e;
   std::vector<int> daughter_pdg;
 
-  double decay_width;
-  double mean_lifetime;
-  double mean_distance;
+  // Total widths / distances for all possible decays
+  double total_decay_width;
+  double total_mean_lifetime;
+  double total_mean_distance;
+
+  // Fraction of width for allowed decays
+  double allowed_decay_fraction;
+
 };
 
 } // end namespace ldm
