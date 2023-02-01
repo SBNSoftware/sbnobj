@@ -6,10 +6,10 @@ evgen::ldm::MeVPrtlTruth::MeVPrtlTruth(const MeVPrtlFlux &flux,
                                        double flux_weight, double ray_weight,
                                        double decay_weight, double pot) :
 
-  kaon_dmom(flux.kmom),
-  kaon_dmom_beamcoord(flux.kmom_beamcoord),
-  kaon_dpos_beamcoord(flux.pos_beamcoord),
-  kaon_pdg(flux.kaon_pdg),
+  meson_dmom(flux.mmom),
+  meson_dmom_beamcoord(flux.mmom_beamcoord),
+  meson_dpos_beamcoord(flux.pos_beamcoord),
+  meson_pdg(flux.meson_pdg),
   mevprtl_mom_beamcoord(flux.mom_beamcoord),
   mevprtl_mom(flux.mom),
   mevprtl_start(flux.pos),
@@ -30,9 +30,10 @@ evgen::ldm::MeVPrtlTruth::MeVPrtlTruth(const MeVPrtlFlux &flux,
   C3(flux.C3),
   C4(flux.C4),
   C5(flux.C5),
-  decay_width(decay.decay_width),
-  mean_lifetime(decay.mean_lifetime),
-  mean_distance(decay.mean_distance)
+  total_decay_width(decay.total_decay_width),
+  total_mean_lifetime(decay.total_mean_lifetime),
+  total_mean_distance(decay.total_mean_distance),
+  allowed_decay_fraction(decay.allowed_decay_fraction)
   {
      gen = (evgen::ldm::Generator)flux.generator;
   }
