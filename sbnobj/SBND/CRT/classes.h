@@ -7,6 +7,7 @@
 #include "sbnobj/SBND/CRT/CRTCluster.hh"
 #include "sbnobj/SBND/CRT/CRTSpacePoint.hh"
 #include "sbnobj/SBND/CRT/CRTEnums.hh"
+#include "sbnobj/SBND/CRT/CRTTrack.hh"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/CRT/CRTHit_Legacy.hh"
 #include "lardataobj/Simulation/AuxDetSimChannel.h"

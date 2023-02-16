@@ -127,4 +127,20 @@
   <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster, void> >"           />
 
+  <!-- CRTTrack -->
+
+  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+    <version ClassVersion="10" checksum="1141421833"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTTrack>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTTrack>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTTrack> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTTrack,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTTrack, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint, void> >"           />
+
 </lcgdict>
