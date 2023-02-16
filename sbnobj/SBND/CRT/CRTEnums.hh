@@ -28,30 +28,21 @@ namespace sbnd::crt {
 
   enum CoordSet : uint8_t {    // These are defined like bitwise 'flags' so they can be operated on
     kUndefinedSet = 0,
-      kX   = 1,   // 001
-      kY   = 2,   // 010
-      kZ   = 4,   // 100
-      kXY  = 3,   // 011
-      kXZ  = 5,   // 101
-      kYZ  = 6,   // 110
-      kXYZ = 7,   // 111
+    kX   = 1,   // 001
+    kY   = 2,   // 010
+    kZ   = 4,   // 100
+    kXY  = 3,   // 011
+    kXZ  = 5,   // 101
+    kYZ  = 6,   // 110
+    kXYZ = 7,   // 111
 
     kThreeD = kXYZ
-      };
 
-  CoordSet operator|(CoordSet lhs, CoordSet rhs) {
-    return static_cast<CoordSet>(
-        static_cast<std::underlying_type_t<CoordSet>>(lhs) |
-        static_cast<std::underlying_type_t<CoordSet>>(rhs)
-    );
-  }
-
-  CoordSet operator&(CoordSet lhs, CoordSet rhs) {
-    return static_cast<CoordSet>(
-        static_cast<std::underlying_type_t<CoordSet>>(lhs) &
-        static_cast<std::underlying_type_t<CoordSet>>(rhs)
-    );
-  }
+  };
 }
+
+extern sbnd::crt::CoordSet operator|(sbnd::crt::CoordSet lhs, sbnd::crt::CoordSet rhs);
+
+extern sbnd::crt::CoordSet operator&(sbnd::crt::CoordSet lhs, sbnd::crt::CoordSet rhs);
 
 #endif
