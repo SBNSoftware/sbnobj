@@ -129,7 +129,8 @@
 
   <!-- CRTTrack -->
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+  <class name="sbnd::crt::CRTTrack" ClassVersion="11">
+    <version ClassVersion="11" checksum="1961360974"/>
     <version ClassVersion="10" checksum="1141421833"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTTrack>"/>
