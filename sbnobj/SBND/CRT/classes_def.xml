@@ -129,7 +129,8 @@
 
   <!-- CRTTrack -->
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="11">
+  <class name="sbnd::crt::CRTTrack" ClassVersion="12">
+    <version ClassVersion="12" checksum="964775693"/>
     <version ClassVersion="11" checksum="1961360974"/>
     <version ClassVersion="10" checksum="1141421833"/>
   </class>
