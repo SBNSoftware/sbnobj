@@ -231,4 +231,17 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
   <class name="std::vector<geo::PlaneID>"/>
+
+					
+  <class name="sbn::CNNScore" ClassVersion="11">
+   <version ClassVersion="11" checksum="4028854620"/>
+   <version ClassVersion="10" checksum="3458086389"/>
+  </class>
+  <class name="std::vector<sbn::CNNScore>" />
+  <class name="art::Wrapper<sbn::CNNScore>" />
+  <class name="art::Wrapper<std::vector<sbn::CNNScore>>" />
+  <class name="art::Assns<recob::PFParticle, sbn::CNNScore>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::CNNScore>>" />
+  <class name="art::Assns<sbn::CNNScore, recob::PFParticle>" />
+
 </lcgdict>
