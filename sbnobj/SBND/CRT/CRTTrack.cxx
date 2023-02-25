@@ -66,6 +66,18 @@ namespace sbnd {
     double        CRTTrack::Phi() const { return (end - start).Phi(); }
 
     bool CRTTrack::UsedTagger(const CRTTagger tagger) const { return taggers[tagger]; }
+
+    bool CRTTrack::operator==(const CRTTrack &other) const
+    {
+      return start == other.start
+        && end == other.end
+        && time == other.time
+        && etime == other.etime
+        && pe == other.pe
+        && tof == other.tof
+        && triple == other.triple
+        && taggers == other.taggers;
+    }
   }
 }
 

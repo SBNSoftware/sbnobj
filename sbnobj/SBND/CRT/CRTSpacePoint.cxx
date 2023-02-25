@@ -49,6 +49,16 @@ namespace sbnd {
     double       CRTSpacePoint::Time() const { return time; }
     double       CRTSpacePoint::TimeErr() const { return etime; }
     bool         CRTSpacePoint::Complete() const { return complete; }
+
+    bool CRTSpacePoint::operator==(const CRTSpacePoint &other) const
+    {
+      return pos == other.pos
+        && epos == other.epos
+        && pe == other.pe
+        && time == other.time
+        && etime == other.etime
+        && complete == other.complete;
+    }
   }
 }
 

@@ -58,6 +58,8 @@ namespace sbnd::crt {
     double        Phi() const;
     
     bool UsedTagger(const CRTTagger tagger) const;
+
+    bool operator==(const CRTTrack &other) const;
   };
 }
 
