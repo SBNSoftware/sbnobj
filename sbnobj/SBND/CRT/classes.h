@@ -13,3 +13,4 @@
 #include "lardataobj/Simulation/AuxDetSimChannel.h"
 #include <vector>
 #include <utility>
+#include "lardataobj/AnalysisBase/T0.h"

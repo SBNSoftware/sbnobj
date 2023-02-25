@@ -127,6 +127,11 @@
   <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster, void> >"           />
 
+  <class name="art::Assns<anab::T0, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<anab::T0, sbnd::crt::CRTSpacePoint, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, anab::T0,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, anab::T0,void> >"           />
+
   <!-- CRTTrack -->
 
   <class name="sbnd::crt::CRTTrack" ClassVersion="12">
@@ -144,5 +149,10 @@
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTTrack, void> >"           />
   <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint, void> >"           />
+
+  <class name="art::Assns<anab::T0, sbnd::crt::CRTTrack,    void>"           />
+  <class name="art::Wrapper< art::Assns<anab::T0, sbnd::crt::CRTTrack, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTTrack, anab::T0,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, anab::T0,void> >"           />
 
 </lcgdict>
