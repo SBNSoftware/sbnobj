@@ -1,9 +1,10 @@
 #include "sbnobj/Common/Reco/CNNScore.h"
 
-sbn::CNNScore::CNNScore(float showerScore, float michelScore)
-    // TODO: if not clear cosmic?
-    //return ShowerScore(pfp)
-  : showerScore(showerScore)
-  , michelScore(michelScore)
+sbn::PFPCNNScore::PFPCNNScore(float pfpTrackScore, float pfpShowerScore, float pfpNoiseScore, float pfpMichelScore, int nClusters)
+  : pfpTrackScore(pfpTrackScore)
+  , pfpShowerScore(pfpShowerScore)
+  , pfpNoiseScore(pfpNoiseScore)
+  , pfpMichelScore(pfpMichelScore)
+  , nClusters(nClusters)
 {
 }

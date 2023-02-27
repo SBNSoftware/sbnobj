@@ -232,16 +232,19 @@
 
   <class name="std::vector<geo::PlaneID>"/>
 
-					
-  <class name="sbn::CNNScore" ClassVersion="11">
-   <version ClassVersion="11" checksum="4028854620"/>
-   <version ClassVersion="10" checksum="3458086389"/>
+  <class name="sbn::PFPCNNScore" ClassVersion="12">
+   <version ClassVersion="12" checksum="587801397"/>
+   <version ClassVersion="11" checksum="3012124880"/>
+   <version ClassVersion="10" checksum="306683356"/>
   </class>
-  <class name="std::vector<sbn::CNNScore>" />
-  <class name="art::Wrapper<sbn::CNNScore>" />
-  <class name="art::Wrapper<std::vector<sbn::CNNScore>>" />
-  <class name="art::Assns<recob::PFParticle, sbn::CNNScore>" />
-  <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::CNNScore>>" />
-  <class name="art::Assns<sbn::CNNScore, recob::PFParticle>" />
+  <class name="std::vector<sbn::PFPCNNScore>" />
+  <class name="art::Wrapper<sbn::PFPCNNScore>" />
+  <class name="art::Wrapper<std::vector<sbn::PFPCNNScore>>" />
+
+  <class name="art::Assns<recob::PFParticle,sbn::PFPCNNScore,void>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle,sbn::PFPCNNScore,void>>" />
+
+  <class name="art::Assns<sbn::PFPCNNScore,recob::PFParticle,void>" />
+  <class name="art::Wrapper<art::Assns<sbn::PFPCNNScore,recob::PFParticle,void>>" />
 
 </lcgdict>

@@ -1,19 +1,21 @@
-// class for storing CNN hit classification result
 #include <limits>
 
-#ifndef CNNScore_HH
-#define CNNScore_HH
+#ifndef sbnobj_CNNScore_HH
+#define sbnobj_CNNScore_HH
 
 namespace sbn {
 
   constexpr float nan_float = std::numeric_limits<float>::signaling_NaN();
 
-  class CNNScore {
+  class PFPCNNScore {
   public:
-    CNNScore(float showerScore = nan_float, float michelScore = nan_float);
+    PFPCNNScore(float pfpTrackScore = nan_float, float pfpShowerScore = nan_float, float pfpNoiseScore = nan_float, float pfpMichelScore = nan_float, int nClusters = 0);
 
-    float showerScore; //!< shower score for PFO, average over all associated hits
-    float michelScore; //!< michel score for PFO, average over 48*48 area around the endpoint
+    float pfpTrackScore; //!< shower score for PFO, average over all associated hits
+    float pfpShowerScore; //!< shower score for PFO, average over all associated hits
+    float pfpNoiseScore; //!< shower score for PFO, average over all associated hits
+    float pfpMichelScore; //!< michel score for PFO, average over 48*48 area around the endpoint
+    int nClusters; //!< number of clusters used for calculating average score
   };    
 }
 
