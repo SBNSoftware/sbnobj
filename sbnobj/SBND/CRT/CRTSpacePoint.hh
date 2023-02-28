@@ -48,8 +48,6 @@ namespace sbnd::crt {
     bool         Complete() const;
 
     CRTSpacePoint& operator= (CRTSpacePoint const&) = default;
-
-    bool operator==(const CRTSpacePoint &other) const;
   };
 }
 
