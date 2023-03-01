@@ -3,7 +3,7 @@
  *
  * \brief Product to store a cluster of CRTStripHits
  *
- * \author Henry Lay
+ * \author Henry Lay (h.lay@lancaster.ac.uk)
  *
  */
 

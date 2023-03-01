@@ -1,7 +1,7 @@
 /**
  * \brief Definitions of enums used in CRT objects
  *
- * \author Henry Lay
+ * \author Henry Lay (h.lay@lancaster.ac.uk)
  */
 
 #ifndef SBND_CRTENUMS_HH

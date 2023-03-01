@@ -3,7 +3,7 @@
  *
  * \brief Product to store 2D CRT "strip hit"
  *
- * \author Henry Lay
+ * \author Henry Lay (h.lay@lancaster.ac.uk)
  *
  */
 

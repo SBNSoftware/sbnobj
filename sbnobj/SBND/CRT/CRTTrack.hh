@@ -3,7 +3,7 @@
  *
  * \brief Product to store a track between CRTSpacePoints
  *
- * \author Henry Lay
+ * \author Henry Lay (h.lay@lancaster.ac.uk)
  *
  */
 
