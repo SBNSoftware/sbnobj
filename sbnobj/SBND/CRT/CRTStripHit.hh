@@ -16,16 +16,16 @@ namespace sbnd::crt {
 
   class CRTStripHit {
     
-    uint32_t channel;      // Channel ID for 1st SiPM
-    uint32_t ts0;          // T0 counter [ns] - Time relative to pulse-per-second
-    uint32_t ts1;          // T1 counter [ns] - Time relative to some beam signal
-    uint32_t s;            // Unixtime of event [s]
-    double   pos;          // Lateral position within strip [cm]
-    double   err;          // Error on lateral position [cm]
-    uint16_t adc1;         // ADC 1st SiPM
-    uint16_t adc2;         // ADC 2nd SiPM
-    bool     saturated1;   // Did 1st SiPM record a saturated value?
-    bool     saturated2;   // Did 2nd SiPM record a saturated value?
+    uint32_t fChannel;      // Channel ID for 1st SiPM
+    uint32_t fTs0;          // T0 counter [ns] - Time relative to pulse-per-second
+    uint32_t fTs1;          // T1 counter [ns] - Time relative to some beam signal
+    uint32_t fUnixS;        // Unixtime of event [s]
+    double   fPos;          // Lateral position within strip [cm]
+    double   fErr;          // Error on lateral position [cm]
+    uint16_t fADC1;         // ADC 1st SiPM
+    uint16_t fADC2;         // ADC 2nd SiPM
+    bool     fSaturated1;   // Did 1st SiPM record a saturated value?
+    bool     fSaturated2;   // Did 2nd SiPM record a saturated value?
 
   public:
 

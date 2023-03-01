@@ -16,19 +16,19 @@ namespace sbnd::crt {
 
   class CRTCluster {
     
-    uint32_t  ts0;          // T0 counter [ns]
-    uint32_t  ts1;          // T1 counter [ns]
-    uint32_t  s;            // Unixtime of event [s]
-    uint16_t  nHits;        // The number of strip hits forming the cluster
-    CRTTagger tagger;       // The tagger this cluster exists on
-    CoordSet  composition;  // What combination of orientations does the cluster make up?
+    uint32_t  fTs0;          // T0 counter [ns]
+    uint32_t  fTs1;          // T1 counter [ns]
+    uint32_t  fUnixS;        // Unixtime of event [s]
+    uint16_t  fNHits;        // The number of strip hits forming the cluster
+    CRTTagger fTagger;       // The tagger this cluster exists on
+    CoordSet  fComposition;  // What combination of orientations does the cluster make up?
 
   public:
 
     CRTCluster();
     
-    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _s, uint16_t _nHits, CRTTagger _tagger,
-               CoordSet composition);
+    CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _unixS, uint16_t _nHits, CRTTagger _tagger,
+               CoordSet _composition);
 
     virtual ~CRTCluster();
 

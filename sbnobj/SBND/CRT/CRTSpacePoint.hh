@@ -16,12 +16,12 @@ namespace sbnd::crt {
 
   class CRTSpacePoint {
     
-    geo::Point_t pos;      // position [cm]
-    geo::Point_t epos;     // positional error [cm]
-    double       pe;       // total PE
-    double       time;     // time [ns]
-    double       etime;    // time error [ns]
-    bool         complete; // whether or not the cluster was 3D and contained overlaps
+    geo::Point_t fPos;      // position [cm]
+    geo::Point_t fPosErr;   // positional error [cm]
+    double       fPE;       // total PE
+    double       fTime;     // time [ns]
+    double       fTimeErr;  // time error [ns]
+    bool         fComplete; // whether or not the cluster was 3D and contained overlaps
 
   public:
 

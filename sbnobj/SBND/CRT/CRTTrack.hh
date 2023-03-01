@@ -19,12 +19,12 @@ namespace sbnd::crt {
 
   class CRTTrack {
     
-    std::vector<geo::Point_t> points;  // the fitted track points at each tagger [cm]
-    double                    time;    // average time [ns]
-    double                    etime;   // average time error [ns]
-    double                    pe;      // total PE
-    double                    tof;     // time from first space point to last [ns]
-    std::set<CRTTagger>       taggers; // which taggers were used to create the track
+    std::vector<geo::Point_t> fPoints;  // the fitted track points at each tagger [cm]
+    double                    fTime;    // average time [ns]
+    double                    fTimeErr; // average time error [ns]
+    double                    fPE;      // total PE
+    double                    fToF;     // time from first space point to last [ns]
+    std::set<CRTTagger>       fTaggers; // which taggers were used to create the track
 
   public:
 
