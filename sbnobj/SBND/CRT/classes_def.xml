@@ -68,7 +68,8 @@
 
   <!-- CRTStripHit -->
 
-  <class name="sbnd::crt::CRTStripHit" ClassVersion="11">
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="12">
+    <version ClassVersion="12" checksum="584045954"/>
     <version ClassVersion="11" checksum="800304658"/>
     <version ClassVersion="10" checksum="4138806794"/>
   </class>
@@ -85,7 +86,8 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster" ClassVersion="12">
+  <class name="sbnd::crt::CRTCluster" ClassVersion="13">
+    <version ClassVersion="13" checksum="1135665496"/>
     <version ClassVersion="12" checksum="2016992292"/>
     <version ClassVersion="11" checksum="1091671472"/>
     <version ClassVersion="10" checksum="1065888561"/>
@@ -109,7 +111,8 @@
 
   <!-- CRTSpacePoint -->
 
-  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="14">
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="15">
+    <version ClassVersion="15" checksum="3948858368"/>
     <version ClassVersion="14" checksum="3511665268"/>
     <version ClassVersion="13" checksum="1940127766"/>
     <version ClassVersion="12" checksum="2172501779"/>
@@ -127,14 +130,20 @@
   <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster, void> >"           />
 
-  <class name="art::Assns<anab::T0, sbnd::crt::CRTSpacePoint,    void>"           />
-  <class name="art::Wrapper< art::Assns<anab::T0, sbnd::crt::CRTSpacePoint, void> >"           />
-  <class name="art::Assns<sbnd::crt::CRTSpacePoint, anab::T0,    void>"           />
-  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, anab::T0,void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, void> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTSpacePoint, void>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTSpacePoint, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, anab::T0> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTSpacePoint, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTSpacePoint, anab::T0> >"           />
 
   <!-- CRTTrack -->
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="13">
+  <class name="sbnd::crt::CRTTrack" ClassVersion="14">
+    <version ClassVersion="14" checksum="1691600150"/>
     <version ClassVersion="13" checksum="1373542920"/>
     <version ClassVersion="12" checksum="964775693"/>
     <version ClassVersion="11" checksum="1961360974"/>
@@ -151,9 +160,14 @@
   <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint,    void>"           />
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint, void> >"           />
 
-  <class name="art::Assns<anab::T0, sbnd::crt::CRTTrack,    void>"           />
-  <class name="art::Wrapper< art::Assns<anab::T0, sbnd::crt::CRTTrack, void> >"           />
-  <class name="art::Assns<sbnd::crt::CRTTrack, anab::T0,    void>"           />
-  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, anab::T0,void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTTrack, recob::Track, void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, void> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, void>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, anab::T0> >"           />
 
 </lcgdict>
