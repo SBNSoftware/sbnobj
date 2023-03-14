@@ -252,6 +252,13 @@ struct sbn::ExtraTriggerInfo {
   // --- END ---- Trigger topology ---------------------------------------------
   
   
+  /// Returns the time from the beam gate to the trigger [ns].
+  /// Only valid if beam gate timestamp is valid.
+  constexpr std::int64_t triggerFromBeamGate() const
+    { 
+      return static_cast<std::int64_t>(triggerTimestamp)
+        - static_cast<std::int64_t>(beamGateTimestamp);
+    }  
   
   /// Returns whether this object contains any valid information.
   constexpr bool isValid() const noexcept
