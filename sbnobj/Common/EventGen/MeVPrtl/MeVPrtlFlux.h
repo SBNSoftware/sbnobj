@@ -25,6 +25,7 @@ public:
   int meson_pdg;
   int secondary_pdg;
   int generator;
+  double polarization;
 
 };
 }
