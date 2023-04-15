@@ -1,0 +1,20 @@
+<lcgdict>
+  <class name="sbnd::FRAMSObj" ClassVersion="13">
+   <version ClassVersion="13" checksum="1517148511"/>
+   <version ClassVersion="12" checksum="1864902054"/>
+   <version ClassVersion="11" checksum="290410819"/>
+   <version ClassVersion="10" checksum="1989369475"/>
+  </class>
+  <class name="art::Ptr<sbnd::FRAMSObj>"/>
+  <class name="art::PtrVector<sbnd::FRAMSObj>"/>
+  <class name="std::vector<art::Ptr<sbnd::FRAMSObj>>" />
+  <class name="std::vector<sbnd::FRAMSObj>" />
+  <class name="art::Wrapper<sbnd::FRAMSObj>" />
+  <class name="art::Wrapper<std::vector<sbnd::FRAMSObj>>" />
+
+  <class name="art::Assns<recob::Slice, sbnd::FRAMSObj>" />
+  <class name="art::Wrapper< art::Assns<recob::Slice, sbnd::FRAMSObj> >" />
+  <class name="art::Assns<sbnd::FRAMSObj,recob::Slice, void>" />
+  <class name="art::Wrapper< art::Assns<sbnd::FRAMSObj,recob::Slice, void> >" />
+
+</lcgdict>
