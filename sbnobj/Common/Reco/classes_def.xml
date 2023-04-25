@@ -76,6 +76,17 @@
   <class name="art::Assns<sbn::crt::CRTHit, recob::Track, void>" />
   <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, recob::Track, void>>" />
 
+  <class name="sbn::LightCalo">
+  </class>
+  <class name="std::vector<sbn::LightCalo>" />
+  <class name="art::Wrapper<sbn::LightCalo>" />
+  <class name="art::Wrapper<std::vector<sbn::LightCalo>>" />
+
+  <class name="art::Assns<recob::Slice, sbn::LightCalo>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::LightCalo>>" />
+  <class name="art::Assns<sbn::LightCalo, recob::Slice, void>" /> 
+  <class name="art::Wrapper<art::Assns<sbn::LightCalo, recob::Slice, void>>"/>
+
   <class name="sbn::ShowerDensityFit" ClassVersion="10">
    <version ClassVersion="10" checksum="942453570"/>
   </class>
