@@ -1,12 +1,12 @@
 <lcgdict>
 
-   <!-- CRTData  -->
+  <!-- CRTData  -->
 
-   <class name="sbnd::crt::CRTData" ClassVersion="13">
-   <version ClassVersion="13" checksum="2577240595"/>
-   <version ClassVersion="12" checksum="4014796032"/>
-   <version ClassVersion="11" checksum="3272996027"/>
-   <version ClassVersion="10" checksum="4014796032"/>
+  <class name="sbnd::crt::CRTData" ClassVersion="13">
+    <version ClassVersion="13" checksum="2577240595"/>
+    <version ClassVersion="12" checksum="4014796032"/>
+    <version ClassVersion="11" checksum="3272996027"/>
+    <version ClassVersion="10" checksum="4014796032"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTData>"/>
   <class name="art::Wrapper<sbnd::crt::CRTData>"/>
@@ -17,27 +17,28 @@
 
   <!-- associations  -->
 
- <class name="art::Assns<sbnd::crt::CRTData, sim::AuxDetIDE,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sim::AuxDetIDE, void> >"           />
- <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::CRTData,    void>"           />
- <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::CRTData, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTData, sim::AuxDetIDE,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sim::AuxDetIDE, void> >"           />
+  <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::CRTData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::CRTData, void> >"           />
 
- <class name="art::Assns<sbn::crt::CRTHit, sbnd::crt::CRTData,    void>"           />
- <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbnd::crt::CRTData, void> >"           />
- <class name="art::Assns<sbnd::crt::CRTData, sbn::crt::CRTHit,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbn::crt::CRTHit, void> >"           />
+  <class name="art::Assns<sbn::crt::CRTHit, sbnd::crt::CRTData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbn::crt::CRTHit, sbnd::crt::CRTData, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTData, sbn::crt::CRTHit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbn::crt::CRTHit, void> >"           />
 
- <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTData,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTData, void> >"           />
- <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTData, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::CRTHit, void> >"           />
 
 
 
- <!-- FEBData  -->
+  <!-- FEBData  -->
 
- <class name="sbnd::crt::FEBData" ClassVersion="10">
-   <version ClassVersion="10" checksum="2102366268"/>
+  <class name="sbnd::crt::FEBData" ClassVersion="11">
+    <version ClassVersion="11" checksum="3560291659"/>
+    <version ClassVersion="10" checksum="2102366268"/>
   </class>
   <class name="std::vector<sbnd::crt::FEBData>"/>
   <class name="art::Wrapper<sbnd::crt::FEBData>"/>
@@ -45,24 +46,114 @@
 
   <!-- associations  -->
 
- <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, void> >"           />
- <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    void>"           />
- <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, void> >"           />
+  <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, void> >"           />
+  <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, void> >"           />
 
- <class name="art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData, void> >"           />
- <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData, void> >"           />
+  <class name="art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTData, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTData, sbnd::crt::FEBData, void> >"           />
 
 
- <!-- FEBTruthInfo  -->
+  <!-- FEBTruthInfo  -->
 
- <class name="sbnd::crt::FEBTruthInfo"/>
- <class name="std::vector<sbnd::crt::FEBTruthInfo>"/>
- <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    sbnd::crt::FEBTruthInfo>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, sbnd::crt::FEBTruthInfo> >"           />
- <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    sbnd::crt::FEBTruthInfo>"           />
- <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, sbnd::crt::FEBTruthInfo> >"           />
+  <class name="sbnd::crt::FEBTruthInfo"/>
+  <class name="std::vector<sbnd::crt::FEBTruthInfo>"/>
+  <class name="art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE,    sbnd::crt::FEBTruthInfo>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sim::AuxDetIDE, sbnd::crt::FEBTruthInfo> >"           />
+  <class name="art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData,    sbnd::crt::FEBTruthInfo>"           />
+  <class name="art::Wrapper< art::Assns<sim::AuxDetIDE, sbnd::crt::FEBData, sbnd::crt::FEBTruthInfo> >"           />
+
+  <!-- CRTStripHit -->
+
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="10">
+    <version ClassVersion="10" checksum="584045954"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTStripHit>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTStripHit>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTStripHit> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTStripHit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::FEBData, sbnd::crt::CRTStripHit, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::FEBData,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::FEBData, void> >"           />
+
+  <!-- CRTCluster -->
+
+  <class name="sbnd::crt::CRTCluster" ClassVersion="10">
+    <version ClassVersion="10" checksum="1135665496"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTCluster>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTCluster>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTCluster> >"/>
+
+  <!-- CRTEnums -->
+
+  <enum name="sbnd::crt::CRTTagger" ClassVersion="10"/>
+  <class name="std::set<sbnd::crt::CRTTagger>"/>
+  <enum name="sbnd::crt::CoordSet" ClassVersion="10"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::CRTCluster,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTStripHit, sbnd::crt::CRTCluster, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTStripHit, void> >"           />
+
+  <!-- CRTSpacePoint -->
+
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="10">
+    <version ClassVersion="10" checksum="3948858368"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTSpacePoint>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTSpacePoint>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTSpacePoint> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTCluster, sbnd::crt::CRTSpacePoint, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTCluster, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, void> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTSpacePoint, void>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTSpacePoint, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, recob::Track, anab::T0> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTSpacePoint, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTSpacePoint, anab::T0> >"           />
+
+  <!-- CRTTrack -->
+
+  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+    <version ClassVersion="10" checksum="1691600150"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTTrack>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTTrack>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTTrack> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTTrack,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTTrack, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTSpacePoint, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTTrack, recob::Track, void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, void> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, void>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, void> >"           />
+
+  <class name="art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0> >"           />
+  <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, anab::T0>"           />
+  <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, anab::T0> >"           />
+
 </lcgdict>
-
