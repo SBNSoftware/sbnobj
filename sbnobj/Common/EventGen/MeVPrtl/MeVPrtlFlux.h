@@ -22,6 +22,7 @@ public:
   double C4;
   double C5;
   double mass;
+  double polarization;
   int meson_pdg;
   int secondary_pdg;
   int generator;

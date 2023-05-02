@@ -24,7 +24,9 @@
   <class name="art::Wrapper<evgen::ldm::MeVPrtlDecay>" />
   <class name="art::Wrapper<std::vector<evgen::ldm::MeVPrtlDecay>>" />
 
-  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="13" >
+  <class name="evgen::ldm::MeVPrtlFlux" ClassVersion="15" >
+   <version ClassVersion="15" checksum="1124353542"/>
+   <version ClassVersion="14" checksum="3307820966"/>
    <version ClassVersion="13" checksum="2581972823"/>
    <version ClassVersion="12" checksum="58715042"/>
    <version ClassVersion="11" checksum="2679592796"/>
