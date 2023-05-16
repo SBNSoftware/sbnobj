@@ -11,10 +11,10 @@ namespace sbn
     public:
 
     // note: not ordered as plane0, plane1, and plane2 necessarily. "best plane" is first
-    std::vector<double> charge; // reconstructed charge (e-)
-    std::vector<double> light;  // reconstructed light (photons), set as the median of the light per channel 
-    std::vector<double> energy; // sum of charge and light
-    std::vector<int> plane; // first plane is the best plane (most complete)
+    std::vector<double> charge = std::vector<double>(3); // reconstructed charge (e-)
+    std::vector<double> light  = std::vector<double>(3);  // reconstructed light (photons), set as the median of the light per channel 
+    std::vector<double> energy = std::vector<double>(3); // sum of charge and light
+    std::vector<int> plane = std::vector<int>(3); // first plane is the best plane (most complete)
     double time;   // t0 associated with the flash match
 
     LightCalo(std::vector<double> charge_v, 
@@ -23,6 +23,13 @@ namespace sbn
               std::vector<int> plane_v,
               double time);
     LightCalo() {}
+
+    /// Helper functions
+    double bestCharge() const; 
+    double bestLight() const;
+    double bestEnergy() const;
+    int bestPlane() const;
+
   };
 }
 
