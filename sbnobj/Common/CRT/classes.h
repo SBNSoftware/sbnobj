@@ -15,6 +15,4 @@
 #include <map>
 #include <utility>
 
-namespace{
-  sbn::crt::CRTPMTMatchingInfo meta1;
-}
+
