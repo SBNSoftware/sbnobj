@@ -17,14 +17,4 @@
 
 namespace{
   sbn::crt::CRTPMTMatchingInfo meta1;
-
-  art::Assns<sbn::crt::CRTHit, recob::OpFlash, sbn::crt::CRTPMTMatchingInfo> assn11;
-  art::Assns<recob::OpFlash, sbn::crt::CRTHit, sbn::crt::CRTPMTMatchingInfo> assn12;
-
-  art::Assns<recob::OpFlash, sbn::crt::CRTPMTMatching> assn21;
-  art::Assns<sbn::crt::CRTPMTMatching, recob::OpFlash> assn22;
-
-  art::Assns<sbn::crt::CRTHit, sbn::crt::CRTPMTMatching> assn31;
-  art::Assns<sbn::crt::CRTPMTMatching, sbn::crt::CRTHit> assn32;
-
 }
