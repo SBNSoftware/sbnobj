@@ -3,7 +3,6 @@ cet_make_library(SOURCE
                  ${lib_srcs}
                  LIBRARIES
                  PRIVATE
-                 messagefacility::MF_MessageLogger
                  larcoreobj::headers
                  lardataobj::headers
                )
