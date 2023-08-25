@@ -1,0 +1,7 @@
+<lcgdict>
+  <class name="sbnd::timing::DAQTimestamp" ClassVersion="10">
+    <version ClassVersion="10" checksum="810700615"/>
+  </class>
+  <class name="std::vector<sbnd::timing::DAQTimestamp>"/>
+  <class name="art::Wrapper< std::vector<sbnd::timing::DAQTimestamp> >"/> 
+</lcgdict>
