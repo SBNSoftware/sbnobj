@@ -198,7 +198,6 @@ template <typename Tick, typename TickInterval, typename ChannelIDType>
    */
   ChannelID_t channel() const;
   
-  
   /// Associates the specified channel to this readout gate.
   This_t& addChannel(ChannelID_t const channel);
   
