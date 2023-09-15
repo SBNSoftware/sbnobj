@@ -1,5 +1,6 @@
 cet_make(
   LIBRARIES
+    lardataalg::UtilitiesHeaders
     lardataobj::RawData
     larcorealg::CoreUtils
     cetlib_except::cetlib_except
