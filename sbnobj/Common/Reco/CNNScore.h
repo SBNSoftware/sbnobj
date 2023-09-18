@@ -9,12 +9,13 @@ namespace sbn {
 
   class PFPCNNScore {
   public:
-    PFPCNNScore(float pfpTrackScore = nan_float, float pfpShowerScore = nan_float, float pfpNoiseScore = nan_float, float pfpEndMichelScore = nan_float, int nClusters = 0);
+    PFPCNNScore(float pfpTrackScore = nan_float, float pfpShowerScore = nan_float, float pfpNoiseScore = nan_float, float pfpMichelScore = nan_float, float pfpEndMichelScore = nan_float, int nClusters = 0);
 
     float pfpTrackScore; //!< shower score for PFP, average over all associated hits
     float pfpShowerScore; //!< shower score for PFP, average over all associated hits
     float pfpNoiseScore; //!< shower score for PFP, average over all associated hits
-    float pfpEndMichelScore; //!< michel score for PFP, average over 48*48 area around the endpoint
+    float pfpMichelScore; //!< michel score for PFP, average over all associated hits
+    float pfpEndMichelScore; //!< end michel score for PFP, average over defined area around the endpoint
     int nClusters; //!< number of clusters used for calculating average score
   };    
 }
