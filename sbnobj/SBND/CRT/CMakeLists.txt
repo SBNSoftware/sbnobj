@@ -2,6 +2,7 @@ cet_make(
   LIBRARIES
     cetlib_except::cetlib_except
     lardataobj::Simulation
+    lardataobj::RecoBase
   NO_DICTIONARY
   )
 
