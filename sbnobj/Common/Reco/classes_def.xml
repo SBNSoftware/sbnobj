@@ -92,6 +92,21 @@
   <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::OpT0Finder>>" />
   <class name="art::Wrapper<art::Assns<sbn::OpT0Finder, recob::OpFlash, void>>" />
 
+  <class name="sbn::PFPCNNScore" ClassVersion="14">
+   <version ClassVersion="14" checksum="3262687246"/>
+   <version ClassVersion="13" checksum="587801397"/>
+   <version ClassVersion="12" checksum="2317961223"/>
+  </class>
+  <class name="std::vector<sbn::PFPCNNScore>" />
+  <class name="art::Wrapper<sbn::PFPCNNScore>" />
+  <class name="art::Wrapper<std::vector<sbn::PFPCNNScore>>" />
+
+  <class name="art::Assns<recob::PFParticle,sbn::PFPCNNScore,void>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle,sbn::PFPCNNScore,void>>" />
+
+  <class name="art::Assns<sbn::PFPCNNScore,recob::PFParticle,void>" />
+  <class name="art::Wrapper<art::Assns<sbn::PFPCNNScore,recob::PFParticle,void>>" />
+
   <class name="sbn::ShowerDensityFit" ClassVersion="10">
    <version ClassVersion="10" checksum="942453570"/>
   </class>
