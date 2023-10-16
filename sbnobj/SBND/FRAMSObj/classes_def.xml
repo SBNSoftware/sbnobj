@@ -1,5 +1,7 @@
 <lcgdict>
-  <class name="sbnd::FRAMSObj" ClassVersion="13">
+  <class name="sbnd::FRAMSObj" ClassVersion="15">
+   <version ClassVersion="15" checksum="1998604636"/>
+   <version ClassVersion="14" checksum="136474899"/>
    <version ClassVersion="13" checksum="1517148511"/>
    <version ClassVersion="12" checksum="1864902054"/>
    <version ClassVersion="11" checksum="290410819"/>
