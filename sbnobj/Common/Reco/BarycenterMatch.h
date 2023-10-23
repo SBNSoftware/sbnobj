@@ -32,8 +32,8 @@ namespace sbn {
   float        fFlashFirstHit      { fDefault };                     ///< Time of first OpHit in matched OpFlash (us)
   float        fFlashPEs           { fDefault };                     ///< Total PEs in matched flash
   float        fFlashAsymmetry     { fDefault };                     ///< East-West asymmetry of PEs in matched flash
-  geo::Point_t fFlashCenter        { fDefault, fDefault, fDefault }; ///< Weighted mean ophit position in Y,Z (cm)
-  geo::Point_t fFlashWidth         { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in Y,Z (cm)
+  geo::Point_t fFlashCenter        { fDefault, fDefault, fDefault }; ///< Weighted mean ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
+  geo::Point_t fFlashWidth         { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
 
 
   /// Data members related to quality of match
