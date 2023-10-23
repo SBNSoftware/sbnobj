@@ -246,5 +246,29 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
+  <class name="sbn::BarycenterMatch" ClassVersion="12">
+   <version ClassVersion="12" checksum="2409751759"/>
+   <version ClassVersion="11" checksum="2644507212"/>
+   <version ClassVersion="10" checksum="442803767"/>
+  </class>
+  <class name="std::vector<sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<std::vector<sbn::BarycenterMatch>>" />
+  <!-- Assns (BarycenterMatch, Slice) -->
+  <class name="art:Assns<sbn::BarycenterMatch, recob::Slice, void>" />
+  <class name="art:Assns<recob::Slice, sbn::BarycenterMatch, void>" />
+  <class name="art::Wrapper<art:Assns<sbn::BarycenterMatch, recob::Slice, void>>" />
+  <class name="art::Wrapper<art:Assns<recob::Slice, sbn::BarycenterMatch, void>>" />
+  <!-- Assns (BarycenterMatch, OpFlash) -->
+  <class name="art:Assns<sbn::BarycenterMatch, recob::OpFlash, void>" />
+  <class name="art:Assns<recob::OpFlash, sbn::BarycenterMatch, void>" />
+  <class name="art::Wrapper<art:Assns<sbn::BarycenterMatch, recob::OpFlash, void>>" />
+  <class name="art::Wrapper<art:Assns<recob::OpFlash, sbn::BarycenterMatch, void>>" />
+  <!-- Assns (Slice, OpFlash) via BarycenterMatch-->
+  <class name="art:Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>" />
+  <class name="art:Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<art:Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>>" />
+  <class name="art::Wrapper<art:Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>>" />
+
   <class name="std::vector<geo::PlaneID>"/>
 </lcgdict>
