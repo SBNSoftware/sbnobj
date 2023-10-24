@@ -253,22 +253,27 @@
   </class>
   <class name="std::vector<sbn::BarycenterMatch>" />
   <class name="art::Wrapper<sbn::BarycenterMatch>" />
+  <class name="art::Ptr<sbn::BarycenterMatch>" />
   <class name="art::Wrapper<std::vector<sbn::BarycenterMatch>>" />
   <!-- Assns (BarycenterMatch, Slice) -->
-  <class name="art:Assns<sbn::BarycenterMatch, recob::Slice, void>" />
-  <class name="art:Assns<recob::Slice, sbn::BarycenterMatch, void>" />
-  <class name="art::Wrapper<art:Assns<sbn::BarycenterMatch, recob::Slice, void>>" />
-  <class name="art::Wrapper<art:Assns<recob::Slice, sbn::BarycenterMatch, void>>" />
+  <class name="art::Assns<sbn::BarycenterMatch, recob::Slice, void>" />
+  <class name="art::Assns<recob::Slice, sbn::BarycenterMatch, void>" />
+  <class name="std::pair<sbn::BarycenterMatch, recob::Slice>" />
+  <class name="std::pair<recob::Slice, sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<art::Assns<sbn::BarycenterMatch, recob::Slice, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::BarycenterMatch, void>>" />
   <!-- Assns (BarycenterMatch, OpFlash) -->
-  <class name="art:Assns<sbn::BarycenterMatch, recob::OpFlash, void>" />
-  <class name="art:Assns<recob::OpFlash, sbn::BarycenterMatch, void>" />
-  <class name="art::Wrapper<art:Assns<sbn::BarycenterMatch, recob::OpFlash, void>>" />
-  <class name="art::Wrapper<art:Assns<recob::OpFlash, sbn::BarycenterMatch, void>>" />
+  <class name="art::Assns<sbn::BarycenterMatch, recob::OpFlash, void>" />
+  <class name="art::Assns<recob::OpFlash, sbn::BarycenterMatch, void>" />
+  <class name="std::pair<sbn::BarycenterMatch, recob::OpFlash>" />
+  <class name="std::pair<recob::OpFlash, sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<art::Assns<sbn::BarycenterMatch, recob::OpFlash, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::BarycenterMatch, void>>" />
   <!-- Assns (Slice, OpFlash) via BarycenterMatch-->
-  <class name="art:Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>" />
-  <class name="art:Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>" />
-  <class name="art::Wrapper<art:Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>>" />
-  <class name="art::Wrapper<art:Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>>" />
+  <class name="art::Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>" />
+  <class name="art::Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>>" />
 
   <class name="std::vector<geo::PlaneID>"/>
 </lcgdict>
