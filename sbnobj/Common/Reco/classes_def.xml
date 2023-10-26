@@ -269,11 +269,6 @@
   <class name="std::pair<recob::OpFlash, sbn::BarycenterMatch>" />
   <class name="art::Wrapper<art::Assns<sbn::BarycenterMatch, recob::OpFlash, void>>" />
   <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::BarycenterMatch, void>>" />
-  <!-- Assns (Slice, OpFlash) via BarycenterMatch-->
-  <class name="art::Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>" />
-  <class name="art::Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>" />
-  <class name="art::Wrapper<art::Assns<recob::Slice, recob::OpFlash, sbn::BarycenterMatch>>" />
-  <class name="art::Wrapper<art::Assns<recob::OpFlash, recob::Slice, sbn::BarycenterMatch>>" />
 
   <class name="std::vector<geo::PlaneID>"/>
 </lcgdict>
