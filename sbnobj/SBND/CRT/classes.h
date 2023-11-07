@@ -3,8 +3,15 @@
 #include "sbnobj/SBND/CRT/FEBData.hh"
 #include "sbnobj/SBND/CRT/CRTData.hh"
 #include "sbnobj/SBND/CRT/FEBTruthInfo.hh"
+#include "sbnobj/SBND/CRT/CRTStripHit.hh"
+#include "sbnobj/SBND/CRT/CRTCluster.hh"
+#include "sbnobj/SBND/CRT/CRTSpacePoint.hh"
+#include "sbnobj/SBND/CRT/CRTEnums.hh"
+#include "sbnobj/SBND/CRT/CRTTrack.hh"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/CRT/CRTHit_Legacy.hh"
 #include "lardataobj/Simulation/AuxDetSimChannel.h"
 #include <vector>
 #include <utility>
+#include "lardataobj/AnalysisBase/T0.h"
+#include "lardataobj/RecoBase/Track.h"

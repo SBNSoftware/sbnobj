@@ -1,5 +1,6 @@
 <lcgdict>
-  <class name="sbnd::ToF::ToF" ClassVersion="10">
+  <class name="sbnd::ToF::ToF" ClassVersion="11">
+   <version ClassVersion="11" checksum="1183341127"/>
    <version ClassVersion="10" checksum="289199695"/>
   </class>
   <class name="std::vector<sbnd::ToF::ToF>"/>
