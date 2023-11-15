@@ -10,6 +10,7 @@
 #define SBNOBJ_COMMON_PMT_DATA_V1730CHANNELCONFIGURATION_H
 
 // LArSoft libraries
+#include <cstdint>  // uint16_t in OpDetWaveform.h
 #include "lardataobj/RawData/OpDetWaveform.h" // raw::Channel_t
 
 // C/C++ standard libraries
