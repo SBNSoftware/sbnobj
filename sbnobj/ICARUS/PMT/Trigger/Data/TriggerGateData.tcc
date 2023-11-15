@@ -428,7 +428,8 @@ auto icarus::trigger::TriggerGateData<TK, TI>::SymmetricCombination(
     struct GateStatus_t {
       // protecting against Clang bug 33298 (at least until Clang 8)
       // (https://bugs.llvm.org/show_bug.cgi?id=33298)
-#if defined(__clang__) && (__clang_major__ < 9)
+// both c7 and c14 complain 
+#if defined(__clang__) 
 # pragma clang diagnostic push
 # pragma clang diagnostic ignored "-Wunused-local-typedef"
 #endif // __clang_major__ < 9
