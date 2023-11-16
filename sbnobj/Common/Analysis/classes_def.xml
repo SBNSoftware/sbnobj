@@ -9,4 +9,7 @@
   <class name="art::Wrapper< anab::TPCPurityInfo>"/>
   <class name="art::Wrapper< std::vector<anab::TPCPurityInfo>>"/>
 
+  <class name = "std::vector<std::vector<bool>>"/>
+  <class name = "std::vector<std::vector<double>>"/>
+
 </lcgdict>
