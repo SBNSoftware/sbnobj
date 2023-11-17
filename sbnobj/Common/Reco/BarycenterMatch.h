@@ -33,7 +33,7 @@ namespace sbn {
   float        flashPEs           { fDefault };                     ///< Total PEs in matched flash
   float        flashAsymmetry     { fDefault };                     ///< East-West asymmetry of PEs in matched flash
   geo::Point_t flashCenter        { fDefault, fDefault, fDefault }; ///< Weighted mean ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
-  geo::Point_t flashWidth         { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
+  geo::Vector_t flashWidth        { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
 
 
   /// Data members related to quality of match
