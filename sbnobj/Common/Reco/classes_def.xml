@@ -92,7 +92,8 @@
   <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::OpT0Finder>>" />
   <class name="art::Wrapper<art::Assns<sbn::OpT0Finder, recob::OpFlash, void>>" />
 
-  <class name="sbn::PFPCNNScore" ClassVersion="14">
+  <class name="sbn::PFPCNNScore" ClassVersion="15">
+   <version ClassVersion="15" checksum="3783368588"/>
    <version ClassVersion="14" checksum="3262687246"/>
    <version ClassVersion="13" checksum="587801397"/>
    <version ClassVersion="12" checksum="2317961223"/>
