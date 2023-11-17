@@ -41,8 +41,8 @@ namespace sbn {
   float        deltaZ             { fDefault };                     ///< abs( Matched flash Z cetner - charge Z center ) (cm)
   float        radius             { fDefault };                     ///< Hypotenuse of DeltaY and DeltaZ, PARAMETER MINIMIZED BY MATCHING (cm)
   float        deltaT             { fDefault };                     ///< abs( Matched flash time - anab::T0 ) when available (us)
-  float        overlapY           { fDefault };                     ///< Spacial overlap of flash and charge centroids in Y [>0] OR distance apart if no overlap [<0] (cm)
-  float        overlapZ           { fDefault };                     ///< Spacial overlap of flash and charge centroids in Z [>0] OR distance apart if no overlap [<0] (cm)
+  float        overlapY           { fDefault };                     ///< Spatial overlap of flash and charge centroids in Y [>0] OR distance apart if no overlap [<0] (cm)
+  float        overlapZ           { fDefault };                     ///< Spatial overlap of flash and charge centroids in Z [>0] OR distance apart if no overlap [<0] (cm)
   float        deltaZ_Trigger     { fDefault };                     ///< abs( Triggering flash Z cetner - charge Z center ) (cm)
 
   };
