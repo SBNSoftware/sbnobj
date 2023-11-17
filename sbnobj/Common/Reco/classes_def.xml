@@ -246,7 +246,9 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
-  <class name="sbn::BarycenterMatch" ClassVersion="13">
+  <class name="sbn::BarycenterMatch" ClassVersion="15">
+   <version ClassVersion="15" checksum="3604804228"/>
+   <version ClassVersion="14" checksum="2149288145"/>
    <version ClassVersion="13" checksum="4019455353"/>
    <version ClassVersion="12" checksum="2409751759"/>
    <version ClassVersion="11" checksum="2644507212"/>
