@@ -25,7 +25,7 @@ namespace sbn {
   float        chargeTotal        { fDefault };                     ///< Total charge in slice contributing to barycenter
   float        chargeCenterXLocal { fDefault };                     ///< Weighted mean X position of spacepoints, measured with respect to the cathode (cm)
   geo::Point_t chargeCenter       { fDefault, fDefault, fDefault }; ///< Weighted mean spacepoint position in X,Y,Z (cm)
-  geo::Point_t chargeWidth        { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of spacepoint position in X,Y,Z (cm)
+  geo::Vector_t chargeWidth       { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of spacepoint position in X,Y,Z (cm)
 
   /// Data members related to matched recob::OpFlash, also reachable by association 
   float        flashTime          { fDefault };                     ///< Matched OpFlash time (us)
