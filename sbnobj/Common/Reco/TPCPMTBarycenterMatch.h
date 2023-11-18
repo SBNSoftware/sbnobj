@@ -1,5 +1,5 @@
 /**
- * @file   sbnobj/Common/Reco/BarycenterMatch.h
+ * @file   sbnobj/Common/Reco/TPCPMTBarycenterMatch.h
  * @author Jack Smedley (jsmedley@fnal.gov)
  * @date   June 21, 2023
  * 
@@ -16,7 +16,7 @@ namespace sbn {
   /**
    * @brief Information on matching of a reconstructed TPC object with a optical flash via barycenter matching algorithm.
    */
-  class BarycenterMatch {
+  class TPCPMTBarycenterMatch {
   public:
 
   // NaN value to initialize data members
