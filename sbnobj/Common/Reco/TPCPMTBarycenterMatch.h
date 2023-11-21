@@ -9,8 +9,8 @@
 #include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 
 
-#ifndef SBNOBJ_COMMON_RECO_BARYCENTERMATCH_H
-#define SBNOBJ_COMMON_RECO_BARYCENTERMATCH_H
+#ifndef SBNOBJ_COMMON_RECO_TPCPMTBARYCENTERMATCH_H
+#define SBNOBJ_COMMON_RECO_TPCPMTBARYCENTERMATCH_H
 
 namespace sbn {
   /**
