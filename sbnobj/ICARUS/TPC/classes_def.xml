@@ -1,0 +1,19 @@
+<lcgdict> 
+ 
+  <class name="std::pair<unsigned int, std::vector<short>>"/>
+  <class name="std::vector<std::pair<unsigned int, std::vector<short>>>"/>
+  <class name="lar::sparse_vector<short>::datarange_t"/>
+  <class name="std::vector< lar::sparse_vector<short>::datarange_t>"/>
+
+
+  <class name="recob::ChannelROI" ClassVersion="10" >
+   <version ClassVersion="10" checksum="1609503266"/>
+  </class>
+
+  <class name="art::Ptr<recob::ChannelROI>" />
+  <class name="std::vector<recob::ChannelROI>" />
+  <class name="art::Wrapper< std::vector< recob::ChannelROI>>"/>
+
+  <class name="lar::sparse_vector<short>"/>
+  
+</lcgdict>
