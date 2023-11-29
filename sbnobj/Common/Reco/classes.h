@@ -8,6 +8,7 @@
 #include "lardataobj/RecoBase/Slice.h"
 #include "lardataobj/RecoBase/Track.h"
 #include "lardataobj/RecoBase/Vertex.h"
+#include "lardataobj/RecoBase/OpFlash.h"
 
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/Reco/FlashTriggerPrimitive.hh"
