@@ -4,6 +4,7 @@
 #include "messagefacility/MessageLogger/MessageLogger.h"
 
 #include <algorithm>
+#include <limits> // for std::numeric_limits
 
 void sbn::MVAPID::AddScore(int pdg, float score)
 {
