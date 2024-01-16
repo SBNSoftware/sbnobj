@@ -35,5 +35,6 @@
     <class name="art::Ptr<sbn::ExtraTriggerInfo>"/>
     <class name="art::Wrapper<sbn::ExtraTriggerInfo>"/>
     <class name="std::vector<sbn::ExtraTriggerInfo>"/>
+    <class name="art::Wrapper<std::vector<sbn::ExtraTriggerInfo>>"/>
 
   </lcgdict>
