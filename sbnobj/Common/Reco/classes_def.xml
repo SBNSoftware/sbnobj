@@ -237,6 +237,7 @@
   <class name="art::Assns<recob::PFParticle, sbn::MVAPID>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MVAPID>>" />
 
   <class name="art::Assns<sbn::MVAPID, recob::Track>" />
@@ -244,6 +245,7 @@
   <class name="art::Assns<sbn::MVAPID, recob::PFParticle>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Track>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
   <class name="sbn::TPCPMTBarycenterMatch" ClassVersion="10">
