@@ -5,7 +5,7 @@ sbn::CRUMBSResult::CRUMBSResult(float score, float ccnumuscore, float ccnuescore
 				int tpc_CRNHitsMax, float tpc_NuEigenRatioInSphere, int tpc_NuNFinalStatePfos, int tpc_NuNHitsTotal,
 				int tpc_NuNSpacePointsInSphere, float tpc_NuVertexY, float tpc_NuWeightedDirZ, float tpc_StoppingChi2CosmicRatio,
 				float pds_FMTotalScore, float pds_FMPE, float pds_FMTime, float pds_OpT0Score, float pds_OpT0MeasuredPE,
-				float crt_TrackScore, float crt_HitScore, float crt_TrackTime, float crt_HitTime)
+				float crt_TrackScore, float crt_SPScore, float crt_TrackTime, float crt_SPTime)
   : score(score)
   , ccnumuscore(ccnumuscore)
   , ccnuescore(ccnuescore)
@@ -29,9 +29,9 @@ sbn::CRUMBSResult::CRUMBSResult(float score, float ccnumuscore, float ccnuescore
   , pds_OpT0Score(pds_OpT0Score)
   , pds_OpT0MeasuredPE(pds_OpT0MeasuredPE)
   , crt_TrackScore(crt_TrackScore)
-  , crt_HitScore(crt_HitScore)
+  , crt_SPScore(crt_SPScore)
   , crt_TrackTime(crt_TrackTime)
-  , crt_HitTime(crt_HitTime)
+  , crt_SPTime(crt_SPTime)
 {
 }
 

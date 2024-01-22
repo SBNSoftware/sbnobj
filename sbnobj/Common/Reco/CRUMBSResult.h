@@ -18,8 +18,8 @@ namespace sbn {
 		 int tpc_NuNFinalStatePfos = default_int, int tpc_NuNHitsTotal = default_int, int tpc_NuNSpacePointsInSphere = default_int, 
 		 float tpc_NuVertexY = default_float, float tpc_NuWeightedDirZ = default_float, float tpc_StoppingChi2CosmicRatio = default_float, 
 		 float pds_FMTotalScore = default_float, float pds_FMPE = default_float, float pds_FMTime = default_float, float pds_OpT0Score = default_float,
-		 float pds_OpT0MeasuredPE = default_float, float crt_TrackScore = default_float, float crt_HitScore = default_float, float crt_TrackTime = default_float,
-		 float crt_HitTime = default_float);
+		 float pds_OpT0MeasuredPE = default_float, float crt_TrackScore = default_float, float crt_SPScore = default_float, float crt_TrackTime = default_float,
+		 float crt_SPTime = default_float);
     
     float score;                         //!< CRUMBS result, for inclusive neutrino signal
     float ccnumuscore;                   //!< CRUMBS result, for CCNuMu signal
@@ -44,9 +44,9 @@ namespace sbn {
     float pds_OpT0Score;                 //!< the agreement score from the OpT0 falsh matcher
     float pds_OpT0MeasuredPE;            //!< the PE of the reconstructed flash matched by OpT0
     float crt_TrackScore;                //!< a combination of the DCA and angle between the best matched TPC & CRT tracks
-    float crt_HitScore;                  //!< the best distance from an extrapolated TPC track to a CRT hit [cm]
+    float crt_SPScore;                   //!< the best distance from an extrapolated TPC track to a CRT spacepoint [cm]
     float crt_TrackTime;                 //!< the time associated with the matched CRT track [us]
-    float crt_HitTime;                   //!< the time associated with the matched CRT hit [us]
+    float crt_SPTime;                    //!< the time associated with the matched CRT spacepoint [us]
   };
 }
 
