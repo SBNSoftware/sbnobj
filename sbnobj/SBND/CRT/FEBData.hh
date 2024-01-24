@@ -21,8 +21,10 @@ namespace sbnd::crt {
   class FEBData {
 
     uint16_t fMac5; ///< ID of the FEB
-    uint32_t fTs0; ///< T0 counter
-    uint32_t fTs1; ///< T1 counter
+    uint16_t fFlags; ///< Event flags describing the type of data recorded
+    uint32_t fTs0; ///< T0 counter [ns]
+    uint32_t fTs1; ///< T1 counter [ns]
+    uint32_t fUnixS; ///< Event time since unix epoch [s]
     adc_array_t fADC; ///< 32 ADC values, one per SiPM
     uint32_t fCoinc; ///< ID of SiPM that fired the trigger
 
@@ -34,15 +36,17 @@ namespace sbnd::crt {
     FEBData();
 
     /**
-     * Returns the ID of the CRT module.
+     * Constructor to set all parameters
      *
      * @param mac5 The ID of the CRT module (FEB).
+     * @param flags The event flags.
      * @param ts0 The value of the t0 counter.
      * @param ts1 The value of the t1 counter.
+     * @param unixs The event time since unix epoch.
      * @param ADC The 32-size array with ADC values.
      * @param coinc The ID of the strip that fired the trigger.
      */
-    FEBData(uint16_t mac5, uint32_t ts0, uint32_t ts1, adc_array_t ADC, uint32_t coinc);
+    FEBData(uint16_t mac5, uint16_t flags, uint32_t ts0, uint32_t ts1, uint32_t unixs, adc_array_t ADC, uint32_t coinc);
 
     virtual ~FEBData();
 
@@ -52,6 +56,13 @@ namespace sbnd::crt {
      * @return The MAC5 ID of this FEB data.
      */
     uint16_t Mac5() const;
+
+    /**
+     * Returns the event flags from the data taking.
+     *
+     * @return The event flags of this FEB data.
+     */
+    uint16_t Flags() const;
 
     /**
      * Returns the T0 time from the T0 counter.
@@ -66,6 +77,13 @@ namespace sbnd::crt {
      * @return The Ts1 of this FEB data.
      */
     uint32_t Ts1() const;
+
+    /**
+     * Returns the unix time of the event.
+     *
+     * @return The unix time of the FEB data.
+     */
+    uint32_t UnixS() const;
 
     /**
      * Returns the array of ACD counts from the FEB board.
@@ -100,6 +118,13 @@ namespace sbnd::crt {
     void SetMac5(uint16_t mac5);
 
     /**
+     * Setter method for flags
+     *
+     * @param flags The flags to set.
+     */
+    void SetFlags(uint16_t flags);
+
+    /**
      * Setter method for Ts0
      *
      * @param ts0 The ts0 value to set
@@ -112,6 +137,13 @@ namespace sbnd::crt {
      * @param ts1 The ts1 value to set
      */
     void SetTs1(uint32_t ts1);
+
+    /**
+     * Setter method for unix time
+     *
+     * @param unixs The unix time to set.
+     */
+    void SetUnixS(uint32_t unixs);
 
     /**
      * Adds ADC values on a certain sipm.
