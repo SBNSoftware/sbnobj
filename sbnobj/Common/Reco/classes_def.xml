@@ -54,7 +54,9 @@
   <class name="art::Assns<sbn::SimpleFlashMatch,recob::PFParticle, void>" />
   <class name="art::Wrapper<art::Assns<sbn::SimpleFlashMatch, recob::PFParticle, void> >" />
 
-  <class name="sbn::CRUMBSResult" ClassVersion="11">
+  <class name="sbn::CRUMBSResult" ClassVersion="13">
+   <version ClassVersion="13" checksum="2221682896"/>
+   <version ClassVersion="12" checksum="526337898"/>
    <version ClassVersion="11" checksum="2038758639"/>
    <version ClassVersion="10" checksum="1001500335"/>
   </class>
@@ -253,6 +255,7 @@
   <class name="art::Assns<recob::PFParticle, sbn::MVAPID>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::Shower, sbn::MVAPID>>" />
+  <class name="art::Wrapper<art::Assns<recob::PFParticle, sbn::MVAPID>>" />
   <class name="art::Wrapper<art::Assns<recob::PFParticle, recob::Track, sbn::MVAPID>>" />
 
   <class name="art::Assns<sbn::MVAPID, recob::Track>" />
@@ -260,6 +263,7 @@
   <class name="art::Assns<sbn::MVAPID, recob::PFParticle>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Track>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
+  <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
   <class name="sbn::TPCPMTBarycenterMatch" ClassVersion="10">

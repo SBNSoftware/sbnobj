@@ -12,8 +12,8 @@
 namespace sbn {
   class EXTCountInfo {
   public:
-
-    int gates_since_last_trigger;
+    
+    float gates_since_last_trigger;
 
   };
 } // end namespace sbn
