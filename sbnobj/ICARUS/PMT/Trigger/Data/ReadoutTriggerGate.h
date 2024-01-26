@@ -198,13 +198,23 @@ template <typename Tick, typename TickInterval, typename ChannelIDType>
    */
   ChannelID_t channel() const;
   
-  
   /// Associates the specified channel to this readout gate.
   This_t& addChannel(ChannelID_t const channel);
   
   /// Associates the specified channels to this readout gate.
   This_t& addChannels(std::initializer_list<ChannelID_t> channels)
     { associateChannels(channels); return *this; }
+  
+  /// Removes the specified channel from this readout gate.
+  /// Nothing happens if not present.
+  This_t& removeChannel(ChannelID_t const channel);
+  
+  /// Removes the specified channels from this readout gate.
+  /// Nothing happens for the channels that are not present.
+  This_t& removeChannels(std::initializer_list<ChannelID_t> channels);
+  
+  /// Removes all channel numbers from this gate.
+  This_t& resetChannels();
   
   // --- END Access to channel information -------------------------------------
   

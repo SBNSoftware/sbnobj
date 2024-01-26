@@ -78,6 +78,40 @@ auto icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>::add
 
 //------------------------------------------------------------------------------
 template <typename Tick, typename TickInterval, typename ChannelIDType>
+auto icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>::removeChannel
+  (ChannelID_t const channel) -> This_t&
+{
+  auto const iNearest
+    = std::lower_bound(fChannels.begin(), fChannels.end(), channel);
+  if ((iNearest != fChannels.end()) && (*iNearest == channel))
+    fChannels.erase(iNearest);
+  return *this;
+} // icarus::trigger::ReadoutTriggerGate<>::removeChannel()
+
+
+//------------------------------------------------------------------------------
+template <typename Tick, typename TickInterval, typename ChannelIDType>
+auto icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>::removeChannels
+  (std::initializer_list<ChannelID_t> channels) -> This_t&
+{
+  // we don't require `channels` to be sorted, so we need to look yo every time.
+  for (ChannelID_t const channel: channels) removeChannel(channel);
+  return *this;
+} // icarus::trigger::ReadoutTriggerGate<>::removeChannels()
+
+
+//------------------------------------------------------------------------------
+template <typename Tick, typename TickInterval, typename ChannelIDType>
+auto icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>::resetChannels
+  () -> This_t&
+{
+  fChannels.clear();
+  return *this;
+} // icarus::trigger::ReadoutTriggerGate<>::resetChannels()
+
+
+//------------------------------------------------------------------------------
+template <typename Tick, typename TickInterval, typename ChannelIDType>
 void
 icarus::trigger::ReadoutTriggerGate<Tick, TickInterval, ChannelIDType>::associateChannels
   (std::initializer_list<ChannelID_t> const& moreChannels)
