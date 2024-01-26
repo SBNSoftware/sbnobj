@@ -15,7 +15,7 @@ struct ToF {
       float crt_time = -9999; 
       float pmt_time = -9999;
       std::string crt_tagger = "N/A";
-      int crt_hit_id = -9999;
+      int crt_sp_id = -9999;
       int crt_trk_id = -9999;
       int pmt_hit_id = -9999;
       int pmt_flash_id = -9999;

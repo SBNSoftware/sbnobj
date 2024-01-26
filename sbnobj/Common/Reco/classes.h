@@ -26,7 +26,9 @@
 #include "sbnobj/Common/Reco/MVAPID.h"
 #include "sbnobj/Common/Reco/CRUMBSResult.h"
 #include "sbnobj/Common/Reco/OpT0FinderResult.h"
+#include "sbnobj/Common/Reco/CNNScore.h"
 #include "sbnobj/Common/Reco/TPCPMTBarycenterMatch.h"
+
 
 #include <utility>
 #include <vector>
