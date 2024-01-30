@@ -29,6 +29,5 @@
 #include "sbnobj/Common/Reco/CNNScore.h"
 #include "sbnobj/Common/Reco/TPCPMTBarycenterMatch.h"
 
-
 #include <utility>
 #include <vector>

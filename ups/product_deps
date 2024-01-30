@@ -305,12 +305,8 @@ end_product_list
 qualifier	lardataobj	notes
 c14:debug	c14:debug
 c14:prof	c14:prof
-c7:debug	c7:debug
-c7:prof		c7:prof
 e26:debug	e26:debug
 e26:prof	e26:prof
-e20:debug	e20:debug
-e20:prof	e20:prof
 end_qualifier_list
 ####################################
 

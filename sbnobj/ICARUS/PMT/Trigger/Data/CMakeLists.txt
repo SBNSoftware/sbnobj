@@ -1,8 +1,8 @@
 cet_make(
   LIBRARIES
+    lardataalg::UtilitiesHeaders
     lardataobj::RawData
     larcorealg::CoreUtils
-    lardataalg::DetectorInfo
     cetlib_except::cetlib_except
   NO_DICTIONARY
   )

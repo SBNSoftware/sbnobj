@@ -9,9 +9,6 @@
 #ifndef SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
 #define SBNOBJ_ICARUS_PMT_TRIGGER_DATA_TRIGGERGATEDATA_TCC
 
-// LArSoft libraries
-#include "larcorealg/CoreUtils/StdUtils.h" // util::to_string()
-
 // C/C++ standard libraries
 #include <ostream>
 #include <stdexcept> // std::runtime_error
@@ -269,17 +266,18 @@ void icarus::trigger::TriggerGateData<TK, TI>::openBetween
   // (4) update all the following stati;
   // the "Shift" action stops when a set happens, and stacks with other shifts
   //
+  using std::to_string;
   while (++iStatus != send) {
     switch (iStatus->event) {
       case EventType::Shift: // change the resulting opening
         if ((count < 0) && (iStatus->opening < OpeningCount_t(-count))) {
           throw std::runtime_error(
             "icarus::trigger::TriggerGateData::openBetween(): "
-            "asked to close " + util::to_string(-count)
+            "asked to close " + to_string(-count)
             + " gate counts starting at "
-            + util::to_string(start) + " but at time "
-            + util::to_string(iStatus->tick) + " only "
-            + util::to_string(iStatus->opening) + " are still open"
+            + to_string(start) + " but at time "
+            + to_string(iStatus->tick) + " only "
+            + to_string(iStatus->opening) + " are still open"
             );
         }
         iStatus->opening += count;
@@ -639,10 +637,11 @@ auto icarus::trigger::TriggerGateData<TK, TI>::findLastStatusForTickOrThrow
   auto const iStatus = findLastStatusFor(tick); // status may be before the tick
   if (iStatus) return iStatus.value();
   // this should be not even possible
+  using std::to_string;
   throw std::runtime_error(
-    "icarus::trigger::TriggerGateData: requested time " + util::to_string(tick)
+    "icarus::trigger::TriggerGateData: requested time " + to_string(tick)
     + " is before the gate channel was created (at "
-    + util::to_string(fGateLevel.front().tick)
+    + to_string(fGateLevel.front().tick)
     + ")"
     );
 } // icarus::trigger::TriggerGateData<>::findLastStatusForTickOrThrow()
@@ -656,10 +655,11 @@ auto icarus::trigger::TriggerGateData<TK, TI>::findLastStatusForTickOrThrow
   auto const iStatus = findLastStatusFor(tick); // status may be before the tick
   if (iStatus) return iStatus.value();
   // this should be not even possible
+  using std::to_string;
   throw std::runtime_error(
-    "icarus::trigger::TriggerGateData: requested time " + util::to_string(tick)
+    "icarus::trigger::TriggerGateData: requested time " + to_string(tick)
     + " is before the gate channel was created (at "
-    + util::to_string(fGateLevel.front().tick)
+    + to_string(fGateLevel.front().tick)
     + ")"
     );
 } // icarus::trigger::TriggerGateData<>::findLastStatusForTickOrThrow() const
