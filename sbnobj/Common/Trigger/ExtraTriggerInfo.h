@@ -243,10 +243,16 @@ struct sbn::ExtraTriggerInfo {
     /// Returns whether there is some recorded LVDS activity.
     constexpr bool hasLVDS() const;
     
+    /// Returns whether there is some recorded sector activity.
+    constexpr bool hasSectors() const;
+    
+    /// Returns whether there is some recorded activity (LVDS or sector).
+    constexpr bool hasAnyActivity() const;
+    
   }; // CryostatInfo
   
   
-  /// Bits for the trigger location (@see `triggerLocation()`).
+  /// Bits for the trigger location (see `triggerLocation()`).
   unsigned int triggerLocationBits { 0U };
   //sbn::triggerLocation triggerLocationBits { sbn::triggerSource::NBits  }
   /// Status of each LVDS channel in each PMT wall at trigger time.
@@ -321,16 +327,34 @@ namespace sbn {
   std::ostream& operator<< (std::ostream& out, ExtraTriggerInfo const& info);
 }
 
-// -----------------------------------------------------------------------------
 
-constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS() const {
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS() const {
   // C++20:
-  //  return std::ranges::any_of(LVDSstatus, std::identity{});   
+  //  return std::ranges::any_of(LVDSstatus, std::identity{});
   for (std::uint64_t bits: LVDSstatus) if (bits) return true;
   return false;
-} // sbn::ExtraTriggerInfo::CryostatInfo::empty()
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS()
 
 
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasSectors() const {
+  // C++20:
+  //  return std::ranges::any_of(SectorStatus, std::identity{});
+  for (std::uint64_t bits: SectorStatus) if (bits) return true;
+  return false;
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasSectors()
+
+
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
+  const
+{
+  return hasLVDS() || hasSectors();
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
+
+
+// -----------------------------------------------------------------------------
 
 
 #endif // SBNOBJ_COMMON_TRIGGER_EXTRATRIGGERINFO_H

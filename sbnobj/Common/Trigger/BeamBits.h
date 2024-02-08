@@ -137,8 +137,11 @@ namespace sbn {
     
     /// Trigger window mode
     enum class triggerWindowMode: unsigned int {
-      Separated,    ///< Separated, non-overlapping contigous window
-      Overlapping,  ///< Overlaping windows
+      Separated,             ///< Separated, non-overlapping contiguous window.
+      Overlapping,           ///< Overlapping windows.
+      SeparatedPlusAdders,   ///< OR of `Separated` and `Adders`.
+      OverlappingPlusAdders, ///< OR of `Overlapping` and `Adders`.
+      Adders,                ///< Trigger from adders.
       //==> add here if more are needed <==
       NBits     ///< Number of Bits currently supported
     };
@@ -315,8 +318,11 @@ inline std::string sbn::bits::bitName(triggerWindowMode bit) {
 
   using namespace std::string_literals;
   switch (bit) {
-    case sbn::bits::triggerWindowMode::Separated:    return "Separated Window"s;
-    case sbn::bits::triggerWindowMode::Overlapping:  return "Overlapping Window"s;
+    case sbn::bits::triggerWindowMode::Separated:             return "Separated Window"s;
+    case sbn::bits::triggerWindowMode::Overlapping:           return "Overlapping Window"s;
+    case sbn::bits::triggerWindowMode::SeparatedPlusAdders:   return "Separated Both"s;
+    case sbn::bits::triggerWindowMode::OverlappingPlusAdders: return "Overlapping Both"s;
+    case sbn::bits::triggerWindowMode::Adders:                return "Adders"s;
     case sbn::bits::triggerWindowMode::NBits:    return "<invalid>"s;
   } // switch
   throw std::runtime_error("sbn::bits::bitName(triggerWindowMode{ "s
