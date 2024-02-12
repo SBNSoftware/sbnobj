@@ -54,7 +54,9 @@
   <class name="art::Assns<sbn::SimpleFlashMatch,recob::PFParticle, void>" />
   <class name="art::Wrapper<art::Assns<sbn::SimpleFlashMatch, recob::PFParticle, void> >" />
 
-  <class name="sbn::CRUMBSResult" ClassVersion="11">
+  <class name="sbn::CRUMBSResult" ClassVersion="13">
+   <version ClassVersion="13" checksum="2221682896"/>
+   <version ClassVersion="12" checksum="526337898"/>
    <version ClassVersion="11" checksum="2038758639"/>
    <version ClassVersion="10" checksum="1001500335"/>
   </class>
@@ -263,6 +265,28 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::Shower>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
+
+  <class name="sbn::TPCPMTBarycenterMatch" ClassVersion="10">
+   <version ClassVersion="10" checksum="3504890228"/>
+  </class>
+  <class name="std::vector<sbn::TPCPMTBarycenterMatch>" />
+  <class name="art::Wrapper<sbn::TPCPMTBarycenterMatch>" />
+  <class name="art::Ptr<sbn::TPCPMTBarycenterMatch>" />
+  <class name="art::Wrapper<std::vector<sbn::TPCPMTBarycenterMatch>>" />
+  <!-- Assns (TPCPMTBarycenterMatch, Slice) -->
+  <class name="art::Assns<sbn::TPCPMTBarycenterMatch, recob::Slice, void>" />
+  <class name="art::Assns<recob::Slice, sbn::TPCPMTBarycenterMatch, void>" />
+  <class name="std::pair<sbn::TPCPMTBarycenterMatch, recob::Slice>" />
+  <class name="std::pair<recob::Slice, sbn::TPCPMTBarycenterMatch>" />
+  <class name="art::Wrapper<art::Assns<sbn::TPCPMTBarycenterMatch, recob::Slice, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::TPCPMTBarycenterMatch, void>>" />
+  <!-- Assns (TPCPMTBarycenterMatch, OpFlash) -->
+  <class name="art::Assns<sbn::TPCPMTBarycenterMatch, recob::OpFlash, void>" />
+  <class name="art::Assns<recob::OpFlash, sbn::TPCPMTBarycenterMatch, void>" />
+  <class name="std::pair<sbn::TPCPMTBarycenterMatch, recob::OpFlash>" />
+  <class name="std::pair<recob::OpFlash, sbn::TPCPMTBarycenterMatch>" />
+  <class name="art::Wrapper<art::Assns<sbn::TPCPMTBarycenterMatch, recob::OpFlash, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::TPCPMTBarycenterMatch, void>>" />
 
   <class name="std::vector<geo::PlaneID>"/>
 </lcgdict>

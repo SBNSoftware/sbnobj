@@ -11,7 +11,8 @@
    <version ClassVersion="11" checksum="4062206176"/>
    <version ClassVersion="10" checksum="3057205612"/>
   </class>
-  <class name="sbn::EXTCountInfo" ClassVersion="11">
+  <class name="sbn::EXTCountInfo" ClassVersion="12">
+   <version ClassVersion="12" checksum="3174434766"/>
    <version ClassVersion="11" checksum="2738807909"/>
    <version ClassVersion="10" checksum="1347272"/>
   </class>

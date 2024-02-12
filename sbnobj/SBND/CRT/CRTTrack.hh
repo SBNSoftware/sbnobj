@@ -14,6 +14,7 @@
 #include "sbnobj/SBND/CRT/CRTEnums.hh"
 
 #include <set>
+#include <vector>
 
 namespace sbnd::crt {
 

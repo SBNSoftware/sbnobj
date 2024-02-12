@@ -220,6 +220,26 @@ struct sbn::ExtraTriggerInfo {
      */
     std::array<std::uint64_t, MaxWalls> LVDSstatus { 0U, 0U };
     
+    /**
+     * @brief Light level of detector blocks/slices.
+     * 
+     * There is one status per PMT wall (index mnemonic constants: `EastPMTwall`
+     * and `WestPMTwall`).
+     * 
+     * 
+     * ICARUS
+     * -------
+     * 
+     * Analog adder boards serving 15 contiguous channels are discriminated,
+     * and their status at trigger time is reflected here.
+     * 
+     * Each entry describes a PMT wall, that is 6 bits, starting from the most
+     * upstream (south) as the least significant bit.
+     * 
+     * The remaining 10 bits are reserved for future use.
+     */
+    std::array<std::uint16_t, MaxWalls> SectorStatus { 0U, 0U };
+    
     /// Returns whether there is some recorded LVDS activity.
     constexpr bool hasLVDS() const;
     
@@ -247,6 +267,22 @@ struct sbn::ExtraTriggerInfo {
   sbn::bits::triggerLocationMask triggerLocation() const
     { return { triggerLocationBits }; }
   
+  
+  // the following methods are meant to ease cryostat information in Python.
+  /// Returns information about the specified `cryostat` (e.g. `EastCryostat`).
+  /// @throws std::out_of_range if invalid `cryostat`
+  CryostatInfo const& cryostatInfo(std::size_t cryostat) const
+    { return cryostats.at(cryostat); }
+  
+  /// Returns LVDS states on a PMT `wall` of the specified `cryostat`.
+  /// @throws std::out_of_range if invalid `cryostat` or `wall`
+  std::uint64_t LVDSinfo(std::size_t cryostat, std::size_t wall) const
+    { return cryostatInfo(cryostat).LVDSstatus.at(wall); }
+  
+  /// Returns sector states on a PMT `wall` of the specified `cryostat`.
+  /// @throws std::out_of_range if invalid `cryostat` or `wall`
+  std::uint16_t SectorInfo(std::size_t cryostat, std::size_t wall) const
+    { return cryostatInfo(cryostat).SectorStatus.at(wall); }
   
   /// @}
   // --- END ---- Trigger topology ---------------------------------------------
