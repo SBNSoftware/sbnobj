@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <string>
 #include <array>
+#include <limits> // for std::numeric_limits
 
 namespace sbnd::timing {
 

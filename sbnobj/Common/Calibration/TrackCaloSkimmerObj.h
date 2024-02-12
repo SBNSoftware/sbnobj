@@ -2,6 +2,7 @@
 #define SBN_TrackCaloSkimmerObj
 
 #include <climits>
+#include <limits> // for std::numeric_limits
 
 #include <vector>
 
