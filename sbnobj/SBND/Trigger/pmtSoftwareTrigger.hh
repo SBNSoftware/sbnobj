@@ -29,9 +29,12 @@ namespace sbnd::trigger {
 
     bool foundBeamTrigger; 
     int nAboveThreshold;
-    int triggerTimestamp;  // relative to beam window start, in ns
-    double promptPE;       // total PE for the 100 ns following trigger time 
-    double prelimPE;       // total PE for the 1 us before trigger time
+    int trig_ts;  // relative to beam window start, in ns
+    double promptPE;       // total PE in window following trigger time 
+    double prelimPE;       // total PE in window before trigger time
+    double peakPE;         // peak PE in window following trigger time
+    double peaktime;       // time of peak PE in window following trigger time
+
     std::vector<sbnd::trigger::pmtInfo> pmtInfoVec;
     pmtSoftwareTrigger() {}
   };
