@@ -14,13 +14,5 @@
 #include "sbnobj/Common/PMT/Data/PMTconfiguration.h"
 
 // framework libraries
+#include "canvas/Persistency/Common/Ptr.h"
 #include "canvas/Persistency/Common/Wrapper.h"
-
-// C++ libraries
-#include <ostream>
-
-namespace {
-  
-  sbn::PMTconfiguration PMTconfig;
-  
-} // local namespace
