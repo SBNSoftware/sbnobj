@@ -5,7 +5,8 @@
   <class name="sbn::TrackTruth" ClassVersion="10">
    <version ClassVersion="10" checksum="2749399767"/>
   </class>
-  <class name="sbn::TrueParticle" ClassVersion="11">
+  <class name="sbn::TrueParticle" ClassVersion="12">
+   <version ClassVersion="12" checksum="3355992085"/>
    <version ClassVersion="11" checksum="855399631"/>
    <version ClassVersion="10" checksum="2150513055"/>
   </class>
