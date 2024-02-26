@@ -124,6 +124,17 @@ namespace sbn {
     /// Type of mask with `triggerLocation` bits.
     using triggerLocationMask = mask_t<triggerLocation>;
 
+    /// Type(s) of trigger logic being satisfied.
+    enum class triggerLogic: unsigned int {
+      PMTAnalogSum,    ///< Discriminated PMT signal sum above threshold.
+      PMTPairMajority, ///< Minimum number of discriminated PMT above threshold.
+      // ==> add here if more are needed <==
+      NBits    ///< Number of bits currently supported.
+    }; // triggerLocation
+
+    /// Type of mask with `triggerLogic` bits.
+    using triggerLogicMask = mask_t<triggerLogic>;
+
     /// Type representing the type(s) of this trigger.
     enum class triggerType: unsigned int {
       Majority,    ///< A minimum number of close-by PMT pairs above threshold was reached.
@@ -180,6 +191,8 @@ namespace sbn {
     std::string bitName(triggerSource bit);
     /// Returns a mnemonic short name of the trigger location.
     std::string bitName(triggerLocation bit);
+    /// Returns a mnemonic short name of the trigger logic.
+    std::string bitName(triggerLogic bit);
     /// Returns a mnemonic short name of the trigger type.
     std::string bitName(triggerType bit);
     /// Returns a mnemonic short name for the trigger window mode.
@@ -196,6 +209,8 @@ namespace sbn {
   using bits::triggerSourceMask;
   using bits::triggerType;
   using bits::triggerTypeMask;
+  using bits::triggerLogic;
+  using bits::triggerLogicMask;
   using bits::triggerLocation;
   using bits::triggerLocationMask;
   using bits::triggerWindowMode;
@@ -283,8 +298,8 @@ inline std::string sbn::bits::bitName(triggerSource bit) {
     + std::to_string(value(bit)) + " }): unknown bit"s);
 } // sbn::bitName()
 
-// -----------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------
 inline std::string sbn::bits::bitName(triggerLocation bit) {
 
   using namespace std::string_literals;
@@ -301,6 +316,21 @@ inline std::string sbn::bits::bitName(triggerLocation bit) {
     + std::to_string(value(bit)) + " }): unknown bit"s);
 } // sbn::bitName(triggerLocation)
 
+
+// -----------------------------------------------------------------------------
+inline std::string sbn::bits::bitName(triggerLogic bit) {
+
+  using namespace std::string_literals;
+  switch (bit) {
+    case triggerLogic::PMTPairMajority: return "PMT pair majority"s;
+    case triggerLogic::PMTAnalogSum:    return "PMT analog sum"s;
+    case triggerLogic::NBits:           return "<invalid>"s;
+  } // switch
+  throw std::runtime_error("sbn::bits::bitName(triggerLogic{ "s
+    + std::to_string(value(bit)) + " }): unknown bit"s);
+} // sbn::bitName(triggerLogic)
+
+
 // -----------------------------------------------------------------------------
 inline std::string sbn::bits::bitName(triggerType bit) {
 
@@ -314,6 +344,8 @@ inline std::string sbn::bits::bitName(triggerType bit) {
     + std::to_string(value(bit)) + " }): unknown bit"s);
 } // sbn::bitName(triggerType)
 
+
+// -----------------------------------------------------------------------------
 inline std::string sbn::bits::bitName(triggerWindowMode bit) {
 
   using namespace std::string_literals;
@@ -330,6 +362,7 @@ inline std::string sbn::bits::bitName(triggerWindowMode bit) {
 } // triggerWindowMode
 
 
+// -----------------------------------------------------------------------------
 inline std::string sbn::bits::bitName(gateSelection bit) {
 
   using namespace std::string_literals;
@@ -361,6 +394,7 @@ inline std::string sbn::bits::bitName(gateSelection bit) {
 } // sbn::bitName()
 
 
+// -----------------------------------------------------------------------------
 namespace icarus::trigger {
 
   using triggerLocation = sbn::triggerLocation;

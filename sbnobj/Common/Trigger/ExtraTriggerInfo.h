@@ -240,6 +240,27 @@ struct sbn::ExtraTriggerInfo {
      */
     std::array<std::uint16_t, MaxWalls> sectorStatus { 0U, 0U };
     
+    /// The type of logic that fired the first trigger in this cryostat.
+    /// @see sbn::bits::triggerLogicMask
+    unsigned int triggerLogicBits { 0U };
+    
+    /**
+     * @brief Returns the type of logic satisfied by the trigger.
+     * 
+     * The returned value is a mask of `sbn::bits::triggerLogic` bits.
+     * To test the state of a bit, it needs to be converted into a mask, e.g.:
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+     * bool isFromAdders
+     *   = extraTriggerInfo.triggerLogic() & mask(sbn::triggerLogic::Adders);
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * 
+     * Note that one trigger may have satisfied multiple logics within a time
+     * close enough that the trigger is considered fired by all of them.
+     * The "overlap" criterium is decided by the hardware.
+     */
+    sbn::bits::triggerLogicMask triggerLogic() const
+      { return { triggerLogicBits }; }
+    
     /// Returns whether there is some recorded LVDS activity.
     constexpr bool hasLVDS() const;
     
