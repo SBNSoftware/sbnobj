@@ -238,7 +238,7 @@ struct sbn::ExtraTriggerInfo {
      * 
      * The remaining 10 bits are reserved for future use.
      */
-    std::array<std::uint16_t, MaxWalls> SectorStatus { 0U, 0U };
+    std::array<std::uint16_t, MaxWalls> sectorStatus { 0U, 0U };
     
     /// Returns whether there is some recorded LVDS activity.
     constexpr bool hasLVDS() const;
@@ -254,7 +254,7 @@ struct sbn::ExtraTriggerInfo {
   
   /// Bits for the trigger location (see `triggerLocation()`).
   unsigned int triggerLocationBits { 0U };
-  //sbn::triggerLocation triggerLocationBits { sbn::triggerSource::NBits  }
+  
   /// Status of each LVDS channel in each PMT wall at trigger time.
   std::array<CryostatInfo, MaxCryostats> cryostats;
   
@@ -288,7 +288,7 @@ struct sbn::ExtraTriggerInfo {
   /// Returns sector states on a PMT `wall` of the specified `cryostat`.
   /// @throws std::out_of_range if invalid `cryostat` or `wall`
   std::uint16_t SectorInfo(std::size_t cryostat, std::size_t wall) const
-    { return cryostatInfo(cryostat).SectorStatus.at(wall); }
+    { return cryostatInfo(cryostat).sectorStatus.at(wall); }
   
   /// @}
   // --- END ---- Trigger topology ---------------------------------------------
@@ -341,7 +341,7 @@ inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS() const {
 inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasSectors() const {
   // C++20:
   //  return std::ranges::any_of(SectorStatus, std::identity{});
-  for (std::uint64_t bits: SectorStatus) if (bits) return true;
+  for (std::uint64_t bits: sectorStatus) if (bits) return true;
   return false;
 } // sbn::ExtraTriggerInfo::CryostatInfo::hasSectors()
 

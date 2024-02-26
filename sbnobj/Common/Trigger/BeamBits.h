@@ -184,7 +184,7 @@ namespace sbn {
     std::string bitName(triggerType bit);
     /// Returns a mnemonic short name for the trigger window mode.
     std::string bitName(triggerWindowMode bit);
-    /// Returns a mnemonic short name for the trigger window mode.
+    /// Returns a mnemonic short name for the gate type.
     std::string bitName(gateSelection bit);
 
     /// @}

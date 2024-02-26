@@ -217,11 +217,11 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
       << "\n  east wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
       << "\n  west wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
       ;
   }
 
@@ -235,11 +235,11 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
       << "\n  east wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
       << "\n  west wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
       ;
   }
   
