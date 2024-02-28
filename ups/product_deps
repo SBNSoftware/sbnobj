@@ -246,7 +246,7 @@ defaultqual	e26
 #
 ####################################
 product		version		qual	flags		<table_format=2>
-lardataobj	v09_17_02	-
+lardataobj	v09_90_00rc1	-
 cetmodules	v3_21_01	-	only_for_build
 end_product_list
 ####################################
