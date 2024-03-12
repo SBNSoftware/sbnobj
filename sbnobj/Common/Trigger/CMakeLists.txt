@@ -1,7 +1,8 @@
-cet_make(
+cet_make_library(
+  SOURCE
+    ExtraTriggerInfo.cxx
   LIBRARIES
     ROOT::Core
-  NO_DICTIONARY
 )
 
 
