@@ -211,17 +211,23 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
       << info.cryostats[ExtraTriggerInfo::EastCryostat].triggerCount
       << " triggers";
   if (auto const& cryo = info.cryostats[ExtraTriggerInfo::EastCryostat];
-      cryo.hasLVDS()
-      ) {
+      cryo.hasAnyActivity()
+  ) {
+    out << "\n  trigger logic: ";
+    if (cryo.triggerLogicBits) {
+      for (std::string const& bitName: names(cryo.triggerLogic()))
+        out << " " << bitName;
+    }
+    else out << " none!";
     out
       << "\n  east wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
       << "\n  west wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
       ;
   }
 
@@ -229,17 +235,23 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
       << info.cryostats[ExtraTriggerInfo::WestCryostat].triggerCount
       << " triggers";
   if (auto const& cryo = info.cryostats[ExtraTriggerInfo::WestCryostat];
-      cryo.hasLVDS()
-      ) {
+      cryo.hasAnyActivity()
+  ) {
+    out << "\n  trigger logic: ";
+    if (cryo.triggerLogicBits) {
+      for (std::string const& bitName: names(cryo.triggerLogic()))
+        out << " * " << bitName;
+    }
+    else out << " none!";
     out
       << "\n  east wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
       << "\n  west wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
       << ", sectors: "
-      << dumpBits(cryo.SectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
       ;
   }
   
