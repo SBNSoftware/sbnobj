@@ -8,23 +8,4 @@
   <class name="std::vector<sbnd::comm::pmtTrigger>"/>
   <class name="art::Wrapper< std::vector<sbnd::comm::pmtTrigger> >"/>
   
-  <class name="sbnd::trigger::pmtSoftwareTrigger"/>
-  <class name="art::Wrapper<sbnd::trigger::pmtSoftwareTrigger>"/>
-  <class name="std::vector<sbnd::trigger::pmtSoftwareTrigger>"/>
-  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtSoftwareTrigger> >"/>
-
-  <class name="sbnd::trigger::pmtPulse"/>
-  <class name="art::Wrapper<sbnd::trigger::pmtPulse>"/>
-  <class name="std::vector<sbnd::trigger::pmtPulse>"/>
-  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtPulse> >"/>  
-
-  <class name="sbnd::trigger::pmtInfo"/>
-  <class name="art::Wrapper<sbnd::trigger::pmtInfo>"/>
-  <class name="std::vector<sbnd::trigger::pmtInfo>"/>
-  <class name="art::Wrapper< std::vector<sbnd::trigger::pmtInfo> >"/>
-
-  <class name="sbndaq::CRTmetric"/>
-  <class name="art::Wrapper<sbndaq::CRTmetric>"/>
-  <class name="std::vector<sbndaq::CRTmetric>"/>
-  <class name="art::Wrapper< std::vector<sbndaq::CRTmetric> >"/>
 </lcgdict>

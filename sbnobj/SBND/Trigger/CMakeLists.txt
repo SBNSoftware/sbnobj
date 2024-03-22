@@ -1,7 +1,5 @@
 cet_make_library(
   SOURCE
-    CRTmetric.cc
-    pmtSoftwareTrigger.cc
     pmtTrigger.cc
   LIBRARIES
     cetlib_except::cetlib_except
