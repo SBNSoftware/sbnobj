@@ -1,5 +1,7 @@
-cet_make(
-  NO_DICTIONARY
+cet_make_library(
+  SOURCE
+    EventWeightMap.cc
+    EventWeightParameterSet.cxx
   LIBRARIES
     cetlib_except::cetlib_except
     ROOT::Matrix
@@ -13,4 +15,3 @@ art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_SBNEventWeight)
 
 install_headers()
 install_source()
-

@@ -1,7 +1,10 @@
-cet_make(
+cet_make_library(
+  SOURCE
+    PMTconfiguration.cxx
+    V1730Configuration.cxx
+    V1730channelConfiguration.cxx
   LIBRARIES
   lardataobj::RawData
-  NO_DICTIONARY
   )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_PMT_Data)

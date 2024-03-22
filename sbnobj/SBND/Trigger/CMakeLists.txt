@@ -1,7 +1,8 @@
-cet_make(
+cet_make_library(
+  SOURCE
+    pmtTrigger.cc
   LIBRARIES
     cetlib_except::cetlib_except
-  NO_DICTIONARY
   )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj_SBND_Trigger)
