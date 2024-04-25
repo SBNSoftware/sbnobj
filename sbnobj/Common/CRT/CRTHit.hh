@@ -53,9 +53,6 @@ namespace sbn::crt {
       std::array<uint16_t, 4> corr_adcs; ///< The 4 ADC values contributing to the 3D hit, following corrections for attenuation along strip
       std::array<float, 3> strip0info; ///< strip hit info distance, uncorrected PE, corrected PE; for strip 0
       std::array<float, 3> strip1info; ///< strip hit info distance, uncorrected PE, corrected PE; for strip 1
-      //std::array<float, 2> channels0_below_threshold; ///< channels (SiPMs) has ADC above 0 but below threshold; save format as: [total # strips, total # of ADC]; for strip 0
-      //std::array<float, 2> channels1_below_threshold; ///< channels (SiPMs) has ADC above 0 but below threshold; save format as: [total # strips, total # of ADC]; for strip 1
-      //int         unused_strips_hits; ///< unused CRT strip hits.  
 
       CRTHit() {}
       CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, const uint64_t _ts0_s,
@@ -63,11 +60,7 @@ namespace sbn::crt {
 	     const std::array<uint16_t, 4> _adcs, const std::array<uint16_t, 4> _corr_adcs,
 			 /* strip hit info distance, uncorrected PE, corrected PE; added by Jiaoyang to test */
 			 const std::array<float, 3> &_strip0info,
-			 const std::array<float, 3> &_strip1info
-			 /* save info for channel below threshold
-       const std::array<float, 2> &_channels0_below_threshold,
-       const std::array<float, 2> &_channels1_below_threshold,
-       const int &_unused_strips_hits */)
+			 const std::array<float, 3> &_strip1info)
 	: feb_id(_feb_id)
 	, peshit(_pe)
 	, ts0_s(_ts0_s)
@@ -88,10 +81,6 @@ namespace sbn::crt {
 	, corr_adcs(_corr_adcs)
   , strip0info(_strip0info)
   , strip1info(_strip1info)
-  //, channels0_below_threshold(_channels0_below_threshold)
-  //, channels1_below_threshold(_channels1_below_threshold)
-  //, unused_strips_hits(_unused_strips_hits)
-
       {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
