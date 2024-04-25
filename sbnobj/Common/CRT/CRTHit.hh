@@ -51,16 +51,11 @@ namespace sbn::crt {
       std::array<uint16_t, 4>  raw_adcs; ///< The 4 ADC values contributing to the 3D hit
       std::array<uint16_t, 4>      adcs; ///< The 4 ADC values contributing to the 3D hit (pedestal subtracted)
       std::array<uint16_t, 4> corr_adcs; ///< The 4 ADC values contributing to the 3D hit, following corrections for attenuation along strip
-      std::array<float, 3> strip0info; ///< strip hit info distance, uncorrected PE, corrected PE; for strip 0
-      std::array<float, 3> strip1info; ///< strip hit info distance, uncorrected PE, corrected PE; for strip 1
 
       CRTHit() {}
       CRTHit(const std::vector<uint8_t> &_feb_id, const double &_pe, const double &_t0, const double &_t1, const double &_diff, const uint64_t _ts0_s,
 	     const TVector3 &_pos, const TVector3 &_err, const std::string &_tagger, const uint32_t &_channel0, const uint32_t &_channel1, const std::array<uint16_t, 4> _raw_adcs,
-	     const std::array<uint16_t, 4> _adcs, const std::array<uint16_t, 4> _corr_adcs,
-			 /* strip hit info distance, uncorrected PE, corrected PE; added by Jiaoyang to test */
-			 const std::array<float, 3> &_strip0info,
-			 const std::array<float, 3> &_strip1info)
+	     const std::array<uint16_t, 4> _adcs, const std::array<uint16_t, 4> _corr_adcs)
 	: feb_id(_feb_id)
 	, peshit(_pe)
 	, ts0_s(_ts0_s)
@@ -79,8 +74,6 @@ namespace sbn::crt {
 	, raw_adcs(_raw_adcs)
 	, adcs(_adcs)
 	, corr_adcs(_corr_adcs)
-  , strip0info(_strip0info)
-  , strip1info(_strip1info)
       {}
 
       int64_t ts0() const { return static_cast<int64_t>(ts0_s) * 1'000'000'000LL + static_cast<int64_t>(ts0_ns); }
