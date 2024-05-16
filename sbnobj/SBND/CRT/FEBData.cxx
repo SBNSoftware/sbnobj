@@ -8,18 +8,22 @@
 namespace sbnd{
 namespace crt{
 
-  FEBData::FEBData():
-    fMac5(0)
+  FEBData::FEBData()
+  : fMac5(0)
+  , fFlags(0)
   , fTs0(0)
   , fTs1(0)
+  , fUnixS(0)
   , fADC()
   , fCoinc(0)
   {}
 
-  FEBData::FEBData(uint16_t mac5, uint32_t ts0, uint32_t ts1, adc_array_t ADC, uint32_t coinc):
-    fMac5(mac5)
+  FEBData::FEBData(uint16_t mac5, uint16_t flags, uint32_t ts0, uint32_t ts1, uint32_t unixs, adc_array_t ADC, uint32_t coinc)
+  : fMac5(mac5)
+  , fFlags(flags)
   , fTs0(ts0)
   , fTs1(ts1)
+  , fUnixS(unixs)
   , fADC(ADC)
   , fCoinc(coinc)
   {}
@@ -31,6 +35,11 @@ namespace crt{
     return fMac5;
   }
 
+  uint16_t FEBData::Flags() const
+  {
+    return fFlags;
+  }
+
   uint32_t FEBData::Ts0() const
   {
     return fTs0;
@@ -39,6 +48,11 @@ namespace crt{
   uint32_t FEBData::Ts1() const
   {
     return fTs1;
+  }
+
+  uint32_t FEBData::UnixS() const
+  {
+    return fUnixS;
   }
 
   adc_array_t FEBData::ADC() const
@@ -65,6 +79,11 @@ namespace crt{
     fMac5 = mac5;
   }
 
+  void FEBData::SetFlags(uint16_t flags)
+  {
+    fFlags = flags;
+  }
+
   void FEBData::SetTs0(uint32_t ts0)
   {
     fTs0 = ts0;
@@ -73,6 +92,11 @@ namespace crt{
   void FEBData::SetTs1(uint32_t ts1)
   {
     fTs1 = ts1;
+  }
+
+  void FEBData::SetUnixS(uint32_t unixs)
+  {
+    fUnixS = unixs;
   }
 
   void FEBData::SetADC(size_t sipmID, uint16_t adc)

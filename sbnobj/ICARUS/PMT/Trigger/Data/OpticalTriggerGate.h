@@ -15,7 +15,6 @@
 #include "sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.h"
 
 // LArSoft libraries
-#include "lardataalg/DetectorInfo/DetectorTimingTypes.h" // detinfo::timescales
 #include "lardataalg/Utilities/quantities/electronics.h" // tick
 #include "lardataobj/RawData/OpDetWaveform.h"
 
@@ -40,7 +39,6 @@ namespace icarus::trigger {
   /// Type of trigger gate data serialized into _art_ data products.
   using OpticalTriggerGateData_t = icarus::trigger::ReadoutTriggerGate
     <TriggerGateTick_t, TriggerGateTicks_t, raw::Channel_t>
-    //   <detinfo::timescales::optical_tick, detinfo::timescales::optical_time_ticks, raw::Channel_t>
     ;
 
 } // namespace icarus::trigger

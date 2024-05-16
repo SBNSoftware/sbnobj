@@ -14,7 +14,7 @@
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
 find_package(cetmodules 3.20.00 REQUIRED)
-project(sbnobj VERSION 09.15.06 LANGUAGES CXX)
+project(sbnobj VERSION 09.19.00.01 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -28,8 +28,7 @@ cet_cmake_env()
 cet_set_compiler_flags(DIAGS CAUTIOUS
   WERROR
   NO_UNDEFINED
-  EXTRA_FLAGS -pedantic
-  EXTRA_CXX_FLAGS -Wno-unused-local-typedefs
+  EXTRA_FLAGS -pedantic -Wno-unused-local-typedefs
 )
 
 cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)

@@ -16,7 +16,6 @@
 #include "sbnobj/ICARUS/PMT/Trigger/Data/TriggerGateData.h"
 
 // LArSoft libraries
-#include "lardataalg/DetectorInfo/DetectorTimingTypes.h"
 #include "lardataobj/RawData/OpDetWaveform.h"
 
 // framework libraries

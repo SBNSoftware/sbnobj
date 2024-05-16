@@ -18,6 +18,25 @@
 namespace {
   
   // ---------------------------------------------------------------------------
+  template <typename Stream, char CharOn = 'x', char CharOff = '-'>
+  class ByteDumper {
+    static constexpr char symbols[2] = { CharOff, CharOn };
+    
+    Stream& out;
+    
+      public:
+    ByteDumper(Stream& out): out{ out } {}
+    
+    void operator() (std::uint8_t bits, std::size_t nBits = 8) const
+      {
+        std::uint8_t mask = 1 << (nBits - 1); // default: 0x80
+        do { out << symbols[(bits & mask)? 1: 0]; } while (mask >>= 1);
+      }
+    
+  }; // ByteDumper
+  
+  
+  // ---------------------------------------------------------------------------
   template <typename T = std::uint64_t>
   struct TimestampDumper { T timestamp; };
   
@@ -72,6 +91,31 @@ namespace {
   
   
   // ---------------------------------------------------------------------------
+  template <typename T>
+  struct BitDumper { T bits; unsigned int n; };
+  
+  template <typename T>
+  BitDumper<T> dumpBits
+    (T bits, unsigned int n = sizeof(T) * 8) { return { bits, n }; }
+  
+  template <typename T>
+  std::ostream& operator<< (std::ostream& out, BitDumper<T> wrapper) {
+    static auto const bitMask = [](unsigned int n)
+      { return (n == sizeof(T)*8)? ~T{0}: T((1 << n) - 1); };
+    
+    ByteDumper const dumpByte{ out };
+    unsigned int bitsLeft = wrapper.n;
+    while (bitsLeft > 0) { // goes 8 by 8 (fewer on the first iteration)
+      unsigned int const maskBits = (bitsLeft - 1) % 8 + 1;
+      bitsLeft -= maskBits;
+      dumpByte((wrapper.bits >> bitsLeft) & bitMask(maskBits), maskBits);
+    } // while
+    
+    return out;
+  } // operator<< (LVDSmaskDumper)
+  
+  
+  // ---------------------------------------------------------------------------
 
   struct LVDSmaskDumper { std::uint64_t bits; };
 
@@ -80,32 +124,22 @@ namespace {
   std::ostream& operator<< (std::ostream& out, LVDSmaskDumper wrapper) {
     std::uint64_t const bits { wrapper.bits };
 
-    auto dumpBoard = [&out](std::uint8_t bits)
-      {
-        static constexpr char symbols[2] = { '-', 'x' };
-	std::uint8_t mask = 0x80;
-        do { out << symbols[(bits & mask)? 1: 0]; } while (mask >>= 1);
-      };
     auto boardBits = [](std::uint64_t bits, short int board) -> std::uint8_t
       { return static_cast<std::uint8_t>((bits >> (board * 8)) & 0xFF); };
 
-    // positions 3 and 7 are empty 
-    dumpBoard(boardBits(bits, 6));
-    out << ' ';
-    dumpBoard(boardBits(bits, 5));
-    out << ' ';
-    dumpBoard(boardBits(bits, 4));
-    out << ' ';
-    out << ' ';
-    dumpBoard(boardBits(bits, 2));
-    out << ' ';
-    dumpBoard(boardBits(bits, 1));
-    out << ' ';
-    dumpBoard(boardBits(bits, 0));
+    // positions 3 and 7 are empty
+    out
+      << dumpBits(boardBits(bits, 6)) << ' '
+      << dumpBits(boardBits(bits, 5)) << ' '
+      << dumpBits(boardBits(bits, 4)) << ' '
+      << ' '
+      << dumpBits(boardBits(bits, 2)) << ' '
+      << dumpBits(boardBits(bits, 1)) << ' '
+      << dumpBits(boardBits(bits, 0))
+      ;
 
     return out;
-  } // operator<< (LVDSmaskDumper)            
-
+  } // operator<< (LVDSmaskDumper)
   
 } // local namespace
 
@@ -173,34 +207,53 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
     for (std::string const& bitName: names(info.triggerLocation()))
       out << " " << bitName;
   }
-  out << "\nWest cryostat: "
-      << info.cryostats[ExtraTriggerInfo::WestCryostat].triggerCount
-      << " triggers";
-  if (auto const& cryo = info.cryostats[ExtraTriggerInfo::WestCryostat];
-      cryo.hasLVDS()
-      ) {
-    out
-      << "\n  west wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
-      << "\n  east wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
-      ;
-  }
-
   out << "\nEast cryostat: "
       << info.cryostats[ExtraTriggerInfo::EastCryostat].triggerCount
       << " triggers";
   if (auto const& cryo = info.cryostats[ExtraTriggerInfo::EastCryostat];
-      cryo.hasLVDS()
-      ) {
+      cryo.hasAnyActivity()
+  ) {
+    out << "\n  trigger logic: ";
+    if (cryo.triggerLogicBits) {
+      for (std::string const& bitName: names(cryo.triggerLogic()))
+        out << " " << bitName;
+    }
+    else out << " none!";
     out
-      << "\n  west wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
       << "\n  east wall:  "
       << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << "\n  west wall:  "
+      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
       ;
   }
 
+  out << "\nWest cryostat: "
+      << info.cryostats[ExtraTriggerInfo::WestCryostat].triggerCount
+      << " triggers";
+  if (auto const& cryo = info.cryostats[ExtraTriggerInfo::WestCryostat];
+      cryo.hasAnyActivity()
+  ) {
+    out << "\n  trigger logic: ";
+    if (cryo.triggerLogicBits) {
+      for (std::string const& bitName: names(cryo.triggerLogic()))
+        out << " * " << bitName;
+    }
+    else out << " none!";
+    out
+      << "\n  east wall:  "
+      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << "\n  west wall:  "
+      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      ;
+  }
   
   return out;
 } // sbn::operator<< (ExtraTriggerInfo)

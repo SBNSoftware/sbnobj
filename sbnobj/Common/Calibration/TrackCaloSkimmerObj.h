@@ -2,6 +2,7 @@
 #define SBN_TrackCaloSkimmerObj
 
 #include <climits>
+#include <limits> // for std::numeric_limits
 
 #include <vector>
 
@@ -205,6 +206,9 @@ namespace sbn {
     std::vector<TrueHit> truehits0; //!< List of True "hits" of this particle on Plane 0
     std::vector<TrueHit> truehits1; //!< List of True "hits" of this particle on Plane 1
     std::vector<TrueHit> truehits2; //!< List of True "hits" of this particle on Plane 2
+
+    std::vector<Vector3D> traj; //!< True trajectory of particle
+    std::vector<Vector3D> traj_sce; //!< True trajectory of particle, deflected by space charge
 
     TrueParticle():
       plane0VisE(std::numeric_limits<float>::signaling_NaN()),

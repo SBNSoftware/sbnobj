@@ -8,6 +8,7 @@
 #include "lardataobj/RecoBase/Slice.h"
 #include "lardataobj/RecoBase/Track.h"
 #include "lardataobj/RecoBase/Vertex.h"
+#include "lardataobj/RecoBase/OpFlash.h"
 
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/Reco/FlashTriggerPrimitive.hh"
@@ -25,6 +26,9 @@
 #include "sbnobj/Common/Reco/MVAPID.h"
 #include "sbnobj/Common/Reco/CRUMBSResult.h"
 #include "sbnobj/Common/Reco/LightCaloInfo.h"
+#include "sbnobj/Common/Reco/OpT0FinderResult.h"
+#include "sbnobj/Common/Reco/CNNScore.h"
+#include "sbnobj/Common/Reco/TPCPMTBarycenterMatch.h"
 
 #include <utility>
 #include <vector>

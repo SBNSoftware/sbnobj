@@ -27,7 +27,10 @@
     <enum name="sbn::bits::triggerSource" ClassVersion="10" />
     <enum name="sbn::bits::triggerLocation" ClassVersion="10" />
     <enum name="sbn::bits::triggerType" ClassVersion="10" />
-    <class name="sbn::ExtraTriggerInfo::CryostatInfo" ClassVersion="10" >
+    <class name="sbn::ExtraTriggerInfo::CryostatInfo" ClassVersion="13" >
+     <version ClassVersion="13" checksum="2956313925"/>
+     <version ClassVersion="12" checksum="804951501"/>
+     <version ClassVersion="11" checksum="3455337645"/>
      <version ClassVersion="10" checksum="313789291"/>
     </class>
 
@@ -35,5 +38,6 @@
     <class name="art::Ptr<sbn::ExtraTriggerInfo>"/>
     <class name="art::Wrapper<sbn::ExtraTriggerInfo>"/>
     <class name="std::vector<sbn::ExtraTriggerInfo>"/>
+    <class name="art::Wrapper<std::vector<sbn::ExtraTriggerInfo>>"/>
 
   </lcgdict>

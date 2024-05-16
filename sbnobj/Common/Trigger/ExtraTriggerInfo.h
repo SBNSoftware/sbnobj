@@ -220,15 +220,62 @@ struct sbn::ExtraTriggerInfo {
      */
     std::array<std::uint64_t, MaxWalls> LVDSstatus { 0U, 0U };
     
+    /**
+     * @brief Light level of detector blocks/slices.
+     * 
+     * There is one status per PMT wall (index mnemonic constants: `EastPMTwall`
+     * and `WestPMTwall`).
+     * 
+     * 
+     * ICARUS
+     * -------
+     * 
+     * Analog adder boards serving 15 contiguous channels are discriminated,
+     * and their status at trigger time is reflected here.
+     * 
+     * Each entry describes a PMT wall, that is 6 bits, starting from the most
+     * upstream (south) as the least significant bit.
+     * 
+     * The remaining 10 bits are reserved for future use.
+     */
+    std::array<std::uint16_t, MaxWalls> sectorStatus { 0U, 0U };
+    
+    /// The type of logic that fired the first trigger in this cryostat.
+    /// @see sbn::bits::triggerLogicMask
+    unsigned int triggerLogicBits { 0U };
+    
+    /**
+     * @brief Returns the type of logic satisfied by the trigger.
+     * 
+     * The returned value is a mask of `sbn::bits::triggerLogic` bits.
+     * To test the state of a bit, it needs to be converted into a mask, e.g.:
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+     * bool isFromAdders
+     *   = extraTriggerInfo.triggerLogic() & mask(sbn::triggerLogic::Adders);
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * 
+     * Note that one trigger may have satisfied multiple logics within a time
+     * close enough that the trigger is considered fired by all of them.
+     * The "overlap" criterium is decided by the hardware.
+     */
+    sbn::bits::triggerLogicMask triggerLogic() const
+      { return { triggerLogicBits }; }
+    
     /// Returns whether there is some recorded LVDS activity.
     constexpr bool hasLVDS() const;
+    
+    /// Returns whether there is some recorded sector activity.
+    constexpr bool hasSectors() const;
+    
+    /// Returns whether there is some recorded activity (LVDS or sector).
+    constexpr bool hasAnyActivity() const;
     
   }; // CryostatInfo
   
   
-  /// Bits for the trigger location (@see `triggerLocation()`).
+  /// Bits for the trigger location (see `triggerLocation()`).
   unsigned int triggerLocationBits { 0U };
-  //sbn::triggerLocation triggerLocationBits { sbn::triggerSource::NBits  }
+  
   /// Status of each LVDS channel in each PMT wall at trigger time.
   std::array<CryostatInfo, MaxCryostats> cryostats;
   
@@ -248,10 +295,33 @@ struct sbn::ExtraTriggerInfo {
     { return { triggerLocationBits }; }
   
   
+  // the following methods are meant to ease cryostat information in Python.
+  /// Returns information about the specified `cryostat` (e.g. `EastCryostat`).
+  /// @throws std::out_of_range if invalid `cryostat`
+  CryostatInfo const& cryostatInfo(std::size_t cryostat) const
+    { return cryostats.at(cryostat); }
+  
+  /// Returns LVDS states on a PMT `wall` of the specified `cryostat`.
+  /// @throws std::out_of_range if invalid `cryostat` or `wall`
+  std::uint64_t LVDSinfo(std::size_t cryostat, std::size_t wall) const
+    { return cryostatInfo(cryostat).LVDSstatus.at(wall); }
+  
+  /// Returns sector states on a PMT `wall` of the specified `cryostat`.
+  /// @throws std::out_of_range if invalid `cryostat` or `wall`
+  std::uint16_t SectorInfo(std::size_t cryostat, std::size_t wall) const
+    { return cryostatInfo(cryostat).sectorStatus.at(wall); }
+  
   /// @}
   // --- END ---- Trigger topology ---------------------------------------------
   
   
+  /// Returns the time from the beam gate to the trigger [ns].
+  /// Only valid if beam gate timestamp is valid.
+  constexpr std::int64_t triggerFromBeamGate() const
+    { 
+      return static_cast<std::int64_t>(triggerTimestamp)
+        - static_cast<std::int64_t>(beamGateTimestamp);
+    }  
   
   /// Returns whether this object contains any valid information.
   constexpr bool isValid() const noexcept
@@ -278,16 +348,34 @@ namespace sbn {
   std::ostream& operator<< (std::ostream& out, ExtraTriggerInfo const& info);
 }
 
-// -----------------------------------------------------------------------------
 
-constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS() const {
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS() const {
   // C++20:
-  //  return std::ranges::any_of(LVDSstatus, std::identity{});   
+  //  return std::ranges::any_of(LVDSstatus, std::identity{});
   for (std::uint64_t bits: LVDSstatus) if (bits) return true;
   return false;
-} // sbn::ExtraTriggerInfo::CryostatInfo::empty()
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasLVDS()
 
 
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasSectors() const {
+  // C++20:
+  //  return std::ranges::any_of(SectorStatus, std::identity{});
+  for (std::uint64_t bits: sectorStatus) if (bits) return true;
+  return false;
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasSectors()
+
+
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
+  const
+{
+  return hasLVDS() || hasSectors();
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
+
+
+// -----------------------------------------------------------------------------
 
 
 #endif // SBNOBJ_COMMON_TRIGGER_EXTRATRIGGERINFO_H

@@ -63,23 +63,12 @@
   <class name="std::vector<sbnd::crt::CRTTzero>"/>
   <class name="art::Wrapper< std::vector<sbnd::crt::CRTTzero> >"/>
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
-   <version ClassVersion="10" checksum="2681413750"/>
-  </class>
-  <class name="std::vector<sbnd::crt::CRTTrack>"/>
-  <class name="art::Wrapper< std::vector<sbnd::crt::CRTTrack> >"/>
-
   <!-- associations  -->
 
  <class name="art::Assns<sbnd::crt::CRTTzero, sbnd::crt::CRTHit,    void>"           />
  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTzero, sbnd::crt::CRTHit, void> >"           />
  <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTzero,    void>"           />
  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTzero, void> >"           />
-
- <class name="art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTHit,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, sbnd::crt::CRTHit, void> >"           />
- <class name="art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTrack,    void>"           />
- <class name="art::Wrapper< art::Assns<sbnd::crt::CRTHit, sbnd::crt::CRTTrack, void> >"           />
 
 
  <class name="art::Assns<icarus::crt::CRTHit,sim::AuxDetIDE,void>"/>
@@ -124,4 +113,50 @@
  <class name="art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero,    void>"           />
  <class name="art::Wrapper< art::Assns<icarus::crt::CRTHit, icarus::crt::CRTTzero, void> >"           />
 
+ <!-- CRT PMT Matching -->
+ <enum name="sbn::crt::MatchType"/>
+ <class name="sbn::crt::MatchedCRT"/>
+ <class name="vector<sbn::crt::MatchedCRT>"/>
+ <class name="sbn::crt::CRTPMTMatching"/>
+ <class name="std::vector<sbn::crt::CRTPMTMatching>"/>
+ <class name="art::Wrapper<vector<sbn::crt::CRTPMTMatching>>" />
+
+  <!-- associations: sbn::crt::CRTPMTMatching, recob::OpFlash -->
+  <class name="art::Assns<sbn::crt::CRTPMTMatching, recob::OpFlash, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::crt::CRTPMTMatching, recob::OpFlash>>" />
+
+  <class name="art::Assns<recob::OpFlash, sbn::crt::CRTPMTMatching, void>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::crt::CRTPMTMatching>>" />
+
+  <!-- associations: sbn::crt::CRTPMTMatching, sbn::crt::CRTHit -->
+  <class name="art::Assns<sbn::crt::CRTPMTMatching, sbn::crt::CRTHit, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::crt::CRTPMTMatching, sbn::crt::CRTHit>>" />
+
+  <class name="art::Assns<sbn::crt::CRTHit, sbn::crt::CRTPMTMatching, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, sbn::crt::CRTPMTMatching>>" />
+
+
+  <!-- associations: recob::OpFlash, sbn::crt::CRTHit -->
+  <enum name="sbn::crt::CRTPMTMatchingInfo::Dir"/>
+  <class name="sbn::crt::CRTPMTMatchingInfo"/>
+  <class name="std::vector<sbn::crt::CRTPMTMatchingInfo>"/>
+  <class name="art::Assns<recob::OpFlash,sbn::crt::CRTHit,void>"/>
+  <class name="art::Wrapper<art::Assns<recob::OpFlash,sbn::crt::CRTHit>>"/>
+
+  <!-- associations: recob::OpFlash, sbn::crt::CRTHit, sbn::crt::CRTPMTMatchingInfo-->
+  <class name="art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo>"/>
+  <class name="art::Wrapper<art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo>> "/>
+  
+
+  <!-- associations: sbn::crt::CRTHit, recob::OpFlash, void-->
+  <class name="art::Assns<sbn::crt::CRTHit, recob::OpFlash, void>"/>
+  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, recob::OpFlash>>" />
+  
+  <!-- associations: sbn::crt::CRTHit, recob::OpFlash, sbn::crt::CRTPMTMatchingInfo-->
+  <class name="art::Assns<sbn::crt::CRTHit, recob::OpFlash, sbn::crt::CRTPMTMatchingInfo>" />
+  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, recob::OpFlash, sbn::crt::CRTPMTMatchingInfo>>" />
+
+  <!--<class name="art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo>"/>
+ <class name="art::Wrapper<art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo> >"/>
+ <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,recob::OpFlash,sbn::crt::CRTPMTMatchingInfo> >"/>-->
 </lcgdict>

@@ -1,10 +1,13 @@
-cet_make(
+cet_make_library(
+  SOURCE
+    MultiChannelOpticalTriggerGate.cxx
+    OpticalTriggerGate.cxx
+    SingleChannelOpticalTriggerGate.cxx
   LIBRARIES
+    lardataalg::UtilitiesHeaders
     lardataobj::RawData
     larcorealg::CoreUtils
-    lardataalg::DetectorInfo
     cetlib_except::cetlib_except
-  NO_DICTIONARY
   )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj::ICARUS_PMT_Trigger_Data)
