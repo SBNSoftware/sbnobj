@@ -106,7 +106,9 @@
 
   <!-- CRTSpacePoint -->
 
-  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="10">
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="12">
+   <version ClassVersion="12" checksum="602472377"/>
+   <version ClassVersion="11" checksum="2707433915"/>
     <version ClassVersion="10" checksum="3948858368"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTSpacePoint>"/>
@@ -132,7 +134,9 @@
 
   <!-- CRTTrack -->
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+  <class name="sbnd::crt::CRTTrack" ClassVersion="12">
+   <version ClassVersion="12" checksum="2489926563"/>
+   <version ClassVersion="11" checksum="2340166153"/>
     <version ClassVersion="10" checksum="1691600150"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTTrack>"/>

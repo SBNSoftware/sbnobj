@@ -9,36 +9,36 @@ namespace sbnd {
 
     CRTTrack::CRTTrack()
       : fPoints  ({})
-      , fT0      (0.)
-      , fT0Err   (0.)
-      , fT1      (0.)
-      , fT1Err   (0.)
+      , fTs0     (0.)
+      , fTs0Err  (0.)
+      , fTs1     (0.)
+      , fTs1Err  (0.)
       , fPE      (0.)
       , fToF     (0.)
       , fTaggers ({})
     {}
 
-    CRTTrack::CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_t0, const double &_et0,
-                       const double &_t1, const double &_et1, const double &_pe, const double &_tof,
+    CRTTrack::CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_ts0, const double &_ets0,
+                       const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
                        const std::set<CRTTagger> &_taggers)
       : fPoints  ({_start, _end})
-      , fT0      (_t0)
-      , fT0Err   (_et0)
-      , fT1      (_t1)
-      , fT1Err   (_et1)
+      , fTs0     (_ts0)
+      , fTs0Err  (_ets0)
+      , fTs1     (_ts1)
+      , fTs1Err  (_ets1)
       , fPE      (_pe)
       , fToF     (_tof)
       , fTaggers (_taggers)
     {}
 
-    CRTTrack::CRTTrack(const std::vector<geo::Point_t> &_points, const double &_t0, const double &_et0,
-                       const double &_t1, const double &_et1, const double &_pe, const double &_tof,
+    CRTTrack::CRTTrack(const std::vector<geo::Point_t> &_points, const double &_ts0, const double &_ets0,
+                       const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
                        const std::set<CRTTagger> &_taggers)
       : fPoints  (_points)
-      , fT0      (_t0)
-      , fT0Err   (_et0)
-      , fT1      (_t1)
-      , fT1Err   (_et1)
+      , fTs0     (_ts0)
+      , fTs0Err  (_ets0)
+      , fTs1     (_ts1)
+      , fTs1Err  (_ets1)
       , fPE      (_pe)
       , fToF     (_tof)
       , fTaggers (_taggers)
@@ -47,10 +47,10 @@ namespace sbnd {
     CRTTrack::~CRTTrack() {}
 
     std::vector<geo::Point_t> CRTTrack::Points() const { return fPoints; }
-    double                    CRTTrack::T0() const {return fT0; }
-    double                    CRTTrack::T0Err() const { return fT0Err; }
-    double                    CRTTrack::T1() const {return fT1; }
-    double                    CRTTrack::T1Err() const { return fT1Err; }
+    double                    CRTTrack::Ts0() const {return fTs0; }
+    double                    CRTTrack::Ts0Err() const { return fTs0Err; }
+    double                    CRTTrack::Ts1() const {return fTs1; }
+    double                    CRTTrack::Ts1Err() const { return fTs1Err; }
     double                    CRTTrack::PE() const { return fPE; }
     double                    CRTTrack::ToF() const { return fToF; }
     std::set<CRTTagger>       CRTTrack::Taggers() const { return fTaggers; }

@@ -19,10 +19,10 @@ namespace sbnd::crt {
     geo::Point_t fPos;      // position [cm]
     geo::Point_t fPosErr;   // positional error [cm]
     double       fPE;       // total PE
-    double       fT0;       // time according to T0 clock [ns]
-    double       fT0Err;    // error on time according to T0 clock [ns]
-    double       fT1;       // time according to T1 clock [ns]
-    double       fT1Err;    // error on time according to T1 clock [ns]
+    double       fTs0;      // time according to T0 clock [ns]
+    double       fTs0Err;   // error on time according to T0 clock [ns]
+    double       fTs1;      // time according to T1 clock [ns]
+    double       fTs1Err;   // error on time according to T1 clock [ns]
     bool         fComplete; // whether or not the cluster was 3D and contained overlaps
 
   public:
@@ -30,10 +30,10 @@ namespace sbnd::crt {
     CRTSpacePoint();
     
     CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, double _pe, 
-                  double _t0, double _et0, double _t1, double _et1, bool _complete);
+                  double _ts0, double _ets0, double _ts1, double _ets1, bool _complete);
 
-    CRTSpacePoint(geo::Point_t _pos, geo::Point_t _err, double _pe, double _t0, double _et0,
-                  double _t1, double _et1, bool _complete);
+    CRTSpacePoint(geo::Point_t _pos, geo::Point_t _err, double _pe, double _ts0, double _ets0,
+                  double _ts1, double _ets1, bool _complete);
 
     virtual ~CRTSpacePoint();
 
@@ -46,10 +46,10 @@ namespace sbnd::crt {
     geo::Point_t Pos() const;
     geo::Point_t Err() const;
     double       PE() const;
-    double       T0() const;
-    double       T0Err() const;
-    double       T1() const;
-    double       T1Err() const;
+    double       Ts0() const;
+    double       Ts0Err() const;
+    double       Ts1() const;
+    double       Ts1Err() const;
     bool         Complete() const;
 
     CRTSpacePoint& operator= (CRTSpacePoint const&) = default;
