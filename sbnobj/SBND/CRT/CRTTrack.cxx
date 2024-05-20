@@ -9,28 +9,36 @@ namespace sbnd {
 
     CRTTrack::CRTTrack()
       : fPoints  ({})
-      , fTime    (0.)
-      , fTimeErr (0.)
+      , fT0      (0.)
+      , fT0Err   (0.)
+      , fT1      (0.)
+      , fT1Err   (0.)
       , fPE      (0.)
       , fToF     (0.)
       , fTaggers ({})
     {}
 
-    CRTTrack::CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_time, const double &_etime,
-                       const double &_pe, const double &_tof, const std::set<CRTTagger> &_taggers)
+    CRTTrack::CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_t0, const double &_et0,
+                       const double &_t1, const double &_et1, const double &_pe, const double &_tof,
+                       const std::set<CRTTagger> &_taggers)
       : fPoints  ({_start, _end})
-      , fTime    (_time)
-      , fTimeErr (_etime)
+      , fT0      (_t0)
+      , fT0Err   (_et0)
+      , fT1      (_t1)
+      , fT1Err   (_et1)
       , fPE      (_pe)
       , fToF     (_tof)
       , fTaggers (_taggers)
     {}
 
-    CRTTrack::CRTTrack(const std::vector<geo::Point_t> &_points, const double &_time, const double &_etime,
-                       const double &_pe, const double &_tof, const std::set<CRTTagger> &_taggers)
+    CRTTrack::CRTTrack(const std::vector<geo::Point_t> &_points, const double &_t0, const double &_et0,
+                       const double &_t1, const double &_et1, const double &_pe, const double &_tof,
+                       const std::set<CRTTagger> &_taggers)
       : fPoints  (_points)
-      , fTime    (_time)
-      , fTimeErr (_etime)
+      , fT0      (_t0)
+      , fT0Err   (_et0)
+      , fT1      (_t1)
+      , fT1Err   (_et1)
       , fPE      (_pe)
       , fToF     (_tof)
       , fTaggers (_taggers)
@@ -39,8 +47,10 @@ namespace sbnd {
     CRTTrack::~CRTTrack() {}
 
     std::vector<geo::Point_t> CRTTrack::Points() const { return fPoints; }
-    double                    CRTTrack::Time() const {return fTime; }
-    double                    CRTTrack::TimeErr() const { return fTimeErr; }
+    double                    CRTTrack::T0() const {return fT0; }
+    double                    CRTTrack::T0Err() const { return fT0Err; }
+    double                    CRTTrack::T1() const {return fT1; }
+    double                    CRTTrack::T1Err() const { return fT1Err; }
     double                    CRTTrack::PE() const { return fPE; }
     double                    CRTTrack::ToF() const { return fToF; }
     std::set<CRTTagger>       CRTTrack::Taggers() const { return fTaggers; }
