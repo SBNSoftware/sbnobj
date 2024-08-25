@@ -283,12 +283,25 @@ namespace sbn {
     float hit_min_time_p2_tpcW; //!< Min hit time of track on plane 2 TPC W
     float hit_max_time_p2_tpcW; //!< Max hit time of track on plane 2 TPC W
 
-    float const_fit_C; //!< Fit parameter
-    float const_fit_residuals; //!< Fit parameter
+   // float const_fit_C; //!< Fit parameter
+    //float mcs_momentum_uboone;
+    //float mcs_momentum_icarus; //!< Fit parameter
+    float mcs_momentum_ubooneIC;
+    float mcs_momentum_icarusIC; //!< Fit parameter
+    float mcs_momentum_ubooneFC;
+    float mcs_momentum_icarusFC; //!< Fit parameter
+    float d3p_icarusIC;
+    float range_p;
 
-    float exp_fit_A; //!< Fit parameter
-    float exp_fit_R; //!< Fit parameter
-    float exp_fit_residuals; //!< Fit parameter
+    std::vector<float> MCSangles_uboone;
+    std::vector<float> MCSangles_icarus;
+
+    std::vector<float> seglens_uboone;
+    std::vector<float> seglens_icarus;
+
+   // float exp_fit_A; //!< Fit parameter
+    //float exp_fit_R; //!< Fit parameter
+    //float exp_fit_residuals; //!< Fit parameter
 
     int n_fit_point; //!< Fit parameter
 
@@ -323,15 +336,20 @@ namespace sbn {
       hit_max_time_p2_tpcE(-100000),
       hit_min_time_p0_tpcW(-100000),
       hit_max_time_p0_tpcW(-100000),
-      hit_min_time_p1_tpcW(-100000),
+       hit_min_time_p1_tpcW(-100000),
       hit_max_time_p1_tpcW(-100000),
       hit_min_time_p2_tpcW(-100000),
       hit_max_time_p2_tpcW(-100000),
-      const_fit_C(-1),
-      const_fit_residuals(-1),
-      exp_fit_A(-1),
-      exp_fit_R(-1),
-      exp_fit_residuals(-1),
+      //const_fit_C(-1),
+      mcs_momentum_ubooneIC(-1),
+      mcs_momentum_icarusIC(-1),
+      mcs_momentum_ubooneFC(-1),
+      mcs_momentum_icarusFC(-1),
+      range_p(-1),
+      //const_fit_residuals(-1),
+   //  exp_fit_A(-1),
+      // exp_fit_R(-1),
+      // exp_fit_residuals(-1),
       n_fit_point(-1),
       selected(-1),
       nprescale(-1) {}
