@@ -260,7 +260,8 @@ namespace sbn {
     std::vector<WireInfo> wires1; //!< List of wire information on plane 1
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
-    float t0; //!< T0 of track [us]
+    float t0; //!< T0 of track [ns]
+    float t0CRT;  //!< T0 of track from CRT-TPC matching [ns]
     int whicht0; //!< Which T0 producer was used to tag
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
@@ -311,6 +312,7 @@ namespace sbn {
 
     TrackInfo():
       t0(-1),
+      t0CRT(-1),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),
