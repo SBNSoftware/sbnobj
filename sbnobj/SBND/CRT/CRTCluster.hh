@@ -16,8 +16,8 @@ namespace sbnd::crt {
 
   class CRTCluster {
     
-    int64_t  fTs0;           // T0 counter [ns]
-    int64_t  fTs1;           // T1 counter [ns]
+    int64_t   fTs0;           // T0 counter [ns]
+    int64_t   fTs1;           // T1 counter [ns]
     uint32_t  fUnixS;        // Unixtime of event [s]
     uint16_t  fNHits;        // The number of strip hits forming the cluster
     CRTTagger fTagger;       // The tagger this cluster exists on
