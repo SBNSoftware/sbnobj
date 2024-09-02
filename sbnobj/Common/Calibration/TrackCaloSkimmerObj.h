@@ -298,6 +298,7 @@ namespace sbn {
 
     std::vector<float> seglens_uboone;
     std::vector<float> seglens_icarus;
+    std::vector<float> tt600_icarus;
 
    // float exp_fit_A; //!< Fit parameter
     //float exp_fit_R; //!< Fit parameter
