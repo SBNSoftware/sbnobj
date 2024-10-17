@@ -26,7 +26,9 @@ namespace sbnd::crt {
     uint32_t fTs1; ///< T1 counter [ns]
     uint32_t fUnixS; ///< Event time since unix epoch [s]
     adc_array_t fADC; ///< 32 ADC values, one per SiPM
-    uint32_t fCoinc; ///< ID of SiPM that fired the trigger
+    uint32_t fCoinc; ///< This was intended to be the ID of SiPM that fired the trigger,
+                     ///< the hardware doesn't fill this field so in data we are filling it
+                     ///< with the cable delay for this module instead.
 
    public:
 
@@ -44,7 +46,7 @@ namespace sbnd::crt {
      * @param ts1 The value of the t1 counter.
      * @param unixs The event time since unix epoch.
      * @param ADC The 32-size array with ADC values.
-     * @param coinc The ID of the strip that fired the trigger.
+     * @param coinc Historical Name - Contains the cable delay for the module.
      */
     FEBData(uint16_t mac5, uint16_t flags, uint32_t ts0, uint32_t ts1, uint32_t unixs, adc_array_t ADC, uint32_t coinc);
 
@@ -104,9 +106,9 @@ namespace sbnd::crt {
     uint16_t ADC(size_t sipmID) const;
 
     /**
-     * Returns the ID of the sipm that fired the trigger.
+     * Historical Name - Contains the cable delay for the module.
      *
-     * @return The Coinc variable of this FEB data.
+     * @return The cable delay of this module
      */
     uint32_t Coinc() const;
 
@@ -154,9 +156,9 @@ namespace sbnd::crt {
     void SetADC(size_t sipmID, uint16_t adc);
 
     /**
-     * Setter method for coinc
+     * Setter method for cable delay
      *
-     * @param coinc The coinc values to set
+     * @param coinc The cable delay value to set
      */
     void SetCoinc(uint32_t coinc);
   };
