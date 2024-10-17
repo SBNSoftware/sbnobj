@@ -190,6 +190,11 @@ struct sbn::ExtraTriggerInfo {
   
   /// Trigger data pertaining a single cryostat.
   struct CryostatInfo {
+    
+    /// Special value for no local cryostat trigger.
+    static constexpr unsigned int NoTrigger
+      = std::numeric_limits<unsigned int>::max();
+    
     /// Count of triggers in this cryostat.
     unsigned long int triggerCount { 0 };
     
@@ -244,6 +249,10 @@ struct sbn::ExtraTriggerInfo {
     /// @see sbn::bits::triggerLogicMask
     unsigned int triggerLogicBits { 0U };
     
+    /// Delay from the beam gate opening to the first cryostat trigger
+    /// (`NoTrigger` if no trigger is available in the cryostat) [ns]
+    unsigned int beamToTrigger { NoTrigger };
+    
     /**
      * @brief Returns the type of logic satisfied by the trigger.
      * 
@@ -269,6 +278,9 @@ struct sbn::ExtraTriggerInfo {
     
     /// Returns whether there is some recorded activity (LVDS or sector).
     constexpr bool hasAnyActivity() const;
+    
+    /// Returns whether this cryostat has a trigger in the gate.
+    constexpr bool hasTrigger() const;
     
   }; // CryostatInfo
   
@@ -346,6 +358,8 @@ struct sbn::ExtraTriggerInfo {
 
 namespace sbn {
   std::ostream& operator<< (std::ostream& out, ExtraTriggerInfo const& info);
+  std::ostream& operator<<
+    (std::ostream& out, ExtraTriggerInfo::CryostatInfo const& cryo);
 }
 
 
@@ -373,6 +387,13 @@ inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
 {
   return hasLVDS() || hasSectors();
 } // sbn::ExtraTriggerInfo::CryostatInfo::hasAnyActivity()
+
+
+// -----------------------------------------------------------------------------
+inline constexpr bool sbn::ExtraTriggerInfo::CryostatInfo::hasTrigger() const
+{
+  return beamToTrigger != NoTrigger;
+} // sbn::ExtraTriggerInfo::CryostatInfo::hasTrigger()
 
 
 // -----------------------------------------------------------------------------
