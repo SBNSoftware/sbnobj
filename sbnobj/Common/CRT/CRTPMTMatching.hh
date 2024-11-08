@@ -33,6 +33,42 @@ namespace sbn::crt {
       exSide_enBottom   = 14, ///< Matched with one Bottom CRT hit before the optical flash and matched with one Side CRT hit after the optical flash.
       others            = 9  ///< All the other cases.
       };
+  MatchType assignFlashClassification(uint topen, uint topex, 
+				      uint sideen, uint sideex, 
+				      uint bottomen, uint bottomex)
+  {
+    MatchType flashType;
+    if (topen == 0 && sideen == 0 && topex == 0 && sideex == 0){
+      if(bottomex==0 && bottomen==0) flashType = MatchType::noMatch;
+      else if (bottomex>=1 && bottomen==0) flashType = MatchType::exBottom;
+      else if (bottomex==0 && bottomen>=1) flashType = MatchType::enBottom;
+      else flashType = MatchType::others;
+    }
+    else if (topen == 1 && sideen == 0 && topex == 0 && sideex == 0){
+      if(bottomex==1 && bottomen==0) flashType = MatchType::enTop_exBottom;
+      else flashType = MatchType::enTop;
+    }
+    else if (topen == 0 && sideen == 1 && topex == 0 && sideex == 0)
+      if(bottomex==1 && bottomen==0) flashType = MatchType::enSide_exBottom;
+      else flashType = MatchType::enSide;
+    else if (topen == 1 && sideen == 0 && topex == 0 && sideex == 1)
+      flashType = MatchType::enTop_exSide;
+    else if (topen == 0 && sideen == 0 && topex == 1 && sideex == 0){
+      if(bottomex==0 && bottomen==1) flashType = MatchType::exTop_enBottom;
+      else flashType = MatchType::exTop;
+    }
+    else if (topen == 0 && sideen == 0 && topex == 0 && sideex == 1)
+      if(bottomex==0 && bottomen==1) flashType = MatchType::exSide_enBottom;
+      else flashType = MatchType::exSide;
+    else if (topen >= 1 && sideen == 0 && topex == 0 && sideex == 0) // could also add `if (MatchBottomCRT)` here
+      flashType = MatchType::enTop_mult; 
+    else if (topen >= 1 && sideen == 0 && topex == 0 && sideex >= 1) // and here 
+      flashType = MatchType::enTop_exSide_mult;
+    else
+      flashType = MatchType::others;
+    return flashType;
+  }
+
   /// Information about a CRT hit matched with a PMT flash.
   struct MatchedCRT {
 
