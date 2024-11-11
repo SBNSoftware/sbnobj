@@ -283,18 +283,25 @@ namespace sbn {
     float hit_min_time_p2_tpcW; //!< Min hit time of track on plane 2 TPC W
     float hit_max_time_p2_tpcW; //!< Max hit time of track on plane 2 TPC W
 
-   // float const_fit_C; //!< Fit parameter
+    //float const_fit_C; 
+
     //float mcs_momentum_uboone;
-    //float mcs_momentum_icarus; //!< Fit parameter
+    //float mcs_momentum_icarus; 
     float mcs_momentum_ubooneIC;
-    float mcs_momentum_icarusIC; //!< Fit parameter
+    float mcs_uncertainty_ubooneIC;
+    float mcs_momentum_icarusIC; 
+    //float mcs_uncertainty_icarusIC;
     float mcs_momentum_ubooneFC;
-    float mcs_momentum_icarusFC; //!< Fit parameter
+    float mcs_uncertainty_ubooneFC;
+    float mcs_momentum_icarusFC; 
+    //float mcs_uncertainty_icarusFC;
     float d3p_icarusIC;
     float range_p;
 
-    std::vector<float> MCSangles_uboone;
-    std::vector<float> MCSangles_icarus;
+    std::vector<float> mcs_angles_ubooneFC;
+    std::vector<float> mcs_angles_ubooneIC;
+    std::vector<float> mcs_angles_icarusFC;
+    std::vector<float> mcs_angles_icarusIC;
 
     std::vector<float> seglens_uboone;
     std::vector<float> seglens_icarus;
