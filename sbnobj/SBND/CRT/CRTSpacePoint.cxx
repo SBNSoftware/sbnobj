@@ -11,27 +11,34 @@ namespace sbnd {
       : fPos      ({0., 0., 0.})
       , fPosErr   ({0., 0., 0.})
       , fPE       (0.)
-      , fTime     (0.)
-      , fTimeErr  (0.)
+      , fTs0      (0.)
+      , fTs0Err   (0.)
+      , fTs1      (0.)
+      , fTs1Err   (0.)
       , fComplete (false)
     {}
 
     CRTSpacePoint::CRTSpacePoint(double _x, double _ex, double _y, double _ey, double _z, double _ez, 
-                                 double _pe, double _time, double _etime, bool _complete)
+                                 double _pe, double _ts0, double _ets0, double _ts1, double _ets1, bool _complete)
       : fPos      ({_x, _y, _z})
       , fPosErr   ({_ex, _ey, _ez})
       , fPE       (_pe)
-      , fTime     (_time)
-      , fTimeErr  (_etime)
+      , fTs0      (_ts0)
+      , fTs0Err   (_ets0)
+      , fTs1      (_ts1)
+      , fTs1Err   (_ets1)
       , fComplete (_complete)
     {}
 
-    CRTSpacePoint::CRTSpacePoint(geo::Point_t _pos, geo::Point_t _err, double _pe, double _time, double _etime, bool _complete)
+    CRTSpacePoint::CRTSpacePoint(geo::Point_t _pos, geo::Point_t _err, double _pe, double _ts0, double _ets0,
+                                 double _ts1, double _ets1, bool _complete)
       : fPos      (_pos)
       , fPosErr   (_err)
       , fPE       (_pe)
-      , fTime     (_time)
-      , fTimeErr  (_etime)
+      , fTs0      (_ts0)
+      , fTs0Err   (_ets0)
+      , fTs1      (_ts1)
+      , fTs1Err   (_ets1)
       , fComplete (_complete)
     {}
 
@@ -46,8 +53,10 @@ namespace sbnd {
     geo::Point_t CRTSpacePoint::Pos() const { return fPos; }
     geo::Point_t CRTSpacePoint::Err() const { return fPosErr; }
     double       CRTSpacePoint::PE() const { return fPE; }
-    double       CRTSpacePoint::Time() const { return fTime; }
-    double       CRTSpacePoint::TimeErr() const { return fTimeErr; }
+    double       CRTSpacePoint::Ts0() const { return fTs0; }
+    double       CRTSpacePoint::Ts0Err() const { return fTs0Err; }
+    double       CRTSpacePoint::Ts1() const { return fTs1; }
+    double       CRTSpacePoint::Ts1Err() const { return fTs1Err; }
     bool         CRTSpacePoint::Complete() const { return fComplete; }
   }
 }
