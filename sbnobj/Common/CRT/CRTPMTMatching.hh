@@ -5,8 +5,8 @@
  * @date   June 1 2023.
  */
 
-#ifndef CRTPMTMATCHING_hh_
-#define CRTPMTMATCHING_hh_
+#ifndef SBNOBJ_COMMON_CRTPMTMATCHING_HH
+#define SBNOBJ_COMMON_CRTPMTMATCHING_HH
 
 // C++ includes
 #include <vector>
@@ -33,41 +33,21 @@ namespace sbn::crt {
       exSide_enBottom   = 14, ///< Matched with one Bottom CRT hit before the optical flash and matched with one Side CRT hit after the optical flash.
       others            = 9  ///< All the other cases.
       };
-  MatchType assignFlashClassification(uint topen, uint topex, 
-				      uint sideen, uint sideex, 
-				      uint bottomen, uint bottomex)
-  {
-    MatchType flashType;
-    if (topen == 0 && sideen == 0 && topex == 0 && sideex == 0){
-      if(bottomex==0 && bottomen==0) flashType = MatchType::noMatch;
-      else if (bottomex>=1 && bottomen==0) flashType = MatchType::exBottom;
-      else if (bottomex==0 && bottomen>=1) flashType = MatchType::enBottom;
-      else flashType = MatchType::others;
-    }
-    else if (topen == 1 && sideen == 0 && topex == 0 && sideex == 0){
-      if(bottomex==1 && bottomen==0) flashType = MatchType::enTop_exBottom;
-      else flashType = MatchType::enTop;
-    }
-    else if (topen == 0 && sideen == 1 && topex == 0 && sideex == 0)
-      if(bottomex==1 && bottomen==0) flashType = MatchType::enSide_exBottom;
-      else flashType = MatchType::enSide;
-    else if (topen == 1 && sideen == 0 && topex == 0 && sideex == 1)
-      flashType = MatchType::enTop_exSide;
-    else if (topen == 0 && sideen == 0 && topex == 1 && sideex == 0){
-      if(bottomex==0 && bottomen==1) flashType = MatchType::exTop_enBottom;
-      else flashType = MatchType::exTop;
-    }
-    else if (topen == 0 && sideen == 0 && topex == 0 && sideex == 1)
-      if(bottomex==0 && bottomen==1) flashType = MatchType::exSide_enBottom;
-      else flashType = MatchType::exSide;
-    else if (topen >= 1 && sideen == 0 && topex == 0 && sideex == 0) // could also add `if (MatchBottomCRT)` here
-      flashType = MatchType::enTop_mult; 
-    else if (topen >= 1 && sideen == 0 && topex == 0 && sideex >= 1) // and here 
-      flashType = MatchType::enTop_exSide_mult;
-    else
-      flashType = MatchType::others;
-    return flashType;
-  }
+
+  /**
+   * @brief Returns the classification of a TPC object based on the CRT hits associated to it.
+   * @param topen number of hits on the top CRT earlier than the object (entering)
+   * @param topex number of hits on the top CRT later than the object (exiting)
+   * @param sideen number of hits on any side CRT earlier than the object (entering)
+   * @param sideex number of hits on any side CRT later than the object (exiting)
+   * @param bottomen number of hits on the bottom CRT earlier than the object (entering)
+   * @param bottomex number of hits on the bottom side CRT later than the object (exiting)
+   * @return a value encoding the classification of the TPC object
+   *   
+   */
+  MatchType assignFlashClassification(unsigned int topen, unsigned int topex, 
+				      unsigned int sideen, unsigned int sideex, 
+				      unsigned int bottomen, unsigned int bottomex);
 
   /// Information about a CRT hit matched with a PMT flash.
   struct MatchedCRT {
