@@ -290,12 +290,15 @@ namespace sbn {
     float mcs_momentum_ubooneIC;
     float mcs_uncertainty_ubooneIC;
     float mcs_momentum_icarusIC; 
-    //float mcs_uncertainty_icarusIC;
+    float mcs_uncertainty_icarusIC;
     float mcs_momentum_ubooneFC;
     float mcs_uncertainty_ubooneFC;
     float mcs_momentum_icarusFC; 
-    //float mcs_uncertainty_icarusFC;
-    float d3p_icarusIC;
+    float mcs_uncertainty_icarusFC;
+    float d3p_average;
+    float d3p_induction1;
+    float d3p_induction2;
+    float d3p_collection;
     float range_p;
 
     std::vector<float> mcs_angles_ubooneFC;
