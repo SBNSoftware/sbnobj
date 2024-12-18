@@ -285,32 +285,49 @@ namespace sbn {
 
     //float const_fit_C; 
 
-    //float mcs_momentum_uboone;
-    //float mcs_momentum_icarus; 
-    float mcs_momentum_ubooneIC;
-    float mcs_uncertainty_ubooneIC;
-    float mcs_momentum_icarusIC; 
-    float mcs_uncertainty_icarusIC;
-    float mcs_momentum_ubooneFC;
-    float mcs_uncertainty_ubooneFC;
-    float mcs_momentum_icarusFC; 
-    float mcs_uncertainty_icarusFC;
-    float d3p_average;
-    float d3p_induction1;
-    float d3p_induction2;
-    float d3p_collection;
     float range_p;
 
-    std::vector<float> mcs_angles_ubooneFC;
-    std::vector<float> mcs_angles_ubooneIC;
-    std::vector<float> mcs_angles_icarusFC;
-    std::vector<float> mcs_angles_icarusIC;
+    //mcs uboone algorithm, final cut
+    float mcs_pbest_uf, mcs_perr_uf;
+    std::vector<float> mcs_angles_uf;
 
-    std::vector<float> seglens_uboone;
-    std::vector<float> seglens_icarus;
-    std::vector<float> tt600_icarus;
+    //mcs uboone algorithm, initial cut
+    float mcs_pbest_ui, mcs_perr_ui;
+    std::vector<float> mcs_angles_ui;
 
-   // float exp_fit_A; //!< Fit parameter
+    //mcs icarus algorithm, final cut, 3d
+    float mcs_pbest_if3d, mcs_perr_if3d, mcs_d3p_3d;
+    std::vector<float> mcs_angles_if3d;
+
+    //mcs icarus algorithm, final cut, 2d induction1
+    float mcs_pbest_if2di1, mcs_perr_if2di1, mcs_d3p_2di1;
+    std::vector<float> mcs_angles_if2di1;
+
+    //mcs icarus algorithm, final cut, 2d induction2
+    float mcs_pbest_if2di2, mcs_perr_if2di2, mcs_d3p_2di2;
+    std::vector<float> mcs_angles_if2di2;
+
+    //mcs icarus algorithm, final cut, 2d collection
+    float mcs_pbest_if2dc, mcs_perr_if2dc, mcs_d3p_2dc;
+    std::vector<float> mcs_angles_if2dc;
+
+    //mcs icarus algorithm, initial cut, 3d
+    float mcs_pbest_ii3d, mcs_perr_ii3d;
+    std::vector<float> mcs_angles_ii3d;
+
+    //mcs icarus algorithm, initial cut, 2d induction1
+    float mcs_pbest_ii2di1, mcs_perr_ii2di1;
+    std::vector<float> mcs_angles_ii2di1;
+
+    //mcs icarus algorithm, initial cut, 2d induction2
+    float mcs_pbest_ii2di2, mcs_perr_ii2di2;
+    std::vector<float> mcs_angles_ii2di2;
+
+    //mcs icarus algorithm, initial cut, 2d collection
+    float mcs_pbest_ii2dc, mcs_perr_ii2dc;
+    std::vector<float> mcs_angles_ii2dc;
+
+    //float exp_fit_A; //!< Fit parameter
     //float exp_fit_R; //!< Fit parameter
     //float exp_fit_residuals; //!< Fit parameter
 
@@ -352,15 +369,15 @@ namespace sbn {
       hit_min_time_p2_tpcW(-100000),
       hit_max_time_p2_tpcW(-100000),
       //const_fit_C(-1),
-      mcs_momentum_ubooneIC(-1),
-      mcs_momentum_icarusIC(-1),
-      mcs_momentum_ubooneFC(-1),
-      mcs_momentum_icarusFC(-1),
+      //mcs_momentum_ubooneIC(-1),
+      //mcs_momentum_icarusIC(-1),
+      //mcs_momentum_ubooneFC(-1),
+      //mcs_momentum_icarusFC(-1),
       range_p(-1),
       //const_fit_residuals(-1),
-   //  exp_fit_A(-1),
-      // exp_fit_R(-1),
-      // exp_fit_residuals(-1),
+      //exp_fit_A(-1),
+      //exp_fit_R(-1),
+      //exp_fit_residuals(-1),
       n_fit_point(-1),
       selected(-1),
       nprescale(-1) {}
