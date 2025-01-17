@@ -298,18 +298,25 @@ namespace sbn {
     //mcs icarus algorithm, final cut, 3d
     float mcs_pbest_if3d, mcs_perr_if3d, mcs_d3p_3d;
     std::vector<float> mcs_angles_if3d;
+    std::vector<float> mcs_seghits_i3d;
 
     //mcs icarus algorithm, final cut, 2d induction1
     float mcs_pbest_if2di1, mcs_perr_if2di1, mcs_d3p_2di1;
+    float mcs_l1di1, mcs_l2di1, mcs_l3di1;
     std::vector<float> mcs_angles_if2di1;
+    std::vector<float> mcs_seghits_i2di1;
 
     //mcs icarus algorithm, final cut, 2d induction2
     float mcs_pbest_if2di2, mcs_perr_if2di2, mcs_d3p_2di2;
+    float mcs_l1di2, mcs_l2di2, mcs_l3di2;
     std::vector<float> mcs_angles_if2di2;
+    std::vector<float> mcs_seghits_i2di2;
 
     //mcs icarus algorithm, final cut, 2d collection
     float mcs_pbest_if2dc, mcs_perr_if2dc, mcs_d3p_2dc;
+    float mcs_l1dc, mcs_l2dc, mcs_l3dc;
     std::vector<float> mcs_angles_if2dc;
+    std::vector<float> mcs_seghits_i2dc;
 
     //mcs icarus algorithm, initial cut, 3d
     float mcs_pbest_ii3d, mcs_perr_ii3d;
@@ -348,6 +355,10 @@ namespace sbn {
 
     std::vector<HitInfo> endhits; //!< List of hits near the endpoint of the track on the collection plane
 
+    float CRT_T0;
+    float CRTconfidence;
+    int whichCRT;
+
     TrackTruth truth; //!< Truth-matching information
 
     TrackInfo():
@@ -364,7 +375,7 @@ namespace sbn {
       hit_max_time_p2_tpcE(-100000),
       hit_min_time_p0_tpcW(-100000),
       hit_max_time_p0_tpcW(-100000),
-       hit_min_time_p1_tpcW(-100000),
+      hit_min_time_p1_tpcW(-100000),
       hit_max_time_p1_tpcW(-100000),
       hit_min_time_p2_tpcW(-100000),
       hit_max_time_p2_tpcW(-100000),
@@ -380,7 +391,10 @@ namespace sbn {
       //exp_fit_residuals(-1),
       n_fit_point(-1),
       selected(-1),
-      nprescale(-1) {}
+      nprescale(-1),
+      CRT_T0(-1),
+      CRTconfidence(-1),
+      whichCRT(-1) {}
   };
 
 }
