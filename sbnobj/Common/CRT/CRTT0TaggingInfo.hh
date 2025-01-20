@@ -11,7 +11,17 @@
 #include <limits>
 
 // -----------------------------------------------------------------------------
-namespace sbn::crt { struct CRTT0TaggingInfo; }
+namespace sbn::crt { 
+  /// @brief How was the track fitted when matched with a CRT hit.
+  enum class CRTTaggingTrackFit { 
+    pca = 0, // Track fitted with PCA method
+    startEnd = 1, // Track fitted from Start-End vector
+    kalman = 2, // Track fitted using Kalman Filter
+    others = 9 // Track direction evaluated in other mehods
+  };
+      
+  struct CRTT0TaggingInfo;
+}
 /**
  * @brief Additional information on the matching between CRT and TPC tracks.
  * 
@@ -54,12 +64,18 @@ struct sbn::crt::CRTT0TaggingInfo {
   double crossY = NoDistance;
   double crossZ = NoDistance;
 
+  CRTTaggingTrackFit fitType;
+
   /// Fix Coordinate for the CRT Plane
   // e.g. ICARUS case:
   // For Top CRT region 30 Y coordinate is constant: plane=0
   // For Top CRT region 31/32 and Side CRT 40/41/42/43/44/45 X coordinate is constant: plane=1
   // For Top CRT region 33/34 and Side CRT 46/47 Z coordinate is constant: plane=2
-  int plane=NoPlane;  
+  int plane = NoPlane;
+
+  /// Turth level information of the match.
+  /// Default is false for both data and MC. For MC this information is filled if MC truth is available.
+  bool truthMatch = false;
 
   // --- END ---- Data members -------------------------------------------------
     
