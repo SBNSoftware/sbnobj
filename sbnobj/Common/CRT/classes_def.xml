@@ -18,6 +18,7 @@
   </class>
   <class name="std::vector<sbn::crt::CRTTzero>"/>
   <class name="art::Wrapper< std::vector<sbn::crt::CRTTzero> >"/>
+  
 
   <class name="sbn::crt::CRTTrack" ClassVersion="12">
    <version ClassVersion="12" checksum="197963098"/>
@@ -159,4 +160,11 @@
   <!--<class name="art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo>"/>
  <class name="art::Wrapper<art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo> >"/>
  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,recob::OpFlash,sbn::crt::CRTPMTMatchingInfo> >"/>-->
+
+  <!-- CRTT0Tagging Information -->
+  <class name="sbn::crt::CRTT0TaggingInfo"/>
+  <class name="std::vector<sbn::crt::CRTT0TaggingInfo>"/>
+  <class name="art::Wrapper<std::vector<sbn::crt::CRTT0TaggingInfo>>"/>
+  
+
 </lcgdict>

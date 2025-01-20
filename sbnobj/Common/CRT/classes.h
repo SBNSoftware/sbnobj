@@ -11,6 +11,7 @@
 #include "sbnobj/Common/CRT/CRTHit_Legacy.hh"
 #include "sbnobj/Common/CRT/CRTTrack_Legacy.hh"
 #include "sbnobj/Common/CRT/CRTTzero_Legacy.hh"
+#include "sbnobj/Common/CRT/CRTT0TaggingInfo.hh"
 #include <vector>
 #include <map>
 #include <utility>

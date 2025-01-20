@@ -3,6 +3,7 @@ cet_make_library(
     CRTHit.cc
     CRTTrack.cc
     CRTTzero.cc
+    CRTT0TaggingInfo.cc
   LIBRARIES
     cetlib_except::cetlib_except
     lardataobj::Simulation
