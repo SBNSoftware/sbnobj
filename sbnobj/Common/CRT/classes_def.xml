@@ -162,6 +162,7 @@
  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,recob::OpFlash,sbn::crt::CRTPMTMatchingInfo> >"/>-->
 
   <!-- CRTT0Tagging Information -->
+<enum name="sbn::crt::CRTTaggingMethod"/>
 <enum name="sbn::crt::CRTTaggingTrackFit"/>
 <class name="sbn::crt::CRTT0TaggingInfo"/>
 <class name="std::vector<sbn::crt::CRTT0TaggingInfo>"/>
