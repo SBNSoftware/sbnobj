@@ -1,0 +1,26 @@
+<lcgdict>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- sbn::OrderedPairList -->
+  <class name="std::pair<std::string, std::string>" />
+  <class name="std::vector<std::pair<std::string, std::string>>" />
+  <class name="sbn::OrderedPairList" ClassVersion="10" >
+   <version ClassVersion="10" checksum="2879057731"/>
+  </class>
+  <class name="std::vector<sbn::OrderedPairList>" />
+  <class name="art::Ptr<sbn::OrderedPairList>" />
+  <class name="art::Wrapper<std::vector<sbn::OrderedPairList>>" />
+  <class name="art::Wrapper<sbn::OrderedPairList>" />
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- sbn::JobEnvironmentInfo -->
+  <class name="sbn::JobEnvironmentInfo" ClassVersion="10" >
+   <version ClassVersion="10" checksum="843693145"/>
+  </class>
+  <class name="std::vector<sbn::JobEnvironmentInfo>" />
+  <class name="art::Ptr<sbn::JobEnvironmentInfo>" />
+  <class name="art::Wrapper<std::vector<sbn::JobEnvironmentInfo>>" />
+  <class name="art::Wrapper<sbn::JobEnvironmentInfo>" />
+  
+
+</lcgdict>

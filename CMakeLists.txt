@@ -25,6 +25,9 @@ message(STATUS
 include(CetCMakeEnv)
 cet_cmake_env()
 
+# following art's approach, our CMake stuff is in `Modules` directory:
+cet_cmake_module_directories(Modules BINARY)
+
 cet_set_compiler_flags(DIAGS CAUTIOUS
   WERROR
   NO_UNDEFINED
@@ -50,11 +53,13 @@ find_package( dk2nudata REQUIRED )
 include(ArtDictionary)
 include(CetMake)
 include(BasicPlugin)
+include(SBNutils)
 
 # add cet_find_library commands here when needed
 
 # ADD SOURCE CODE SUBDIRECTORIES HERE
 add_subdirectory(sbnobj)
+add_subdirectory(Modules)
 
 # tests
 add_subdirectory(test)
