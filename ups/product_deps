@@ -247,6 +247,7 @@ defaultqual	e26
 ####################################
 product		version		qual	flags		<table_format=2>
 lardataobj	v09_19_00	-
+lardataalg	v09_17_07	-
 cetmodules	v3_24_01	-	only_for_build
 end_product_list
 ####################################
@@ -302,11 +303,11 @@ end_product_list
 #   case it is optional.
 #
 ####################################
-qualifier	lardataobj	notes
-c14:debug	c14:debug
-c14:prof	c14:prof
-e26:debug	e26:debug
-e26:prof	e26:prof
+qualifier lardataobj lardataalg notes
+c14:debug c14:debug  c14:debug
+c14:prof  c14:prof   c14:prof
+e26:debug e26:debug  e26:debug
+e26:prof  e26:prof   e26:prof
 end_qualifier_list
 ####################################
 
