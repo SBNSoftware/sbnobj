@@ -7,6 +7,7 @@ cet_make_library(
   LIBRARIES
     cetlib_except::cetlib_except
     lardataobj::Simulation
+    larcorealg::Geometry
   )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_CRT)

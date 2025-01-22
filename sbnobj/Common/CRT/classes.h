@@ -2,6 +2,8 @@
 #include "canvas/Persistency/Common/Assns.h"
 #include "lardataobj/AnalysisBase/T0.h"
 #include "lardataobj/Simulation/AuxDetSimChannel.h"
+#include "lardataobj/RecoBase/Track.h"
+#include "lardataobj/RecoBase/PFParticle.h"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/CRT/CRTTrack.hh"
 #include "lardataobj/AnalysisBase/T0.h"

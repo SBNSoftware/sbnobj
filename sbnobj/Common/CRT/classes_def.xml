@@ -168,4 +168,15 @@
 <class name="std::vector<sbn::crt::CRTT0TaggingInfo>"/>
 <class name="art::Wrapper<std::vector<sbn::crt::CRTT0TaggingInfo>>"/>
 
+<class name="art::Assns<recob::Track , sbn::crt::CRTT0TaggingInfo , void>"/>
+<class name="art::Wrapper<art::Assns<recob::Track , sbn::crt::CRTT0TaggingInfo>>"/>
+<class name="art::Assns<sbn::crt::CRTT0TaggingInfo , recob::Track, void>"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTT0TaggingInfo, recob::Track>>"/>
+
+<class name="art::Assns<recob::PFParticle , sbn::crt::CRTT0TaggingInfo , void>"/>
+<class name="art::Wrapper<art::Assns<recob::PFParticle , sbn::crt::CRTT0TaggingInfo>>"/>
+<class name="art::Assns<sbn::crt::CRTT0TaggingInfo , recob::PFParticle, void>"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTT0TaggingInfo, recob::PFParticle>>"/>
+
+
 </lcgdict>
