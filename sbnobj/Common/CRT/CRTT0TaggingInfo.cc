@@ -1,1 +1,0 @@
-#include "sbnobj/Common/CRT/CRTT0TaggingInfo.hh"

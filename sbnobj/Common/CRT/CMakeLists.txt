@@ -4,7 +4,8 @@ cet_make_library(
     CRTPMTMatching.cxx
     CRTTrack.cc
     CRTTzero.cc
-    CRTT0TaggingInfo.cc
+    CRTHitT0TaggingInfo.cc
+    CRTHitT0TaggingTruthInfo.cc
   LIBRARIES
     cetlib_except::cetlib_except
     lardataobj::Simulation
