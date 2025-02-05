@@ -1,7 +1,6 @@
 cet_make_library(
   SOURCE
     CRTHit.cc
-    CRTPMTMatching.cxx
     CRTTrack.cc
     CRTTzero.cc
     CRTHitT0TaggingInfo.cc
