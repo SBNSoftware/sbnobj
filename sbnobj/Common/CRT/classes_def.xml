@@ -164,7 +164,7 @@
 <enum name="sbn::crt::CRTTaggingMethod"/>
 <enum name="sbn::crt::CRTTaggingTrackFit"/>
 <class name="sbn::crt::CRTHitT0TaggingInfo" ClassVersion="10">
- <version ClassVersion="10" checksum="4075868531"/>
+ <version ClassVersion="10" checksum="836791263"/>
 </class>
 <class name="std::vector<sbn::crt::CRTHitT0TaggingInfo>"/>
 <class name="art::Wrapper<std::vector<sbn::crt::CRTHitT0TaggingInfo>>"/>

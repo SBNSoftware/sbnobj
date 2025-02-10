@@ -9,7 +9,9 @@
 
 // C/C++ standard libraries
 #include <limits>
-
+#include "larcorealg/Geometry/GeometryCore.h"
+#include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
+#include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 // -----------------------------------------------------------------------------
 namespace sbn::crt { 
   /// @brief How was the track fitted when matched with a CRT hit.
@@ -83,6 +85,9 @@ struct sbn::crt::CRTHitT0TaggingInfo {
   // For Top CRT region 31/32 and Side CRT 40/41/42/43/44/45 X coordinate is constant: plane=1
   // For Top CRT region 33/34 and Side CRT 46/47 Z coordinate is constant: plane=2
   int Plane = NoPlane;
+
+  // PCA Fit Fir Eigenvector
+  geo::Vector_t PCAEigenVector = {-1., -1., -1.};
 
   CRTTaggingTrackFit fitType;
   CRTTaggingMethod  taggingMethod;
