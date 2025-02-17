@@ -14,9 +14,11 @@
 namespace anab {
 
   struct TPCChannelInfo{
-    unsigned channel;
-    float baseline;
-    float rms;
+    unsigned channel; //!< Channel number 
+    float baseline; //!< Channel baseline
+    float rms; //!< Channel RMS
+    float even_fraction; //!< Fraction of even samples in waveform
+    float xbad_fraction; //!< Fraction of samples equal to 0xBAD in the waveform
   };
 
 }
