@@ -1,6 +1,8 @@
 <lcgdict>
 
-  <class name="anab::TPCChannelInfo"/>
+  <class name="anab::TPCChannelInfo" ClassVersion="10">
+   <version ClassVersion="10" checksum="3801257877"/>
+  </class>
   <class name="std::vector<anab::TPCChannelInfo>"/>
   <class name="art::Wrapper< anab::TPCChannelInfo>"/>
   <class name="art::Wrapper< std::vector<anab::TPCChannelInfo>>"/>
