@@ -48,9 +48,9 @@ namespace sbnd::crt {
   enum CRTChannelStatus {
     kGoodChannel = 0,
     kDeadChannel,
-    KDeadNeighbourChannel,
+    kDeadNeighbourChannel,
     kQuietChannel,
-    KQuietNeighbourChannel
+    kQuietNeighbourChannel
   };
 }
 
