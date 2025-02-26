@@ -160,5 +160,6 @@
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0> >"           />
   <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, anab::T0>"           />
   <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, anab::T0> >"           />
+  
 
 </lcgdict>
