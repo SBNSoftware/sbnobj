@@ -10,20 +10,46 @@ namespace sbnd::timing {
     , fTimestamp(0)
     , fOffset(0)
     , fName("")
+    , fTimestampPs(0)
   {}
 
+  //For decoding with sbndcode <= v10_04_??
   DAQTimestamp::DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::string name)
     : fChannel(channel)
     , fTimestamp(timestamp)
     , fOffset(offset)
     , fName(name)
+    , fTimestampPs(0)
   {}
 
+  //For decoding with sbndcode <= v10_04_??
   DAQTimestamp::DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::array<char, 8> name)
     : fChannel(channel)
     , fTimestamp(timestamp)
     , fOffset(offset)
     , fName("")
+    , fTimestampPs(0)
+  {
+    for(auto const& c : name)
+      fName.push_back(c);
+  }
+
+  //New addition for sbndcode version > v10_04_??
+  DAQTimestamp::DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::string name, uint64_t timestampPs)
+    : fChannel(channel)
+    , fTimestamp(timestamp)
+    , fOffset(offset)
+    , fName(name)
+    , fTimestampPs(timestampPs)
+  {}
+
+  //New addition for sbndcode version > v10_04_??
+  DAQTimestamp::DAQTimestamp(uint32_t channel, uint64_t timestamp, uint64_t offset, std::array<char, 8> name, uint64_t timestampPs)
+    : fChannel(channel)
+    , fTimestamp(timestamp)
+    , fOffset(offset)
+    , fName("")
+    , fTimestampPs(timestampPs)
   {
     for(auto const& c : name)
       fName.push_back(c);
@@ -51,6 +77,11 @@ namespace sbnd::timing {
     return fName;
   }
 
+  uint64_t DAQTimestamp::TimestampPs() const
+  {
+    return fTimestampPs;
+  }
+
   void DAQTimestamp::SetChannel(uint32_t channel)
   {
     fChannel = channel;
@@ -69,6 +100,11 @@ namespace sbnd::timing {
   void DAQTimestamp::SetName(std::string name)
   {
     fName = name;
+  }
+
+  void DAQTimestamp::SetTimestampPs(uint64_t timestamp)
+  {
+    fTimestampPs = timestamp;
   }
 }
 
