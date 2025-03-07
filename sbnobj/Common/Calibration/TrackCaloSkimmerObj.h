@@ -261,8 +261,7 @@ namespace sbn {
     std::vector<WireInfo> wires1; //!< List of wire information on plane 1
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
-    float t0; //!< T0 of track [ns]
-    float t0CRT;  //!< T0 of track from CRT-TPC matching [ns]
+    std::vector<double> t0; ///!< T0s associated with this track. Index 0 is Pandora, 1 is CRTTrack (SBND like) 2 is CRTHit (ICARUS like)
     int whicht0; //!< Which T0 producer was used to tag
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
@@ -270,6 +269,7 @@ namespace sbn {
     Vector3D start; //!< Start position of track [cm]
     Vector3D end; //!< End position of track [cm]
     Vector3D dir; //!< Direction of track 
+    Vector3D PCAdir; //!< Track Direction as fitted from PCA 
     float length; //!< Length of track [cm]
 
     float hit_min_time_p0_tpcE; //!< Min hit time of track on plane 0 TPC E
@@ -312,8 +312,6 @@ namespace sbn {
     TrackTruth truth; //!< Truth-matching information
 
     TrackInfo():
-      t0(-1),
-      t0CRT(-1),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),
