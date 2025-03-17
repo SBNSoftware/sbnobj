@@ -32,7 +32,8 @@
   <class name="sbn::HitTruth" ClassVersion="10">
    <version ClassVersion="10" checksum="2374511199"/>
   </class>
-  <class name="sbn::HitInfo" ClassVersion="15">
+  <class name="sbn::HitInfo" ClassVersion="16">
+   <version ClassVersion="16" checksum="1013657270"/>
    <version ClassVersion="15" checksum="2112326324"/>
    <version ClassVersion="14" checksum="2279804458"/>
    <version ClassVersion="13" checksum="3388532746"/>
