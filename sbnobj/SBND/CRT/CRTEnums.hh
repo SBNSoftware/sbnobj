@@ -50,7 +50,8 @@ namespace sbnd::crt {
     kDeadChannel,
     kDeadNeighbourChannel,
     kQuietChannel,
-    kQuietNeighbourChannel
+    kQuietNeighbourChannel,
+    kUnusedChannel
   };
 }
 
