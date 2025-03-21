@@ -18,6 +18,7 @@
   </class>
   <class name="std::vector<sbn::crt::CRTTzero>"/>
   <class name="art::Wrapper< std::vector<sbn::crt::CRTTzero> >"/>
+  
 
   <class name="sbn::crt::CRTTrack" ClassVersion="12">
    <version ClassVersion="12" checksum="197963098"/>
@@ -159,4 +160,34 @@
   <!--<class name="art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo>"/>
  <class name="art::Wrapper<art::Assns<recob::OpFlash,sbn::crt::CRTHit,sbn::crt::CRTPMTMatchingInfo> >"/>
  <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit,recob::OpFlash,sbn::crt::CRTPMTMatchingInfo> >"/>-->
+  <!-- CRTT0Tagging Information -->
+<enum name="sbn::crt::CRTTaggingMethod"/>
+<enum name="sbn::crt::CRTTaggingTrackFit"/>
+<class name="sbn::crt::CRTHitT0TaggingInfo" ClassVersion="10">
+ <version ClassVersion="10" checksum="836791263"/>
+</class>
+<class name="std::vector<sbn::crt::CRTHitT0TaggingInfo>"/>
+<class name="art::Wrapper<std::vector<sbn::crt::CRTHitT0TaggingInfo>>"/>
+
+<class name="sbn::crt::CRTHitT0TaggingTruthInfo" ClassVersion="10">
+ <version ClassVersion="10" checksum="443868831"/>
+</class>
+<class name="std::vector<sbn::crt::CRTHitT0TaggingTruthInfo>"/>
+<class name="art::Wrapper<std::vector<sbn::crt::CRTHitT0TaggingTruthInfo>>"/>
+
+<class name="art::Assns<sbn::crt::CRTHitT0TaggingInfo , sbn::crt::CRTHitT0TaggingTruthInfo , void>"/>
+<class name="art::Assns<sbn::crt::CRTHitT0TaggingTruthInfo , sbn::crt::CRTHitT0TaggingInfo , void>"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTHitT0TaggingInfo , sbn::crt::CRTHitT0TaggingTruthInfo> >"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTHitT0TaggingTruthInfo , sbn::crt::CRTHitT0TaggingInfo> >"/>
+
+<class name="art::Assns<recob::Track , sbn::crt::CRTHitT0TaggingInfo , void>"/>
+<class name="art::Wrapper<art::Assns<recob::Track , sbn::crt::CRTHitT0TaggingInfo>>"/>
+<class name="art::Assns<sbn::crt::CRTHitT0TaggingInfo , recob::Track, void>"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTHitT0TaggingInfo, recob::Track>>"/>
+
+<class name="art::Assns<recob::PFParticle , sbn::crt::CRTHitT0TaggingInfo , void>"/>
+<class name="art::Wrapper<art::Assns<recob::PFParticle , sbn::crt::CRTHitT0TaggingInfo>>"/>
+<class name="art::Assns<sbn::crt::CRTHitT0TaggingInfo , recob::PFParticle, void>"/>
+<class name="art::Wrapper<art::Assns<sbn::crt::CRTHitT0TaggingInfo, recob::PFParticle>>"/>
+
 </lcgdict>
