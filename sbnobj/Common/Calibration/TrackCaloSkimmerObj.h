@@ -45,6 +45,7 @@ namespace sbn {
     float integral; //!< Integral of gaussian fit to ADC values in hit [ADC]
     float sumadc; //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
     float width; //!< Width of fitted gaussian hit [ticks]
+    float goodness; //!< Goodness-of-fit of fitted gaussian hit
     Vector3D sp; //!< Space-Point Position of hit [cm]
     float time; //!< Peak time of hit [ticks]
     int id; //!< ID of hit
