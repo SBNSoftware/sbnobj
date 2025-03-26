@@ -44,6 +44,14 @@ namespace sbnd::crt {
     kThreeD = kXYZ
 
   };
+
+  enum CRTChannelStatus {
+    kGoodChannel = 0,
+    kDeadChannel,
+    kDeadNeighbourChannel,
+    kQuietChannel,
+    kQuietNeighbourChannel
+  };
 }
 
 extern sbnd::crt::CoordSet operator|(sbnd::crt::CoordSet lhs, sbnd::crt::CoordSet rhs);
