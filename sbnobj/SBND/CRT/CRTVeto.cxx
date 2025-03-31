@@ -13,13 +13,15 @@ namespace sbnd {
       , fV1 (false)
       , fV2 (false)
       , fV3 (false)
+      , fV4 (false)
     {}
 
-    CRTVeto::CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3)
+    CRTVeto::CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3, bool _v4)
       : fV0 (_v0)
       , fV1 (_v1)
       , fV2 (_v2)
       , fV3 (_v3)
+      , fV4 (_v4)
     {}
 
     CRTVeto::~CRTVeto() {}
@@ -28,6 +30,7 @@ namespace sbnd {
     bool CRTVeto::V1() const { return fV1; }
     bool CRTVeto::V2() const { return fV2; }
     bool CRTVeto::V3() const { return fV3; }
+    bool CRTVeto::V4() const { return fV4; }
   }
 }
 

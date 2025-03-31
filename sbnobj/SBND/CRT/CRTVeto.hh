@@ -19,12 +19,13 @@ namespace sbnd::crt {
     bool fV1;    
     bool fV2;    
     bool fV3;    
+    bool fV4;    
 
   public:
 
     CRTVeto();
     
-    CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3);
+    CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3, bool _v4);
 
 
     virtual ~CRTVeto();
@@ -33,6 +34,8 @@ namespace sbnd::crt {
     bool V1() const;
     bool V2() const;
     bool V3() const;
+    bool V4() const;
+
 
     //CRTVeto& operator= (CRTVeto const&) = default;
   };
