@@ -162,11 +162,19 @@
   <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, anab::T0> >"           />
   
   <!-- CRTVeto -->
-  <class name="sbnd::crt::CRTVeto" ClassVersion="12">
-   <version ClassVersion="12" checksum="168313013"/>
-   <version ClassVersion="11" checksum="84523001"/>
-    <version ClassVersion="10" checksum="1691600150"/>
+
+  <class name="sbnd::crt::CRTVeto" ClassVersion="10">
+   <version ClassVersion="10" checksum="168313013"/>
   </class>
+  <class name="std::vector<sbnd::crt::CRTVeto>"/>
   <class name="art::Wrapper<sbnd::crt::CRTVeto>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTVeto> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTVeto, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTVeto, sbnd::crt::CRTSpacePoint, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTVeto,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTVeto, void> >"           />
 
 </lcgdict>
