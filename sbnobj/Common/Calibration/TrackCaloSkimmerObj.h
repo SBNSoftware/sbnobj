@@ -314,9 +314,9 @@ namespace sbn {
     TrackTruth truth; //!< Truth-matching information
 
     TrackInfo():
-      t0PFP(-1),
-      t0CRTTrack(-1),
-      t0CRTHit(-1),
+      t0PFP(std::numeric_limits<float>::lowest()),
+      t0CRTTrack(std::numeric_limits<float>::lowest()),
+      t0CRTHit(std::numeric_limits<float>::lowest()),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),
