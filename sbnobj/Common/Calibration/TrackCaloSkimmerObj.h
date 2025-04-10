@@ -314,13 +314,13 @@ namespace sbn {
     TrackTruth truth; //!< Truth-matching information
 
     TrackInfo():
+      t0PFP(-1),
+      t0CRTTrack(-1),
+      t0CRTHit(-1),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),
       length(-1),
-      t0PFP(-1),
-      t0CRTTrack(-1),
-      t0CRTHit(-1),
       hit_min_time_p0_tpcE(-100000),
       hit_max_time_p0_tpcE(-100000),
       hit_min_time_p1_tpcE(-100000),
