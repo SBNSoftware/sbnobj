@@ -262,9 +262,9 @@ namespace sbn {
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
     float t0PFP; //!< Particle-Flow-Particle (Pandora) T0. Derived from cathode crossing
-    float t0CRTTrack; //!< t0 from CRT Track (SBND like)
-    float t0CRTHit; //!< t0 from CRT Hit (ICARUS like)
-    int whicht0; //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack (SBND like) 2 is CRTHit (ICARUS like)
+    float t0CRTTrack; //!< t0 from CRT Track 
+    float t0CRTHit; //!< t0 from CRT Hit 
+    int whicht0; //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack 2 is CRTHit
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
     bool clear_cosmic_muon; //!< Whether Pandora thinks the track is "clearly" a cosmic
@@ -318,6 +318,9 @@ namespace sbn {
       cryostat(-1),
       clear_cosmic_muon(false),
       length(-1),
+      t0PFP(-1),
+      t0CRTTrack(-1),
+      t0CRTHit(-1),
       hit_min_time_p0_tpcE(-100000),
       hit_max_time_p0_tpcE(-100000),
       hit_min_time_p1_tpcE(-100000),
