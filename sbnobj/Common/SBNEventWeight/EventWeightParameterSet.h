@@ -72,7 +72,7 @@ public:
   } ReweightType;
 
   /** Default constructor. */
-  EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefault) {}
+  EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefaultRWType) {}
 
   /** Equality operator, testing equality of all members. */
   inline friend bool operator==(const EventWeightParameterSet& lhs,
