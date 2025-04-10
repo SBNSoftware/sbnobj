@@ -65,10 +65,10 @@ public:
   typedef enum rwtype
   {
     kDefaultRWType = -1,
-    kMultisim = 0,
+    kMultiSim = 0,
     kPMNSigma = 1,
     kFixed = 2,
-    kMultisigma = 3,
+    kMultiSigma = 3,
   } ReweightType;
 
   /** Default constructor. */
