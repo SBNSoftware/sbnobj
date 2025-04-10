@@ -10,6 +10,8 @@
 #ifndef SBND_CRTVETO_HH
 #define SBND_CRTVETO_HH
 
+#include <set>
+#include <vector>
 #include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 
 namespace sbnd::crt {
@@ -20,12 +22,13 @@ namespace sbnd::crt {
     bool fV2;    
     bool fV3;    
     bool fV4;    
+    std::vector<double> fSouthTimes;
 
   public:
 
     CRTVeto();
     
-    CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3, bool _v4);
+    CRTVeto(bool _v0, bool _v1, bool _v2, bool _v3, bool _v4, const std::vector<double> _south_times);
 
 
     virtual ~CRTVeto();
@@ -35,7 +38,7 @@ namespace sbnd::crt {
     bool V2() const;
     bool V3() const;
     bool V4() const;
-
+    std::vector<double> SouthTimes() const;
 
     //CRTVeto& operator= (CRTVeto const&) = default;
   };

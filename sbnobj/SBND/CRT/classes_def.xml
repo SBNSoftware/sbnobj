@@ -163,7 +163,8 @@
   
   <!-- CRTVeto -->
 
-  <class name="sbnd::crt::CRTVeto" ClassVersion="10">
+  <class name="sbnd::crt::CRTVeto" ClassVersion="11">
+   <version ClassVersion="11" checksum="1142676250"/>
    <version ClassVersion="10" checksum="168313013"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTVeto>"/>
