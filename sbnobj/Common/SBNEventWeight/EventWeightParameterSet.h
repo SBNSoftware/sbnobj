@@ -64,7 +64,7 @@ public:
   //==== ReweightType_t in sbnanaobj/StandardRecord/SREnums.h should be synchronized to this
   typedef enum rwtype
   {
-    kDefault = -1,
+    kDefaultRWType = -1,
     kMultisim = 0,
     kPMNSigma = 1,
     kFixed = 2,
