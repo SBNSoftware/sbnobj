@@ -17,8 +17,8 @@ namespace sbn::crt {
   /// @brief How was the track fitted when matched with a CRT hit.
 
   enum class CRTTaggingMethod {
-    crtHits = 0, ///< matching performed using single CRT Hits (ICARUS like)
-    crtTracks = 1 ///< matching performed using CRTTracks (SBND like)
+    crtHits = 0, ///< matching performed using single CRT Hits 
+    crtTracks = 1 ///< matching performed using CRTTracks
   };
 
   enum class CRTTaggingTrackFit { 
