@@ -163,9 +163,8 @@
   
   <!-- CRTVeto -->
 
-  <class name="sbnd::crt::CRTVeto" ClassVersion="11">
-   <version ClassVersion="11" checksum="1142676250"/>
-   <version ClassVersion="10" checksum="168313013"/>
+  <class name="sbnd::crt::CRTVeto" ClassVersion="10">
+   <version ClassVersion="10" checksum="1142676250"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTVeto>"/>
   <class name="art::Wrapper<sbnd::crt::CRTVeto>"/>
