@@ -45,6 +45,7 @@ namespace sbn {
     float integral; //!< Integral of gaussian fit to ADC values in hit [ADC]
     float sumadc; //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
     float width; //!< Width of fitted gaussian hit [ticks]
+    float goodness; //!< Goodness-of-fit of fitted gaussian hit
     Vector3D sp; //!< Space-Point Position of hit [cm]
     float time; //!< Peak time of hit [ticks]
     int id; //!< ID of hit
@@ -260,15 +261,17 @@ namespace sbn {
     std::vector<WireInfo> wires1; //!< List of wire information on plane 1
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
-    float t0; //!< T0 of track [ns]
-    float t0CRT;  //!< T0 of track from CRT-TPC matching [ns]
-    int whicht0; //!< Which T0 producer was used to tag
+    float t0PFP; //!< Particle-Flow-Particle (Pandora) T0. Derived from cathode crossing
+    float t0CRTTrack; //!< t0 from CRT Track 
+    float t0CRTHit; //!< t0 from CRT Hit 
+    int whicht0; //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack 2 is CRTHit
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
     bool clear_cosmic_muon; //!< Whether Pandora thinks the track is "clearly" a cosmic
     Vector3D start; //!< Start position of track [cm]
     Vector3D end; //!< End position of track [cm]
     Vector3D dir; //!< Direction of track 
+    Vector3D PCAdir; //!< Track Direction as fitted from PCA 
     float length; //!< Length of track [cm]
 
     float hit_min_time_p0_tpcE; //!< Min hit time of track on plane 0 TPC E
@@ -311,8 +314,9 @@ namespace sbn {
     TrackTruth truth; //!< Truth-matching information
 
     TrackInfo():
-      t0(-1),
-      t0CRT(-1),
+      t0PFP(std::numeric_limits<float>::lowest()),
+      t0CRTTrack(std::numeric_limits<float>::lowest()),
+      t0CRTHit(std::numeric_limits<float>::lowest()),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),

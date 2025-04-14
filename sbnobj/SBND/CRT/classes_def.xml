@@ -14,6 +14,7 @@
 
   <class name="std::map< uint8_t, uint16_t >"/>
   <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
+  <class name="std::vector< std::vector< int64_t > > "/>
 
   <!-- associations  -->
 
@@ -68,7 +69,8 @@
 
   <!-- CRTStripHit -->
 
-  <class name="sbnd::crt::CRTStripHit" ClassVersion="11">
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="12">
+    <version ClassVersion="12" checksum="2450467372"/>
     <version ClassVersion="11" checksum="1377866194"/>
     <version ClassVersion="10" checksum="584045954"/>
   </class>
@@ -85,7 +87,8 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster" ClassVersion="11">
+  <class name="sbnd::crt::CRTCluster" ClassVersion="12">
+    <version ClassVersion="12" checksum="1193265154"/>
     <version ClassVersion="11" checksum="2461267624"/>
     <version ClassVersion="10" checksum="1135665496"/>
   </class>
