@@ -3,6 +3,7 @@
 #include "canvas/Persistency/Common/Assns.h"
 
 #include "sbnobj/ICARUS/TPC/ChannelROI.h"
+#include "sbnobj/ICARUS/TPC/Hit.h"
 #include <vector>
 
 
