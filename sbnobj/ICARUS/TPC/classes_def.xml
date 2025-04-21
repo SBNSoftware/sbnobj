@@ -6,7 +6,8 @@
   <class name="std::vector< lar::sparse_vector<short>::datarange_t>"/>
 
 
-  <class name="recob::ChannelROI" ClassVersion="10" >
+  <class name="recob::ChannelROI" ClassVersion="11" >
+   <version ClassVersion="11" checksum="123422181"/>
    <version ClassVersion="10" checksum="1609503266"/>
   </class>
 
