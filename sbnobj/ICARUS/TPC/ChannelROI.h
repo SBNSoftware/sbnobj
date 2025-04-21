@@ -107,14 +107,22 @@ namespace recob {
   class ChannelROI {
     public:
       /// a region of interest is a pair (TDC offset, readings)
+      /// Here we define the standard short int version for storage
       typedef lar::sparse_vector<short int> RegionsOfInterest_t;
+
+      /// And here we define the float version for output
+      typedef lar::sparse_vector<float>     RegionsOfInterest_f;
+
+      /// Scale factor when going from float to short int
+      static constexpr float defADCScaleFactor = 10.;
 
       /// Default constructor: a ChannelROI with no signal information
       ChannelROI();
 
     private:
-      raw::ChannelID_t    fChannel;   ///< ID of the associated channel.
-      RegionsOfInterest_t fSignalROI; ///< Signal on the channel as function of time tick.
+      raw::ChannelID_t    fChannel;         ///< ID of the associated channel.
+      float               fADCScaleFactor; ///< Scaling factor used to preserve resolution
+      RegionsOfInterest_t fSignalROI;      ///< Signal on the channel as function of time tick.
 
 
     friend class ChannelROICreator; // helper to create ChannelROIs in art
@@ -135,7 +143,8 @@ namespace recob {
        */
       ChannelROI(
         RegionsOfInterest_t const& sigROIlist,
-        raw::ChannelID_t channel
+        raw::ChannelID_t channel,
+        float adcScaleFactor = defADCScaleFactor
         );
 
       /**
@@ -162,7 +171,8 @@ namespace recob {
        */
       ChannelROI(
         RegionsOfInterest_t&& sigROIlist,
-        raw::ChannelID_t channel
+        raw::ChannelID_t channel,
+        float adcScaleFactor = defADCScaleFactor
         );
       // --- END -- Constructors -----------------------------------------------
 
@@ -174,14 +184,20 @@ namespace recob {
       /// Return a zero-padded full length vector filled with RoI signal
       std::vector<short int>     Signal() const;
 
-      /// Returns the list of regions of interest
+      /// Returns the list of (scaled short int) regions of interest
       const RegionsOfInterest_t& SignalROI()  const;
+
+      /// Returns the list of (float) regions of interest
+      RegionsOfInterest_f        SignalROIF()  const;
 
       /// Returns the number of time ticks, or samples, in the channel
       std::size_t                NSignal()    const;
 
       /// Returns the ID of the channel (or InvalidChannelID)
       raw::ChannelID_t           Channel()    const;
+
+      /// Returns the scale factor used to preserve resolution
+      float                      ADCScaleFactor() const;
       
       ///@}
       // --- END -- Accessors --------------------------------------------------
@@ -206,9 +222,10 @@ namespace recob {
 //--- inline implementation
 //------------------------------------------------------------------------------
 inline const recob::ChannelROI::RegionsOfInterest_t&
-                                  recob::ChannelROI::SignalROI()  const { return fSignalROI;        }
-inline std::size_t                recob::ChannelROI::NSignal()    const { return fSignalROI.size(); }
-inline raw::ChannelID_t           recob::ChannelROI::Channel()    const { return fChannel;          }
+                                  recob::ChannelROI::SignalROI()      const { return fSignalROI;        }
+inline std::size_t                recob::ChannelROI::NSignal()        const { return fSignalROI.size(); }
+inline raw::ChannelID_t           recob::ChannelROI::Channel()        const { return fChannel;          }
+inline float                      recob::ChannelROI::ADCScaleFactor() const { return fADCScaleFactor;   }
 inline bool                       recob::ChannelROI::operator< (const ChannelROI& than) const
   { return Channel() < than.Channel(); }
 
