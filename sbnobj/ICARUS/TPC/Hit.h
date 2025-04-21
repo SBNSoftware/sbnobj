@@ -9,8 +9,8 @@
  *
  * ****************************************************************************/
 
-#ifndef ICARUSOBJ_RECOBASE_HIT_H
-#define ICARUSOBJ_RECOBASE_HIT_H
+#ifndef SBNOBJ_RECOBASE_HIT_H
+#define SBNOBJ_RECOBASE_HIT_H
 
 // C/C++ standard librraies
 #include <iosfwd>
@@ -19,7 +19,7 @@
 #include "larcoreobj/SimpleTypesAndConstants/RawTypes.h" // raw::ChannelID_t
 #include "larcoreobj/SimpleTypesAndConstants/geo_types.h" // geo::View_t, geo::SignalType, geo::WireID
 
-namespace icarus {
+namespace sbn {
 
   /**
    * @brief 2D representation of charge deposited in the TDC/wire plane
@@ -30,7 +30,7 @@ namespace icarus {
    * the location is absolute and unique in the detector, while the time is
    * relative to the start of sampling (tick time).
    *
-   * The version 14 of icarus::Hit introduces the following changes:
+   * The version 14 of sbn::Hit introduces the following changes:
    * - StartTime() becomes StartTick(), StopTime() becomes StopTick()
    * - Charge(true) is now PeakAmplitude(), Charge(false) (default) is Integral()
    */
@@ -179,7 +179,7 @@ namespace icarus {
        * PeakTimePlusRMS() returns PeakTime() + sigmas x RMS();
        * PeakTimeMinusRMS() returns PeakTime() - sigmas x RMS().
        *
-       * @note StartTime() of icarus::Hit version <=13 was defined by
+       * @note StartTime() of sbn::Hit version <=13 was defined by
        *   GausHitFinder to be PeakTimePlusRMS(-1.), and EndTime() was
        *   PeakTimePlusRMS(+1.).
        */
@@ -201,96 +201,96 @@ namespace icarus {
     friend bool operator<(const Hit& a, const Hit& b);
 
   }; // class Hit
-} // namespace icarus
+} // namespace sbn
 
-inline raw::TDCtick_t icarus::Hit::StartTick() const
+inline raw::TDCtick_t sbn::Hit::StartTick() const
 {
   return fStartTick;
 }
-inline raw::TDCtick_t icarus::Hit::EndTick() const
+inline raw::TDCtick_t sbn::Hit::EndTick() const
 {
   return fEndTick;
 }
-inline float icarus::Hit::PeakTime() const
+inline float sbn::Hit::PeakTime() const
 {
   return fPeakTime;
 }
-inline float icarus::Hit::SigmaPeakTime() const
+inline float sbn::Hit::SigmaPeakTime() const
 {
   return fSigmaPeakTime;
 }
-inline float icarus::Hit::RMS() const
+inline float sbn::Hit::RMS() const
 {
   return fRMS;
 }
-inline float icarus::Hit::PeakAmplitude() const
+inline float sbn::Hit::PeakAmplitude() const
 {
   return fPeakAmplitude;
 }
-inline float icarus::Hit::SigmaPeakAmplitude() const
+inline float sbn::Hit::SigmaPeakAmplitude() const
 {
   return fSigmaPeakAmplitude;
 }
-inline float icarus::Hit::ROISummedADC() const
+inline float sbn::Hit::ROISummedADC() const
 {
   return fROISummedADC;
 }
-inline float icarus::Hit::SummedADC() const
+inline float sbn::Hit::SummedADC() const
 {
   return fHitSummedADC;
 }
-inline float icarus::Hit::Integral() const
+inline float sbn::Hit::Integral() const
 {
   return fIntegral;
 }
-inline float icarus::Hit::SigmaIntegral() const
+inline float sbn::Hit::SigmaIntegral() const
 {
   return fSigmaIntegral;
 }
-inline short int icarus::Hit::Multiplicity() const
+inline short int sbn::Hit::Multiplicity() const
 {
   return fMultiplicity;
 }
-inline short int icarus::Hit::LocalIndex() const
+inline short int sbn::Hit::LocalIndex() const
 {
   return fLocalIndex;
 }
-inline float icarus::Hit::GoodnessOfFit() const
+inline float sbn::Hit::GoodnessOfFit() const
 {
   return fGoodnessOfFit;
 }
-inline int icarus::Hit::DegreesOfFreedom() const
+inline int sbn::Hit::DegreesOfFreedom() const
 {
   return fNDF;
 }
-inline raw::ChannelID_t icarus::Hit::Channel() const
+inline raw::ChannelID_t sbn::Hit::Channel() const
 {
   return fChannel;
 }
-inline geo::SigType_t icarus::Hit::SignalType() const
+inline geo::SigType_t sbn::Hit::SignalType() const
 {
   return fSignalType;
 }
-inline geo::View_t icarus::Hit::View() const
+inline geo::View_t sbn::Hit::View() const
 {
   return fView;
 }
-inline geo::WireID const& icarus::Hit::WireID() const
+inline geo::WireID const& sbn::Hit::WireID() const
 {
   return fWireID;
 }
 
-inline float icarus::Hit::PeakTimePlusRMS(float sigmas /* = +1. */) const
+inline float sbn::Hit::PeakTimePlusRMS(float sigmas /* = +1. */) const
 {
   return PeakTime() + sigmas * RMS();
 }
 
-inline float icarus::Hit::PeakTimeMinusRMS(float sigmas /* = +1. */) const
+inline float sbn::Hit::PeakTimeMinusRMS(float sigmas /* = +1. */) const
 {
   return PeakTimePlusRMS(-sigmas);
 }
 
-inline float icarus::Hit::TimeDistanceAsRMS(float time) const
+inline float sbn::Hit::TimeDistanceAsRMS(float time) const
 {
   return (time - PeakTime()) / RMS();
 }
