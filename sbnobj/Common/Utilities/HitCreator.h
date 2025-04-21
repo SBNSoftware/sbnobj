@@ -7,8 +7,8 @@
  *
  * ****************************************************************************/
 
-#ifndef ICARUS_ARTDATAHELPERS_HITCREATOR_H
-#define ICARUS_ARTDATAHELPERS_HITCREATOR_H
+#ifndef SBN_ARTDATAHELPERS_HITCREATOR_H
+#define SBN_ARTDATAHELPERS_HITCREATOR_H
 
 // LArSoft libraries
 #include "lardataobj/RawData/RawDigit.h"
@@ -40,13 +40,13 @@ namespace art {
 }
 
 /// Reconstruction base classes
-namespace icarus {
+namespace sbn {
 
   /** **************************************************************************
    * @brief Class managing the creation of a new `recob::Hit` object.
    *
    * In order to be as simple as possible (Plain Old Data), data products like
-   * `icarus::Hit` need to be stripped of most of their functions, including the
+   * `sbn::Hit` need to be stripped of most of their functions, including the
    * ability to communicate whether a value we try to store is invalid
    * (that would require a art::Exception` -- art -- or at least a message on
    * the screen -- MessageFacility) and the ability to read things from event,
@@ -60,7 +60,7 @@ namespace icarus {
    * An example of creating a `recob::Hit` object (assuming all the relevant
    * variables have been assigned proper values):
    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
-   * icarus::HitCreator hit(
+   * sbn::HitCreator hit(
    *   wire, wireID,
    *   start_tick, end_tick, rms,
    *   peak_time, sigma_peak_time, peak_amplitude, sigma_peak_amplitude,
@@ -311,14 +311,14 @@ namespace icarus {
        * @brief Constructor: copies from an existing hit.
        * @param from the original hit
        */
-    HitCreator(icarus::Hit const& from);
+    HitCreator(sbn::Hit const& from);
 
     /**
        * @brief Constructor: copies from an existing hit, changing wire ID.
        * @param from the original hit
        * @param wireID ID of the new wire the hit is on
        */
-    HitCreator(icarus::Hit const& from, geo::WireID const& wireID);
+    HitCreator(sbn::Hit const& from, geo::WireID const& wireID);
 
     /**
        * @brief Prepares the constructed hit to be moved away.
@@ -328,14 +328,14 @@ namespace icarus {
        * Move takes place in the caller code as proper; for example:
        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
        * // be hit a HitCreator instance:
-       * std::vector<icarus::Hit> Hits;
+       * std::vector<sbn::Hit> Hits;
        * hit.move();                        // nothing happens
        * Hits.push_back(hit.move());        // here the copy happens
-       * icarus::Hit single_hit(hit.move()); // wrong! hit is empty now
+       * sbn::Hit single_hit(hit.move()); // wrong! hit is empty now
        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        *
        */
-    icarus::Hit&& move() { return std::move(hit); }
+    sbn::Hit&& move() { return std::move(hit); }
 
     /**
        * @brief Returns the constructed wire
@@ -345,17 +345,17 @@ namespace icarus {
        * Copy takes place in the caller code as proper; for example:
        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
        * // be Hit a HitCreator instance:
-       * std::vector<icarus::Hit> Hits;
+       * std::vector<sbn::Hit> Hits;
        * hit.copy();                        // nothing happens
        * Hits.push_back(hit.copy());        // here a copy happens
-       * icarus::Hit single_hit(hit.copy()); // hit is copied again
+       * sbn::Hit single_hit(hit.copy()); // hit is copied again
        * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        *
        */
-    icarus::Hit const& copy() const { return hit; }
+    sbn::Hit const& copy() const { return hit; }
 
   protected:
-    icarus::Hit hit; ///< Local instance of the hit being constructed.
+    sbn::Hit hit; ///< Local instance of the hit being constructed.
 
   }; // class HitCreator
 
@@ -417,7 +417,7 @@ namespace icarus {
     void put_into();
 
     /// Returns a read-only reference to the current list of hits.
-    std::vector<icarus::Hit> const& peek() const { return *hits; }
+    std::vector<sbn::Hit> const& peek() const { return *hits; }
 
     /**
      * @brief Declares the hit products we are going to fill.
@@ -430,9 +430,9 @@ namespace icarus {
      * This declaration must be given in the constructor of producer.
      * It is equivalent to manually declare the relevant among these products:
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
-     * produces<std::vector<icarus::Hit>>(prod_instance);
-     * produces<art::Assns<recob::ChannelROI, icarus::Hit>>(prod_instance);
-     * produces<art::Assns<raw::RawDigit, icarus::Hit>>(prod_instance);
+     * produces<std::vector<sbn::Hit>>(prod_instance);
+     * produces<art::Assns<recob::ChannelROI, sbn::Hit>>(prod_instance);
+     * produces<art::Assns<raw::RawDigit, sbn::Hit>>(prod_instance);
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      * in the producer constructor.
      * All the data products (hit collection and associations) will have the
@@ -444,20 +444,20 @@ namespace icarus {
                                  bool doRawDigitAssns = true);
 
   protected:
-    using HitPtr_t = art::Ptr<icarus::Hit>; ///< Type of art pointer to Hit.
+    using HitPtr_t = art::Ptr<sbn::Hit>; ///< Type of art pointer to Hit.
 
     std::string prod_instance; ///< Tame of the instance for data products.
 
     /// Collection of hits.
-    std::unique_ptr<std::vector<icarus::Hit>> hits;
+    std::unique_ptr<std::vector<sbn::Hit>> hits;
     /// Associations with wires.
-    std::unique_ptr<art::Assns<recob::ChannelROI, icarus::Hit>> WireAssns;
+    std::unique_ptr<art::Assns<recob::ChannelROI, sbn::Hit>> WireAssns;
     /// Associations with raw digits.
-    std::unique_ptr<art::Assns<raw::RawDigit, icarus::Hit>> RawDigitAssns;
+    std::unique_ptr<art::Assns<raw::RawDigit, sbn::Hit>> RawDigitAssns;
 
     art::Event* event = nullptr; ///< Pointer to the event we are using.
 
-    art::PtrMaker<icarus::Hit> hitPtrMaker; ///< Tool to create hit pointers,
+    art::PtrMaker<sbn::Hit> hitPtrMaker; ///< Tool to create hit pointers,
 
     /**
      * @brief Constructor: sets instance name and whether to build associations.
@@ -530,7 +530,7 @@ namespace icarus {
      * After this call, hit will be invalid.
      * If a art pointer is not valid, that association will not be stored.
      */
-    void emplace_back(icarus::Hit&& hit,
+    void emplace_back(sbn::Hit&& hit,
                       art::Ptr<recob::ChannelROI> const& wire = art::Ptr<recob::ChannelROI>(),
                       art::Ptr<raw::RawDigit> const& digits = art::Ptr<raw::RawDigit>());
 
@@ -542,7 +542,7 @@ namespace icarus {
      *
      * If a art pointer is not valid, that association will not be stored.
      */
-    void emplace_back(icarus::Hit const& hit,
+    void emplace_back(sbn::Hit const& hit,
                       art::Ptr<recob::ChannelROI> const& wire = art::Ptr<recob::ChannelROI>(),
                       art::Ptr<raw::RawDigit> const& digits = art::Ptr<raw::RawDigit>());
 
@@ -570,7 +570,7 @@ namespace icarus {
      * After this call, hit will be invalid.
      * If the digit pointer is not valid, its association will not be stored.
      */
-    void emplace_back(icarus::Hit&& hit, art::Ptr<raw::RawDigit> const& digits)
+    void emplace_back(sbn::Hit&& hit, art::Ptr<raw::RawDigit> const& digits)
     {
       emplace_back(std::move(hit), art::Ptr<recob::ChannelROI>(), digits);
     }
@@ -631,7 +631,7 @@ namespace icarus {
     void put_into();
 
     /// Returns a read-only reference to the current list of hits.
-    std::vector<icarus::Hit> const& peek() const { return *hits; }
+    std::vector<sbn::Hit> const& peek() const { return *hits; }
 
   protected:
     using HitPtr_t = HitAndAssociationsWriterBase::HitPtr_t;
@@ -651,7 +651,7 @@ namespace icarus {
   /** **************************************************************************
    * @brief A class handling a collection of hits and its associations.
    *
-   * Use this object if you already have a collection of `icarus::Hit` and you
+   * Use this object if you already have a collection of `sbn::Hit` and you
    * simply want the hits associated to the wire and digit with the same
    * channel.
    */
@@ -742,7 +742,7 @@ namespace icarus {
      * the event.
      * If there were previous hits in the object, they are lost.
      */
-    void use_hits(std::unique_ptr<std::vector<icarus::Hit>>&& srchits);
+    void use_hits(std::unique_ptr<std::vector<sbn::Hit>>&& srchits);
 
     /**
      * @brief Moves the data into the event.
@@ -771,7 +771,7 @@ namespace icarus {
     art::InputTag digits_label;
 
     /// Finds out the associations for the specified hits.
-    void prepare_associations(std::vector<icarus::Hit> const& srchits);
+    void prepare_associations(std::vector<sbn::Hit> const& srchits);
 
     /// Finds out the associations for the current hits.
     void prepare_associations() { prepare_associations(*hits); }
@@ -781,7 +781,7 @@ namespace icarus {
   /** **************************************************************************
    * @brief A class handling a collection of hits and its associations.
    *
-   * Use this object if you already have a `icarus::Hit` data product and
+   * Use this object if you already have a `sbn::Hit` data product and
    * another collection that is going to become a data product, and you
    * simply want the new hits associated to the wire and digit with the same
    * channel.
@@ -843,7 +843,7 @@ namespace icarus {
      * the event.
      * If there were previous hits in the object, they are lost.
      */
-    void use_hits(std::unique_ptr<std::vector<icarus::Hit>>&& srchits);
+    void use_hits(std::unique_ptr<std::vector<sbn::Hit>>&& srchits);
 
     /**
      * @brief Moves the data into the event.
@@ -870,7 +870,7 @@ namespace icarus {
     art::InputTag hits_label; ///< Label of the collection of hits.
 
     /// Finds out the associations for the specified hits.
-    void prepare_associations(std::vector<icarus::Hit> const& srchits);
+    void prepare_associations(std::vector<sbn::Hit> const& srchits);
 
     /// Finds out the associations for the current hits.
     void prepare_associations() { prepare_associations(*hits); }
@@ -896,7 +896,7 @@ namespace icarus {
    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
    * class MyHitProducer: public art::EDProducer {
    *
-   *   icarus::HitAndAssociationsWriterManager<icarus::HitCollectionCreator>
+   *   sbn::HitAndAssociationsWriterManager<sbn::HitCollectionCreator>
    *     hitCollCreator;
    *
    *     public:
@@ -960,9 +960,9 @@ namespace icarus {
      * This declaration must be made in the constructor of producer.
      * It is equivalent to manually declare the relevant among these products:
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
-     * produces<std::vector<icarus::Hit>>(prod_instance);
-     * produces<art::Assns<recob::ChannelROI, icarus::Hit>>(prod_instance);
-     * produces<art::Assns<raw::RawDigit, icarus::Hit>>(prod_instance);
+     * produces<std::vector<sbn::Hit>>(prod_instance);
+     * produces<art::Assns<recob::ChannelROI, sbn::Hit>>(prod_instance);
+     * produces<art::Assns<raw::RawDigit, sbn::Hit>>(prod_instance);
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      * in the producer constructor.
      * All the data products (hit collection and associations) will have the
@@ -995,21 +995,21 @@ namespace icarus {
 
   }; // class HitAndAssociationsWriterManager
 
-  /// A manager for `icarus::HitCollectionCreator` writer class.
+  /// A manager for `sbn::HitCollectionCreator` writer class.
   using HitCollectionCreatorManager = HitAndAssociationsWriterManager<HitCollectionCreator>;
 
-} // namespace icarus
+} // namespace sbn
 
 //------------------------------------------------------------------------------
 //---  template implementation
 //------------------------------------------------------------------------------
-//---  icarus::HitAndAssociationsWriterBase
+//---  sbn::HitAndAssociationsWriterBase
 //---
 //------------------------------------------------------------------------------
-//--- icarus::HitAndAssociationsWriterManager
+//--- sbn::HitAndAssociationsWriterManager
 //---
 template <typename Writer>
-icarus::HitAndAssociationsWriterManager<Writer>::HitAndAssociationsWriterManager(
+sbn::HitAndAssociationsWriterManager<Writer>::HitAndAssociationsWriterManager(
   art::ProducesCollector& collector,
   std::string instanceName /* = "" */,
   bool doWireAssns /* = true */,
@@ -1017,11 +1017,11 @@ icarus::HitAndAssociationsWriterManager<Writer>::HitAndAssociationsWriterManager
 )
 {
   declareProducts(collector, instanceName, doWireAssns, doRawDigitAssns);
-} // icarus::HitAndAssociationsWriterManager::HitAndAssociationsWriterManager()
+} // sbn::HitAndAssociationsWriterManager::HitAndAssociationsWriterManager()
 
 //------------------------------------------------------------------------------
 template <typename Writer>
-void icarus::HitAndAssociationsWriterManager<Writer>::declareProducts(
+void sbn::HitAndAssociationsWriterManager<Writer>::declareProducts(
   art::ProducesCollector& collector,
   std::string instanceName /* = "" */,
   bool doWireAssns /* = true */,
@@ -1040,12 +1040,12 @@ void icarus::HitAndAssociationsWriterManager<Writer>::declareProducts(
   hasRawDigitAssns = doRawDigitAssns;
   HitAndAssociationsWriterBase::declare_products(
     collector, prodInstance, hasWireAssns, hasRawDigitAssns);
-} // icarus::HitAndAssociationsWriterManager::declareProducts()
+} // sbn::HitAndAssociationsWriterManager::declareProducts()
 
 //------------------------------------------------------------------------------
 template <typename Writer>
-typename icarus::HitAndAssociationsWriterManager<Writer>::Writer_t
-icarus::HitAndAssociationsWriterManager<Writer>::collectionWriter(art::Event& event) const
+typename sbn::HitAndAssociationsWriterManager<Writer>::Writer_t
+sbn::HitAndAssociationsWriterManager<Writer>::collectionWriter(art::Event& event) const
 {
   if (!collector_p) {
     // this means you forgot to code a call to declaredProducts()
@@ -1055,7 +1055,7 @@ icarus::HitAndAssociationsWriterManager<Writer>::collectionWriter(art::Event& ev
          " before products are declared.";
   }
   return {event, prodInstance, hasWireAssns, hasRawDigitAssns};
-} // icarus::HitAndAssociationsWriterManager::collectionWriter()
+} // sbn::HitAndAssociationsWriterManager::collectionWriter()
 
 //------------------------------------------------------------------------------
 

@@ -13,7 +13,7 @@
 #include <iomanip>
 #include <ostream>
 
-namespace icarus {
+namespace sbn {
 
   //----------------------------------------------------------------------
   Hit::Hit()

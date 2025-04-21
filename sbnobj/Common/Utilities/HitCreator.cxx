@@ -39,7 +39,7 @@ namespace {
 } // local namespace
 
 /// Reconstruction base classes
-namespace icarus {
+namespace sbn {
 
   //****************************************************************************
   //***  HitCreator
@@ -232,9 +232,9 @@ namespace icarus {
                  wire.SignalROI().range(iSignalRoI))
   {} // HitCreator::HitCreator(Wire; RoI index)
 
-  HitCreator::HitCreator(icarus::Hit const& from) : hit(from) {}
+  HitCreator::HitCreator(sbn::Hit const& from) : hit(from) {}
 
-  HitCreator::HitCreator(icarus::Hit const& from, geo::WireID const& wireID) : hit(from)
+  HitCreator::HitCreator(sbn::Hit const& from, geo::WireID const& wireID) : hit(from)
   {
     hit.fWireID = wireID;
   } // HitCreator::HitCreator(new wire ID)
@@ -248,8 +248,8 @@ namespace icarus {
                                                              bool doRawDigitAssns)
     : prod_instance(instance_name)
     , hits()
-    , WireAssns(doWireAssns ? new art::Assns<recob::ChannelROI, icarus::Hit> : nullptr)
-    , RawDigitAssns(doRawDigitAssns ? new art::Assns<raw::RawDigit, icarus::Hit> : nullptr)
+    , WireAssns(doWireAssns ? new art::Assns<recob::ChannelROI, sbn::Hit> : nullptr)
+    , RawDigitAssns(doRawDigitAssns ? new art::Assns<raw::RawDigit, sbn::Hit> : nullptr)
     , event(&event)
     , hitPtrMaker(*(this->event), prod_instance)
   {} // HitAndAssociationsWriterBase::HitAndAssociationsWriterBase()
@@ -261,12 +261,12 @@ namespace icarus {
                                                       bool doRawDigitAssns /* = true */
   )
   {
-    collector.produces<std::vector<icarus::Hit>>(instance_name);
+    collector.produces<std::vector<sbn::Hit>>(instance_name);
 
     // declare the other products we are creating (if any)
-    if (doWireAssns) { collector.produces<art::Assns<recob::ChannelROI, icarus::Hit>>(instance_name); }
+    if (doWireAssns) { collector.produces<art::Assns<recob::ChannelROI, sbn::Hit>>(instance_name); }
     if (doRawDigitAssns) {
-      collector.produces<art::Assns<raw::RawDigit, icarus::Hit>>(instance_name);
+      collector.produces<art::Assns<raw::RawDigit, sbn::Hit>>(instance_name);
     }
   } // HitAndAssociationsWriterBase::declare_products()
 
@@ -289,11 +289,11 @@ namespace icarus {
                                              )
     : HitAndAssociationsWriterBase(event, instance_name, doWireAssns, doRawDigitAssns)
   {
-    hits.reset(new std::vector<icarus::Hit>);
+    hits.reset(new std::vector<sbn::Hit>);
   } // HitCollectionCreator::HitCollectionCreator()
 
   //----------------------------------------------------------------------
-  void HitCollectionCreator::emplace_back(icarus::Hit&& hit,
+  void HitCollectionCreator::emplace_back(sbn::Hit&& hit,
                                           art::Ptr<recob::ChannelROI> const& wire,
                                           art::Ptr<raw::RawDigit> const& digits)
   {
@@ -305,7 +305,7 @@ namespace icarus {
   } // HitCollectionCreator::emplace_back(Hit&&)
 
   //----------------------------------------------------------------------
-  void HitCollectionCreator::emplace_back(icarus::Hit const& hit,
+  void HitCollectionCreator::emplace_back(sbn::Hit const& hit,
                                           art::Ptr<recob::ChannelROI> const& wire,
                                           art::Ptr<raw::RawDigit> const& digits)
   {
@@ -361,11 +361,11 @@ namespace icarus {
     , wires_label(WireModuleLabel)
     , digits_label(RawDigitModuleLabel)
   {
-    hits.reset(new std::vector<icarus::Hit>);
+    hits.reset(new std::vector<sbn::Hit>);
   } // HitCollectionAssociator::HitCollectionAssociator()
 
   //----------------------------------------------------------------------
-  icarus::HitCollectionAssociator::HitCollectionAssociator(art::Event& event,
+  sbn::HitCollectionAssociator::HitCollectionAssociator(art::Event& event,
                                                           std::string instance_name,
                                                           art::InputTag const& WireModuleLabel,
                                                           bool doRawDigitAssns /* = false */
@@ -379,11 +379,11 @@ namespace icarus {
         << "HitCollectionAssociator can't create hit <--> raw digit"
            " associations through wires, without wires!\n";
     }
-    hits.reset(new std::vector<icarus::Hit>);
+    hits.reset(new std::vector<sbn::Hit>);
   } // HitCollectionAssociator::HitCollectionAssociator()
 
   //----------------------------------------------------------------------
-  void HitCollectionAssociator::use_hits(std::unique_ptr<std::vector<icarus::Hit>>&& srchits)
+  void HitCollectionAssociator::use_hits(std::unique_ptr<std::vector<sbn::Hit>>&& srchits)
   {
     hits = std::move(srchits);
   } // HitCollectionAssociator::use_hits()
@@ -396,7 +396,7 @@ namespace icarus {
   } // HitCollectionAssociator::put_into()
 
   //----------------------------------------------------------------------
-  void HitCollectionAssociator::prepare_associations(std::vector<icarus::Hit> const& srchits)
+  void HitCollectionAssociator::prepare_associations(std::vector<sbn::Hit> const& srchits)
   {
     if (!RawDigitAssns && !WireAssns) return; // no associations needed
     assert(event);
@@ -511,11 +511,11 @@ namespace icarus {
     : HitAndAssociationsWriterBase(event, instance_name, doWireAssns, doRawDigitAssns)
     , hits_label(HitModuleLabel)
   {
-    hits.reset(new std::vector<icarus::Hit>);
+    hits.reset(new std::vector<sbn::Hit>);
   } // HitRefinerAssociator::HitRefinerAssociator()
 
   //----------------------------------------------------------------------
-  void HitRefinerAssociator::use_hits(std::unique_ptr<std::vector<icarus::Hit>>&& srchits)
+  void HitRefinerAssociator::use_hits(std::unique_ptr<std::vector<sbn::Hit>>&& srchits)
   {
     hits = std::move(srchits);
   } // HitRefinerAssociator::use_hits()
@@ -528,7 +528,7 @@ namespace icarus {
   } // HitRefinerAssociator::put_into()
 
   //----------------------------------------------------------------------
-  void HitRefinerAssociator::prepare_associations(std::vector<icarus::Hit> const& srchits)
+  void HitRefinerAssociator::prepare_associations(std::vector<sbn::Hit> const& srchits)
   {
     if (!RawDigitAssns && !WireAssns) return; // no associations needed
     assert(event);
@@ -538,8 +538,8 @@ namespace icarus {
 
     // read the hits; this is going to hurt performances...
     // no solution to that until there is a way to have a lazy read
-    art::ValidHandle<std::vector<icarus::Hit>> hHits =
-      event->getValidHandle<std::vector<icarus::Hit>>(hits_label);
+    art::ValidHandle<std::vector<sbn::Hit>> hHits =
+      event->getValidHandle<std::vector<sbn::Hit>>(hits_label);
 
     // now get the associations
     if (WireAssns) {
@@ -567,7 +567,7 @@ namespace icarus {
 
       // now go through all the hits...
       for (size_t iHit = 0; iHit < srchits.size(); ++iHit) {
-        icarus::Hit const& hit = srchits[iHit];
+        sbn::Hit const& hit = srchits[iHit];
         size_t channelID = (size_t)hit.Channel();
 
         // no association if there is no wire to associate with
@@ -604,7 +604,7 @@ namespace icarus {
 
       // now go through all the hits...
       for (size_t iHit = 0; iHit < srchits.size(); ++iHit) {
-        icarus::Hit const& hit = srchits[iHit];
+        sbn::Hit const& hit = srchits[iHit];
         size_t channelID = (size_t)hit.Channel();
 
         // no association if there is no digits to associate with
