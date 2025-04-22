@@ -1,7 +1,6 @@
 cet_make_library(
   SOURCE
     ChannelROICreator.cxx
-    HitCreator.cxx
   LIBRARIES
     cetlib_except::cetlib_except
     messagefacility::MF_MessageLogger
