@@ -17,7 +17,7 @@ namespace recob{
   //----------------------------------------------------------------------
   ChannelROI::ChannelROI()
     : fChannel(raw::InvalidChannelID)
-    , fADCScaleFactor(10.)
+    , fADCScaleFactor(defADCScaleFactor)
     , fSignalROI()
     {}
 
@@ -25,7 +25,7 @@ namespace recob{
   ChannelROI::ChannelROI(
     RegionsOfInterest_t const& sigROIlist,
     raw::ChannelID_t channel,
-    float adcScaleFactor
+    short int adcScaleFactor
     )
     : fChannel(channel)
     , fADCScaleFactor(adcScaleFactor)
@@ -36,7 +36,7 @@ namespace recob{
   ChannelROI::ChannelROI(
     RegionsOfInterest_t&& sigROIlist,
     raw::ChannelID_t channel,
-    float adcScaleFactor
+    short int adcScaleFactor
     )
     : fChannel(channel)
     , fADCScaleFactor(adcScaleFactor)

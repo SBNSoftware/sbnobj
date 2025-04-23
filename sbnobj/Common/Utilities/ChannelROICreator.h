@@ -73,7 +73,7 @@ namespace recob {
       ChannelROICreator(
         RegionsOfInterest_t const& sigROIlist,
         raw::ChannelID_t channel,
-        float adcScaleFactor = recob::ChannelROI::defADCScaleFactor
+        short int adcScaleFactor = recob::ChannelROI::defADCScaleFactor
         );
 
 
@@ -91,7 +91,7 @@ namespace recob {
       ChannelROICreator(
         RegionsOfInterest_t&& sigROIlist,
         raw::ChannelID_t channel,
-        float adcScaleFactor = recob::ChannelROI::defADCScaleFactor
+        short int adcScaleFactor = recob::ChannelROI::defADCScaleFactor
         );
 
       /**
