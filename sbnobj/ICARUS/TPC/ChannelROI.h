@@ -114,14 +114,14 @@ namespace recob {
       typedef lar::sparse_vector<float>     RegionsOfInterest_f;
 
       /// Scale factor when going from float to short int
-      static constexpr float defADCScaleFactor = 10.;
+      static constexpr short int defADCScaleFactor = 8;
 
       /// Default constructor: a ChannelROI with no signal information
       ChannelROI();
 
     private:
-      raw::ChannelID_t    fChannel;         ///< ID of the associated channel.
-      float               fADCScaleFactor; ///< Scaling factor used to preserve resolution
+      raw::ChannelID_t    fChannel;        ///< ID of the associated channel.
+      short int           fADCScaleFactor; ///< Scaling factor used to preserve resolution
       RegionsOfInterest_t fSignalROI;      ///< Signal on the channel as function of time tick.
 
 
@@ -144,7 +144,7 @@ namespace recob {
       ChannelROI(
         RegionsOfInterest_t const& sigROIlist,
         raw::ChannelID_t channel,
-        float adcScaleFactor = defADCScaleFactor
+        short int adcScaleFactor = defADCScaleFactor
         );
 
       /**
@@ -172,7 +172,7 @@ namespace recob {
       ChannelROI(
         RegionsOfInterest_t&& sigROIlist,
         raw::ChannelID_t channel,
-        float adcScaleFactor = defADCScaleFactor
+        short int adcScaleFactor = defADCScaleFactor
         );
       // --- END -- Constructors -----------------------------------------------
 
@@ -197,7 +197,7 @@ namespace recob {
       raw::ChannelID_t           Channel()    const;
 
       /// Returns the scale factor used to preserve resolution
-      float                      ADCScaleFactor() const;
+      short int                  ADCScaleFactor() const;
       
       ///@}
       // --- END -- Accessors --------------------------------------------------
@@ -225,7 +225,7 @@ inline const recob::ChannelROI::RegionsOfInterest_t&
                                   recob::ChannelROI::SignalROI()      const { return fSignalROI;        }
 inline std::size_t                recob::ChannelROI::NSignal()        const { return fSignalROI.size(); }
 inline raw::ChannelID_t           recob::ChannelROI::Channel()        const { return fChannel;          }
-inline float                      recob::ChannelROI::ADCScaleFactor() const { return fADCScaleFactor;   }
+inline short int                  recob::ChannelROI::ADCScaleFactor() const { return fADCScaleFactor;   }
 inline bool                       recob::ChannelROI::operator< (const ChannelROI& than) const
   { return Channel() < than.Channel(); }
 

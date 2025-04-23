@@ -46,7 +46,7 @@ namespace recob {
   ChannelROICreator::ChannelROICreator(
     RegionsOfInterest_t const& sigROIlist,
     raw::ChannelID_t channel,
-    float adcScaleFactor
+    short int adcScaleFactor
     ):
     channelROI(sigROIlist, channel, adcScaleFactor)
     {}
@@ -55,7 +55,7 @@ namespace recob {
   ChannelROICreator::ChannelROICreator(
     RegionsOfInterest_t&& sigROIlist,
     raw::ChannelID_t channel,
-    float adcScaleFactor
+    short int adcScaleFactor
     ):
     channelROI(std::move(sigROIlist), channel, adcScaleFactor)
     {}
