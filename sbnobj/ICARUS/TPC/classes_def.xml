@@ -8,7 +8,7 @@
 
   <!-- recob::ChannelROI -->
     <class name="recob::ChannelROI" ClassVersion="12" >
-     <version ClassVersion="12" checksum="123422181"/>
+     <version ClassVersion="12" checksum="141106417"/>
      <version ClassVersion="11" checksum="123422181"/>
      <version ClassVersion="10" checksum="1609503266"/>
     </class>
