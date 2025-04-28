@@ -14,6 +14,7 @@
 
   <class name="std::map< uint8_t, uint16_t >"/>
   <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
+  <class name="std::vector< std::vector< int64_t > > "/>
 
   <!-- associations  -->
 
@@ -98,6 +99,7 @@
   <enum name="sbnd::crt::CRTTagger" ClassVersion="10"/>
   <class name="std::set<sbnd::crt::CRTTagger>"/>
   <enum name="sbnd::crt::CoordSet" ClassVersion="10"/>
+  <enum name="sbnd::crt::CRTChannelStatus" ClassVersion="10"/>
 
   <!-- associations  -->
 
