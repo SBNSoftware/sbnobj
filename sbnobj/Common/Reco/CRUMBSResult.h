@@ -18,7 +18,8 @@ namespace sbn {
 		 int tpc_NuNFinalStatePfos = default_int, int tpc_NuNHitsTotal = default_int, int tpc_NuNSpacePointsInSphere = default_int, 
 		 float tpc_NuVertexY = default_float, float tpc_NuWeightedDirZ = default_float, float tpc_StoppingChi2CosmicRatio = default_float, 
 		 float pds_FMTotalScore = default_float, float pds_FMPE = default_float, float pds_FMTime = default_float, float pds_OpT0Score = default_float,
-		 float pds_OpT0MeasuredPE = default_float, float crt_TrackScore = default_float, float crt_SPScore = default_float, float crt_TrackTime = default_float,
+		 float pds_OpT0MeasuredPE = default_float, float pds_PMTBarycenterMatchRadius = default_float, float pds_PMTBarycenterMatchPE = default_float,
+		 float pds_PMTBarycenterMatchTime = default_float, float crt_TrackScore = default_float, float crt_SPScore = default_float, float crt_TrackTime = default_float,
 		 float crt_SPTime = default_float);
     
     float score;                         //!< CRUMBS result, for inclusive neutrino signal
@@ -43,6 +44,9 @@ namespace sbn {
     float pds_FMTime;                    //!< the time associated with the flash [us]
     float pds_OpT0Score;                 //!< the agreement score from the OpT0 falsh matcher
     float pds_OpT0MeasuredPE;            //!< the PE of the reconstructed flash matched by OpT0
+    float pds_PMTBarycenterMatchRadius;  //!< the radial (YZ) distance between the flash and charge centers from the TPCPDSBarycenter tool
+    float pds_PMTBarycenterMatchPE;      //!< the total number of photoelectrons in the matched flash from the TPCPDSBarycenter tool
+    float pds_PMTBarycenterMatchTime;    //!< the time of the matched flash from the TPCPDSBarycenter tool
     float crt_TrackScore;                //!< a combination of the DCA and angle between the best matched TPC & CRT tracks
     float crt_SPScore;                   //!< the best distance from an extrapolated TPC track to a CRT spacepoint [cm]
     float crt_TrackTime;                 //!< the time associated with the matched CRT track [us]

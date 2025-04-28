@@ -5,6 +5,7 @@ sbn::CRUMBSResult::CRUMBSResult(float score, float ccnumuscore, float ccnuescore
 				int tpc_CRNHitsMax, float tpc_NuEigenRatioInSphere, int tpc_NuNFinalStatePfos, int tpc_NuNHitsTotal,
 				int tpc_NuNSpacePointsInSphere, float tpc_NuVertexY, float tpc_NuWeightedDirZ, float tpc_StoppingChi2CosmicRatio,
 				float pds_FMTotalScore, float pds_FMPE, float pds_FMTime, float pds_OpT0Score, float pds_OpT0MeasuredPE,
+				float pds_PMTBarycenterMatchRadius, float pds_PMTBarycenterMatchPE, float pds_PMTBarycenterMatchTime,
 				float crt_TrackScore, float crt_SPScore, float crt_TrackTime, float crt_SPTime)
   : score(score)
   , ccnumuscore(ccnumuscore)
@@ -28,10 +29,12 @@ sbn::CRUMBSResult::CRUMBSResult(float score, float ccnumuscore, float ccnuescore
   , pds_FMTime(pds_FMTime)
   , pds_OpT0Score(pds_OpT0Score)
   , pds_OpT0MeasuredPE(pds_OpT0MeasuredPE)
+  , pds_PMTBarycenterMatchRadius(pds_PMTBarycenterMatchRadius)
+  , pds_PMTBarycenterMatchPE(pds_PMTBarycenterMatchPE)
+  , pds_PMTBarycenterMatchTime(pds_PMTBarycenterMatchTime)
   , crt_TrackScore(crt_TrackScore)
   , crt_SPScore(crt_SPScore)
   , crt_TrackTime(crt_TrackTime)
   , crt_SPTime(crt_SPTime)
 {
 }
-
