@@ -15,13 +15,13 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
   fRWType = rwtype;
   fNuniverses = nuni;
 
-  if (fRWType == kMultisim) {
+  if (fRWType == kMultiSim) {
     fNuniverses = nuni;
   }
   else if (fRWType == kPMNSigma) {
     fNuniverses = 2;
   }
-  else if (fRWType == kMultisigma) {
+  else if (fRWType == kMultiSigma) {
     fNuniverses = nuni;
   }
   else if (fRWType == kFixed) {
@@ -37,9 +37,9 @@ void EventWeightParameterSet::Configure(std::string name, ReweightType rwtype, s
 
 void EventWeightParameterSet::Configure(std::string name, std::string rwtype_string, size_t nuni) {
 
-  if (rwtype_string == "multisim") Configure(name, kMultisim, nuni);
+  if (rwtype_string == "multisim") Configure(name, kMultiSim, nuni);
   else if (rwtype_string == "pmNsigma") Configure(name, kPMNSigma);
-  else if (rwtype_string == "multisigma") Configure(name, kMultisigma, nuni);
+  else if (rwtype_string == "multisigma") Configure(name, kMultiSigma, nuni);
   else if (rwtype_string == "fixed") Configure(name, kFixed);
   else {
     std::cerr << "EventWeightParameterSet: Unknown reweight type " << rwtype_string << std::endl;
@@ -61,7 +61,7 @@ void EventWeightParameterSet::AddParameter(
 }
 
 void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
-  if (fRWType == kDefault) {
+  if (fRWType == kDefaultRWType) {
     std::cerr << "EventWeightParameterSet: Must be configured before sampling." << std::endl;
     assert(false);
   }
@@ -71,7 +71,7 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
     for (auto& it : fParameterMap) {
       const EventWeightParameter& p = it.first;
 
-      if (fRWType == kMultisim) {
+      if (fRWType == kMultiSim) {
         for (size_t i=0; i<fNuniverses; i++) {
           float r = p.fWidth*CLHEP::RandGaussQ::shoot(&engine, p.fMean, 1);
           it.second.push_back(r);
@@ -83,7 +83,7 @@ void EventWeightParameterSet::Sample(CLHEP::HepRandomEngine& engine) {
         it.second.push_back(p.fMean - p.fWidth);
       }
 
-      else if (fRWType == kMultisigma) {
+      else if (fRWType == kMultiSigma) {
 
         for(size_t j=0; j<p.fWidths.size(); j++){
           it.second.push_back(p.fMean + p.fWidths.at(j));
