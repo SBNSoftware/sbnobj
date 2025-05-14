@@ -287,52 +287,100 @@ namespace sbn {
 
     float range_p;
 
+    bool mcs_stop;
+
     //mcs uboone algorithm, final cut
-    float mcs_pbest_uf, mcs_perr_uf;
-    std::vector<float> mcs_angles_uf;
+    float mcs_pbest_UF, mcs_perr_UF;
+    std::vector<float> mcs_angles_UF;
 
     //mcs uboone algorithm, initial cut
-    float mcs_pbest_ui, mcs_perr_ui;
-    std::vector<float> mcs_angles_ui;
+    float mcs_pbest_UI, mcs_perr_UI;
+    std::vector<float> mcs_angles_UI;
+
+    //mcs icarus algorithm, sigma3p
+    float mcs_sigma3p_3D;
+    float mcs_sigma3p_2DI1, mcs_sigma3p_2DI2, mcs_sigma3p_2DC;
+
+    //mcs icarus algorithm, c2 function at range momentum
+    float mcs_c2atrange_IF3D, mcs_c2atrange_IF2DI1, mcs_c2atrange_IF2DI2, mcs_c2atrange_IF2DC;
+    float mcs_c2atrange_II3D, mcs_c2atrange_II2DI1, mcs_c2atrange_II2DI2, mcs_c2atrange_II2DC;
+
+    //mcs icarus algorithm, lengths
+    float mcs_l1DI1, mcs_l2DI1, mcs_l3DI1;
+    float mcs_l1DI2, mcs_l2DI2, mcs_l3DI2;
+    float mcs_l1DC, mcs_l2DC, mcs_l3DC;
 
     //mcs icarus algorithm, final cut, 3d
-    float mcs_pbest_if3d, mcs_perr_if3d, mcs_d3p_3d;
-    std::vector<float> mcs_angles_if3d;
-    std::vector<float> mcs_seghits_i3d;
+    float mcs_pbest_IF3D, mcs_perr_IF3D, mcs_pmin_IF3D, mcs_pmax_IF3D;
+    float mcs_alpha_IF3D, mcs_dalpha_IF3D, mcs_beta_IF3D, mcs_dbeta_IF3D;
+    std::vector<float> mcs_ptest_IF3D, mcs_c2function_IF3D;
+    std::vector<float> mcs_seglens_IF3D, mcs_cumseglens_IF3D;
+    std::vector<int> mcs_seghits_IF3D, mcs_cumseghits_IF3D;
+    std::vector<float> mcs_dthetalin_IF3D, mcs_dthetapoly_IF3D;
+    std::vector<float> mcs_dthetalinexp_IF3D, mcs_dthetapolyexp_IF3D;
 
     //mcs icarus algorithm, final cut, 2d induction1
-    float mcs_pbest_if2di1, mcs_perr_if2di1, mcs_d3p_2di1;
-    float mcs_l1di1, mcs_l2di1, mcs_l3di1;
-    std::vector<float> mcs_angles_if2di1;
-    std::vector<float> mcs_seghits_i2di1;
+    float mcs_pbest_IF2DI1, mcs_perr_IF2DI1, mcs_pmin_IF2DI1, mcs_pmax_IF2DI1;
+    float mcs_alpha_IF2DI1, mcs_dalpha_IF2DI1, mcs_beta_IF2DI1, mcs_dbeta_IF2DI1;
+    std::vector<float> mcs_ptest_IF2DI1, mcs_c2function_IF2DI1;
+    std::vector<float> mcs_seglens_IF2DI1, mcs_cumseglens_IF2DI1;
+    std::vector<int> mcs_seghits_IF2DI1, mcs_cumseghits_IF2DI1;
+    std::vector<float> mcs_dthetalin_IF2DI1, mcs_dthetapoly_IF2DI1;
+    std::vector<float> mcs_dthetalinexp_IF2DI1, mcs_dthetapolyexp_IF2DI1;
 
     //mcs icarus algorithm, final cut, 2d induction2
-    float mcs_pbest_if2di2, mcs_perr_if2di2, mcs_d3p_2di2;
-    float mcs_l1di2, mcs_l2di2, mcs_l3di2;
-    std::vector<float> mcs_angles_if2di2;
-    std::vector<float> mcs_seghits_i2di2;
+    float mcs_pbest_IF2DI2, mcs_perr_IF2DI2, mcs_pmin_IF2DI2, mcs_pmax_IF2DI2;
+    float mcs_alpha_IF2DI2, mcs_dalpha_IF2DI2, mcs_beta_IF2DI2, mcs_dbeta_IF2DI2;
+    std::vector<float> mcs_ptest_IF2DI2, mcs_c2function_IF2DI2;
+    std::vector<float> mcs_seglens_IF2DI2, mcs_cumseglens_IF2DI2;
+    std::vector<int> mcs_seghits_IF2DI2, mcs_cumseghits_IF2DI2;
+    std::vector<float> mcs_dthetalin_IF2DI2, mcs_dthetapoly_IF2DI2;
+    std::vector<float> mcs_dthetalinexp_IF2DI2, mcs_dthetapolyexp_IF2DI2;
 
     //mcs icarus algorithm, final cut, 2d collection
-    float mcs_pbest_if2dc, mcs_perr_if2dc, mcs_d3p_2dc;
-    float mcs_l1dc, mcs_l2dc, mcs_l3dc;
-    std::vector<float> mcs_angles_if2dc;
-    std::vector<float> mcs_seghits_i2dc;
+    float mcs_pbest_IF2DC, mcs_perr_IF2DC, mcs_pmin_IF2DC, mcs_pmax_IF2DC;
+    float mcs_alpha_IF2DC, mcs_dalpha_IF2DC, mcs_beta_IF2DC, mcs_dbeta_IF2DC;
+    std::vector<float> mcs_ptest_IF2DC, mcs_c2function_IF2DC;
+    std::vector<float> mcs_seglens_IF2DC, mcs_cumseglens_IF2DC;
+    std::vector<int> mcs_seghits_IF2DC, mcs_cumseghits_IF2DC;
+    std::vector<float> mcs_dthetalin_IF2DC, mcs_dthetapoly_IF2DC;
+    std::vector<float> mcs_dthetalinexp_IF2DC, mcs_dthetapolyexp_IF2DC;
 
     //mcs icarus algorithm, initial cut, 3d
-    float mcs_pbest_ii3d, mcs_perr_ii3d;
-    std::vector<float> mcs_angles_ii3d;
+    float mcs_pbest_II3D, mcs_perr_II3D, mcs_pmin_II3D, mcs_pmax_II3D;
+    float mcs_alpha_II3D, mcs_dalpha_II3D, mcs_beta_II3D, mcs_dbeta_II3D;
+    std::vector<float> mcs_ptest_II3D, mcs_c2function_II3D;
+    std::vector<float> mcs_seglens_II3D, mcs_cumseglens_II3D;
+    std::vector<int> mcs_seghits_II3D, mcs_cumseghits_II3D;
+    std::vector<float> mcs_dthetalin_II3D, mcs_dthetapoly_II3D;
+    std::vector<float> mcs_dthetalinexp_II3D, mcs_dthetapolyexp_II3D;
 
     //mcs icarus algorithm, initial cut, 2d induction1
-    float mcs_pbest_ii2di1, mcs_perr_ii2di1;
-    std::vector<float> mcs_angles_ii2di1;
+    float mcs_pbest_II2DI1, mcs_perr_II2DI1, mcs_pmin_II2DI1, mcs_pmax_II2DI1;
+    float mcs_alpha_II2DI1, mcs_dalpha_II2DI1, mcs_beta_II2DI1, mcs_dbeta_II2DI1;
+    std::vector<float> mcs_ptest_II2DI1, mcs_c2function_II2DI1;
+    std::vector<float> mcs_seglens_II2DI1, mcs_cumseglens_II2DI1;
+    std::vector<int> mcs_seghits_II2DI1, mcs_cumseghits_II2DI1;
+    std::vector<float> mcs_dthetalin_II2DI1, mcs_dthetapoly_II2DI1;
+    std::vector<float> mcs_dthetalinexp_II2DI1, mcs_dthetapolyexp_II2DI1;
 
     //mcs icarus algorithm, initial cut, 2d induction2
-    float mcs_pbest_ii2di2, mcs_perr_ii2di2;
-    std::vector<float> mcs_angles_ii2di2;
+    float mcs_pbest_II2DI2, mcs_perr_II2DI2, mcs_pmin_II2DI2, mcs_pmax_II2DI2;
+    float mcs_alpha_II2DI2, mcs_dalpha_II2DI2, mcs_beta_II2DI2, mcs_dbeta_II2DI2;
+    std::vector<float> mcs_ptest_II2DI2, mcs_c2function_II2DI2;
+    std::vector<float> mcs_seglens_II2DI2, mcs_cumseglens_II2DI2;
+    std::vector<int> mcs_seghits_II2DI2, mcs_cumseghits_II2DI2;
+    std::vector<float> mcs_dthetalin_II2DI2, mcs_dthetapoly_II2DI2;
+    std::vector<float> mcs_dthetalinexp_II2DI2, mcs_dthetapolyexp_II2DI2;
 
     //mcs icarus algorithm, initial cut, 2d collection
-    float mcs_pbest_ii2dc, mcs_perr_ii2dc;
-    std::vector<float> mcs_angles_ii2dc;
+    float mcs_pbest_II2DC, mcs_perr_II2DC, mcs_pmin_II2DC, mcs_pmax_II2DC;
+    float mcs_alpha_II2DC, mcs_dalpha_II2DC, mcs_beta_II2DC, mcs_dbeta_II2DC;
+    std::vector<float> mcs_ptest_II2DC, mcs_c2function_II2DC;
+    std::vector<float> mcs_seglens_II2DC, mcs_cumseglens_II2DC;
+    std::vector<int> mcs_seghits_II2DC, mcs_cumseghits_II2DC;
+    std::vector<float> mcs_dthetalin_II2DC, mcs_dthetapoly_II2DC;
+    std::vector<float> mcs_dthetalinexp_II2DC, mcs_dthetapolyexp_II2DC;
 
     //float exp_fit_A; //!< Fit parameter
     //float exp_fit_R; //!< Fit parameter
