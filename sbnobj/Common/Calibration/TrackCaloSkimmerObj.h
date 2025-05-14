@@ -288,6 +288,7 @@ namespace sbn {
     float range_p;
 
     bool mcs_stop;
+    std::vector<int> mcs_isdelta;
 
     //mcs uboone algorithm, final cut
     float mcs_pbest_UF, mcs_perr_UF;
