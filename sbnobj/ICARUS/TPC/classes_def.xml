@@ -6,14 +6,22 @@
   <class name="std::vector< lar::sparse_vector<short>::datarange_t>"/>
 
 
-  <class name="recob::ChannelROI" ClassVersion="10" >
-   <version ClassVersion="10" checksum="1609503266"/>
-  </class>
+  <!-- recob::ChannelROI -->
+    <class name="recob::ChannelROI" ClassVersion="12" >
+     <version ClassVersion="12" checksum="141106417"/>
+     <version ClassVersion="11" checksum="123422181"/>
+     <version ClassVersion="10" checksum="1609503266"/>
+    </class>
 
   <class name="art::Ptr<recob::ChannelROI>" />
   <class name="std::vector<recob::ChannelROI>" />
   <class name="art::Wrapper< std::vector< recob::ChannelROI>>"/>
 
   <class name="lar::sparse_vector<short>"/>
-  
+
+  <class name="art::Assns<recob::Hit,recob::ChannelROI,void>"/>
+  <class name="art::Assns<recob::ChannelROI,recob::Hit,void>"/>
+  <class name="art::Wrapper<art::Assns<recob::Hit,recob::ChannelROI,void>>"/>
+  <class name="art::Wrapper<art::Assns<recob::ChannelROI,recob::Hit,void>>"/>
+
 </lcgdict>
