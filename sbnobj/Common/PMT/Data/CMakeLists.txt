@@ -1,5 +1,6 @@
 cet_make_library(
   SOURCE
+    PMTBeamSignal.cxx
     PMTconfiguration.cxx
     V1730Configuration.cxx
     V1730channelConfiguration.cxx
