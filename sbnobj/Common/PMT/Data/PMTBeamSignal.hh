@@ -17,7 +17,6 @@
 #include <vector>
 #include <map>
 #include <cstddef>
-#include <iostream> //remove after testing
 
 namespace sbn::timing
 {
@@ -76,8 +75,7 @@ namespace sbn::timing
     bool isValid() const { return (sample != NoSample); }
   };
 
-  double getFlashBunchTime(std::map<int, double> startmap, 
-                           std::map<int, double> risemap,
+  double getFlashBunchTime(std::map<int, double> risemap,
                            std::vector<PMTBeamSignal> RWMTimes);
 
 } // namespace sbn::timing
