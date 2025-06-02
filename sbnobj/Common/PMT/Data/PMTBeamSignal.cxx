@@ -1,7 +1,7 @@
 /**
  * @file   sbnobj/Common/PMT/Data/PMTBeamSignal.cxx
  * @brief  Holds the event-by-event RWM or EW times
- * @author Anna Heggestuen (aheggest@colostate.edu), adapted from M. Vincenzi in https://github.com/SBNSoftware/icaruscode/pull/751
+ * @author Anna Heggestuen (aheggest@colostate.edu), adapted from M. Vicenzi in https://github.com/SBNSoftware/icaruscode/pull/751
  * @date   May 19, 2025
  * @see    sbnobj/Common/PMT/Data/PMTBeamSignal.h
  */
@@ -12,8 +12,6 @@
 // framework libraries
 #include "messagefacility/MessageLogger/MessageLogger.h"
 
-// C/C++ standard libraries 
-#include <iostream>
 
 // -----------------------------------------------------------------------------
 void sbn::timing::SelectFirstOpHitByTime(const recob::OpHit* const hit, 
@@ -57,8 +55,7 @@ int sbn::timing::getSideByChannel(const int channel)
 }
 
 // -----------------------------------------------------------------------------
-double sbn::timing::getFlashBunchTime(std::map<int, double> startmap, 
-                                      std::map<int, double> risemap,
+double sbn::timing::getFlashBunchTime(std::map<int, double> risemap,
                                       std::vector<sbn::timing::PMTBeamSignal> RWMTimes)
 {
   // if no RWM info available, all pmt_start_time_rwm are invalid
@@ -68,7 +65,7 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> startmap,
 
   std::vector<int> channels;
   std::vector<double> hit_rise_time_rwm;
-  for (auto it = startmap.begin(); it != startmap.end(); it++){
+  for (auto it = risemap.begin(); it != risemap.end(); it++){
     int ch = it->first;
     channels.push_back(ch);
     auto rwm = RWMTimes.at(ch);
@@ -78,7 +75,8 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> startmap,
                   << ", SpecialChannel " << rwm.specialChannel << ")\n";
     }
     float rwm_trigger = rwm.startTime; // rwm time w.r.t. trigger time [us]
-    hit_rise_time_rwm.push_back(risemap[ch] - rwm_trigger);
+    float firstHitRisetime_trigger = it->second; // first opHit rise time w.r.t. trigger time [us]
+    hit_rise_time_rwm.push_back(firstHitRisetime_trigger - rwm_trigger);
   }
 
   double tfirst_left = std::numeric_limits<double>::max();
