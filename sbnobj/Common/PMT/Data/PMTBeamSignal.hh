@@ -34,13 +34,6 @@ namespace sbn::timing
                               std::map<int, double> &risemap);
 
   int getSideByChannel(const int channel);
-  // RWM times
-  //std::vector<sbn::timing::PMTBeamSignal> fRWMTimes;
-  //double getRWMRelativeTime(int channel, double t);
-  /*double getRWMRelativeTime(int channel, double t){
-    std::cout << "channel, t = " << channel << ", " << t << "\n";
-    return NoTime;
-  }*/
 
   /**
    * @brief Beam time as seen by a PMT readout board.

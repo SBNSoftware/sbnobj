@@ -1,13 +1,16 @@
 /**
  * @file   sbnobj/Common/PMT/Data/PMTBeamSignal.cxx
  * @brief  Holds the event-by-event RWM or EW times
- * @author Anna Heggestuen (aheggest@colostate.edu)
+ * @author Anna Heggestuen (aheggest@colostate.edu), adapted from M. Vincenzi in https://github.com/SBNSoftware/icaruscode/pull/751
  * @date   May 19, 2025
  * @see    sbnobj/Common/PMT/Data/PMTBeamSignal.h
  */
 
 //library header
 #include "sbnobj/Common/PMT/Data/PMTBeamSignal.hh"
+
+// framework libraries
+#include "messagefacility/MessageLogger/MessageLogger.h"
 
 // C/C++ standard libraries 
 #include <iostream>
@@ -70,7 +73,7 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> startmap,
     channels.push_back(ch);
     auto rwm = RWMTimes.at(ch);
     if (!rwm.isValid()){
-        std::cout << "No RWM signal for channel " << ch << " "
+        mf::LogTrace("PMTBeamSignal getFlashBunchTime") << "No RWM signal for channel " << ch << " "
                   << "(Crate " << rwm.crate << ", Board " << rwm.digitizerLabel
                   << ", SpecialChannel " << rwm.specialChannel << ")\n";
     }
@@ -113,7 +116,7 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> startmap,
   // if there are no hits in one of the walls... very rare?
   if (nleft < 1 || nright < 1)
   {
-    std::cout << "Flash doesn't have hits on both walls!"
+    mf::LogWarning("PMTBeamSignal getFlashBunchTime") << "Flash doesn't have hits on both walls!"
                                              << "Left: " << nleft << " t " << tfirst_left << " "
                                              << "Right: " << nright << " t " << tfirst_right;
     // return what we have...
