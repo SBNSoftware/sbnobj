@@ -15,26 +15,23 @@
 
 // -----------------------------------------------------------------------------
 void sbn::timing::SelectFirstOpHitByTime(const recob::OpHit* const hit, 
-                                        std::map<int, double> &startmap, 
                                         std::map<int, double> &risemap)
 {
   const int ch = hit->OpChannel();
   double ts = hit->StartTime();
   double tr = hit->RiseTime();
   // select the first ophit (by time) in each channel
-  if (startmap.find(ch) != startmap.end())
+  if (risemap.find(ch) != risemap.end())
   {
-    if (ts < startmap[ch])
-      {
-        startmap[ch] = ts;
-        risemap[ch] = ts + tr;
-      }
+    if (tr < risemap[ch])
+    {
+      risemap[ch] = ts + tr;
+    }
   }
   else
   {
-    startmap[ch] = ts;
     risemap[ch] = ts + tr;
-  }  
+  }
 }
 // -----------------------------------------------------------------------------
 int sbn::timing::getSideByChannel(const int channel)
@@ -87,7 +84,6 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> risemap,
   for(std::size_t i = 0; i < hit_rise_time_rwm.size(); i++){
     int ch = channels[i];
     int side = sbn::timing::getSideByChannel(ch);
-    //int side = (ch / 90) % 2 ; //move this to a function as Matteo did to keep doc clear
     double t = hit_rise_time_rwm[i]; // rise time w.r.t. rwm
 
     // if any RWM copy is missing (therefore missing for an entire PMT crate),

@@ -1,7 +1,7 @@
 /**
- * @file   sbnobj/Common/PMT/Data/PMTBeamSignal.hh (moved from icaruscode/IcarusObj/PMTBeamSignal.h)
+ * @file   sbnobj/Common/PMT/Data/PMTBeamSignal.hh (moved from icaruscode/IcarusObj/Legacy/PMTBeamSignal.h)
  * @brief  Holds the event-by-event RWM or EW times
- * @author Matteo Vicenzi (mvicenzi@bnl.gov)
+ * @author Matteo Vicenzi (mvicenzi@bnl.gov), Anna Heggestuen (aheggest@colostate.edu)
  * @date   March 14 2024, updated May 2025
  */
 
@@ -29,7 +29,6 @@ namespace sbn::timing
   static constexpr std::size_t NoSample = 0;
 
   void SelectFirstOpHitByTime(const recob::OpHit* const hit, 
-                              std::map<int, double> &startmap, 
                               std::map<int, double> &risemap);
 
   int getSideByChannel(const int channel);
