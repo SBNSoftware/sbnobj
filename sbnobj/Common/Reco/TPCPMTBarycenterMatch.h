@@ -21,6 +21,7 @@ namespace sbn {
 
   // NaN value to initialize data members
   static constexpr float fDefault = std::numeric_limits<float>::signaling_NaN();
+  static constexpr int fIntDefault = std::numeric_limits<int>::signaling_NaN();
 
   /// @name Data members related to the slice barycenter determination
   /// @{
@@ -33,12 +34,13 @@ namespace sbn {
 
   /// @name Data members related to matched recob::OpFlash, also reachable by association 
   /// @{
-  float        flashTime          { fDefault };                     ///< Matched OpFlash time (us)
-  float        flashFirstHit      { fDefault };                     ///< Time of first OpHit in matched OpFlash (us)
-  float        flashPEs           { fDefault };                     ///< Total PEs in matched flash
-  float        flashAsymmetry     { fDefault };                     ///< East-West asymmetry of PEs in matched flash
-  geo::Point_t flashCenter        { fDefault, fDefault, fDefault }; ///< Weighted mean ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
-  geo::Vector_t flashWidth        { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
+  float        flashTime                { fDefault };                     ///< Matched OpFlash time (us)
+  float        flashFirstHit            { fDefault };                     ///< Time of first OpHit in matched OpFlash (us)
+  float        flashPEs                 { fDefault };                     ///< Total PEs in matched flash
+  float        flashAsymmetry           { fDefault };                     ///< East-West asymmetry of PEs in matched flash
+  geo::Point_t flashCenter              { fDefault, fDefault, fDefault }; ///< Weighted mean ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
+  geo::Vector_t flashWidth              { fDefault, fDefault, fDefault }; ///< Weighted standard devitation of ophit position in X,Y,Z [no meaingful X info for ophits] (cm)
+  int           flashClassification     { fIntDefault };                  ///< Flash classification according to the CRT-PMT matching
   /// @}
 
 
