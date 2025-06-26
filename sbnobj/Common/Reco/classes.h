@@ -27,6 +27,7 @@
 #include "sbnobj/Common/Reco/CRUMBSResult.h"
 #include "sbnobj/Common/Reco/OpT0FinderResult.h"
 #include "sbnobj/Common/Reco/CNNScore.h"
+#include "sbnobj/Common/Reco/CNNVertexScore.h"
 
 #include <utility>
 #include <vector>
