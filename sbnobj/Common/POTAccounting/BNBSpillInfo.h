@@ -21,7 +21,9 @@ namespace sbn {
         
     //BeamQuaility 
     //quality//BNB
-    
+    float FOM; //Figure of Merit for BNB
+
+
     float TOR860; //!< Toroid before Mag 875, units e12 Protons
     float TOR875; //!< Toroid after Mag 875, units e12 Protons
     
@@ -40,6 +42,16 @@ namespace sbn {
     float BTJT2; //!< Temperature of air exiting target, units Deg C
 
     float THCURR; //!< Current applied to Horn, units kiloAmperes 
+
+    float VP873; //units mm; 
+    float HP875Offset;//units mm
+    float VP875Offset;//units mm
+    float VP873Offset;//units mm
+    float HPTG1Offset;//units mm
+    float HPTG2Offset;//units mm
+    float VPTG1Offset;//units mm
+    float VPTG2Offset;//units mm
+
     
     // https://cdcvs.fnal.gov/redmine/projects/ubraw/repository/revisions/master/entry/ubraw/BeamDAQ/MWRData.cpp
     std::vector< int > M875BB; //!< Multiwire station before Mag 875...?
@@ -51,6 +63,8 @@ namespace sbn {
     float MMBTBB_spill_time_diff; //!< the time difference between MMBTBB and the matched spill
 
     double POT() const{return TOR875;}
+   
+
     
   };
 } // end namespace sbn
