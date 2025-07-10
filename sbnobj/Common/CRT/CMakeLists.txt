@@ -3,6 +3,7 @@ cet_make_library(
     CRTHit.cc
     CRTTrack.cc
     CRTTzero.cc
+    CRTPMTMatching.cxx
   LIBRARIES
     cetlib_except::cetlib_except
     lardataobj::Simulation
