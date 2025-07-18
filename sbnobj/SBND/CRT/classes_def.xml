@@ -14,6 +14,7 @@
 
   <class name="std::map< uint8_t, uint16_t >"/>
   <class name="std::map< unsigned char, std::vector< std::pair<int,float> > > "/>
+  <class name="std::vector< std::vector< int64_t > > "/>
 
   <!-- associations  -->
 
@@ -68,7 +69,9 @@
 
   <!-- CRTStripHit -->
 
-  <class name="sbnd::crt::CRTStripHit" ClassVersion="10">
+  <class name="sbnd::crt::CRTStripHit" ClassVersion="12">
+    <version ClassVersion="12" checksum="2450467372"/>
+    <version ClassVersion="11" checksum="1377866194"/>
     <version ClassVersion="10" checksum="584045954"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTStripHit>"/>
@@ -84,7 +87,9 @@
 
   <!-- CRTCluster -->
 
-  <class name="sbnd::crt::CRTCluster" ClassVersion="10">
+  <class name="sbnd::crt::CRTCluster" ClassVersion="12">
+    <version ClassVersion="12" checksum="1193265154"/>
+    <version ClassVersion="11" checksum="2461267624"/>
     <version ClassVersion="10" checksum="1135665496"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTCluster>"/>
@@ -96,6 +101,7 @@
   <enum name="sbnd::crt::CRTTagger" ClassVersion="10"/>
   <class name="std::set<sbnd::crt::CRTTagger>"/>
   <enum name="sbnd::crt::CoordSet" ClassVersion="10"/>
+  <enum name="sbnd::crt::CRTChannelStatus" ClassVersion="10"/>
 
   <!-- associations  -->
 
@@ -106,7 +112,8 @@
 
   <!-- CRTSpacePoint -->
 
-  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="10">
+  <class name="sbnd::crt::CRTSpacePoint" ClassVersion="11">
+    <version ClassVersion="11" checksum="602472377"/>
     <version ClassVersion="10" checksum="3948858368"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTSpacePoint>"/>
@@ -132,7 +139,8 @@
 
   <!-- CRTTrack -->
 
-  <class name="sbnd::crt::CRTTrack" ClassVersion="10">
+  <class name="sbnd::crt::CRTTrack" ClassVersion="11">
+    <version ClassVersion="11" checksum="2489926563"/>
     <version ClassVersion="10" checksum="1691600150"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTTrack>"/>
@@ -155,5 +163,21 @@
   <class name="art::Wrapper< art::Assns<sbnd::crt::CRTTrack, recob::Track, anab::T0> >"           />
   <class name="art::Assns<recob::Track, sbnd::crt::CRTTrack, anab::T0>"           />
   <class name="art::Wrapper< art::Assns< recob::Track, sbnd::crt::CRTTrack, anab::T0> >"           />
+  
+  <!-- CRTVeto -->
+
+  <class name="sbnd::crt::CRTVeto" ClassVersion="10">
+   <version ClassVersion="10" checksum="168313013"/>
+  </class>
+  <class name="std::vector<sbnd::crt::CRTVeto>"/>
+  <class name="art::Wrapper<sbnd::crt::CRTVeto>"/>
+  <class name="art::Wrapper<std::vector<sbnd::crt::CRTVeto> >"/>
+
+  <!-- associations  -->
+
+  <class name="art::Assns<sbnd::crt::CRTVeto, sbnd::crt::CRTSpacePoint,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTVeto, sbnd::crt::CRTSpacePoint, void> >"           />
+  <class name="art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTVeto,    void>"           />
+  <class name="art::Wrapper< art::Assns<sbnd::crt::CRTSpacePoint, sbnd::crt::CRTVeto, void> >"           />
 
 </lcgdict>

@@ -17,8 +17,8 @@ namespace sbnd::crt {
   class CRTStripHit {
     
     uint32_t fChannel;      // Channel ID for 1st SiPM
-    uint32_t fTs0;          // T0 counter [ns] - Time relative to pulse-per-second
-    uint32_t fTs1;          // T1 counter [ns] - Time relative to some beam signal
+    double   fTs0;          // T0 counter [ns] - Time relative to pulse-per-second
+    double   fTs1;          // T1 counter [ns] - Time relative to some beam signal
     uint32_t fUnixS;        // Unixtime of event [s]
     double   fPos;          // Lateral position within strip [cm]
     double   fErr;          // Error on lateral position [cm]
@@ -31,17 +31,17 @@ namespace sbnd::crt {
 
     CRTStripHit();
     
-    CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
+    CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
                 double _err, uint16_t _adc1, uint16_t _adc2);
 
-    CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
+    CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
                 double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated1, bool _saturated2);
 
     virtual ~CRTStripHit();
 
     uint32_t Channel() const;
-    uint32_t Ts0() const;
-    uint32_t Ts1() const;
+    double   Ts0() const;
+    double   Ts1() const;
     uint32_t UnixS() const;
     double   Pos() const;
     double   Error() const;

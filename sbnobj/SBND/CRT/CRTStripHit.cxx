@@ -20,7 +20,7 @@ namespace sbnd {
       , fSaturated2   (false)
     {}
 
-    CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
+    CRTStripHit::CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
                              double _err, uint16_t _adc1, uint16_t _adc2)
       : fChannel      (_channel)
       , fTs0          (_ts0)
@@ -35,7 +35,7 @@ namespace sbnd {
       fSaturated2 = fADC2 == 4095;
     }
 
-    CRTStripHit::CRTStripHit(uint32_t _channel, uint32_t _ts0, uint32_t _ts1, uint32_t _s, double _pos,
+    CRTStripHit::CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
                              double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated1, bool _saturated2)
       : fChannel      (_channel)
       , fTs0          (_ts0)
@@ -52,8 +52,8 @@ namespace sbnd {
     CRTStripHit::~CRTStripHit() {}
 
     uint32_t CRTStripHit::Channel() const { return fChannel; }
-    uint32_t CRTStripHit::Ts0() const { return fTs0; }
-    uint32_t CRTStripHit::Ts1() const { return fTs1; }
+    double   CRTStripHit::Ts0() const { return fTs0; }
+    double   CRTStripHit::Ts1() const { return fTs1; }
     uint32_t CRTStripHit::UnixS() const { return fUnixS; }
     double   CRTStripHit::Pos() const { return fPos; }
     double   CRTStripHit::Error() const { return fErr; }

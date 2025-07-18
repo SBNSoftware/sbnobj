@@ -16,7 +16,7 @@ namespace sbnd {
       , fComposition  (kUndefinedSet)
     {}
 
-    CRTCluster::CRTCluster(uint32_t _ts0, uint32_t _ts1, uint32_t _unixS, uint16_t _nHits, CRTTagger _tagger,
+    CRTCluster::CRTCluster(double _ts0, double _ts1, uint32_t _unixS, uint16_t _nHits, CRTTagger _tagger,
                            CoordSet _composition)
       : fTs0          (_ts0)
       , fTs1          (_ts1)
@@ -28,8 +28,8 @@ namespace sbnd {
 
     CRTCluster::~CRTCluster() {}
 
-    uint32_t  CRTCluster::Ts0() const { return fTs0; }
-    uint32_t  CRTCluster::Ts1() const { return fTs1; }
+    double    CRTCluster::Ts0() const { return fTs0; }
+    double    CRTCluster::Ts1() const { return fTs1; }
     uint32_t  CRTCluster::UnixS() const { return fUnixS; }
     uint16_t  CRTCluster::NHits() const { return fNHits; }
     CRTTagger CRTCluster::Tagger() const { return fTagger; }
