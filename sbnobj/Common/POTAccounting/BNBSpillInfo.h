@@ -19,8 +19,6 @@ namespace sbn {
 
     unsigned int event;
         
-    //BeamQuaility 
-    //quality//BNB
     float FOM; //Figure of Merit for BNB
 
 
