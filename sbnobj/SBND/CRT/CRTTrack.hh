@@ -13,7 +13,6 @@
 #include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 #include "sbnobj/SBND/CRT/CRTEnums.hh"
 
-#include <set>
 #include <vector>
 
 namespace sbnd::crt {
@@ -27,7 +26,7 @@ namespace sbnd::crt {
     double                    fTs1Err;  // average time error according to T1 clock [ns]
     double                    fPE;      // total PE
     double                    fToF;     // time from first space point to last [ns]
-    std::set<CRTTagger>       fTaggers; // which taggers were used to create the track
+    std::vector<CRTTagger>    fTaggers; // which taggers were used to create the track
 
   public:
 
@@ -35,11 +34,11 @@ namespace sbnd::crt {
     
     CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_ts0, const double &_ets0,
              const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
-             const std::set<CRTTagger> &_taggers);
+             const std::vector<CRTTagger> &_taggers);
 
     CRTTrack(const std::vector<geo::Point_t> &_points, const double &_ts0, const double &_ets0,
              const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
-             const std::set<CRTTagger> &_taggers);
+             const std::vector<CRTTagger> &_taggers);
 
     virtual ~CRTTrack();
 
@@ -50,7 +49,7 @@ namespace sbnd::crt {
     double                    Ts1Err() const;
     double                    PE() const;
     double                    ToF() const;
-    std::set<CRTTagger>       Taggers() const;
+    std::vector<CRTTagger>    Taggers() const;
 
     geo::Point_t  Start() const;
     geo::Point_t  End() const;
