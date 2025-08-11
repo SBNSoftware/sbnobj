@@ -6,13 +6,17 @@
  * @file sbnobj/Common/POTAccounting/BNBSpillInfo.h
  * @author Joseph Zennamo, FNAL (jaz8600@fnal.gov)
  */
-
+#include <vector>
 
 namespace sbn {
 
   class BNBSpillInfo {
   public:
+
     unsigned int event;
+
+    unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
+    unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
 
     float FOM; // Figure of Merit for BNB
 
@@ -28,6 +32,14 @@ namespace sbn {
 
     float HP875; //!< Horizontal Position Monitor after Mag 875, units mm
     float VP875; //!< Verticle Position Monitor after Mag 875, units mm
+
+    float HPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm 
+    float VPTG1; //!< Horizontal Position Monitor at Target Station 1, units mm
+
+    float HPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
+    float VPTG2; //!< Horizontal Position Monitor at Target Station 2, closest to target, units mm
+
+    float BTJT2; //!< Temperature of air exiting target, units Deg C
 
     float THCURR; //!< Current applied to Horn, units kiloAmperes
 
@@ -52,8 +64,13 @@ namespace sbn {
     float VPTG2Offset;  // units mm
 
     std::vector<int> M875BB; //!< Multiwire station before Mag 875...?
+    std::vector< int > M876BB; //!< Multiwire station after Mag 875...?
+    std::vector< int > MMBTBB; //!< Multiwire station at the target station, 
 
+    float M875BB_spill_time_diff; //!< the time difference between M875BB and the matched spill
+    float M876BB_spill_time_diff; //!< the time difference between M876BB and the matched spill
     float MMBTBB_spill_time_diff; //!< time diff between MMBTBB and matched spill
+
 
     double POT() const { return TOR875; }
 
