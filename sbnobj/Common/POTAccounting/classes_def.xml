@@ -1,7 +1,6 @@
 <lcgdict>
-  <class name="sbn::BNBSpillInfo" ClassVersion="15">
-   <version ClassVersion="15" checksum="2935226066"/>
-   <version ClassVersion="14" checksum="1668136717"/>
+  <class name="sbn::BNBSpillInfo" ClassVersion="14">
+   <version ClassVersion="14" checksum="2935226066"/>
    <version ClassVersion="13" checksum="3323781823"/>
    <version ClassVersion="12" checksum="3285973467"/>
    <version ClassVersion="11" checksum="3354055579"/>
