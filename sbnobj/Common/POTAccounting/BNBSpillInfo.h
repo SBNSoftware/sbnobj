@@ -18,7 +18,7 @@ namespace sbn {
     unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
     unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
 
-    float FOM; // Figure of Merit for BNB
+    float FOM; ///! Figure of Merit for BNB
 
     float TOR860; //!< Toroid before Mag 875, units e12 Protons
     float TOR875; //!< Toroid after Mag 875, units e12 Protons
