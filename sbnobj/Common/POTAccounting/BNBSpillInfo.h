@@ -13,10 +13,10 @@ namespace sbn {
   class BNBSpillInfo {
   public:
 
-    unsigned int event;
-
     unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
     unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
+
+    unsigned int event;
 
     float FOM; ///! Figure of Merit for BNB
 
