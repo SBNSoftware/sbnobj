@@ -1,0 +1,9 @@
+<lcgdict>
+  <class name="sbnd::OpFlashTiming::CorrectedOpFlashTiming" ClassVersion="12">
+   <version ClassVersion="12" checksum="2094795516"/>
+   <version ClassVersion="11" checksum="2804806845"/>
+   <version ClassVersion="10" checksum="810700615"/>
+  </class>
+  <!--<class name="std::vector<sbnd::OpFlashTiming::CorrectedOpFlashTiming>"/>-->
+  <class name="art::Wrapper< std::vector<sbnd::OpFlashTiming::CorrectedOpFlashTiming> >"/>
+</lcgdict>
