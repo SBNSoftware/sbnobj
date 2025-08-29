@@ -1,8 +1,20 @@
 <lcgdict>
   <class name="sbnd::timing::DAQTimestamp" ClassVersion="11">
-   <version ClassVersion="11" checksum="2804806845"/>
+    <version ClassVersion="11" checksum="2804806845"/>
     <version ClassVersion="10" checksum="810700615"/>
   </class>
   <class name="std::vector<sbnd::timing::DAQTimestamp>"/>
   <class name="art::Wrapper< std::vector<sbnd::timing::DAQTimestamp> >"/> 
+
+  <class name="sbnd::timing::TimingInfo" ClassVersion="12">
+   <version ClassVersion="12" checksum="1023077770"/>
+    <version ClassVersion="11" checksum="2804806845"/>
+  </class>
+  <class name="art::Wrapper<sbnd::timing::TimingInfo>"/>
+
+  <class name="sbnd::timing::FrameShiftInfo" ClassVersion="12">
+   <version ClassVersion="12" checksum="515138667"/>
+    <version ClassVersion="11" checksum="2804806845"/>
+  </class>
+  <class name="art::Wrapper<sbnd::timing::FrameShiftInfo>"/>
 </lcgdict>
