@@ -1,3 +1,11 @@
+/*
+ * @file   sbnobj/SBND/Timing/FrameShiftInfo.cxx
+ * @brief  Defines data structures for SBND Frame Shift products (docdb#43090).
+ * @author Vu Chi Lan Nguyen
+ * @date   August 29, 2025
+ *
+ */
+
 #ifndef SBND_FRAMSHIFTINFO_CXX
 #define SBND_FRAMSHIFTINFO_CXX
 

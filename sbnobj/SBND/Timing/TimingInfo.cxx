@@ -1,3 +1,11 @@
+/*
+ * @file   sbnobj/SBND/Timing/TimingInfo.cxx
+ * @brief  Defines data structures for SBND Timing Product (docdb#43090).
+ * @author Vu Chi Lan Nguyen
+ * @date   August 29, 2025
+ *       
+ */
+
 #ifndef SBND_TIMINGINFO_CXX
 #define SBND_TIMINGINFO_CXX
 
@@ -31,7 +39,7 @@ namespace sbnd::timing {
 
   uint64_t TimingInfo::RawDAQHeaderTimestamp() const { return fRawDAQHeaderTimestamp; }
   uint64_t TimingInfo::TdcCrtt1() const { return fTdcCrtt1; }
-  uint64_t TimingInfo::TdcBes() const { return fTdcRwm; }
+  uint64_t TimingInfo::TdcBes() const { return fTdcBes; }
   uint64_t TimingInfo::TdcRwm() const { return fTdcRwm; }
   uint64_t TimingInfo::TdcEtrig() const { return fTdcEtrig; }
   uint64_t TimingInfo::HltCrtt1() const { return fHltCrtt1; }
