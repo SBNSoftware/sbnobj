@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef SBND_FRAMSHIFTINFO_CXX
-#define SBND_FRAMSHIFTINFO_CXX
+#ifndef SBND_FRAMESHIFTINFO_CXX
+#define SBND_FRAMESHIFTINFO_CXX
 
 #include "sbnobj/SBND/Timing/FrameShiftInfo.hh"
 
