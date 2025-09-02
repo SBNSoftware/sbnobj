@@ -10,14 +10,12 @@
 #define SBND_FRAMESHIFTINFO_HH
 
 #include <stdint.h>
-#include <string>
-#include <array>
 #include <limits>
 
 namespace sbnd::timing {
 
   /**
-   * @brief A struct to shifts across different reference frames in SBND Data
+   * @brief A class to store the shifts across different time reference frames in SBND Data
    * 
    * Each shift is in [ns]
    *             
@@ -26,61 +24,62 @@ namespace sbnd::timing {
    */
 
   class FrameShiftInfo {
+  
+  public:
+    static constexpr uint16_t InvalidTimingType = 99; ///< Invalid timing type for decoded frame
+    static constexpr uint64_t NoShift = 0; ///< No shift.    
 
-    uint16_t fTimingType; ///< Types of decoded frames: 0 - SPEC TDC ETRIG, 1 - HLT ETRIG, 2 - Do Nothing
-    double fFrameTdcCrtt1; ///< Shift from decoded frame to SPEC-TDC CRT T1 [ns]
-    double fFrameTdcBes; ///< Shift from decoded frame to SPEC-TDC BES [ns]
-    double fFrameTdcRwm; ///< Shift from decoded frame to SPEC-TDC RWM [ns]
-    double fFrameHltCrtt1; ///< Shift from decoded frame to HLT CRT T1 [ns]
-    double fFrameHltBeamGate; ///< Shift from decoded frame to HLT Beam Gate [ns]
-    double fFrameApplyAtCaf; ///< Frame to shift to when running at CAF stage
+  private:
+
+    uint16_t fTimingType = InvalidTimingType; ///< Types of decoded frames: 0 - SPEC TDC ETRIG, 1 - HLT ETRIG, 2 - Do Nothing
+    double fFrameTdcCrtt1 = NoShift; ///< Shift from decoded frame to SPEC-TDC CRT T1 [ns]
+    double fFrameTdcBes = NoShift; ///< Shift from decoded frame to SPEC-TDC BES [ns]
+    double fFrameTdcRwm = NoShift; ///< Shift from decoded frame to SPEC-TDC RWM [ns]
+    double fFrameHltCrtt1 = NoShift; ///< Shift from decoded frame to HLT CRT T1 [ns]
+    double fFrameHltBeamGate = NoShift; ///< Shift from decoded frame to HLT Beam Gate [ns]
+    double fFrameApplyAtCaf = NoShift; ///< Frame to shift to when running at CAF stage
 
    public:
 
     /**
      * Default constructor.
      */
-    FrameShiftInfo();
-
-    /*
-     * Constructor to set all timestamps
-     *
-     * @param _timingType Types of decoded frames
-     * @param _frameTdcCrtt1 Shift from decoded frame to SPEC-TDC CRT T1 [ns]
-     * @param _frameTdcBes Shift from decoded frame to SPEC-TDC BES [ns]
-     * @param _frameTdcRwm Shift from decoded frame to SPEC-TDC RWM [ns]
-     * @param _frameHltCrtt1 Shift from decoded frame to HLT CRT T1 [ns]
-     * @param _frameHltBeamGate Shift from decoded frame to HLT Beam Gate [ns]
-     * @param _frameApplyAtCaf Frame to shift to when running at CAF stage
-     */
-    FrameShiftInfo(uint16_t _timingType, double _frameTdcCrtt1, double _frameTdcBes, double _frameTdcRwm, double _frameHltCrtt1, double _frameHltBeamGate, double _frameApplyAtCaf);
+    FrameShiftInfo() = default;
 
     /**
-     * Destructor
+     * Constructor to set all frames
+     *
+     * @param timingType Types of decoded frames
+     * @param frameTdcCrtt1 Shift from decoded frame to SPEC-TDC CRT T1 [ns]
+     * @param frameTdcBes Shift from decoded frame to SPEC-TDC BES [ns]
+     * @param frameTdcRwm Shift from decoded frame to SPEC-TDC RWM [ns]
+     * @param frameHltCrtt1 Shift from decoded frame to HLT CRT T1 [ns]
+     * @param frameHltBeamGate Shift from decoded frame to HLT Beam Gate [ns]
+     * @param frameApplyAtCaf Frame to shift to when running at CAF stage
      */
-    virtual ~FrameShiftInfo();
+    FrameShiftInfo(uint16_t timingType, double frameTdcCrtt1, double frameTdcBes, double frameTdcRwm, double frameHltCrtt1, double frameHltBeamGate, double frameApplyAtCaf);
 
     /// @name Getters
     /// @{
-    uint16_t TimingType() const;
-    double FrameTdcCrtt1() const;                                               
-    double FrameTdcBes() const;                                                 
-    double FrameTdcRwm() const;                                                 
-    double FrameHltCrtt1() const;                                               
-    double FrameHltBeamGate() const;                                            
-    double FrameApplyAtCaf() const;                                             
+    uint16_t TimingType() const { return fTimingType; }
+    double FrameTdcCrtt1() const { return fFrameTdcCrtt1; }
+    double FrameTdcBes() const { return fFrameTdcBes; }
+    double FrameTdcRwm() const { return fFrameTdcRwm; }
+    double FrameHltCrtt1() const { return fFrameHltCrtt1;}
+    double FrameHltBeamGate() const { return fFrameHltBeamGate; }
+    double FrameApplyAtCaf() const { return fFrameApplyAtCaf; }
     /// @}
 
-    /**
-     * Getters
-     */
-    void SetTimingType(uint16_t _type);
-    void SetFrameTdcCrtt1(double _frame);                                               
-    void SetFrameTdcBes(double _frame);                                                 
-    void SetFrameTdcRwm(double _frame);                                                 
-    void SetFrameHltCrtt1(double _frame);                                               
-    void SetFrameHltBeamGate(double _frame);                                            
-    void SetFrameApplyAtCaf(double _frame);                                             
+    /// @name Setters
+    /// @{
+    void SetTimingType(uint16_t type){ fTimingType = type; }
+    void SetFrameTdcCrtt1(double frame){ fFrameTdcCrtt1 = frame; }
+    void SetFrameTdcBes(double frame){ fFrameTdcBes = frame; }                     
+    void SetFrameTdcRwm(double frame){ fFrameTdcRwm = frame; }
+    void SetFrameHltCrtt1(double frame){ fFrameHltCrtt1 = frame; }
+    void SetFrameHltBeamGate(double frame){ fFrameHltBeamGate = frame; }
+    void SetFrameApplyAtCaf(double frame){ fFrameApplyAtCaf = frame; }
+    /// @}
   };
 }
 
