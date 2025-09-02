@@ -21,13 +21,24 @@ namespace sbnd::OpFlashTiming {
   // NaN value to initialize data members
   static constexpr float fDefault = std::numeric_limits<float>::signaling_NaN();
 
-  /// @name Data members related to quality of match
+  /// @name Corrected OpFlash Times
   /// @{
   float        OpFlashT0             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
   float        UpstreamTime_lightonly             { fDefault };      ///< | Nu upstream wall time reconstructed using light only | (ns)
   float        UpstreamTime_tpczcorr             { fDefault };       ///< | Nu upstream wall time reconstructed using light and Z from tpc vertex | (ns)
-  float        UpstreamTime_propcorr             { fDefault };       ///< | Nu upstream wall time reconstructed using light propagation correction from tpc information | (ns)
   float        UpstreamTime_propcorr_tpczcorr    { fDefault };       ///< | Nu upstream wall time reconstructed using light propagation correction from tpc information and z correction from tpc vertex | (ns)
+  
+  /// @}
+
+  /// @name Data members related to the slice-flash match
+  /// @{
+  float        OpT0Score             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
+
+  /// @}
+
+  /// @name Data members related to the slice match
+  /// @{
+  float        SliceNuScore             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
 
   /// @}
 
