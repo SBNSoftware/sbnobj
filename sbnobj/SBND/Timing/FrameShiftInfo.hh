@@ -60,9 +60,8 @@ namespace sbnd::timing {
      */
     virtual ~FrameShiftInfo();
 
-    /**
-     * Getters
-     */
+    /// @name Getters
+    /// @{
     uint16_t TimingType() const;
     double FrameTdcCrtt1() const;                                               
     double FrameTdcBes() const;                                                 
@@ -70,6 +69,7 @@ namespace sbnd::timing {
     double FrameHltCrtt1() const;                                               
     double FrameHltBeamGate() const;                                            
     double FrameApplyAtCaf() const;                                             
+    /// @}
 
     /**
      * Getters
