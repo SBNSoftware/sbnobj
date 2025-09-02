@@ -1,4 +1,4 @@
-/*
+/**
  * @file   sbnobj/SBND/Timing/TimingInfo.hh
  * @brief  Defines data structures for SBND Timing products (docdb#43090).
  * @author Vu Chi Lan Nguyen
