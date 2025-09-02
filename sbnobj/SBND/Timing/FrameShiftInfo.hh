@@ -35,7 +35,7 @@ namespace sbnd::timing {
 
    public:
 
-    /*
+    /**
      * Default constructor.
      */
     FrameShiftInfo();
