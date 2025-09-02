@@ -1,4 +1,4 @@
-/*
+/**
  * @file   sbnobj/SBND/Timing/FrameShiftInfo.hh
  * @brief  Defines data structures for SBND Frame Shift products (docdb#43090).
  * @author Vu Chi Lan Nguyen
