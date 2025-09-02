@@ -16,11 +16,13 @@
 
 namespace sbnd::timing {
 
-  /*
+  /**
    * @brief A struct to shifts across different reference frames in SBND Data
    * 
    * Each shift is in [ns]
    *             
+   * For more information, see
+   * [SBN DocDB 43090](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=43090).
    */
 
   class FrameShiftInfo {
