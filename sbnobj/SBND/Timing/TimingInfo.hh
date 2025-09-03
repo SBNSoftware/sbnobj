@@ -45,7 +45,7 @@ namespace sbnd::timing {
      */
     TimingInfo() = default;
 
-    /*
+    /**
      * Constructor to set all timestamps
      *
      * @param rawDAQHeaderTimestamp Raw DAQ Timestamp in UNIX format [ns]
