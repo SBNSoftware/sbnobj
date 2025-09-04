@@ -12,6 +12,7 @@
 
 // SBN libraries
 #include "sbnobj/Common/PMT/Data/PMTconfiguration.h"
+#include "sbnobj/Common/PMT/Data/PMTBeamSignal.hh"
 
 // framework libraries
 #include "canvas/Persistency/Common/Ptr.h"
