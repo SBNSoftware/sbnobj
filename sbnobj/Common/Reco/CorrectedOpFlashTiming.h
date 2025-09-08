@@ -32,7 +32,7 @@ namespace sbn {
 
   /// @name Data members related to the slice-flash match
   /// @{
-  float        OpT0Score             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
+  float        FMScore             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
 
   /// @}
 
