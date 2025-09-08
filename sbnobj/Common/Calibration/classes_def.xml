@@ -2,7 +2,13 @@
   <class name="sbn::Vector3D" ClassVersion="10">
    <version ClassVersion="10" checksum="4119385400"/>
   </class>
-  <class name="sbn::TrackTruth" ClassVersion="10">
+  <class name="sbn::TrackTruth" ClassVersion="16">
+   <version ClassVersion="16" checksum="2358209471"/>
+   <version ClassVersion="15" checksum="2066523036"/>
+   <version ClassVersion="14" checksum="2358209471"/>
+   <version ClassVersion="13" checksum="3289854517"/>
+   <version ClassVersion="12" checksum="3060288005"/>
+   <version ClassVersion="11" checksum="2923825110"/>
    <version ClassVersion="10" checksum="2749399767"/>
   </class>
   <class name="sbn::TrueParticle" ClassVersion="12">
@@ -14,7 +20,10 @@
    <version ClassVersion="11" checksum="903476586"/>
    <version ClassVersion="10" checksum="118230262"/>
   </class>
-  <class name="sbn::TrackInfo" ClassVersion="36">
+  <class name="sbn::TrackInfo" ClassVersion="39">
+   <version ClassVersion="39" checksum="838550139"/>
+   <version ClassVersion="38" checksum="360446155"/>
+   <version ClassVersion="37" checksum="3880053894"/>
    <version ClassVersion="36" checksum="3773726040"/>
    <version ClassVersion="35" checksum="1259550605"/>
    <version ClassVersion="34" checksum="286656929"/>
