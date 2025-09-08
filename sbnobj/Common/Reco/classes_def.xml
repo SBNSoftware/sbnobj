@@ -289,4 +289,28 @@
   <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::TPCPMTBarycenterMatch, void>>" />
 
   <class name="std::vector<geo::PlaneID>"/>
+
+    <class name="sbn::CorrectedOpFlashTiming" ClassVersion="14">
+   <version ClassVersion="14" checksum="2635318722"/>
+   <version ClassVersion="13" checksum="328467396"/>
+   <version ClassVersion="12" checksum="2094795516"/>
+   <version ClassVersion="11" checksum="2804806845"/>
+   <version ClassVersion="10" checksum="810700615"/>
+  </class>
+  <class name="std::vector<sbn::CorrectedOpFlashTiming>"/>
+  <class name="art::Wrapper<vector<sbn::CorrectedOpFlashTiming> >"/>
+  
+  <!-- Assns (CorrectedOpFlashTiming, Slice) -->
+  <class name="art::Assns<sbn::CorrectedOpFlashTiming, recob::Slice, void>" />
+  <class name="art::Assns<recob::Slice, sbn::CorrectedOpFlashTiming, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::CorrectedOpFlashTiming, recob::Slice, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::CorrectedOpFlashTiming, void>>" />
+
+  <!-- Assns (CorrectedOpFlashTiming, OpFlash) -->
+  <class name="art::Assns<sbn::CorrectedOpFlashTiming, recob::OpFlash, void>" />
+  <class name="art::Assns<recob::OpFlash, sbn::CorrectedOpFlashTiming, void>" />
+  <class name="art::Wrapper<art::Assns<sbn::CorrectedOpFlashTiming, recob::OpFlash, void>>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::CorrectedOpFlashTiming, void>>" />
+
+  
 </lcgdict>
