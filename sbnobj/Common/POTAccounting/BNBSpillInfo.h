@@ -28,6 +28,8 @@ namespace sbn {
     float LM875A; //!< Loss Monitor before the RWM, unit R/s
     float LM875B; //!< Loss Monitor after the RWM, unit R/s
     float LM875C; //!< Loss Monitor after the RWM, unit R/s
+    float HP873; //!< Horizontal Position Monitor after Mag 873, units mm
+    float VP873; //!< Verticle Position Monitor after Mag 873, units mm
     float HP875; //!< Horizontal Position Monitor after Mag 875, units mm
     float VP875; //!< Verticle Position Monitor after Mag 875, units mm
 
@@ -40,6 +42,16 @@ namespace sbn {
     float BTJT2; //!< Temperature of air exiting target, units Deg C
 
     float THCURR; //!< Current applied to Horn, units kiloAmperes 
+
+    float M875HS; //!< Multiwire station after Mag 875, Fit to Horizontal Sigma?
+    float M875VS; //!< Multiwire station after Mag 875, Fit to Vertical Sigma?
+    float M875HM; //!< Multiwire station after Mag 875, Fit to Horizontal Mean?
+    float M875VM; //!< Multiwire station after Mag 875, Fit to Vertical Mean?
+
+    float M876HS; //!< Multiwire station after Mag 876, Fit to Horizontal Sigma?
+    float M876VS; //!< Multiwire station after Mag 876, Fit to Vertical Sigma?
+    float M876HM; //!< Multiwire station after Mag 876, Fit to Horizontal Mean?
+    float M876VM; //!< Multiwire station after Mag 876, Fit to Vertical Mean?
     
     // https://cdcvs.fnal.gov/redmine/projects/ubraw/repository/revisions/master/entry/ubraw/BeamDAQ/MWRData.cpp
     std::vector< int > M875BB; //!< Multiwire station before Mag 875...?
