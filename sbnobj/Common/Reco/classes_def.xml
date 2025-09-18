@@ -266,7 +266,9 @@
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle>>" />
   <class name="art::Wrapper<art::Assns<sbn::MVAPID, recob::PFParticle, recob::Track>>" />
 
-  <class name="sbn::TPCPMTBarycenterMatch" ClassVersion="10">
+  <class name="sbn::TPCPMTBarycenterMatch" ClassVersion="12">
+   <version ClassVersion="12" checksum="2061481769"/>
+   <version ClassVersion="11" checksum="2756550975"/>
    <version ClassVersion="10" checksum="3504890228"/>
   </class>
   <class name="std::vector<sbn::TPCPMTBarycenterMatch>" />
