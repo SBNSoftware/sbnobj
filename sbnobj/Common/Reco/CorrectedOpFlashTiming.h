@@ -24,24 +24,11 @@ namespace sbn {
   /// @name Corrected OpFlash Times
   /// @{
   float        OpFlashT0             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
-  float        UpstreamTime_lightonly             { fDefault };      ///< | Nu upstream wall time reconstructed using light only | (ns)
-  float        UpstreamTime_tpczcorr             { fDefault };       ///< | Nu upstream wall time reconstructed using light and Z from tpc vertex | (ns)
-  float        UpstreamTime_propcorr_tpczcorr    { fDefault };       ///< | Nu upstream wall time reconstructed using light propagation correction from tpc information and z correction from tpc vertex | (ns)
+  float        NuToFLight             { fDefault };      ///< | Nu ToF using light only | (ns)
+  float        NuToFCharge             { fDefault };       ///< | Nu ToF Z from tpc vertex | (ns)
+  float        OpFlashT0Corrected    { fDefault };       ///< | OpFlash Time wrt RWM time after light propagation corrections | (ns)
+  /// @}
   
-  /// @}
-
-  /// @name Data members related to the slice-flash match
-  /// @{
-  float        FMScore             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
-
-  /// @}
-
-  /// @name Data members related to the slice match
-  /// @{
-  float        SliceNuScore             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
-
-  /// @}
-
   };
 }
 
