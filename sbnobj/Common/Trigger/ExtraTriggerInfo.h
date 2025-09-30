@@ -89,18 +89,6 @@ struct sbn::ExtraTriggerInfo {
   /// Incremental counter of gates from this source opened from start of the run.
   unsigned int gateCount { 0 };
 
-  // Boolean telling if the event passed the trigger
-  bool triggerEmulation { false };
-
-  // Number of PMT pairs over the trigger threshold
-  int pairsOverThreshold { 0 };
-
-  // Trigger responses for all of the waveforms in the event (flattened)
-  std::vector<int> MonPulses { std::vector<int>() }; // default ???
-
-  // Length of each trigger response to unflatten the trigger responses
-  std::vector<int> MonPulseSizes { std::vector<int>() }; 
-
   /// @}
   // --- END ---- Since the beginning of the run -------------------------------
   
