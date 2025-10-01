@@ -23,10 +23,10 @@ namespace sbn {
 
   /// @name Corrected OpFlash Times
   /// @{
-  float        OpFlashT0             { fDefault };                   ///< | OpFlash Time wrt RWM time | (ns)
-  float        NuToFLight             { fDefault };      ///< | Nu ToF using light only | (ns)
-  float        NuToFCharge             { fDefault };       ///< | Nu ToF Z from tpc vertex | (ns)
-  float        OpFlashT0Corrected    { fDefault };       ///< | OpFlash Time wrt RWM time after light propagation corrections | (ns)
+  float        OpFlashT0             { fDefault };                   ///< | OpFlash Time wrt RWM time | (us)
+  float        NuToFLight             { fDefault };      ///< | Nu ToF using light only | (us)
+  float        NuToFCharge             { fDefault };       ///< | Nu ToF Z from tpc vertex | (us)
+  float        OpFlashT0Corrected    { fDefault };       ///< | OpFlash Time wrt RWM time after light propagation corrections | (us)
   /// @}
   
   };
