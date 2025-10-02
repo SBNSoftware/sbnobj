@@ -19,6 +19,7 @@
 #include <iosfwd> // std::ostream
 #include <limits> // std::numeric_limits<>
 #include <cstdint> // std::uint64_t
+#include <vector>
 
 
 // -----------------------------------------------------------------------------
@@ -87,7 +88,7 @@ struct sbn::ExtraTriggerInfo {
   
   /// Incremental counter of gates from this source opened from start of the run.
   unsigned int gateCount { 0 };
-  
+
   /// @}
   // --- END ---- Since the beginning of the run -------------------------------
   
