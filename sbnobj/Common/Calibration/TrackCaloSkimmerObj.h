@@ -262,9 +262,12 @@ namespace sbn {
     std::vector<WireInfo> wires2; //!< List of wire information on plane 2
 
     float t0PFP; //!< Particle-Flow-Particle (Pandora) T0. Derived from cathode crossing
-    float t0CRTTrack; //!< t0 from CRT Track 
-    float t0CRTHit; //!< t0 from CRT Hit 
-    int whicht0; //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack 2 is CRTHit
+    float t0CRTTrack; //!< t0 from CRT Track (SBND)
+    float t0CRTHit; //!< t0 from CRT Hit (ICARUS)
+    float t0CRTSpacePoint; //!< t0 from CRT SpacePoint (SBND)
+    int whicht0; //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack 2 is CRTHit, 3 is CRTSpacePoint
+    float crtMatchingScore; //<! An assessment of the quality of the match made for whicht0 == 1,2,3
+    float xShiftCRT; //<! If whicht0 == 1,2,3 the amount by which the track was shifted in x
     int id; //!< ID of track
     int cryostat; //!< Cryostat number of track
     bool clear_cosmic_muon; //!< Whether Pandora thinks the track is "clearly" a cosmic
@@ -317,6 +320,9 @@ namespace sbn {
       t0PFP(std::numeric_limits<float>::lowest()),
       t0CRTTrack(std::numeric_limits<float>::lowest()),
       t0CRTHit(std::numeric_limits<float>::lowest()),
+      t0CRTSpacePoint(std::numeric_limits<float>::lowest()),
+      crtMatchingScore(std::numeric_limits<float>::lowest()),
+      xShiftCRT(0),
       id(-1),
       cryostat(-1),
       clear_cosmic_muon(false),
