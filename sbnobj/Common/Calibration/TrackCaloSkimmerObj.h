@@ -232,6 +232,7 @@ namespace sbn {
       contained(false),
       pdg(-1),
       G4ID(-1), // Invalid
+      parent(-1),
       start_process(-1),
       end_process(-1)
     {}
