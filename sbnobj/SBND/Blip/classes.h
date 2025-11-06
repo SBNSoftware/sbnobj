@@ -17,7 +17,7 @@
 #include "lardataobj/RecoBase/PFParticle.h"
 #include "lardataobj/RecoBase/Hit.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
-#include "sbndcode/BlipRecoSBND/Utils/DataTypes.h"
+#include "sbnobj/SBND/Blips/DataTypes.h"
 #include "lardataobj/RecoBase/SpacePoint.h"
 
 //
