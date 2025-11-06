@@ -7,8 +7,6 @@ cet_make_library(
                 PUBLIC
                 larcorealg::Geometry
                 larcore::Geometry_Geometry_service
-                larsim::MCCheater_BackTrackerService_service
-                larsim::MCCheater_ParticleInventoryService_service
                 lardata::Utilities
                 larevt::Filters
                 lardataobj::RawData
