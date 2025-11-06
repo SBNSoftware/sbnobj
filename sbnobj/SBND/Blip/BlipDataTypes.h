@@ -1,9 +1,9 @@
 
 #include "lardataobj/RecoBase/Hit.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
-
 #include <vector>
-
+#include <map>
+#include <set>
 typedef std::vector<int>        vint_t;
 typedef std::vector<bool>       vbool_t;
 typedef std::vector<float>      vfloat_t;

@@ -1,1 +1,1 @@
-#include "sbnobj/SBND/Blip/BlipDataTypes.cc"
+#include "sbnobj/SBND/Blip/BlipDataTypes.h"
