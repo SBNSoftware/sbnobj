@@ -11,7 +11,8 @@
   </class>
   <class name="art::Wrapper<sbnd::timing::TimingInfo>"/>
 
-  <class name="sbnd::timing::FrameShiftInfo" ClassVersion="10" >
+  <class name="sbnd::timing::FrameShiftInfo" ClassVersion="11" >
+   <version ClassVersion="11" checksum="1553773496"/>
    <version ClassVersion="10" checksum="515138667"/>
   </class>
   <class name="art::Wrapper<sbnd::timing::FrameShiftInfo>"/>

@@ -12,16 +12,15 @@
 #include "sbnobj/SBND/Timing/FrameShiftInfo.hh"
 
 namespace sbnd::timing {
-
-  FrameShiftInfo::FrameShiftInfo(uint16_t timingType, double frameTdcCrtt1, double frameTdcBes, double frameTdcRwm, double frameHltCrtt1, double frameHltBeamGate, double frameApplyAtCaf)
-    : fTimingType(timingType)
-    ,  fFrameTdcCrtt1(frameTdcCrtt1)                                               
-    ,  fFrameTdcBes(frameTdcBes)                                                
-    ,  fFrameTdcRwm(frameTdcRwm)                                                 
-    ,  fFrameHltCrtt1(frameHltCrtt1)                                               
-    ,  fFrameHltBeamGate(frameHltBeamGate)                                            
-    ,  fFrameApplyAtCaf(frameApplyAtCaf)                                             
-    {}
+  FrameShiftInfo::FrameShiftInfo(uint64_t frameCrtt1, uint16_t timingTypeCrtt1,
+                                 uint64_t frameBeamGate, uint16_t timingTypeBeamGate,
+                                 uint64_t frameEtrig, uint16_t timingTypeEtrig,
+                                 uint64_t frameDefault,  uint16_t timingTypeDefault)
+    : fFrameCrtt1(frameCrtt1), fTimingTypeCrtt1(timingTypeCrtt1),
+      fFrameBeamGate(frameBeamGate), fTimingTypeBeamGate(timingTypeBeamGate),
+      fFrameEtrig(frameEtrig), fTimingTypeEtrig(timingTypeEtrig),
+      fFrameDefault(frameDefault), fTimingTypeDefault(timingTypeDefault)
+  {}
 }
 
 #endif
