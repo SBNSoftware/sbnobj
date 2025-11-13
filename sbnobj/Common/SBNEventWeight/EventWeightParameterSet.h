@@ -64,15 +64,15 @@ public:
   //==== ReweightType_t in sbnanaobj/StandardRecord/SREnums.h should be synchronized to this
   typedef enum rwtype
   {
-    kDefault = -1,
-    kMultisim = 0,
+    kDefaultRWType = -1,
+    kMultiSim = 0,
     kPMNSigma = 1,
     kFixed = 2,
-    kMultisigma = 3,
+    kMultiSigma = 3,
   } ReweightType;
 
   /** Default constructor. */
-  EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefault) {}
+  EventWeightParameterSet() : fCovarianceMatrix(nullptr), fRWType(kDefaultRWType) {}
 
   /** Equality operator, testing equality of all members. */
   inline friend bool operator==(const EventWeightParameterSet& lhs,
