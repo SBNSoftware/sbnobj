@@ -1,4 +1,5 @@
-
+#ifndef BLIPDATATYPE
+#define BLIPDATATYPE
 #include "lardataobj/RecoBase/Hit.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include <vector>
@@ -170,5 +171,4 @@ namespace blip {
   };
   
 }
-
-
+#endif
