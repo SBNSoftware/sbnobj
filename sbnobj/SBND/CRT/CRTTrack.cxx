@@ -20,7 +20,7 @@ namespace sbnd {
 
     CRTTrack::CRTTrack(const geo::Point_t &_start, const geo::Point_t &_end, const double &_ts0, const double &_ets0,
                        const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
-                       const std::set<CRTTagger> &_taggers)
+                       const std::vector<CRTTagger> &_taggers)
       : fPoints  ({_start, _end})
       , fTs0     (_ts0)
       , fTs0Err  (_ets0)
@@ -33,7 +33,7 @@ namespace sbnd {
 
     CRTTrack::CRTTrack(const std::vector<geo::Point_t> &_points, const double &_ts0, const double &_ets0,
                        const double &_ts1, const double &_ets1, const double &_pe, const double &_tof,
-                       const std::set<CRTTagger> &_taggers)
+                       const std::vector<CRTTagger> &_taggers)
       : fPoints  (_points)
       , fTs0     (_ts0)
       , fTs0Err  (_ets0)
@@ -53,7 +53,7 @@ namespace sbnd {
     double                    CRTTrack::Ts1Err() const { return fTs1Err; }
     double                    CRTTrack::PE() const { return fPE; }
     double                    CRTTrack::ToF() const { return fToF; }
-    std::set<CRTTagger>       CRTTrack::Taggers() const { return fTaggers; }
+    std::vector<CRTTagger>    CRTTrack::Taggers() const { return fTaggers; }
 
     geo::Point_t  CRTTrack::Start() const { return fPoints.front(); }
     geo::Point_t  CRTTrack::End() const { return fPoints.back(); }
@@ -63,7 +63,16 @@ namespace sbnd {
     double        CRTTrack::Phi() const { return (End() - Start()).Phi(); }
     bool          CRTTrack::Triple() const { return fTaggers.size() == 3; }
 
-    bool CRTTrack::UsedTagger(const CRTTagger tagger) const { return fTaggers.count(tagger) == 1; }
+    bool CRTTrack::UsedTagger(const CRTTagger tagger) const
+    {
+      for(const CRTTagger track_tagger : fTaggers)
+	{
+	  if(track_tagger == tagger)
+	    return true;
+	}
+
+      return false;
+    }
   }
 }
 
