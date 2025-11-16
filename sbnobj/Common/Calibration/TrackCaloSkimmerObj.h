@@ -1,9 +1,8 @@
 #ifndef SBN_TrackCaloSkimmerObj
 #define SBN_TrackCaloSkimmerObj
 
-#include <climits>
 #include <limits> // for std::numeric_limits
-
+#include <cstdint>
 #include <vector>
 
 namespace sbn {
