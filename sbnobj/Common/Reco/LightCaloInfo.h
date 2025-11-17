@@ -2,34 +2,27 @@
 #define sbnobj_LightCaloInfo_H
 
 #include <vector>
-#include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
+#include <limits>
 
-namespace sbn
-{
-  class LightCalo 
-  {
-    public:
+namespace sbn{
+  class LightCalo {
+  public:
+    static constexpr double nan = std::numeric_limits<double>::signaling_NaN();
 
-    // note: not ordered as plane0, plane1, and plane2 necessarily. "best plane" is first
-    std::vector<double> charge = std::vector<double>(3); // reconstructed charge (e-)
-    std::vector<double> light  = std::vector<double>(3);  // reconstructed light (photons), set as the median of the light per channel 
-    std::vector<double> energy = std::vector<double>(3); // sum of charge and light
-    std::vector<int> plane = std::vector<int>(3); // first plane is the best plane (most complete)
-    double time;   // t0 associated with the flash match
+    std::vector<double> charge = std::vector<double>(3, nan);
+    std::vector<double> light  = std::vector<double>(3, nan);
+    std::vector<double> energy = std::vector<double>(3, nan);
+    int     bestplane{ -1 };
+    double  time{ nan };
 
-    LightCalo(std::vector<double> charge_v, 
-              std::vector<double> light_v, 
-              std::vector<double> energy_v,
-              std::vector<int> plane_v,
-              double time);
-    LightCalo() {}
-
-    /// Helper functions
-    double bestCharge() const; 
-    double bestLight() const;
-    double bestEnergy() const;
-    int bestPlane() const;
-
+    LightCalo() = default;
+    LightCalo(std::vector<double> charge, std::vector<double> light, std::vector<double> energy, int bestplane, double time) 
+      : charge(charge)
+      , light(light)
+      , energy(energy)
+      , bestplane(bestplane)
+      , time(time)
+      {} 
   };
 }
 
