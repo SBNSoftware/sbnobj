@@ -27,13 +27,13 @@ namespace sbn {
   };
 
   struct HitInfo {
-    float integral = std::numeric_limits<float>::signaling_NaN();    //!< Integral of gaussian fit to ADC values in hit [ADC]
-    float sumadc   = std::numeric_limits<float>::signaling_NaN();    //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
-    float width    = std::numeric_limits<float>::signaling_NaN();    //!< Width of fitted gaussian hit [ticks]
+    float integral = -1.f;                                           //!< Integral of gaussian fit to ADC values in hit [ADC]
+    float sumadc   = -1.f;                                           //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
+    float width    = -1.f;                                           //!< Width of fitted gaussian hit [ticks]
     float goodness = std::numeric_limits<float>::signaling_NaN();    //!< Goodness-of-fit of fitted gaussian hit
-    float time     = std::numeric_limits<float>::signaling_NaN();    //!< Peak time of hit [ticks]
     Vector3D sp;                                                     //!< Space-Point Position of hit [cm]
-    int id = -1;                                                     //!< ID of hit
+    float time       = -1.f;                                         //!< Peak time of hit [ticks]
+    int id           = -1;                                           //!< ID of hit
     uint16_t channel = uint16_t(-1);                                 //!< Channel number of hit
     uint16_t wire    = uint16_t(-1);                                 //!< Wire number of hit
     uint16_t plane   = uint16_t(-1);                                 //!< Plane number of hit
@@ -48,9 +48,9 @@ namespace sbn {
 
   struct TrackHitInfo {
     HitInfo h;                                                         //!< Hit information by itself
-    float pitch = std::numeric_limits<float>::signaling_NaN();         //!< Pitch of track across wire the hit is on [cm]
-    float dqdx  = std::numeric_limits<float>::signaling_NaN();         //!< Initial computed dq/dx of hit [ADC/cm]
-    float rr    = std::numeric_limits<float>::signaling_NaN();         //!< Residual range of hit along track [cm]
+    float pitch = -1.f;                                                //!< Pitch of track across wire the hit is on [cm]
+    float dqdx  = -1.f;                                                //!< Initial computed dq/dx of hit [ADC/cm]
+    float rr    = -1.f;                                                //!< Residual range of hit along track [cm]
     Vector3D tp;                                                       //!< Track Trajectory position of hit [cm]
     Vector3D dir;                                                      //!< Direction of track at hit location
     uint16_t i_snippet = uint16_t(-1);                                 //!< Index of hit into snippet 
@@ -68,17 +68,17 @@ namespace sbn {
   };
 
   struct TrueHit {
-    int16_t cryo  = -1;                                            //!< Cryostat of hit
-    int16_t tpc   = -1;                                            //!< TPC of hit
-    int16_t plane = -1;                                            //!< Plane of hit
-    int wire      = -1;                                            //!< Wire of hit
-    int channel   = -1;                                            //!< Channel of hit
-    unsigned ndep = 0;                                             //!< Number of depositions in hit
-    float nelec     = std::numeric_limits<float>::signaling_NaN(); //!< Number of electrons in hit
-    float e         = std::numeric_limits<float>::signaling_NaN(); //!< energy in hit [MeV]
-    float pitch     = std::numeric_limits<float>::signaling_NaN(); //!< Track pitch for hit, using true direction [cm]
-    float pitch_sce = std::numeric_limits<float>::signaling_NaN(); //!< Track pitch for hit, after distortion to pitch caused by space charge [cm]
-    float rr        = std::numeric_limits<float>::signaling_NaN(); //!< Track residual range for hit [cm]
+    int16_t cryo    = -1;  //!< Cryostat of hit
+    int16_t tpc     = -1;  //!< TPC of hit
+    int16_t plane   = -1;  //!< Plane of hit
+    int wire        = -1;  //!< Wire of hit
+    int channel     = -1;  //!< Channel of hit
+    unsigned ndep   = 0u;  //!< Number of depositions in hit
+    float nelec     = 0.f; //!< Number of electrons in hit
+    float e         = 0.f; //!< energy in hit [MeV]
+    float pitch     = 0.f; //!< Track pitch for hit, using true direction [cm]
+    float pitch_sce = 0.f; //!< Track pitch for hit, after distortion to pitch caused by space charge [cm]
+    float rr        = 0.f; //!< Track residual range for hit [cm]
     int itraj = -1;                                                //!< Index of hit along trajectory
     Vector3D p;                                                    //!< Location of hit, computed after space charge [cm]
     Vector3D p_scecorr;                                            //!< Location of the hit after un-doing space charge [cm]
@@ -167,18 +167,18 @@ namespace sbn {
     Vector3D PCAdir;                //!< Track Direction as fitted from PCA 
     float length = -1.;             //!< Length of track [cm]
 
-    float hit_min_time_p0_tpcE = float(-100000.f); //!< Min hit time of track on plane 0 TPC E
-    float hit_max_time_p0_tpcE = float(-100000.f); //!< Max hit time of track on plane 0 TPC E
-    float hit_min_time_p1_tpcE = float(-100000.f); //!< Min hit time of track on plane 1 TPC E
-    float hit_max_time_p1_tpcE = float(-100000.f); //!< Max hit time of track on plane 1 TPC E
-    float hit_min_time_p2_tpcE = float(-100000.f); //!< Min hit time of track on plane 2 TPC E
-    float hit_max_time_p2_tpcE = float(-100000.f); //!< Max hit time of track on plane 2 TPC E
-    float hit_min_time_p0_tpcW = float(-100000.f); //!< Min hit time of track on plane 0 TPC W
-    float hit_max_time_p0_tpcW = float(-100000.f); //!< Max hit time of track on plane 0 TPC W
-    float hit_min_time_p1_tpcW = float(-100000.f); //!< Min hit time of track on plane 1 TPC W
-    float hit_max_time_p1_tpcW = float(-100000.f); //!< Max hit time of track on plane 1 TPC W
-    float hit_min_time_p2_tpcW = float(-100000.f); //!< Min hit time of track on plane 2 TPC W
-    float hit_max_time_p2_tpcW = float(-100000.f); //!< Max hit time of track on plane 2 TPC W
+    float hit_min_time_p0_tpcE = -100000.f; //!< Min hit time of track on plane 0 TPC E
+    float hit_max_time_p0_tpcE = -100000.f; //!< Max hit time of track on plane 0 TPC E
+    float hit_min_time_p1_tpcE = -100000.f; //!< Min hit time of track on plane 1 TPC E
+    float hit_max_time_p1_tpcE = -100000.f; //!< Max hit time of track on plane 1 TPC E
+    float hit_min_time_p2_tpcE = -100000.f; //!< Min hit time of track on plane 2 TPC E
+    float hit_max_time_p2_tpcE = -100000.f; //!< Max hit time of track on plane 2 TPC E
+    float hit_min_time_p0_tpcW = -100000.f; //!< Min hit time of track on plane 0 TPC W
+    float hit_max_time_p0_tpcW = -100000.f; //!< Max hit time of track on plane 0 TPC W
+    float hit_min_time_p1_tpcW = -100000.f; //!< Min hit time of track on plane 1 TPC W
+    float hit_max_time_p1_tpcW = -100000.f; //!< Max hit time of track on plane 1 TPC W
+    float hit_min_time_p2_tpcW = -100000.f; //!< Min hit time of track on plane 2 TPC W
+    float hit_max_time_p2_tpcW = -100000.f; //!< Max hit time of track on plane 2 TPC W
 
     float const_fit_C = -1.;         //!< Fit parameter
     float const_fit_residuals = -1.; //!< Fit parameter
