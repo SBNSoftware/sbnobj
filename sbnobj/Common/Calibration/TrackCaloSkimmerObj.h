@@ -27,10 +27,10 @@ namespace sbn {
   };
 
   struct HitInfo {
-    float integral = -1.f;                                           //!< Integral of gaussian fit to ADC values in hit [ADC]
-    float sumadc   = -1.f;                                           //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
-    float width    = -1.f;                                           //!< Width of fitted gaussian hit [ticks]
-    float goodness = std::numeric_limits<float>::signaling_NaN();    //!< Goodness-of-fit of fitted gaussian hit
+    float integral   = -1.f;         //!< Integral of gaussian fit to ADC values in hit [ADC]
+    float sumadc     = -1.f;         //!< "SummedADC" -- sum of ADC values under gaussian fit [ADC]
+    float width      = -1.f;         //!< Width of fitted gaussian hit [ticks]
+    float goodness   = -1.f;         //!< Goodness-of-fit of fitted gaussian hit
     Vector3D sp;                     //!< Space-Point Position of hit [cm]
     float time       = -1.f;         //!< Peak time of hit [ticks]
     int id           = -1;           //!< ID of hit
@@ -39,9 +39,9 @@ namespace sbn {
     uint16_t plane   = uint16_t(-1); //!< Plane number of hit
     uint16_t tpc     = uint16_t(-1); //!< TPC number of hit
     uint16_t mult    = uint16_t(-1); //!< Multiplicity of hit
-    int16_t start = -1;              //!< Start tick of hit [ticks]
-    int16_t end   = -1;              //!< End tick of hit [ticks]
-    bool hasSP    = false;           //!< Whether the hit has a SpacePoint
+    int16_t start     = -1;          //!< Start tick of hit [ticks]
+    int16_t end       = -1;          //!< End tick of hit [ticks]
+    bool hasSP        = false;       //!< Whether the hit has a SpacePoint
 
     HitTruth truth;
   };
