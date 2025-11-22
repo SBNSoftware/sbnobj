@@ -10,6 +10,7 @@
 #define SBND_TIMINGINFO_HH
 
 #include <stdint.h>
+#include <limits>
 
 namespace sbnd::timing {
 
@@ -25,7 +26,7 @@ namespace sbnd::timing {
   class TimingInfo {
   
   public:
-    static constexpr uint64_t InvalidTimestamp = 0; ///< Invalid timestamp
+    static constexpr uint64_t InvalidTimestamp = std::numeric_limits<uint64_t>::max(); ///< Invalid timestamp
 
   private:
 
