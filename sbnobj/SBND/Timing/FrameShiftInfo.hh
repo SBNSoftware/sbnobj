@@ -65,25 +65,25 @@ namespace sbnd::timing {
   class FrameShiftInfo {
   
   public:
-    static constexpr uint64_t NoFrame = 0; ///< Invalid frame.    
+    static constexpr uint64_t InvalidFrame = std::numeric_limits<uint64_t>::max(); ///< Invalid frame.    
     static constexpr uint16_t InvalidTimingType = std::numeric_limits<uint16_t>::max(); ///< Invalid timing type for reference frame
     static constexpr uint16_t InvalidTimingChannel = std::numeric_limits<uint16_t>::max(); ///< Invalid timing channel for reference frame
 
   private:
 
-    uint64_t fFrameCrtt1 = NoFrame; ///< Frame for CRT T1 signal [ns]
+    uint64_t fFrameCrtt1 = InvalidFrame; ///< Frame for CRT T1 signal [ns]
     uint16_t fTimingTypeCrtt1 = InvalidTimingType; ///< Types of CRT T1 frame
     uint16_t fTimingChannelCrtt1 = InvalidTimingChannel; ///< Channel of CRT T1 frame
 
-    uint64_t fFrameBeamGate = NoFrame; ///< Frame for Beam Gate [ns]
+    uint64_t fFrameBeamGate = InvalidFrame; ///< Frame for Beam Gate [ns]
     uint16_t fTimingTypeBeamGate = InvalidTimingType; ///< Types of Beam Gate frame
     uint16_t fTimingChannelBeamGate = InvalidTimingChannel; ///< Channel of Beam Gate frame
 
-    uint64_t fFrameEtrig = NoFrame; ///< Frame for ETRIG [ns]
+    uint64_t fFrameEtrig = InvalidFrame; ///< Frame for ETRIG [ns]
     uint16_t fTimingTypeEtrig = InvalidTimingType; ///< Types of ETRIG frame
     uint16_t fTimingChannelEtrig = InvalidTimingChannel; ///< Channel of ETRIG frame
 
-    uint64_t fFrameDefault = NoFrame; ///< Default frame depending on the stream type [ns]
+    uint64_t fFrameDefault = InvalidFrame; ///< Default frame depending on the stream type [ns]
     uint16_t fTimingTypeDefault = InvalidTimingType; ///< Types of default frame
     uint16_t fTimingChannelDefault = InvalidTimingChannel; ///< Channel of default frame
 
