@@ -67,6 +67,7 @@ namespace sbnd::timing {
   enum TimingType : uint16_t {
     kSPECTDCType,
     kPTBHLTType,
+    kNoShiftType,
     kInvalidType = std::numeric_limits<uint16_t>::max()
   };
 
