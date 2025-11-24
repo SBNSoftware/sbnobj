@@ -12,6 +12,8 @@
 #include <stdint.h>
 #include <limits>
 
+#include "sbnobj/SBND/Timing/TimingInfo.hh"
+
 namespace sbnd::timing {
 
   /**
@@ -62,30 +64,31 @@ namespace sbnd::timing {
    * [SBN DocDB 43090](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=43090).
    */
 
+  enum TimingType : uint16_t {
+    kSPECTDCType,
+    kPTBHLTType,
+    kInvalidType = std::numeric_limits<uint16_t>::max()
+  };
+
+  static constexpr uint16_t kInvalidChannel = std::numeric_limits<uint16_t>::max();
+
   class FrameShiftInfo {
-  
-  public:
-    static constexpr uint64_t InvalidFrame = std::numeric_limits<uint64_t>::max(); ///< Invalid frame.    
-    static constexpr uint16_t InvalidTimingType = std::numeric_limits<uint16_t>::max(); ///< Invalid timing type for reference frame
-    static constexpr uint16_t InvalidTimingChannel = std::numeric_limits<uint16_t>::max(); ///< Invalid timing channel for reference frame
 
-  private:
+    uint64_t fFrameCrtt1         = kInvalidTimestamp; ///< Frame for CRT T1 signal [ns]
+    uint16_t fTimingTypeCrtt1    = kInvalidType; ///< Types of CRT T1 frame
+    uint16_t fTimingChannelCrtt1 = kInvalidChannel; ///< Channel of CRT T1 frame
 
-    uint64_t fFrameCrtt1 = InvalidFrame; ///< Frame for CRT T1 signal [ns]
-    uint16_t fTimingTypeCrtt1 = InvalidTimingType; ///< Types of CRT T1 frame
-    uint16_t fTimingChannelCrtt1 = InvalidTimingChannel; ///< Channel of CRT T1 frame
+    uint64_t fFrameBeamGate         = kInvalidTimestamp; ///< Frame for Beam Gate [ns]
+    uint16_t fTimingTypeBeamGate    = kInvalidType; ///< Types of Beam Gate frame
+    uint16_t fTimingChannelBeamGate = kInvalidChannel; ///< Channel of Beam Gate frame
 
-    uint64_t fFrameBeamGate = InvalidFrame; ///< Frame for Beam Gate [ns]
-    uint16_t fTimingTypeBeamGate = InvalidTimingType; ///< Types of Beam Gate frame
-    uint16_t fTimingChannelBeamGate = InvalidTimingChannel; ///< Channel of Beam Gate frame
+    uint64_t fFrameEtrig         = kInvalidTimestamp; ///< Frame for ETRIG [ns]
+    uint16_t fTimingTypeEtrig    = kInvalidType; ///< Types of ETRIG frame
+    uint16_t fTimingChannelEtrig = kInvalidChannel; ///< Channel of ETRIG frame
 
-    uint64_t fFrameEtrig = InvalidFrame; ///< Frame for ETRIG [ns]
-    uint16_t fTimingTypeEtrig = InvalidTimingType; ///< Types of ETRIG frame
-    uint16_t fTimingChannelEtrig = InvalidTimingChannel; ///< Channel of ETRIG frame
-
-    uint64_t fFrameDefault = InvalidFrame; ///< Default frame depending on the stream type [ns]
-    uint16_t fTimingTypeDefault = InvalidTimingType; ///< Types of default frame
-    uint16_t fTimingChannelDefault = InvalidTimingChannel; ///< Channel of default frame
+    uint64_t fFrameDefault         = kInvalidTimestamp; ///< Default frame depending on the stream type [ns]
+    uint16_t fTimingTypeDefault    = kInvalidType; ///< Types of default frame
+    uint16_t fTimingChannelDefault = kInvalidChannel; ///< Channel of default frame
 
    public:
 
