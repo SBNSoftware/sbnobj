@@ -14,6 +14,8 @@
 
 namespace sbnd::timing {
 
+  static constexpr uint64_t kInvalidTimestamp = std::numeric_limits<uint64_t>::max(); ///< Invalid timestamp
+
   /**
    * @brief A class to store important timestamps in SBND Data
    * 
@@ -25,19 +27,14 @@ namespace sbnd::timing {
 
   class TimingInfo {
   
-  public:
-    static constexpr uint64_t InvalidTimestamp = std::numeric_limits<uint64_t>::max(); ///< Invalid timestamp
-
-  private:
-
-    uint64_t fRawDAQHeaderTimestamp = InvalidTimestamp; ///< Timestamp when the event is built by the event builder at DAQ-level
-    uint64_t fTdcCrtt1 = InvalidTimestamp; ///< Timestamp of BNB stream CRT T1 Reset recorded by the SPEC-TDC
-    uint64_t fTdcBes = InvalidTimestamp; ///< Timestamp of BES signal sent by MFTU recorded by the SPEC-TDC
-    uint64_t fTdcRwm = InvalidTimestamp; ///< Timestamp of RWM signal recorded by the SPEC-TDC
-    uint64_t fTdcEtrig = InvalidTimestamp; ///< Timestamp of Event Trigger (ETRIG) sent by the PTB recorded by the SPEC-TDC 
-    uint64_t fHltCrtt1 = InvalidTimestamp; ///< Timestamp of BNB and Offbeam stream CRT T1 Reset High Level Trigger (HLT) created by the PTB
-    uint64_t fHltEtrig = InvalidTimestamp; ///< Timestamp of ETRIG HLT created by the PTB
-    uint64_t fHltBeamGate = InvalidTimestamp; ///< Timestamp of Beam Gate Acceptance HLT created by the PTB
+    uint64_t fRawDAQHeaderTimestamp = kInvalidTimestamp; ///< Timestamp when the event is built by the event builder at DAQ-level
+    uint64_t fTdcCrtt1 = kInvalidTimestamp; ///< Timestamp of BNB stream CRT T1 Reset recorded by the SPEC-TDC
+    uint64_t fTdcBes = kInvalidTimestamp; ///< Timestamp of BES signal sent by MFTU recorded by the SPEC-TDC
+    uint64_t fTdcRwm = kInvalidTimestamp; ///< Timestamp of RWM signal recorded by the SPEC-TDC
+    uint64_t fTdcEtrig = kInvalidTimestamp; ///< Timestamp of Event Trigger (ETRIG) sent by the PTB recorded by the SPEC-TDC 
+    uint64_t fHltCrtt1 = kInvalidTimestamp; ///< Timestamp of BNB and Offbeam stream CRT T1 Reset High Level Trigger (HLT) created by the PTB
+    uint64_t fHltEtrig = kInvalidTimestamp; ///< Timestamp of ETRIG HLT created by the PTB
+    uint64_t fHltBeamGate = kInvalidTimestamp; ///< Timestamp of Beam Gate Acceptance HLT created by the PTB
 
    public:
 
