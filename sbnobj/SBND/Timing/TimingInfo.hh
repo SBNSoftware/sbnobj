@@ -14,7 +14,8 @@
 
 namespace sbnd::timing {
 
-  static constexpr uint64_t kInvalidTimestamp = std::numeric_limits<uint64_t>::max(); ///< Invalid timestamp
+  static constexpr uint64_t kSecondInNanoseconds = static_cast<uint64_t>(1e9);           ///< 1s = 1,000,000,000ns
+  static constexpr uint64_t kInvalidTimestamp    = std::numeric_limits<uint64_t>::max(); ///< Invalid timestamp
 
   /**
    * @brief A class to store important timestamps in SBND Data
