@@ -1,11 +1,17 @@
 <lcgdict>
 <class name="art::Wrapper<std::vector<blip::Blip> >"/>
-<class name="blip::Blip" ClassVersion="10" />
+<class name="blip::Blip" ClassVersion="10" >
+ <version ClassVersion="10" checksum="723702414"/>
+</class>
 <class name="std::vector<blip::Blip>"/>
-<class name="blip::HitClust" ClassVersion="10" />
+<class name="blip::HitClust" ClassVersion="10" >
+ <version ClassVersion="10" checksum="1162717057"/>
+</class>
 <class name="vector<blip::HitClust>"/>
 <class name="art::Wrapper<std::vector<blip::HitClust> >"/>
-<class name="blip::TrueBlip" ClassVersion="10" />
+<class name="blip::TrueBlip" ClassVersion="10" >
+ <version ClassVersion="10" checksum="3344816662"/>
+</class>
 <class name="std::map<int,geo::Point_t>"/>
 <class name="art::Assns<blip::Blip,recob::Hit,void>"/>
 <class name="art::Assns<recob::Hit, blip::Blip,void>"/>
