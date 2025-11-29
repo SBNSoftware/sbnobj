@@ -24,7 +24,6 @@
 // Only include objects that we would like to be able to put into the event.
 // Do not include the objects they contain internally.
 //
-<class name="std::map<int,geo::Point_t>"/>
 <class name="blip::HitClust" ClassVersion="10" />
 <class name="vector<blip::HitClust>"/>
 <class name="art::Wrapper<std::vector<blip::HitClust> >"/>
