@@ -25,15 +25,15 @@
 // Do not include the objects they contain internally.
 //
 <class name="blip::HitClust" ClassVersion="10" />
-
+    <version ClassVersion="10" checksum=""/>
 <class name="vector<blip::HitClust>"/>
 <class name="art::Wrapper<std::vector<blip::HitClust> >"/>
 <class name="blip::Blip" ClassVersion="10" />
-
+    <version ClassVersion="10" checksum=""/>
 <class name="std::vector<blip::Blip>"/>
 <class name="art::Wrapper<std::vector<blip::Blip> >"/>
 <class name="blip::TrueBlip" ClassVersion="10" />
-
+    <version ClassVersion="10" checksum=""/>
 <class name="art::Assns<blip::Blip,recob::Hit,void>"/>
 <class name="art::Assns<recob::Hit, blip::Blip,void>"/>
 <class name="art::Assns<blip::Blip,recob::SpacePoint,void>"/>
