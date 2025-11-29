@@ -195,7 +195,7 @@ namespace blip {
     float     SigmaYZ         = -9.;        ///< Uncertainty in YZ intersect [cm]
     float     dX              = -9;         ///< Equivalent length along drift direction [cm] 
     float     dYZ             = -9;         ///< Approximate length scale in YZ space [cm]
-    blip::HitClust clusters[kNplanes]; ///< Plane/cluster-specific information. Just contains hit clusters making up this blip!
+    std::array<blip::HitClust, kNplanes> clusters; ///< Plane/cluster-specific information. Just contains hit clusters making up this blip!
     blip::TrueBlip truth; ///< Truth-matched energy deposition. Just contains the relevant MC truth info to this blip!
     double X() { return Position.X(); }
     double Y() { return Position.Y(); }
