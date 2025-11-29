@@ -1,4 +1,4 @@
-cet_make_library( LIBRARY_NAME sbndobj_BlipDataTypes
+cet_make_library( 
   SOURCE
     BlipDataTypes.cc
   LIBRARIES
@@ -6,7 +6,7 @@ cet_make_library( LIBRARY_NAME sbndobj_BlipDataTypes
     nusimdata::SimulationBase
     larcorealg::Geometry
 )
-art_dictionary(DICTIONARY_LIBRARIES sbndobj_BlipDataTypes) 
+art_dictionary(DICTIONARY_LIBRARIES sbnobj::SBND_Blip) 
 install_headers()
 install_source()
 install_fhicl()
