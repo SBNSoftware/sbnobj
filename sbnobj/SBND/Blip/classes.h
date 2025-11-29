@@ -24,19 +24,13 @@
 // Only include objects that we would like to be able to put into the event.
 // Do not include the objects they contain internally.
 //
-<class name="blip::HitClust" ClassVersion="10">
-    <version ClassVersion="10" checksum=""/>
-<class name="vector<blip::HitClust>"/>
-<class name="art::Wrapper<std::vector<blip::HitClust> >"/>
-<class name="blip::Blip" ClassVersion="10">
-    <version ClassVersion="10" checksum=""/>
-<class name="std::vector<blip::Blip>"/>
-<class name="art::Wrapper<std::vector<blip::Blip> >"/>
-<class name="blip::TrueBlip" ClassVersion="10">
-    <version ClassVersion="10" checksum=""/>
-<class name="art::Assns<blip::Blip,recob::Hit,void>"/>
-<class name="art::Assns<recob::Hit, blip::Blip,void>"/>
-<class name="art::Assns<blip::Blip,recob::SpacePoint,void>"/>
-<class name="art::Wrapper<art::Assns<blip::Blip,recob::Hit,void> >"/>
-<class name="art::Wrapper<art::Assns<recob::Hit,blip::Blip,void> >"/>
-<class name="art::Wrapper<art::Assns<blip::Blip,recob::SpacePoint,void> >"/>
+
+template class art::Assns<recob::Hit,blip::Blip,void>;
+template class art::Wrapper<art::Assns<recob::Hit,blip::Blip,void> >;
+template class std::vector<blip::Blip>;
+template class art::Wrapper<std::vector<blip::Blip> >;
+template class std::map<int, geo::Point_t>;
+template class art::Assns<blip::Blip,recob::Hit,void>;
+template class art::Wrapper<art::Assns<blip::Blip,recob::Hit,void> >;
+template class art::Assns<blip::Blip,recob::SpacePoint,void>;
+template class art::Wrapper<art::Assns<blip::Blip,recob::SpacePoint,void> >;
