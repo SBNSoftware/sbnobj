@@ -1,6 +1,7 @@
 <lcgdict>
 <class name="art::Wrapper<std::vector<blip::Blip> >"/>
-<class name="blip::Blip" ClassVersion="10" >
+<class name="blip::Blip" ClassVersion="11" >
+ <version ClassVersion="11" checksum="2428317905"/>
  <version ClassVersion="10" checksum="723702414"/>
 </class>
 <class name="std::vector<blip::Blip>"/>
