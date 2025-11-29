@@ -80,12 +80,12 @@ namespace blip {
   struct ParticleInfo {
     simb::MCParticle particle;
     int   trackId           = -9;   ///< ID from GEANT4 track.
-    int   index             = -9;   ///< 
-    int   isPrimary         = -9;   ///< 
-    int   numTrajPts          = -9; ///< 
-    double depEnergy         = -9;  ///< 
-    int   depElectrons        = -9; ///< 
-    double numElectrons      = -9;  ///< 
+    int   index             = -9;   ///< Index in vector of simb::MCParticle 
+    int   isPrimary         = -9;   ///< Bool value of simbMCParticle is Primary
+    int   numTrajPts          = -9; ///< part.NumberTrajectoryPoints() from mcparticle
+    double depEnergy         = -9;  ///< Total energy deposited across all interactions from this partcle [MeV]
+    int   depElectrons        = -9; ///< Total electrons deposited across all interactions from this partcle [e-]
+    double numElectrons      = -9;  ///< Depreciated
     double mass              = -9;  ///< simb::MCParticle mass [MeV]
     double E                 = -9;  ///< Starting simb::MCParticle energy [MeV]
     double endE              = -9;  ///< simb::MCParticle final energy [MeV]
