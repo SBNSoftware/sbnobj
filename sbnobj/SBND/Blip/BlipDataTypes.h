@@ -69,8 +69,8 @@ namespace blip {
     int       LeadG4PDG     = -9;     ///<  G4 PDG associated with the track depositing the most charge
     float     LeadCharge    = -9;     ///<  Largest charge deposition associated with this True Blip
     geo::Point_t  Position;               ///<  Charge weighted true-XYZ position [cm] //Used to be TVector3
-    typedef std::map<int,float>      G4ChargeMap; ///< Map from G4 particle track ID to deposited charge in this energy deposition  
-    typedef std::map<int,float>      G4PDGMap; ///< Map from G4 particle track ID to G4 PDG
+    std::map<int,float>      G4ChargeMap; ///< Map from G4 particle track ID to deposited charge in this energy deposition  
+    std::map<int,float>      G4PDGMap; ///< Map from G4 particle track ID to G4 PDG
   };
 
   /** Holder for MCTruth article data
