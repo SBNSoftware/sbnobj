@@ -4,6 +4,7 @@ cet_make_library( LIBRARY_NAME sbndobj_BlipDataTypes
   LIBRARIES
     lardataobj::RecoBase
     nusimdata::SimulationBase
+    larcorealg::Geometry
 )
 art_dictionary(DICTIONARY_LIBRARIES sbndobj_BlipDataTypes) 
 install_headers()
