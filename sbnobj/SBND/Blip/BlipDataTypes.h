@@ -186,12 +186,12 @@ namespace blip {
     /*!
       for properly flash matched out-of-time tracks this distance will be wrong! The blips have no such flash matching ability as of yet
     */
-    int       ProxTrkID       = -9;         ///< index of the of closest track, assuming the blip was concident with event trigger [cm]
+    int       ProxTrkID       = -9;         ///< index of the of closest track, assuming the blip was concident with event trigger
     bool      inCylinder      = false;      ///< Bool for whether this blip falls in a 45 degree cone relative to any track closer than fcl-set CylinderRadius (15 cm)
     /*!
       please note the blip X position is unreliable, so these distance and 3-d position derived variables may be incorrect
     */
-    geo::Point_t  Position;                     ///< 3D position TVector3 //Used to be TVector3
+    geo::Point_t  Position;                 ///< 3D position vector. Reconstructed with wrong t0! [cm]
     float     SigmaYZ         = -9.;        ///< Uncertainty in YZ intersect [cm]
     float     dX              = -9;         ///< Equivalent length along drift direction [cm] 
     float     dYZ             = -9;         ///< Approximate length scale in YZ space [cm]
