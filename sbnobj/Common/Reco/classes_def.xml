@@ -88,6 +88,12 @@
   <class name="art::Wrapper<art::Assns<recob::Slice, sbn::LightCalo>>" />
   <class name="art::Assns<sbn::LightCalo, recob::Slice, void>" /> 
   <class name="art::Wrapper<art::Assns<sbn::LightCalo, recob::Slice, void>>"/>
+
+  <class name="art::Assns<recob::OpFlash, sbn::LightCalo>" />
+  <class name="art::Assns<sbn::LightCalo, recob::OpFlash, void>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::LightCalo>>" />
+  <class name="art::Wrapper<art::Assns<sbn::LightCalo, recob::OpFlash, void>>" />
+
   <class name="sbn::OpT0Finder">
   </class>
   <class name="std::vector<sbn::OpT0Finder>" />

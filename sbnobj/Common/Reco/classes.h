@@ -28,7 +28,7 @@
 #include "sbnobj/Common/Reco/VertexHit.h"
 #include "sbnobj/Common/Reco/MVAPID.h"
 #include "sbnobj/Common/Reco/CRUMBSResult.h"
-#include "sbnobj/Common/Reco/LightCaloInfo.h"
+#include "sbnobj/Common/Reco/LightCalo.h"
 #include "sbnobj/Common/Reco/OpT0FinderResult.h"
 #include "sbnobj/Common/Reco/CNNScore.h"
 #include "sbnobj/Common/Reco/TPCPMTBarycenterMatch.h"
