@@ -17,7 +17,6 @@ cet_make_library(
   LIBRARIES
     cetlib_except::cetlib_except
     messagefacility::MF_MessageLogger
-    larcorealg::Geometry
     lardataobj::AnalysisBase
   )
 
