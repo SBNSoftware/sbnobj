@@ -9,8 +9,6 @@
 
 // C/C++ standard libraries
 #include <limits>
-#include "larcorealg/Geometry/GeometryCore.h"
-#include "larcoreobj/SimpleTypesAndConstants/geo_types.h"
 #include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
 // -----------------------------------------------------------------------------
 namespace sbn::crt { 
