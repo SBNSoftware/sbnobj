@@ -4,7 +4,7 @@ cet_make_library(
   LIBRARIES
     lardataobj::RecoBase
     nusimdata::SimulationBase
-    larcore::Geometry
+    larcorealg::Geometry
 )
 art_dictionary(DICTIONARY_LIBRARIES sbnobj::SBND_Blip) 
 install_headers()
