@@ -100,7 +100,7 @@ namespace blip {
     double endtime           = -9; ///< Time of final interaction [us]
     geo::Point_t startPoint;           ///< Starting Position of particle [cm] //Used to be TVector3
     geo::Point_t endPoint;             ///< End position of particle [cm]  //Used to be TVector3
-    geo::Point_t position;             ///< Central position of the trajectory [cm]  //Used to be TVector3
+    geo::Point_t Position;             ///< Central position of the trajectory [cm]  //Used to be TVector3
   };
 
  /** Hit clusters are collections of adjacent hits on a single wire plane.
