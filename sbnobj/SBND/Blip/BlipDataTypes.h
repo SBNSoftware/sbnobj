@@ -3,6 +3,7 @@
 #include "lardataobj/RecoBase/Hit.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "larcoreobj/SimpleTypesAndConstants/geo_vectors.h"
+#include "larcore/Geometry/Geometry.h"
 #include <vector>
 #include <map>
 #include <set>
