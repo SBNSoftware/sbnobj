@@ -13,6 +13,7 @@
  <version ClassVersion="10" checksum="3344816662"/>
 </class>
 <class name="art::Assns<blip::Blip,recob::Hit,void>"/>
+<class name="std::map<int,geo::Point_t>"/>
 <class name="art::Assns<recob::Hit, blip::Blip,void>"/>
 <class name="art::Assns<blip::Blip,recob::SpacePoint,void>"/>
 <class name="art::Wrapper<art::Assns<blip::Blip,recob::Hit,void> >"/>
