@@ -159,7 +159,7 @@ namespace sbn {
     int whicht0     = -1;                                          //!< Which T0 producer was used to tag. 0 is Pandora, 1 is CRTTrack 2 is CRTHit, 3 is CRTSpacePoint
     float xShiftCRT = 0.f;                                         //<! If whicht0 == 1,2,3 the amount by which the track was shifted in x
     int id          = -1;                                          //!< ID of track
-    int cryostat    = -1;                                          //!< Cryostat number of track
+    int cryostat    = -1000;                                          //!< Cryostat number of track
     bool clear_cosmic_muon = false;                                //!< Whether Pandora thinks the track is "clearly" a cosmic
     Vector3D start;                                                //!< Start position of track [cm]
     Vector3D end;                                                  //!< End position of track [cm]
