@@ -68,7 +68,7 @@ namespace sbn {
   };
 
   struct TrueHit {
-    int16_t cryo    = -1;                                          //!< Cryostat of hit
+    int16_t cryo    = -1001;                                          //!< Cryostat of hit
     int16_t tpc     = -1;                                          //!< TPC of hit
     int16_t plane   = -1;                                          //!< Plane of hit
     int wire        = -1;                                          //!< Wire of hit
