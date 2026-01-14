@@ -17,7 +17,7 @@ namespace sbn{
    * @brief A simple class to store reconstructed charge, light, and visible energy.
    */
 
-  class LightCalo {
+  struct LightCalo {
   public:
 
     // NaN value to initialize data members
@@ -35,12 +35,6 @@ namespace sbn{
      * Default constructor.
      */
     LightCalo() = default;
-    LightCalo(double charge, double light, double energy, int bestplane)
-      : charge(charge)
-      , light(light)
-      , energy(energy)
-      , bestplane(bestplane)
-      {} 
   };
 }
 
