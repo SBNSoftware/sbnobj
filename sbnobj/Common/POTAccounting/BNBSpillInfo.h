@@ -41,9 +41,8 @@ namespace sbn {
 
     float BTJT2; //!< Temperature of air exiting target, units Deg C
 
-    float THCURR; //!< Current applied to Horn, units kiloAmperes
+    float THCURR; //!< Current applied to Horn, units kiloAmperes 
 
-    // Keep the original multiwire stations from develop (since you removed them)
     float M875HS; //!< Multiwire station after Mag 875, Fit to Horizontal Sigma?
     float M875VS; //!< Multiwire station after Mag 875, Fit to Vertical Sigma?
     float M875HM; //!< Multiwire station after Mag 875, Fit to Horizontal Mean?
