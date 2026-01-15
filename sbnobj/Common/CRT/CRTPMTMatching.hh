@@ -59,10 +59,10 @@ namespace sbn::crt {
     static constexpr int NoLocation = -1;
 
     geo::Point_t position;           ///< Hit location [cm]
-    double PMTTimeDiff; //= NoTime;     < CRT hit time minus PMT flash time [us] (instead maybe wanna set NoTime vars in 
-    double time;//        = NoTime;     ///< CRT hit time [us]
-    int sys;     //       = NoLocation; ///< CRT subdetector the hit fell into.
-    int region;//         = NoLocation; ///< Region the matched CRT hit fell into.
+    double PMTTimeDiff = NoTime;     ///< CRT hit time minus PMT flash time [us]
+    double time        = NoTime;     ///< CRT hit time [us]
+    int sys            = NoLocation; ///< CRT subdetector the hit fell into.
+    int region         = NoLocation; ///< Region the matched CRT hit fell into.
   };
 
   struct CRTPMTMatching{
@@ -83,18 +83,18 @@ namespace sbn::crt {
     static constexpr double NoWidth = -1.0;
 
 
-    int          flashID;//             = NoID;    ///< ID of the optical flash.
-    double       flashTime;//           = NoTime;  ///< Time of the optical flash w.r.t. the global trigger [us]
-    double       flashGateTime;//       = NoTime;  ///< Time of the optical flash w.r.t. the beam gate opening [us]
-    double       firstOpHitPeakTime;//  = NoTime;  ///< Time of the first optical hit peak time w.r.t. the global trigger [us]
-    double       firstOpHitStartTime;// = NoTime;  ///< Time of the first optical hit start time w.r.t. the global trigger [us]
-    bool         flashInGate;//         = false;   ///< Flash within gate or not.
-    bool         flashInBeam ;//        = false;   ///< Flash within the beam window of the gate or not.
-    double       flashPE;//             = -1.0;    ///< Total reconstructed light in the flash [photoelectrons]
+    int          flashID             = NoID;    ///< ID of the optical flash.
+    double       flashTime           = NoTime;  ///< Time of the optical flash w.r.t. the global trigger [us]
+    double       flashGateTime       = NoTime;  ///< Time of the optical flash w.r.t. the beam gate opening [us]
+    double       firstOpHitPeakTime  = NoTime;  ///< Time of the first optical hit peak time w.r.t. the global trigger [us]
+    double       firstOpHitStartTime = NoTime;  ///< Time of the first optical hit start time w.r.t. the global trigger [us]
+    bool         flashInGate         = false;   ///< Flash within gate or not.
+    bool         flashInBeam         = false;   ///< Flash within the beam window of the gate or not.
+    double       flashPE             = -1.0;    ///< Total reconstructed light in the flash [photoelectrons]
     geo::Point_t flashPosition;                 ///< Flash barycenter coordinates evaluated using ADCs as weights.
-    double       flashYWidth;//         = NoWidth; ///< Flash spread along Y.
-    double       flashZWidth;//         = NoWidth; ///< Flash spread along Z. 
-    MatchType    flashClassification;// = MatchType::noMatch; ///< Classification of the optical flash.
+    double       flashYWidth         = NoWidth; ///< Flash spread along Y.
+    double       flashZWidth         = NoWidth; ///< Flash spread along Z. 
+    MatchType    flashClassification = MatchType::noMatch; ///< Classification of the optical flash.
     std::vector<MatchedCRT> matchedCRTHits;     ///< Matched CRT Hits with the optical flash.
     unsigned int nTopCRTHitsBefore   = NoCount; ///< Number of Top CRT Hits before the optical flash.
     unsigned int nTopCRTHitsAfter    = NoCount; ///< Number of Top CRT Hits after the optical flash.
