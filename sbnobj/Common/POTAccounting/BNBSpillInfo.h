@@ -13,12 +13,12 @@ namespace sbn {
   class BNBSpillInfo {
   public:
 
-    unsigned int event;
-
     unsigned long int spill_time_s; //!< The IFDB Beam Spill Time, unit sec
     unsigned long int spill_time_ns; //!< The IFDB Beam Spill Time, unit nsec
 
-    float FOM; // Figure of Merit for BNB
+    unsigned int event;
+
+    float FOM; ///! Figure of Merit for BNB
 
     float TOR860; //!< Toroid before Mag 875, units e12 Protons
     float TOR875; //!< Toroid after Mag 875, units e12 Protons
@@ -54,27 +54,24 @@ namespace sbn {
     float M876HM; //!< Multiwire station after Mag 876, Fit to Horizontal Mean?
     float M876VM; //!< Multiwire station after Mag 876, Fit to Vertical Mean?
 
+    // And add all your new offsets here:
+    float HP875Offset;  // units mm
+    float VP875Offset;  // units mm
+    float VP873Offset;  // units mm
+    float HPTG1Offset;  // units mm
+    float HPTG2Offset;  // units mm
+    float VPTG1Offset;  // units mm
+    float VPTG2Offset;  // units mm
+
+    std::vector<int> M875BB; //!< Multiwire station before Mag 875...?
 
 
-    float HP875Offset;//units mm
-    float VP875Offset;//units mm
-    float VP873Offset;//units mm
-    float HPTG1Offset;//units mm
-    float HPTG2Offset;//units mm
-    float VPTG1Offset;//units mm
-    float VPTG2Offset;//units mm
-
-
-    
-    // https://cdcvs.fnal.gov/redmine/projects/ubraw/repository/revisions/master/entry/ubraw/BeamDAQ/MWRData.cpp
-    std::vector< int > M875BB; //!< Multiwire station before Mag 875...?
     std::vector< int > M876BB; //!< Multiwire station after Mag 875...?
     std::vector< int > MMBTBB; //!< Multiwire station at the target station, 
-    
+
     float M875BB_spill_time_diff; //!< the time difference between M875BB and the matched spill
     float M876BB_spill_time_diff; //!< the time difference between M876BB and the matched spill
-    float MMBTBB_spill_time_diff; //!< the time difference between MMBTBB and the matched spill
-
+    float MMBTBB_spill_time_diff; //!< time diff between MMBTBB and matched spill
 
 
     double POT() const { return TOR875; }
