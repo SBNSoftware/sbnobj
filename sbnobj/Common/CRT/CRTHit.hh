@@ -17,6 +17,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include <limits>
 
 namespace sbn::crt {
 
@@ -29,7 +30,7 @@ namespace sbn::crt {
       std::map< uint8_t, std::vector<std::pair<int,float> > > pesmap; ///< Saves signal hit information (FEB, local-channel and PE) .
       float         peshit{kInvalidF}; ///< Total photo-electron (PE) in a crt hit.
 
-      uint64_t       ts0_s{-1}; ///< Second-only part of timestamp T0.
+      uint64_t       ts0_s{static_cast<uint64_t>(-1)}; ///< Second-only part of timestamp T0.
       double    ts0_s_corr{kInvalidD}; ///< [Honestly, not sure at this point, it was there since long time (BB)]
       double        ts0_ns{kInvalidD}; ///< Timestamp T0 (from White Rabbit), in UTC absolute time scale in nanoseconds from the Epoch.
       double   ts0_ns_corr{kInvalidD}; ///< [Honestly, not sure at this point, it was there since long time (BB)]
