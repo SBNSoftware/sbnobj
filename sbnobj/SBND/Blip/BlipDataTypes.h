@@ -185,12 +185,6 @@ namespace blip {
      * 
      * Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster.
      */
-    float     TimeTick        = -999;
-    /**
-     * @brief Average time of hitclusters making up blips. [us]
-     * 
-     * Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster.
-     */
     float     Time            = -999;       ///< Average time of hitclusters making up blips. [us] 
     /*!
       Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster 
