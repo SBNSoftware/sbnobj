@@ -15,7 +15,6 @@
 #include "sbnobj/ICARUS/PMT/Trigger/Data/ReadoutTriggerGate.h"
 
 // LArSoft libraries
-#include "lardataalg/Utilities/quantities/electronics.h" // tick
 #include "lardataobj/RawData/OpDetWaveform.h"
 
 // C/C++ standard libraries
@@ -33,8 +32,11 @@ namespace icarus::trigger {
   class OpticalTriggerGate;
   std::ostream& operator<< (std::ostream&, OpticalTriggerGate const&);
   
-  using TriggerGateTick_t = util::quantities::tick::value_t; ///< Tick point.
-  using TriggerGateTicks_t = util::quantities::tick::value_t; ///< Tick interval.
+  /// Tick point (copy of `util::quantities::tick::value_t`).
+  using TriggerGateTick_t = std::ptrdiff_t;
+  
+  /// Tick interval (copy of `util::quantities::tick::value_t`).
+  using TriggerGateTicks_t = TriggerGateTick_t;
   
   /// Type of trigger gate data serialized into _art_ data products.
   using OpticalTriggerGateData_t = icarus::trigger::ReadoutTriggerGate
