@@ -13,7 +13,7 @@ namespace sbnd {
       , fTs1        (0.)
       , fTs1Err     (0.)
       , fPE         (0.)
-      , fTaggerHits ({})
+      , fTaggerSPs  ({})
     {}
 
     CRTBlob::CRTBlob(const double &_ts0, const double &_ets0, const double &_ts1, const double &_ets1,
@@ -23,7 +23,7 @@ namespace sbnd {
       , fTs1        (_ts1)
       , fTs1Err     (_ets1)
       , fPE         (_pe)
-      , fTaggerHits (_tagger_hits)
+      , fTaggerSPs  (_tagger_hits)
     {}
 
     CRTBlob::~CRTBlob() {}
@@ -33,13 +33,13 @@ namespace sbnd {
     double                   CRTBlob::Ts1() const {return fTs1; }
     double                   CRTBlob::Ts1Err() const { return fTs1Err; }
     double                   CRTBlob::PE() const { return fPE; }
-    std::map<CRTTagger, int> CRTBlob::TaggerHits() const { return fTaggerHits; }
+    std::map<CRTTagger, int> CRTBlob::TaggerSPs() const { return fTaggerSPs; }
 
     int CRTBlob::TotalSpacePoints() const
     {
       int total = 0;
       
-      for(auto const& [ tagger, count ] : fTaggerHits)
+      for(auto const& [ tagger, count ] : fTaggerSPs)
         total += count;
 
       return total;
@@ -47,7 +47,7 @@ namespace sbnd {
 
     int CRTBlob::SpacePointsInTagger(const CRTTagger tagger) const
     {
-      return fTaggerHits.at(tagger);
+      return fTaggerSPs.at(tagger);
     }
   }
 }
