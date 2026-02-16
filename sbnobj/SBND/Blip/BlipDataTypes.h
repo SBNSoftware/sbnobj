@@ -179,16 +179,18 @@ namespace blip {
     int       TPC             = -9;         ///< Which tpc the blip was reconstructed to. For SBND this may be 0 or 1. 
     int       NPlanes         = -9;         ///< Number of planes matched to build the blip. Blips must be plane matched so this should be 2+ planes.
     int       MaxWireSpan     = -9;         ///< Maximum span of wires on any plane hit-cluster
-    float     TimeTick        = -999;       ///< Average time of hitclusters making up blips. [tpc tick]
     /**
      * @brief Average time of hitclusters making up blips. [tpc tick]
      * 
      * Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster.
      */
-    float     Time            = -999;       ///< Average time of hitclusters making up blips. [us] 
-    /*!
-      Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster 
-    */
+    float     TimeTick        = -999;
+    /**
+     * @brief Average time of hitclusters making up blips. [us]
+     * 
+     * Hit cluster time is the charge-weighted average of the hit-peak times for hits in the cluster.
+     */
+    float     Time            = -999;
     float     Charge          = -9;         ///< Charge on calorimetry plane [e-]
     float     Energy          = -999;       ///< Reconstructed energy in the calorimetry plane (const dE/dx, fcl-configurable) [MeV]
     float     EnergyESTAR     = -999;       ///< Reconstructed energy in the calorimetry plane (ESTAR method from ArgoNeuT)    [MeV]
