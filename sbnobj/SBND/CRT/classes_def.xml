@@ -186,7 +186,7 @@
   <!-- CRTBlob -->
 
   <class name="sbnd::crt::CRTBlob" ClassVersion="10">
-    <version ClassVersion="10" checksum="2014295208"/>
+    <version ClassVersion="10" checksum="3696724874"/>
   </class>
   <class name="std::vector<sbnd::crt::CRTBlob>"/>
   <class name="art::Wrapper<sbnd::crt::CRTBlob>"/>
