@@ -172,7 +172,7 @@ namespace blip {
  *  the highest scoring one is selected. 
  *  Score components include cluster charge, cluster time duration, cluster peak time, and wire intersections. 
  */
-  struct BlipReco {
+  struct Blip {
     int       ID              = -9;         ///< Internal index for blip labelling
     bool      isValid         = false;      ///< Blip passes basic checks in reco. All blips saved to artRoot file should be valid.
     int       Cryostat        = -9;         ///< Which cryostat the blip was reconstructed to. For SBND this should always be 0.
