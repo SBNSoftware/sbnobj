@@ -22,11 +22,11 @@
 // Do not include the objects they contain internally.
 //
 
-template class art::Assns<recob::Hit,blip::Blip>;
-template class art::Wrapper<art::Assns<recob::Hit,blip::Blip> >;
-template class std::vector<blip::Blip>;
-template class art::Wrapper<std::vector<blip::Blip> >;
-template class art::Assns<blip::Blip,recob::Hit>;
-template class art::Wrapper<art::Assns<blip::Blip,recob::Hit> >;
-template class art::Assns<blip::Blip,recob::SpacePoint>;
-template class art::Wrapper<art::Assns<blip::Blip,recob::SpacePoint> >;
+template class art::Assns<recob::Hit,blip::BlipReco>;
+template class art::Wrapper<art::Assns<recob::Hit,blip::BlipReco> >;
+template class std::vector<blip::BlipReco>;
+template class art::Wrapper<std::vector<blip::BlipReco> >;
+template class art::Assns<blip::BlipReco,recob::Hit>;
+template class art::Wrapper<art::Assns<blip::BlipReco,recob::Hit> >;
+template class art::Assns<blip::BlipReco,recob::SpacePoint>;
+template class art::Wrapper<art::Assns<blip::BlipReco,recob::SpacePoint> >;
