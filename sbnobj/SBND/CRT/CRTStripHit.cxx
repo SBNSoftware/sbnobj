@@ -31,8 +31,8 @@ namespace sbnd {
       , fADC1         (_adc1)
       , fADC2         (_adc2)
     {
-      fSaturated1 = fADC1 == _saturation_level;
-      fSaturated2 = fADC2 == _saturation_level;
+      fSaturated1 = fADC1 >= _saturation_level;
+      fSaturated2 = fADC2 >= _saturation_level;
     }
 
     CRTStripHit::CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
