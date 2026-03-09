@@ -7,6 +7,7 @@ cet_make_library(
     CRTStripHit.cxx
     CRTTrack.cxx
     CRTVeto.cxx
+    CRTBlob.cxx
     FEBData.cxx
     FEBTruthInfo.cxx
   LIBRARIES

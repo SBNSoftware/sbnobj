@@ -3,18 +3,20 @@
 
 #include "sbnobj/SBND/CRT/CRTSpacePoint.hh"
 
+#include <limits>
+
 namespace sbnd {
 
   namespace crt {
 
     CRTSpacePoint::CRTSpacePoint()
-      : fPos      ({0., 0., 0.})
-      , fPosErr   ({0., 0., 0.})
-      , fPE       (0.)
-      , fTs0      (0.)
-      , fTs0Err   (0.)
-      , fTs1      (0.)
-      , fTs1Err   (0.)
+      : fPos      ({std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest()})
+      , fPosErr   ({std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest()})
+      , fPE       (std::numeric_limits<double>::lowest())
+      , fTs0      (std::numeric_limits<double>::lowest())
+      , fTs0Err   (std::numeric_limits<double>::lowest())
+      , fTs1      (std::numeric_limits<double>::lowest())
+      , fTs1Err   (std::numeric_limits<double>::lowest())
       , fComplete (false)
     {}
 

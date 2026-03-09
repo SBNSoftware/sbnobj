@@ -3,15 +3,17 @@
 
 #include "sbnobj/SBND/CRT/CRTCluster.hh"
 
+#include <limits>
+
 namespace sbnd {
 
   namespace crt {
 
     CRTCluster::CRTCluster()
-      : fTs0          (0)
-      , fTs1          (0)
-      , fUnixS        (0)
-      , fNHits        (0)
+      : fTs0          (std::numeric_limits<double>::lowest())
+      , fTs1          (std::numeric_limits<double>::lowest())
+      , fUnixS        (std::numeric_limits<uint32_t>::max())
+      , fNHits        (std::numeric_limits<uint16_t>::max())
       , fTagger       (kUndefinedTagger)
       , fComposition  (kUndefinedSet)
     {}
