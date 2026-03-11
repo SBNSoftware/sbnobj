@@ -3,19 +3,21 @@
 
 #include "sbnobj/SBND/CRT/CRTStripHit.hh"
 
+#include <limits>
+
 namespace sbnd {
 
   namespace crt {
 
     CRTStripHit::CRTStripHit()
-      : fChannel      (0)
-      , fTs0          (0)
-      , fTs1          (0)
-      , fUnixS        (0)
-      , fPos          (0)
-      , fErr          (0)
-      , fADC1         (0)
-      , fADC2         (0)
+      : fChannel      (std::numeric_limits<uint32_t>::max())
+      , fTs0          (std::numeric_limits<double>::lowest())
+      , fTs1          (std::numeric_limits<double>::lowest())
+      , fUnixS        (std::numeric_limits<uint32_t>::max())
+      , fPos          (std::numeric_limits<double>::lowest())
+      , fErr          (std::numeric_limits<double>::lowest())
+      , fADC1         (std::numeric_limits<uint16_t>::max())
+      , fADC2         (std::numeric_limits<uint16_t>::max())
       , fSaturated1   (false)
       , fSaturated2   (false)
     {}
