@@ -8,8 +8,8 @@ cet_make_library(
     CRTHitT0TaggingTruthInfo.cc
     LIBRARIES
     cetlib_except::cetlib_except
-    lardataobj::Simulation
-    larcorealg::Geometry
+    larcoreobj::headers
+    lardataobj::Simulation # for associations to sim::AuxDetIDE
   )
 
 art_dictionary(DICTIONARY_LIBRARIES sbnobj::Common_CRT)
