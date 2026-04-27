@@ -59,7 +59,7 @@ namespace sbnd::timing {
    * PTB: indicates the High Level Trigger (HLT) type
    *
    * For more information, see
-   * [SBN DOCDB ???] ?????
+   * [SBN DOCDB 45982](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=45982)
    * Legacy -- no longer applied:
    * [SBN DocDB 43090](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=43090).
    */
