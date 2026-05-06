@@ -1,8 +1,7 @@
 /**
  * @file   sbnobj/SBND/Timing/FrameShiftInfo.hh
- * @brief  Defines data structures for SBND Frame Shift products (docdb#43090).
+ * @brief  Defines data structures for SBND Frame Shift products
  * @author Vu Chi Lan Nguyen
- * @date   August 29, 2025
  *
  */
 
@@ -92,28 +91,28 @@ namespace sbnd::timing {
    public:
 
     /**
-     * Default constructor.
+     * @brief Default constructor.
      */
     FrameShiftInfo() = default;
 
     /**
-     * Constructor to set all frames
+     * @brief Constructs the object with all frame timestamps and metadata.
      *
-     * @param frameCrtt1 Frame for CRT T1 [ns]
-     * @param timingTypeCrtt1 Timing type for CRT T1 frame
-     * @param timingChannelCrtt1 Timing channel for CRT T1 frame
+     * @param[in] frameCrtt1 Frame for CRT T1 [ns].
+     * @param[in] timingTypeCrtt1 Timing type for CRT T1 frame.
+     * @param[in] timingChannelCrtt1 Timing channel for CRT T1 frame.
      *
-     * @param frameBeamGate Frame for Beam Gate [ns]
-     * @param timingTypeBeamGate Timing type for Beam Gate frame
-     * @param timingChannelBeamGate Timing channel for Beam Gate frame
+     * @param[in] frameBeamGate Frame for Beam Gate [ns].
+     * @param[in] timingTypeBeamGate Timing type for Beam Gate frame.
+     * @param[in] timingChannelBeamGate Timing channel for Beam Gate frame.
      *
-     * @param frameEtrig Frame for ETRIG [ns]
-     * @param timingTypeEtrig Timing type for ETRIG frame
-     * @param timingChannelEtrig Timing channel for ETRIG frame
+     * @param[in] frameEtrig Frame for ETRIG [ns].
+     * @param[in] timingTypeEtrig Timing type for ETRIG frame.
+     * @param[in] timingChannelEtrig Timing channel for ETRIG frame.
      *
-     * @param frameDefault Default frame depending on the stream [ns]
-     * @param timingTypeDefault Timing type for Default frame
-     * @param timingChannelDefault Timing channel for Default frame
+     * @param[in] frameDefault Default frame depending on the stream [ns].
+     * @param[in] timingTypeDefault Timing type for default frame.
+     * @param[in] timingChannelDefault Timing channel for default frame.
      *
      */
     FrameShiftInfo(uint64_t frameCrtt1, uint16_t timingTypeCrtt1, uint16_t timingChannelCrtt1,
@@ -123,39 +122,75 @@ namespace sbnd::timing {
 
     /// @name Getters
     /// @{
+    /// @brief Returns the CRT T1 reference frame timestamp [ns].
     uint64_t FrameCrtt1() const { return fFrameCrtt1; }
+    /// @brief Returns the timing source type for the CRT T1 frame.
     uint16_t TimingTypeCrtt1() const { return fTimingTypeCrtt1; }
+    /// @brief Returns the timing source channel for the CRT T1 frame.
     uint16_t TimingChannelCrtt1() const { return fTimingChannelCrtt1; }
 
+    /// @brief Returns the Beam Gate reference frame timestamp [ns].
     uint64_t FrameBeamGate() const { return fFrameBeamGate; }
+    /// @brief Returns the timing source type for the Beam Gate frame.
     uint16_t TimingTypeBeamGate() const { return fTimingTypeBeamGate; }
+    /// @brief Returns the timing source channel for the Beam Gate frame.
     uint16_t TimingChannelBeamGate() const { return fTimingChannelBeamGate; }
 
+    /// @brief Returns the ETRIG reference frame timestamp [ns].
     uint64_t FrameEtrig() const { return fFrameEtrig; }
+    /// @brief Returns the timing source type for the ETRIG frame.
     uint16_t TimingTypeEtrig() const { return fTimingTypeEtrig; }
+    /// @brief Returns the timing source channel for the ETRIG frame.
     uint16_t TimingChannelEtrig() const { return fTimingChannelEtrig; }
 
+    /// @brief Returns the default reference frame timestamp [ns].
     uint64_t FrameDefault() const { return fFrameDefault; }
+    /// @brief Returns the timing source type for the default frame.
     uint16_t TimingTypeDefault() const { return fTimingTypeDefault; }
+    /// @brief Returns the timing source channel for the default frame.
     uint16_t TimingChannelDefault() const { return fTimingChannelDefault; }
     /// @}
 
     /// @name Setters
     /// @{
+    /// @brief Sets the CRT T1 reference frame timestamp [ns].
+    /// @param[in] frame CRT T1 frame timestamp.
     void SetFrameCrtt1(uint64_t frame){ fFrameCrtt1 = frame; }
+    /// @brief Sets the timing source type for the CRT T1 frame.
+    /// @param[in] type Timing type value.
     void SetTimingTypeCrtt1(uint16_t type){ fTimingTypeCrtt1 = type; }
+    /// @brief Sets the timing source channel for the CRT T1 frame.
+    /// @param[in] channel Timing channel value.
     void SetTimingChannelCrtt1(uint16_t channel){ fTimingChannelCrtt1 = channel; }
     
+    /// @brief Sets the Beam Gate reference frame timestamp [ns].
+    /// @param[in] frame Beam Gate frame timestamp.
     void SetFrameBeamGate(uint64_t frame){ fFrameBeamGate = frame; }
+    /// @brief Sets the timing source type for the Beam Gate frame.
+    /// @param[in] type Timing type value.
     void SetTimingTypeBeamGate(uint16_t type){ fTimingTypeBeamGate = type; }
+    /// @brief Sets the timing source channel for the Beam Gate frame.
+    /// @param[in] channel Timing channel value.
     void SetTimingChannelBeamGate(uint16_t channel){ fTimingChannelBeamGate = channel; }
 
+    /// @brief Sets the ETRIG reference frame timestamp [ns].
+    /// @param[in] frame ETRIG frame timestamp.
     void SetFrameEtrig(uint64_t frame){ fFrameEtrig = frame; }
+    /// @brief Sets the timing source type for the ETRIG frame.
+    /// @param[in] type Timing type value.
     void SetTimingTypeEtrig(uint16_t type){ fTimingTypeEtrig = type; }
+    /// @brief Sets the timing source channel for the ETRIG frame.
+    /// @param[in] channel Timing channel value.
     void SetTimingChannelEtrig(uint16_t channel){ fTimingChannelEtrig = channel; }
 
+    /// @brief Sets the default reference frame timestamp [ns].
+    /// @param[in] frame Default frame timestamp.
     void SetFrameDefault(uint64_t frame){ fFrameDefault = frame; }
+    /// @brief Sets the timing source type for the default frame.
+    /// @param[in] type Timing type value.
     void SetTimingTypeDefault(uint16_t type){ fTimingTypeDefault = type; }
+    /// @brief Sets the timing source channel for the default frame.
+    /// @param[in] channel Timing channel value.
     void SetTimingChannelDefault(uint16_t channel){ fTimingChannelDefault = channel; }
     /// @}
   };

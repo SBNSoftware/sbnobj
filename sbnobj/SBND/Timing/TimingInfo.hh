@@ -1,8 +1,7 @@
 /**
  * @file   sbnobj/SBND/Timing/TimingInfo.hh
- * @brief  Defines data structures for SBND Timing products (docdb#43090).
+ * @brief  Defines data structures for SBND Timing products
  * @author Vu Chi Lan Nguyen
- * @date   August 29, 2025
  *
  */
 
@@ -40,45 +39,69 @@ namespace sbnd::timing {
    public:
 
     /**
-     * Default constructor.
+      * @brief Default constructor.
      */
     TimingInfo() = default;
 
     /**
-     * Constructor to set all timestamps
+      * @brief Constructs the object with all key timing timestamps.
      *
-     * @param rawDAQHeaderTimestamp Raw DAQ Timestamp in UNIX format [ns]
-     * @param tdcCrtt1 CRT T1 Timestamp in UNIX format [ns]
-     * @param tdcBes BES Timestamp recorded by TDC in UNIX format [ns]
-     * @param tdcRwm RWM Timestamp recorded by TDC in UNIX format [ns]
-     * @param tdcEtrig ETRIG Timestamp recorded by TDC in UNIX format [ns]
-     * @param hltCrtt1 CRT T1 Timestamp created by PTB in UNIX format [ns]
-     * @param hltEtrig ETRIG Timestamp created by PTB in UNIX format [ns]
-     * @param hltBeamGate Beam Gate Timestamp created by PTB in UNIX format [ns]
+      * @param[in] rawDAQHeaderTimestamp Raw DAQ timestamp in UNIX format [ns].
+      * @param[in] tdcCrtt1 CRT T1 timestamp recorded by the TDC [ns].
+      * @param[in] tdcBes BES timestamp recorded by the TDC [ns].
+      * @param[in] tdcRwm RWM timestamp recorded by the TDC [ns].
+      * @param[in] tdcEtrig ETRIG timestamp recorded by the TDC [ns].
+      * @param[in] hltCrtt1 CRT T1 timestamp produced by the PTB HLT [ns].
+      * @param[in] hltEtrig ETRIG timestamp produced by the PTB HLT [ns].
+      * @param[in] hltBeamGate Beam Gate timestamp produced by the PTB HLT [ns].
      */
     TimingInfo(uint64_t rawDAQHeaderTimestamp, uint64_t tdcCrtt1, uint64_t tdcBes, uint64_t tdcRwm, uint64_t tdcEtrig, uint64_t hltCrtt1, uint64_t hltEtrig, uint64_t hltBeamGate);
 
     /// @name Getters
     /// @{
+        /// @brief Returns the raw DAQ header timestamp [ns].
     uint64_t RawDAQHeaderTimestamp() const { return fRawDAQHeaderTimestamp; }
+        /// @brief Returns the TDC CRT T1 timestamp [ns].
     uint64_t TdcCrtt1() const { return fTdcCrtt1; }
+        /// @brief Returns the TDC BES timestamp [ns].
     uint64_t TdcBes() const { return fTdcBes; }
+        /// @brief Returns the TDC RWM timestamp [ns].
     uint64_t TdcRwm() const { return fTdcRwm; }
+        /// @brief Returns the TDC ETRIG timestamp [ns].
     uint64_t TdcEtrig() const { return fTdcEtrig; }
+        /// @brief Returns the PTB HLT CRT T1 timestamp [ns].
     uint64_t HltCrtt1() const { return fHltCrtt1; }
+        /// @brief Returns the PTB HLT ETRIG timestamp [ns].
     uint64_t HltEtrig() const { return fHltEtrig; }
+        /// @brief Returns the PTB HLT Beam Gate timestamp [ns].
     uint64_t HltBeamGate() const { return fHltBeamGate; }
     /// @}
  
     /// @name Setters
     /// @{
+        /// @brief Sets the raw DAQ header timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetRawDAQHeaderTimestamp(uint64_t timestamp){ fRawDAQHeaderTimestamp = timestamp; }
+        /// @brief Sets the TDC CRT T1 timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetTdcCrtt1(uint64_t timestamp){ fTdcCrtt1 = timestamp; }
+        /// @brief Sets the TDC BES timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetTdcBes(uint64_t timestamp){ fTdcBes = timestamp; }
+        /// @brief Sets the TDC RWM timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetTdcRwm(uint64_t timestamp){ fTdcRwm = timestamp; }
+        /// @brief Sets the TDC ETRIG timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetTdcEtrig(uint64_t timestamp){ fTdcEtrig = timestamp; }
+        /// @brief Sets the PTB HLT CRT T1 timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetHltCrtt1(uint64_t timestamp){ fHltCrtt1 = timestamp; }
+        /// @brief Sets the PTB HLT ETRIG timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetHltEtrig(uint64_t timestamp){ fHltEtrig = timestamp; }
+        /// @brief Sets the PTB HLT Beam Gate timestamp.
+        /// @param[in] timestamp Timestamp in UNIX format [ns].
     void SetHltBeamGate(uint64_t timestamp){ fHltBeamGate = timestamp; }
     /// @}
 
