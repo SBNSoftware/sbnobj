@@ -9,6 +9,38 @@
   <class name="sbnd::timing::TimingInfo" ClassVersion="10" >
    <version ClassVersion="10" checksum="1023077770"/>
   </class>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fRawDAQHeaderTimestamp;" target="fRawDAQHeaderTimestamp" >
+    <![CDATA[{ fRawDAQHeaderTimestamp = (onfile.fRawDAQHeaderTimestamp == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fRawDAQHeaderTimestamp; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fTdcCrtt1;" target="fTdcCrtt1" >
+    <![CDATA[{ fTdcCrtt1 = (onfile.fTdcCrtt1 == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fTdcCrtt1; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fTdcBes;" target="fTdcBes" >
+    <![CDATA[{ fTdcBes = (onfile.fTdcBes == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fTdcBes; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fTdcRwm;" target="fTdcRwm" >
+    <![CDATA[{ fTdcRwm = (onfile.fTdcRwm == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fTdcRwm; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fTdcEtrig;" target="fTdcEtrig" >
+    <![CDATA[{ fTdcEtrig = (onfile.fTdcEtrig == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fTdcEtrig; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fHltCrtt1;" target="fHltCrtt1" >
+    <![CDATA[{ fHltCrtt1 = (onfile.fHltCrtt1 == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fHltCrtt1; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fHltEtrig;" target="fHltEtrig" >
+    <![CDATA[{ fHltEtrig = (onfile.fHltEtrig == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fHltEtrig; }]]>
+  </ioread>
+  <ioread targetClass="sbnd::timing::TimingInfo" sourceClass="sbnd::timing::TimingInfo" version="[-10]"
+    source="uint64_t fHltBeamGate;" target="fHltBeamGate" >
+    <![CDATA[{ fHltBeamGate = (onfile.fHltBeamGate == 0) ? sbnd::timing::kInvalidTimestamp : onfile.fHltBeamGate; }]]>
+  </ioread>
   <class name="art::Wrapper<sbnd::timing::TimingInfo>"/>
 
   <class name="sbnd::timing::FrameShiftInfo" ClassVersion="11" >
