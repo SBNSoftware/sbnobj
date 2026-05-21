@@ -4,9 +4,7 @@ cet_make_library(
     OpticalTriggerGate.cxx
     SingleChannelOpticalTriggerGate.cxx
   LIBRARIES
-    lardataalg::UtilitiesHeaders
     lardataobj::RawData
-    larcorealg::CoreUtils
     cetlib_except::cetlib_except
   )
 

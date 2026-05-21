@@ -2,16 +2,13 @@ file(GLOB lib_srcs *.cxx)
 cet_make_library(SOURCE
                  ${lib_srcs}
                  LIBRARIES
-                 PRIVATE
+                 PUBLIC
                  larcoreobj::headers
                  lardataobj::headers
                )
 
 art_dictionary(DICTIONARY_LIBRARIES
-		 sbnobj::ICARUS_TPC
-                 lardataobj::RecoBase
-                 lardataalg::headers
-                 canvas::canvas
+                 sbnobj::ICARUS_TPC
                )
 
 install_headers()
