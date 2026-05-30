@@ -20,6 +20,12 @@ namespace sbn {
 
     float FOM; // Figure of Merit for BNB
 
+    float PreFitFOM; // Figure of Merit for BNB, use prefit horizontal
+                     // sigma values (M875HS, M875VS) or (M875HS, M875VS)
+
+    float NoMultiWireFOM; // Figure of Merit for BNB, use scalex=scaley=1
+                          // (no multiwire fit) method from microboone
+
     float TOR860; //!< Toroid before Mag 875, units e12 Protons
     float TOR875; //!< Toroid after Mag 875, units e12 Protons
 
