@@ -27,6 +27,8 @@ namespace sbn {
   float        NuToFLight             { fDefault };      ///< | Nu ToF using light only | (us)
   float        NuToFCharge             { fDefault };       ///< | Nu ToF Z from tpc vertex | (us)
   float        OpFlashT0Corrected    { fDefault };       ///< | OpFlash Time wrt RWM time after light propagation corrections | (us)
+  float        ParticlePropagationTime{ fDefault }; ///< | Average particle propagation time from vertex to emission point | (us)
+  float        PhotonPropagationTime{ fDefault }; ///< | Average photon propagation time from emission point to detection point| (us)
   /// @}
   
   };
