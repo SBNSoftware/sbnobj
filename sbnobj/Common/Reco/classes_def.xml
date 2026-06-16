@@ -315,7 +315,10 @@
 
   <class name="std::vector<geo::PlaneID>"/>
 
-  <class name="sbn::CorrectedOpFlashTiming" ClassVersion="16">
+  <class name="sbn::CorrectedOpFlashTiming" ClassVersion="19">
+   <version ClassVersion="19" checksum="1139303800"/>
+   <version ClassVersion="18" checksum="3005812347"/>
+   <version ClassVersion="17" checksum="1301688765"/>
    <version ClassVersion="16" checksum="1734226620"/>
    <version ClassVersion="15" checksum="2401924061"/>
    <version ClassVersion="14" checksum="2635318722"/>
