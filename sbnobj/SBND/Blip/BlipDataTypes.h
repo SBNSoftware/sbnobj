@@ -192,9 +192,13 @@ namespace blip {
      */
     float     Time            = -999;
     float     Charge          = -9;         ///< Charge on calorimetry plane [e-]
-    float     Energy          = -999;       ///< Reconstructed energy in the calorimetry plane (const dE/dx, fcl-configurable) [MeV]
-    float     EnergyESTAR     = -999;       ///< Reconstructed energy in the calorimetry plane (ESTAR method from ArgoNeuT)    [MeV]
-    float     EnergyPSTAR     = -999;       ///< Reconstructed energy in the calorimetry plane (PSTAR method similar with ESTAR method from ArgoNeuT) [MeV]
+
+    float     Energy          = -999;       ///< Reconstructed energy in the calorimetry plane (const dE/dx, fcl-configurable) Drift corrected to event t0 [MeV]
+    float     EnergyESTAR     = -999;       ///< Reconstructed energy in the calorimetry plane (ESTAR method from ArgoNeuT)  Drift corrected to event t0  [MeV]
+    float     EnergyPSTAR     = -999;       ///< Reconstructed energy in the calorimetry plane (PSTAR method similar with ESTAR method from ArgoNeuT)  Drift corrected to event t0 [MeV]
+    float     EnergyNoDriftCorrection          = -999;       ///< Reconstructed energy in the calorimetry plane (const dE/dx, fcl-configurable) [MeV]
+    float     EnergyESTARNoDriftCorrection     = -999;       ///< Reconstructed energy in the calorimetry plane (ESTAR method from ArgoNeuT)    [MeV]
+    float     EnergyPSTARNoDriftCorrection     = -999;       ///< Reconstructed energy in the calorimetry plane (PSTAR method similar with ESTAR method from ArgoNeuT) [MeV]
     float     ProxTrkDist     = -9;         ///< 3-D distance to closest track, assuming the blip was concident with event trigger [cm]
     /**
      * @brief 3-D distance to closest track, assuming the blip was coincident with event trigger [cm]
