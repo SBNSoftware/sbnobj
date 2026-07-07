@@ -24,11 +24,14 @@ namespace sbn {
   /// @name Corrected OpFlash Times
   /// @{
   float        OpFlashT0             { fDefault };                   ///< | OpFlash Time wrt RWM time | (us)
+  float        OpFlashPE             { fDefault };                   ///< | Number of PEs in the flash | (us)
   float        NuToFLight             { fDefault };      ///< | Nu ToF using light only | (us)
   float        NuToFCharge             { fDefault };       ///< | Nu ToF Z from tpc vertex | (us)
   float        OpFlashT0Corrected    { fDefault };       ///< | OpFlash Time wrt RWM time after light propagation corrections | (us)
   float        ParticlePropagationTime{ fDefault }; ///< | Average particle propagation time from vertex to emission point | (us)
   float        PhotonPropagationTime{ fDefault }; ///< | Average photon propagation time from emission point to detection point| (us)
+  int          tpc             { -1 }; ///< | TPC ID associated to the flash | (int)
+  bool         MatchedOpFlash         { false };       ///< | Whether the OpFlash is matched to a neutrino interaction | (bool)
   /// @}
   
   };
