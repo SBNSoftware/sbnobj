@@ -78,8 +78,31 @@
   <class name="art::Assns<sbn::crt::CRTHit, recob::Track, void>" />
   <class name="art::Wrapper<art::Assns<sbn::crt::CRTHit, recob::Track, void>>" />
 
-  <class name="sbn::OpT0Finder">
+  <class name="sbn::LightCalo" ClassVersion="10" >  
+   <version ClassVersion="10" checksum="2524683870"/>
   </class>
+  <class name="std::vector<sbn::LightCalo>" />
+  <class name="art::Wrapper<sbn::LightCalo>" />
+  <class name="art::Wrapper<std::vector<sbn::LightCalo>>" />
+
+  <class name="std::pair<recob::Slice, sbn::LightCalo>" />
+  <class name="art::Assns<recob::Slice, sbn::LightCalo>" />
+  <class name="art::Wrapper<art::Assns<recob::Slice, sbn::LightCalo>>" />
+  <class name="std::pair<sbn::LightCalo, recob::Slice>" /> 
+  <class name="art::Assns<sbn::LightCalo, recob::Slice>" /> 
+  <class name="art::Wrapper<art::Assns<sbn::LightCalo, recob::Slice>>"/>
+
+  <class name="std::pair<recob::OpFlash, sbn::LightCalo>" />
+  <class name="art::Assns<recob::OpFlash, sbn::LightCalo>" />
+  <class name="art::Wrapper<art::Assns<recob::OpFlash, sbn::LightCalo>>" />
+  <class name="std::pair<sbn::LightCalo, recob::OpFlash>" />
+  <class name="art::Assns<sbn::LightCalo, recob::OpFlash>" />
+  <class name="art::Wrapper<art::Assns<sbn::LightCalo, recob::OpFlash>>" />
+
+  <class name="sbn::OpT0Finder" ClassVersion="10" >
+   <version ClassVersion="10" checksum="2162209983"/>
+  </class>
+
   <class name="std::vector<sbn::OpT0Finder>" />
   <class name="art::Wrapper<sbn::OpT0Finder>" /> 
   <class name="art::Wrapper<std::vector<sbn::OpT0Finder>>" />

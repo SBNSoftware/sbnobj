@@ -3,6 +3,7 @@ cet_make_library(
     CNNScore.cc
     CRUMBSResult.cc
     FlashTriggerPrimitive.cc
+    LightCalo.cc
     MVAPID.cc
     MergedTrackInfo.cc
     OpT0FinderResult.cc
@@ -17,7 +18,6 @@ cet_make_library(
   LIBRARIES
     cetlib_except::cetlib_except
     messagefacility::MF_MessageLogger
-    larcorealg::Geometry
     lardataobj::AnalysisBase
   )
 

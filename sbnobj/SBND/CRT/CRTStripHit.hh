@@ -32,7 +32,7 @@ namespace sbnd::crt {
     CRTStripHit();
     
     CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
-                double _err, uint16_t _adc1, uint16_t _adc2);
+                double _err, uint16_t _adc1, uint16_t _adc2, uint16_t _saturation_level);
 
     CRTStripHit(uint32_t _channel, double _ts0, double _ts1, uint32_t _s, double _pos,
                 double _err, uint16_t _adc1, uint16_t _adc2, bool _saturated1, bool _saturated2);
