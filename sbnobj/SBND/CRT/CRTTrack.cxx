@@ -3,20 +3,18 @@
 
 #include "sbnobj/SBND/CRT/CRTTrack.hh"
 
-#include <limits>
-
 namespace sbnd {
 
   namespace crt {
 
     CRTTrack::CRTTrack()
       : fPoints  ({})
-      , fTs0     (std::numeric_limits<double>::lowest())
-      , fTs0Err  (std::numeric_limits<double>::lowest())
-      , fTs1     (std::numeric_limits<double>::lowest())
-      , fTs1Err  (std::numeric_limits<double>::lowest())
-      , fPE      (std::numeric_limits<double>::lowest())
-      , fToF     (std::numeric_limits<double>::lowest())
+      , fTs0     (0.)
+      , fTs0Err  (0.)
+      , fTs1     (0.)
+      , fTs1Err  (0.)
+      , fPE      (0.)
+      , fToF     (0.)
       , fTaggers ({})
     {}
 

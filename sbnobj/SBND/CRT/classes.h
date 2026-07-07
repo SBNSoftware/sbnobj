@@ -9,7 +9,6 @@
 #include "sbnobj/SBND/CRT/CRTEnums.hh"
 #include "sbnobj/SBND/CRT/CRTTrack.hh"
 #include "sbnobj/SBND/CRT/CRTVeto.hh"
-#include "sbnobj/SBND/CRT/CRTBlob.hh"
 #include "sbnobj/Common/CRT/CRTHit.hh"
 #include "sbnobj/Common/CRT/CRTHit_Legacy.hh"
 #include "lardataobj/Simulation/AuxDetSimChannel.h"
