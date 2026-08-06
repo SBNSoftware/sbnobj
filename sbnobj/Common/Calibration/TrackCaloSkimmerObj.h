@@ -140,6 +140,17 @@ namespace sbn {
     float pur  = std::numeric_limits<float>::signaling_NaN(); //!< Purity of truth matching
     float eff  = std::numeric_limits<float>::signaling_NaN(); //!< Efficiency of truth matching
     float depE = std::numeric_limits<float>::signaling_NaN(); //!< Total deposited energy of hits matched to track [GeV]
+    //<?> Ndeltarays; // Truth information of delta ray number N, if it exists
+    TrueParticle deltaray_1; // Truth information of the most energetical ionization electron, if it exists
+    TrueParticle deltaray_2; // Truth information of the 2nd most energetical ionization electron, if it exists
+    TrueParticle deltaray_3; // Truth information of the 3rd most energetical ionization electron, if it exists
+    TrueParticle deltaray_4; // Truth information of the 4th most energetical ionization electron, if it exists
+    TrueParticle deltaray_5; // Truth information of the 5th most energetical ionization electron, if it exists
+    TrueParticle deltaray_6; // Truth information of the 6th energetical ionization electron, if it exists
+    TrueParticle deltaray_7; // Truth information of the 7th most energetical ionization electron, if it exists
+    TrueParticle deltaray_8; // Truth information of the 8th most energetical ionization electron, if it exists
+    TrueParticle deltaray_9; // Truth information of the 9th most energetical ionization electron, if it exists
+    TrueParticle deltaray_10; // Truth information of the 10th most energetical ionization electron, if it exists
   };
 
   struct TrackInfo {
@@ -182,6 +193,52 @@ namespace sbn {
     
     float const_fit_C = -1.;                                       //!< Fit parameter
     float const_fit_residuals = -1.;                               //!< Fit parameter
+
+    //momentum from range
+    float range_p;
+
+    //mcs algorithm - delta flag vectors
+    std::vector<int> mcs_isdelta_2DI1;
+    std::vector<int> mcs_isdelta_2DI2;
+    std::vector<int> mcs_isdelta_2DC;
+    std::vector<int> mcs_isdelta_indexI1;
+    std::vector<int> mcs_isdelta_indexI2;
+    std::vector<int> mcs_isdelta_indexC;
+
+    //mcs algorithm - sigma3p
+    double mcs_sigma3p_2DI1, mcs_sigma3p_2DI2, mcs_sigma3p_2DC;
+    //double mcs_sigma0_2DI1, mcs_sigma1_2DI1, mcs_sigma2_2DI1, mcs_sigma3_2DI1, mcs_sigma4_2DI1;
+    //double mcs_sigma0_2DI2, mcs_sigma1_2DI2, mcs_sigma2_2DI2, mcs_sigma3_2DI2, mcs_sigma4_2DI2;
+    //double mcs_sigma0_2DC,  mcs_sigma1_2DC,  mcs_sigma2_2DC,  mcs_sigma3_2DC,  mcs_sigma4_2DC;
+
+    //mcs algorithm - c2 function and tails at range momentum
+    //float mcs_c2atrange_2DI1, mcs_c2atrange_2DI2, mcs_c2atrange_2DC;
+    //float mcs_tailsatrange_2DI1, mcs_tailsatrange_2DI2, mcs_tailsatrange_2DC;
+  
+    //mcs algorithm - c2 function and tails at different momentum
+    //std::vector<float> mcs_ptest_2DI1, mcs_c2function_2DI1, mcs_tailssize_2DI1;
+    //std::vector<float> mcs_ptest_2DI2, mcs_c2function_2DI2, mcs_tailssize_2DI2;
+    //std::vector<float> mcs_ptest_2DC, mcs_c2function_2DC, mcs_tailssize_2DC;
+
+    //mcs algorithm - lengths (drift, plane, space)
+    float mcs_l1DI1, mcs_l2DI1, mcs_l3DI1;
+    float mcs_l1DI2, mcs_l2DI2, mcs_l3DI2;
+    float mcs_l1DC,  mcs_l2DC,  mcs_l3DC;
+
+    //mcs algorithm - momentum (maximum likelihood, c2 function)
+    float mcs_pbest_ML_2DI1, mcs_pbest_ML_2DI2, mcs_pbest_ML_2DC;
+    float mcs_pbest_C2_2DI1, mcs_pbest_C2_2DI2, mcs_pbest_C2_2DC;
+
+    //mcs algorithm - angles (linear, polygonal, corresponding momentum)
+    std::vector<float> mcs_thetal_exp_2DI1, mcs_thetal_mea_2DI1, mcs_thetap_exp_2DI1, mcs_thetap_mea_2DI1, mcs_thetal_mom_2DI1;
+    std::vector<float> mcs_thetal_exp_2DI2, mcs_thetal_mea_2DI2, mcs_thetap_exp_2DI2, mcs_thetap_mea_2DI2, mcs_thetal_mom_2DI2;
+    std::vector<float> mcs_thetal_exp_2DC,  mcs_thetal_mea_2DC,  mcs_thetap_exp_2DC,  mcs_thetap_mea_2DC,  mcs_thetal_mom_2DC;
+
+    //mcs algorithm - segment lengths
+    std::vector<float> mcs_seglens_3D_2DI1, mcs_seglens_2D_2DI1;
+    std::vector<float> mcs_seglens_3D_2DI2, mcs_seglens_2D_2DI2;
+    std::vector<float> mcs_seglens_3D_2DC, mcs_seglens_2D_2DC;
+
     float exp_fit_A = -1.;                                         //!< Fit parameter
     float exp_fit_R = -1.;                                         //!< Fit parameter
     float exp_fit_residuals = -1.;                                 //!< Fit parameter
