@@ -31,7 +31,7 @@ namespace sbnd::crt {
     /**
      * Default constructor.
      */
-    FEBTruthInfo() = default;
+    //FEBTruthInfo() = default;
 
     /**
      * Sets the AuxDetIDE ID for the channel
