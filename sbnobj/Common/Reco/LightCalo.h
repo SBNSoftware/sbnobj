@@ -34,7 +34,7 @@ namespace sbn{
     /**
      * Default constructor.
      */
-    LightCalo() = default;
+    //LightCalo() = default;
   };
 }
 
