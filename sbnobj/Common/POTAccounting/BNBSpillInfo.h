@@ -95,7 +95,13 @@ namespace sbn {
     float MMBTBB_spill_time_diff; //!< time diff between MMBTBB and matched spill
 
 
-    double POT() const { return TOR875; }
+    /// Protons on target of this spill, summed by the CAFMaker into the subrun POT:
+    /// the intensity used for the beam-quality result (`tor_used`: TOR860, or TOR875
+    /// after a TOR860 drop-out), 0 if the spill has no valid intensity. Spills written
+    /// before the beam-quality result existed (`fom_version` 0) keep the old definition,
+    /// TOR875, so that re-made CAFs of existing files keep their POT.
+    double POT() const
+      { return (fom_version == 0)? TOR875: ((tor_used > 0)? tor_used: 0.); }
 
   };
 
