@@ -20,10 +20,11 @@ namespace sbn {
 
     float FOM; ///! Figure of Merit for BNB
 
-    float PreFitFOM; // Figure of Merit for BNB, use prefit horizontal
+    float PreFitFOM = -999; // Figure of Merit for BNB, use prefit horizontal
                      // sigma values (M875HS, M875VS) or (M875HS, M875VS)
+                     // (-999 when read from a file made before it existed)
 
-    float NoMultiWireFOM; // Figure of Merit for BNB, use scalex=scaley=1
+    float NoMultiWireFOM = -999; // Figure of Merit for BNB, use scalex=scaley=1
                           // (no multiwire fit) method from microboone
 
     // Beam-quality result for this spill (sbncode/BeamSpillInfoRetriever/getFOM.h,
