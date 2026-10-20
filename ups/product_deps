@@ -247,6 +247,7 @@ defaultqual	e26
 ####################################
 product		version		qual	flags		<table_format=2>
 lardataobj	v10_05_03	-
+lardataalg	V10_03_00	-
 cetmodules	v3_24_01	-	only_for_build
 end_product_list
 ####################################
@@ -302,6 +303,7 @@ end_product_list
 #   case it is optional.
 #
 ####################################
+<<<<<<< HEAD
 qualifier	lardataobj	notes
 c14:debug	c14:debug
 c14:prof	c14:prof
@@ -309,6 +311,13 @@ e26:debug	e26:debug
 e26:prof	e26:prof
 e28:debug	e28:debug
 e28:prof	e28:prof
+=======
+qualifier lardataalg notes
+c14:debug c14:debug
+c14:prof  c14:prof
+e26:debug e26:debug
+e26:prof  e26:prof
+>>>>>>> feature/gp_saveJobEnv
 end_qualifier_list
 ####################################
 
