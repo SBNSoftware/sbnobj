@@ -3,20 +3,22 @@
 
 #include "sbnobj/SBND/CRT/CRTCluster.hh"
 
+#include <limits>
+
 namespace sbnd {
 
   namespace crt {
 
     CRTCluster::CRTCluster()
-      : fTs0          (0)
-      , fTs1          (0)
-      , fUnixS        (0)
-      , fNHits        (0)
+      : fTs0          (std::numeric_limits<double>::lowest())
+      , fTs1          (std::numeric_limits<double>::lowest())
+      , fUnixS        (std::numeric_limits<uint32_t>::max())
+      , fNHits        (std::numeric_limits<uint16_t>::max())
       , fTagger       (kUndefinedTagger)
       , fComposition  (kUndefinedSet)
     {}
 
-    CRTCluster::CRTCluster(int64_t _ts0, int64_t _ts1, uint32_t _unixS, uint16_t _nHits, CRTTagger _tagger,
+    CRTCluster::CRTCluster(double _ts0, double _ts1, uint32_t _unixS, uint16_t _nHits, CRTTagger _tagger,
                            CoordSet _composition)
       : fTs0          (_ts0)
       , fTs1          (_ts1)
@@ -28,8 +30,8 @@ namespace sbnd {
 
     CRTCluster::~CRTCluster() {}
 
-    int64_t   CRTCluster::Ts0() const { return fTs0; }
-    int64_t   CRTCluster::Ts1() const { return fTs1; }
+    double    CRTCluster::Ts0() const { return fTs0; }
+    double    CRTCluster::Ts1() const { return fTs1; }
     uint32_t  CRTCluster::UnixS() const { return fUnixS; }
     uint16_t  CRTCluster::NHits() const { return fNHits; }
     CRTTagger CRTCluster::Tagger() const { return fTagger; }

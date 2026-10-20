@@ -5,17 +5,19 @@
 
 #include "sbnobj/SBND/CRT/FEBData.hh"
 
+#include <limits>
+
 namespace sbnd{
 namespace crt{
 
   FEBData::FEBData()
-  : fMac5(0)
-  , fFlags(0)
-  , fTs0(0)
-  , fTs1(0)
-  , fUnixS(0)
-  , fADC()
-  , fCoinc(0)
+  : fMac5(std::numeric_limits<uint16_t>::max())
+  , fFlags(std::numeric_limits<uint16_t>::max())
+  , fTs0(std::numeric_limits<uint32_t>::max())
+  , fTs1(std::numeric_limits<uint32_t>::max())
+  , fUnixS(std::numeric_limits<uint32_t>::max())
+  , fADC({})
+  , fCoinc(std::numeric_limits<uint32_t>::max())
   {}
 
   FEBData::FEBData(uint16_t mac5, uint16_t flags, uint32_t ts0, uint32_t ts1, uint32_t unixs, adc_array_t ADC, uint32_t coinc)

@@ -1,6 +1,8 @@
 cet_make_library(
   SOURCE
     DAQTimestamp.cxx
+    TimingInfo.cxx
+    FrameShiftInfo.cxx
   LIBRARIES
     cetlib_except::cetlib_except
   )

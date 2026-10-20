@@ -41,7 +41,10 @@
   <class name="art::Ptr<sbn::PMTconfiguration>"/>
   <class name="art::Wrapper<sbn::PMTconfiguration>"/>
   
-
+  <!-- PMTBeamSignal classes -->
+  <class name ="art::Wrapper<vector<sbn::timing::PMTBeamSignal> >"/>
+  <class name ="sbn::timing::PMTBeamSignal"/>
+  <class name ="vector<sbn::timing::PMTBeamSignal>"/>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <!-- copy&paste templates for: -->
   <!-- PROD -->

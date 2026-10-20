@@ -1,0 +1,1 @@
+#include "sbnobj/Common/CRT/CRTHitT0TaggingTruthInfo.hh"

@@ -205,58 +205,44 @@ std::ostream& sbn::operator<< (std::ostream& out, ExtraTriggerInfo const& info)
   if (info.triggerLocationBits != 0) {
     out << "\nLocation(s) of trigger:";
     for (std::string const& bitName: names(info.triggerLocation()))
-      out << " " << bitName;
+      out << "  * " << bitName;
   }
-  out << "\nEast cryostat: "
-      << info.cryostats[ExtraTriggerInfo::EastCryostat].triggerCount
-      << " triggers";
-  if (auto const& cryo = info.cryostats[ExtraTriggerInfo::EastCryostat];
-      cryo.hasAnyActivity()
-  ) {
-    out << "\n  trigger logic: ";
-    if (cryo.triggerLogicBits) {
-      for (std::string const& bitName: names(cryo.triggerLogic()))
-        out << " " << bitName;
-    }
-    else out << " none!";
-    out
-      << "\n  east wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
-      << ", sectors: "
-      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
-      << "\n  west wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
-      << ", sectors: "
-      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
-      ;
-  }
-
-  out << "\nWest cryostat: "
-      << info.cryostats[ExtraTriggerInfo::WestCryostat].triggerCount
-      << " triggers";
-  if (auto const& cryo = info.cryostats[ExtraTriggerInfo::WestCryostat];
-      cryo.hasAnyActivity()
-  ) {
-    out << "\n  trigger logic: ";
-    if (cryo.triggerLogicBits) {
-      for (std::string const& bitName: names(cryo.triggerLogic()))
-        out << " * " << bitName;
-    }
-    else out << " none!";
-    out
-      << "\n  east wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
-      << ", sectors: "
-      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
-      << "\n  west wall:  "
-      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
-      << ", sectors: "
-      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
-      ;
-  }
+  
+  out << "\nWest cryostat: " << info.cryostats[ExtraTriggerInfo::WestCryostat];
+  out << "\nEast cryostat: " << info.cryostats[ExtraTriggerInfo::EastCryostat];
   
   return out;
 } // sbn::operator<< (ExtraTriggerInfo)
+
+
+
+// -----------------------------------------------------------------------------
+std::ostream& sbn::operator<<
+  (std::ostream& out, sbn::ExtraTriggerInfo::CryostatInfo const& cryo)
+{
+  out << cryo.triggerCount << " triggers";
+  if (cryo.hasTrigger())
+    out << ", the first one " << cryo.beamToTrigger << " ns after gate";
+  if (cryo.hasAnyActivity()) {
+    out << "\n  trigger logic: ";
+    if (cryo.triggerLogicBits) {
+      for (std::string const& bitName: names(cryo.triggerLogic()))
+        out << "  * " << bitName;
+    }
+    else out << " none!";
+    out
+      << "\n  east wall:  "
+      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::EastPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::EastPMTwall], 6)
+      << "\n  west wall:  "
+      << dumpLVDSmask(cryo.LVDSstatus[ExtraTriggerInfo::WestPMTwall])
+      << ", sectors: "
+      << dumpBits(cryo.sectorStatus[ExtraTriggerInfo::WestPMTwall], 6)
+      ;
+  }
+  return out;
+} // std::ostream& sbn::operator<< (ExtraTriggerInfo::CryostatInfo)
 
 
 // -----------------------------------------------------------------------------
