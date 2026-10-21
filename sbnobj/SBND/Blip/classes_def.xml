@@ -1,22 +1,86 @@
 <lcgdict>
-<class name="art::Wrapper<std::vector<blip::Blip> >"/>
-<class name="blip::Blip" ClassVersion="10" >
- <version ClassVersion="10" checksum="2428317905"/>
+<class name="std::pair<int,geo::Point_t>"/>
+<class name="std::map<int,geo::Point_t>"/>
+<class name="blip::TrueBlip" ClassVersion="10" >
+ <!-- see also comment in blip::Blip -->
+ <version ClassVersion="10" checksum="3344816662"/>
+ <ioread sourceClass="blip::TrueBlip"
+         source="TVector3 Position;"
+         targetClass="blip::TrueBlip"
+         target="Position"
+         checksum="[ 2186401263 ]"
+         include="larcoreobj/SimpleTypesAndConstants/geo_vectors.h;TVector3.h;"
+         >
+  <![CDATA[
+    Position = { onfile.Position.X(), onfile.Position.Y(), onfile.Position.Z() };
+    ]]>
+ </ioread>
 </class>
-<class name="std::vector<blip::Blip>"/>
 <class name="blip::HitClust" ClassVersion="10" >
  <version ClassVersion="10" checksum="1162717057"/>
+ <!-- see also comment in blip::Blip -->
+ <ioread sourceClass="blip::HitClust"
+         targetClass="blip::HitClust"
+         source="map<int, TVector3> IntersectLocations;"
+         target="IntersectLocations"
+         checksum="[ 3369335884 ]"
+         include="larcoreobj/SimpleTypesAndConstants/geo_vectors.h;TVector3.h;map;iostream;utility"
+         >
+  <![CDATA[
+    // with ROOT 6.28/12 and GCC 12.1.0, this rule does not load IntersectLocations correctly
+    static bool warned = false;
+    if (!std::exchange(warned, true)) {
+      std::cerr << "blip::HitClust I/O rule: IntersectLocations is not loaded and will be empty"
+        << " (see `sbnobj/SBND/Blip/classes_def.xml`)." << std::endl;
+    }
+    if (gDebug >= 2) {
+      std::cout << "blip::HitClust::IntersectLocations.size() = " << onfile.IntersectLocations.size()
+          << " begin() -> " << ((void const*) &*onfile.IntersectLocations.cbegin())
+          << " end() -> " << ((void const*) &*onfile.IntersectLocations.cend())
+          << std::endl;
+    }
+    if (false) { // disabled because onfile.IntersectLocations is not correctly loaded
+      for (auto const& [ plane, loc ]: onfile.IntersectLocations)
+        IntersectLocations.emplace(plane, geo::Point_t{ loc.X(), loc.Y(), loc.Z() });
+    }
+    ]]>
+ </ioread>
 </class>
+<class name="blip::Blip" ClassVersion="10" >
+ <version ClassVersion="10" checksum="2428317905"/>
+ <!-- there is data with "version 10" around that was produced with sbndcode <v10_14_02_04
+      that has a different blip::Blip definition;
+      this I/O rule targets that version *and* checksum.
+      Checksum 1824548075 is undocumented but was found in some SBND production data files.
+      Incantation to get the checksum number from a ROOT file for the class:
+      
+      dynamic_cast<TStreamerInfo const*>(_file0->GetStreamerInfoList()->FindObject("blip::Blip"))->GetCheckSum()
+      
+      Then use that checksum directly.
+   -->
+ <ioread sourceClass="blip::Blip"
+         source="TVector3 Position;"
+         targetClass="blip::Blip"
+         target="Position"
+         checksum="[ 1824548075 ]"
+         include="larcoreobj/SimpleTypesAndConstants/geo_vectors.h;TVector3.h;vector;array"
+         >
+  <![CDATA[
+    Position = { onfile.Position.X(), onfile.Position.Y(), onfile.Position.Z() };
+    ]]>
+ </ioread>
+</class>
+<class name="std::vector<blip::Blip>"/>
+<class name="art::Wrapper<std::vector<blip::Blip> >"/>
 <class name="vector<blip::HitClust>"/>
 <class name="art::Wrapper<std::vector<blip::HitClust> >"/>
-<class name="blip::TrueBlip" ClassVersion="10" >
- <version ClassVersion="10" checksum="3344816662"/>
-</class>
 <class name="art::Assns<blip::Blip,recob::Hit,void>"/>
-<class name="std::map<int,geo::Point_t>"/>
 <class name="art::Assns<recob::Hit, blip::Blip,void>"/>
 <class name="art::Assns<blip::Blip,recob::SpacePoint,void>"/>
 <class name="art::Wrapper<art::Assns<blip::Blip,recob::Hit,void> >"/>
 <class name="art::Wrapper<art::Assns<recob::Hit,blip::Blip,void> >"/>
 <class name="art::Wrapper<art::Assns<blip::Blip,recob::SpacePoint,void> >"/>
+  
+  
+  
 </lcgdict>
