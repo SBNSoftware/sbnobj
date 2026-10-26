@@ -236,8 +236,11 @@ namespace sbn {
 
     //mcs algorithm - segment lengths
     std::vector<float> mcs_seglens_3D_2DI1, mcs_seglens_2D_2DI1;
+    std::vector<int> mcs_segsides_2DI1;
     std::vector<float> mcs_seglens_3D_2DI2, mcs_seglens_2D_2DI2;
+    std::vector<int> mcs_segsides_2DI2;
     std::vector<float> mcs_seglens_3D_2DC, mcs_seglens_2D_2DC;
+    std::vector<int> mcs_segsides_2DC;
 
     float exp_fit_A = -1.;                                         //!< Fit parameter
     float exp_fit_R = -1.;                                         //!< Fit parameter
