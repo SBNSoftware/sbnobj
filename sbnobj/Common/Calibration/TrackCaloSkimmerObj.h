@@ -189,19 +189,13 @@ namespace sbn {
     //mcs algorithm - sigma3p
     double mcs_sigma3p_2DI1, mcs_sigma3p_2DI2, mcs_sigma3p_2DC;
 
-    //mcs algorithm - lengths (drift, plane, space)
-    float mcs_l1DI1, mcs_l2DI1, mcs_l3DI1;
-    float mcs_l1DI2, mcs_l2DI2, mcs_l3DI2;
-    float mcs_l1DC,  mcs_l2DC,  mcs_l3DC;
-
     //mcs algorithm - momentum (maximum likelihood, c2 function)
     float mcs_pbest_ML_2DI1, mcs_pbest_ML_2DI2, mcs_pbest_ML_2DC;
     float mcs_pbest_C2_2DI1, mcs_pbest_C2_2DI2, mcs_pbest_C2_2DC;
 
-    //mcs algorithm - angles (linear, polygonal, corresponding momentum)
-    std::vector<float> mcs_thetal_exp_2DI1, mcs_thetal_mea_2DI1, mcs_thetap_exp_2DI1, mcs_thetap_mea_2DI1;
-    std::vector<float> mcs_thetal_exp_2DI2, mcs_thetal_mea_2DI2, mcs_thetap_exp_2DI2, mcs_thetap_mea_2DI2;
-    std::vector<float> mcs_thetal_exp_2DC,  mcs_thetal_mea_2DC,  mcs_thetap_exp_2DC,  mcs_thetap_mea_2DC;
+    //mcs algorithm - angles (linear, polygonal)
+    std::vector<float> mcs_thetal_mea_2DI1, mcs_thetal_mea_2DI2, mcs_thetal_mea_2DC;
+    std::vector<float> mcs_thetap_mea_2DI1, mcs_thetap_mea_2DI2, mcs_thetap_mea_2DC;
 
     //mcs algorithm - segment lengths
     std::vector<float> mcs_seglens_2DI1, mcs_seglens_2DI2, mcs_seglens_2DC;

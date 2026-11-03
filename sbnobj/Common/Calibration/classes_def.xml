@@ -16,7 +16,9 @@
    <version ClassVersion="11" checksum="903476586"/>
    <version ClassVersion="10" checksum="118230262"/>
   </class>
-  <class name="sbn::TrackInfo" ClassVersion="23">
+  <class name="sbn::TrackInfo" ClassVersion="25">
+   <version ClassVersion="25" checksum="790683114"/>
+   <version ClassVersion="24" checksum="700316896"/>
    <version ClassVersion="23" checksum="4172981734"/>
    <version ClassVersion="22" checksum="3291395212"/>
    <version ClassVersion="21" checksum="1693737510"/>
