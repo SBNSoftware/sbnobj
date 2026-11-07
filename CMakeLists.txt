@@ -39,14 +39,14 @@ cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 # these are minimum required versions, not the actual product versions
 # this package must NOT depend on art, nor on the *alg LArSoft packages
 find_package( canvas REQUIRED EXPORT)
-find_package( messagefacility REQUIRED )
-find_package( larcoreobj REQUIRED )
-find_package( lardataobj REQUIRED )
-find_package( nusimdata REQUIRED )
-find_package( Boost COMPONENTS system )
-find_package( ROOT REQUIRED )
-find_package( CLHEP REQUIRED )
-find_package( dk2nudata REQUIRED )
+find_package( messagefacility REQUIRED EXPORT)
+find_package( larcoreobj REQUIRED EXPORT)
+find_package( lardataobj REQUIRED EXPORT)
+find_package( nusimdata REQUIRED EXPORT)
+find_package( Boost REQUIRED EXPORT COMPONENTS system )
+find_package( ROOT REQUIRED EXPORT)
+find_package( CLHEP REQUIRED EXPORT)
+find_package( dk2nudata REQUIRED EXPORT)
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
