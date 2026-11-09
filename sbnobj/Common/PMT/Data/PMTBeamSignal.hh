@@ -62,7 +62,7 @@ namespace sbn::timing
     std::string crate = "";
 
     /// Sample within the waveform where the reference signal is found.
-    std::size_t sample = NoSample;
+    double sample = NoSample;
 
     /// Start time in electronics time [us].
     double startTimeAbs = NoTime;
@@ -71,7 +71,7 @@ namespace sbn::timing
     double startTime = NoTime;
 
     /// Returns whether the time is valid.
-    bool isValid() const { return (sample != NoSample); }
+    bool isValid() const { return (startTime != NoTime); }
   };
 
   double getFlashBunchTime(std::map<int, double> risemap,
