@@ -23,7 +23,7 @@ void sbn::timing::SelectFirstOpHitByTime(const recob::OpHit* const hit,
   // select the first ophit (by time) in each channel
   if (risemap.find(ch) != risemap.end())
   {
-    if (tr < risemap[ch])
+    if (ts + tr < risemap[ch])
     {
       risemap[ch] = ts + tr;
     }
@@ -89,7 +89,7 @@ double sbn::timing::getFlashBunchTime(std::map<int, double> risemap,
     // if any RWM copy is missing (therefore missing for an entire PMT crate),
     // it might not be possible to use the first hits (they might not have a RMW time)
     // so return icarus::timing::NoTime as in other bad cases
-    if (!RWMTimes[i].isValid())
+    if (!RWMTimes.at(ch).isValid())
       return sbn::timing::NoTime;
 
     // count hits separetely on the two walls
