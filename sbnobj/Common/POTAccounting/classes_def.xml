@@ -2,9 +2,10 @@
   <!-- BNBSpillInfo: version 16 (checksum 427195799) is the layout released in    -->
   <!-- release/SBN2025A (v10_06_00_12 and later), which has PreFitFOM and          -->
   <!-- NoMultiWireFOM and its own member order; version 17 adds the beam-quality   -->
-  <!-- result. Version 15 has two layouts: 28411542 here and in develop,           -->
-  <!-- 2707745502 in release/SBN2025A.                                             -->
-  <class name="sbn::BNBSpillInfo" ClassVersion="17">
+  <!-- result, version 18 the Booster bunch-rotation settings. Version 15 has two  -->
+  <!-- layouts: 28411542 here and in develop, 2707745502 in release/SBN2025A.      -->
+  <class name="sbn::BNBSpillInfo" ClassVersion="18">
+   <version ClassVersion="18" checksum="1053380634"/>
    <version ClassVersion="17" checksum="1656001499"/>
    <version ClassVersion="16" checksum="427195799"/>
    <version ClassVersion="15" checksum="28411542"/>
