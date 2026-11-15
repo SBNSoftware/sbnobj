@@ -189,16 +189,18 @@ namespace sbn {
     //mcs algorithm - sigma3p
     double mcs_sigma3p_2DI1, mcs_sigma3p_2DI2, mcs_sigma3p_2DC;
 
-    //mcs algorithm - momentum (maximum likelihood, c2 function)
-    float mcs_pbest_ML_2DI1, mcs_pbest_ML_2DI2, mcs_pbest_ML_2DC;
-    float mcs_pbest_C2_2DI1, mcs_pbest_C2_2DI2, mcs_pbest_C2_2DC;
+    //mcs algorithm - momentum and errors (likelihood, c2 function)
+    double mcs_pbest_LL_2DI1, mcs_pbest_LL_2DI2, mcs_pbest_LL_2DC;
+    double mcs_error_LL_2DI1, mcs_error_LL_2DI2, mcs_error_LL_2DC;
+    double mcs_pbest_C2_2DI1, mcs_pbest_C2_2DI2, mcs_pbest_C2_2DC;
+    double mcs_error_C2_2DI1, mcs_error_C2_2DI2, mcs_error_C2_2DC;
 
     //mcs algorithm - angles (linear, polygonal)
-    std::vector<float> mcs_thetal_mea_2DI1, mcs_thetal_mea_2DI2, mcs_thetal_mea_2DC;
-    std::vector<float> mcs_thetap_mea_2DI1, mcs_thetap_mea_2DI2, mcs_thetap_mea_2DC;
+    std::vector<double> mcs_thetal_mea_2DI1, mcs_thetal_mea_2DI2, mcs_thetal_mea_2DC;
+    std::vector<double> mcs_thetap_mea_2DI1, mcs_thetap_mea_2DI2, mcs_thetap_mea_2DC;
 
     //mcs algorithm - segment lengths
-    std::vector<float> mcs_seglens_2DI1, mcs_seglens_2DI2, mcs_seglens_2DC;
+    std::vector<double> mcs_seglens_2DI1, mcs_seglens_2DI2, mcs_seglens_2DC;
 
     float exp_fit_A = -1.;                                         //!< Fit parameter
     float exp_fit_R = -1.;                                         //!< Fit parameter
