@@ -202,8 +202,24 @@ namespace blip {
      * For properly flash matched out-of-time tracks this distance will be wrong!
      * The blips have no such flash matching ability as of yet.
      */
-    int       ProxTrkID       = -9;         ///< index of the of closest track, assuming the blip was concident with event trigger
-    bool      inCylinder      = false;      ///< Bool for whether this blip falls in a 45 degree cone relative to any track closer than fcl-set CylinderRadius (15 cm)
+    int      ProxTrkID       = -9;         ///< index of the of closest track, assuming the blip was concident with event trigger
+    bool     inCylinder      = false;      ///< Bool for whether this blip falls in a 45 degree cone relative to any track closer than fcl-set CylinderRadius (15 cm)
+    float    ProxPrimVtxDist = -9;         ///< 3-D distance to closest primary vertex (neutrino or cosmic), [cm]
+    int      ProxPrimVtxID   = -9;         ///< index of the of closest primary vertex (neutrino or cosmic)
+    float    ProxVtxDist     = -9;         ///< 3-D distance to closest vertex (neutrino or cosmic), not necessarily a primary PFP, [cm]
+    int      ProxVtxID       = -9;         ///< index of the of closest vertex (neutrino or cosmic), not necessarily a primary PFP
+     /**
+     * @brief 3-D distance to closest neutrino Pandoratrack, assuming the blip was coincident with event trigger [cm]
+     */
+    
+    float    ProxNuTrkDist   = -9;         ///< 3-D distance to closest track in neutrino slice, [cm]
+    int      ProxNuTrkID     = -9;         ///< index of the of closest track in neutrino slice
+    float    ProxNuVtxDist   = -9;         ///< 3-D distance to closest neutrino vertex, [cm]
+    int      ProxNuVtxID     = -9;         ///< index of the of closest neutrino vertex
+    float    ProxNuPFPVtxDist= -9;      ///< 3-D distance to closest PFP vertex in the neutrino hierarchy [cm]
+    int      ProxNuPFPID     = -9;         ///< index of the of closest PFP vertex in the neutrino hierarchy
+    bool     inNuCylinder     = false;      ///< Bool for whether this blip falls in a 45 degree cone relative to any neutrino PFP closer than fcl-set CylinderRadius (15 cm)
+
     geo::Point_t  Position;                 ///< 3D position vector. Reconstructed with wrong t0! [cm]
     /**
      * @brief 3D position vector. Reconstructed with wrong t0! [cm]
