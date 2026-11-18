@@ -12,6 +12,12 @@
   <class name="art::Assns<recob::Track, sbn::RangeP, void>" />
   <class name="art::Wrapper<art::Assns<recob::Track, sbn::RangeP, void>>" />
 
+  <class name="recob::MCSFitResultGS" ClassVersion="10" >
+   <version ClassVersion="10" checksum="3108613430"/>
+  </class>
+  <class name="std::vector<recob::MCSFitResultGS>" />
+  <class name="art::Wrapper<std::vector<recob::MCSFitResultGS>>" />
+
   <class name="art::Assns<recob::Track, recob::MCSFitResult, void>" />
   <class name="art::Wrapper<art::Assns<recob::Track, recob::MCSFitResult, void>>" />
   <class name="art::Assns<recob::MCSFitResult, recob::Track, void>" />
