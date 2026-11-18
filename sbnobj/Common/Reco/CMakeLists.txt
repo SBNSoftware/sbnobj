@@ -4,6 +4,7 @@ cet_make_library(
     CRUMBSResult.cc
     FlashTriggerPrimitive.cc
     LightCalo.cc
+    MCSFitResultGS.cc
     MVAPID.cc
     MergedTrackInfo.cc
     OpT0FinderResult.cc
