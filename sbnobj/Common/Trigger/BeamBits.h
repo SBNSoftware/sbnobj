@@ -5,9 +5,6 @@
  * @date   May 19, 2021
  * 
  * This is a header-only library.
- * 
- * @todo This header should be moved into the proper place
- *       (proposal: `sbnobj/Common/Trigger` in `sbnobj`)
  */
 
 #ifndef SBNOBJ_COMMON_TRIGGER_BEAMBITS_H
@@ -29,183 +26,185 @@
  * The constants are used to identify the gate during which a trigger is
  * acquired, in the `raw::Trigger::TriggerBits()` bit mask.
  */
-namespace sbn {
+namespace sbn {} // for documentation only; populated below
+
+/**
+ * @brief Simple utilities to deal with bit enumerators.
+ * 
+ * A few simple concepts:
+ * * a bit is identified by its position (integral number: `0`, `1`, `2`...)
+ * * representation of a bit is via a enumerator (`enum class`)
+ * * bits may be associated with a name (`name()`)
+ * * to test bits, `mask()`, `value()` and `hasBitSet()` help with the
+ *   conversions between `enum class` and the underlying integral type
+ * 
+ */
+namespace sbn::bits {
   
-  /**
-   * @brief Simple utilities to deal with bit enumerators.
-   * 
-   * A few simple concepts:
-   * * a bit is identified by its position (integral number: `0`, `1`, `2`...)
-   * * representation of a bit is via a enumerator (`enum class`)
-   * * bits may be associated with a name (`name()`)
-   * * to test bits, `mask()`, `value()` and `hasBitSet()` help with the
-   *   conversions between `enum class` and the underlying integral type
-   * 
-   */
-  namespace bits {
-    
-    // --- BEGIN -- Generic bit functions --------------------------------------
-    /// @name Generic bit functions
-    /// @{
-    
-    /// Type for bit masks.
-    /// @note This is a glorified integral type.
-    template <typename EnumType>
-    struct mask_t {
-      using bits_t = EnumType; ///< Enumeration type of the bits.
-      using maskbits_t = std::underlying_type_t<EnumType>; ///< Bit data type.
-      maskbits_t bits { 0 };
-      operator maskbits_t() const { return bits; }
-    }; // mask_t
-
-    /// Converts a integral type into a mask.
-    template <typename EnumType>
-    mask_t<EnumType> makeMask
-      (typename mask_t<EnumType>::maskbits_t bits) noexcept;
-    
-    
-    /// Returns the value of specified `bit` (conversion like `enum` to `int`).
-    template <typename EnumType>
-    constexpr auto value(EnumType bit);
-    
-    /// Returns a mask with all specified bits set.
-    template <typename EnumType, typename... OtherBits>
-    constexpr mask_t<EnumType> mask(EnumType bit, OtherBits... otherBits);
-    
-    /// Returns whether the specified `bit` is set in `bitMask`.
-    template <typename EnumType>
-    constexpr bool hasBitSet(mask_t<EnumType> bitMask, EnumType bit);
-    
-    /// Returns the name of the specified `bit`. Delegates to `bitName()`.
-    template <typename EnumType>
-    std::string name(EnumType bit);
-    
-    /// Returns a list of the names of all the bits set in `mask`.
-    /// Mask is interpreted as made of only bits of type `EnumType`.
-    template <typename EnumType>
-    std::vector<std::string> names(mask_t<EnumType> mask);
-    
-    /// @}
-    // --- END ---- Generic bit functions --------------------------------------
-    
-    
-    // --- BEGIN -- Beam bits --------------------------------------------------
-    /// @name Beam bits
-    /// @{
-    
-    /// Type of beam or beam gate or other trigger source.
-    enum class triggerSource: unsigned int {
-      Unknown,     ///< Type of beam unknown.
-      BNB,         ///< Type of beam: BNB.
-      NuMI,        ///< Type of beam: NuMI.
-      OffbeamBNB,  ///< Type of Offbeam: BNB.
-      OffbeamNuMI, ///< Type of Offbeam: NuMI.
-      Calib,       ///< Type of source: calibration trigger.
-      // ==> add here if more are needed <==
-      NBits    ///< Number of bits currently supported.
-    }; // triggerSource
-
-    /// Type of mask with `triggerSource` bits.
-    using triggerSourceMask = mask_t<triggerSource>;
-
-    
-    /// Location or locations generating a trigger.
-    enum class triggerLocation: unsigned int {
-      CryoEast,    ///< A trigger happened in the east cryostat.
-      CryoWest,    ///< A trigger happened in the west cryostat.
-      TPCEE,       ///< A trigger happened in the east cryostat, east TPC.
-      TPCEW,       ///< A trigger happened in the east cryostat, west TPC.
-      TPCWE,       ///< A trigger happened in the west cryostat, east TPC.
-      TPCWW,       ///< A trigger happened in the west cryostat, west TPC.
-      // ==> add here if more are needed <==
-      NBits    ///< Number of bits currently supported.
-    }; // triggerLocation
-
-    /// Type of mask with `triggerLocation` bits.
-    using triggerLocationMask = mask_t<triggerLocation>;
-
-    /// Type(s) of trigger logic being satisfied.
-    enum class triggerLogic: unsigned int {
-      PMTAnalogSum,    ///< Discriminated PMT signal sum above threshold.
-      PMTPairMajority, ///< Minimum number of discriminated PMT above threshold.
-      // ==> add here if more are needed <==
-      NBits    ///< Number of bits currently supported.
-    }; // triggerLocation
-
-    /// Type of mask with `triggerLogic` bits.
-    using triggerLogicMask = mask_t<triggerLogic>;
-
-    /// Type representing the type(s) of this trigger.
-    enum class triggerType: unsigned int {
-      Majority,    ///< A minimum number of close-by PMT pairs above threshold was reached.
-      MinimumBias, ///< Data collected at gate opening with no further requirement imposed.
-      // ==> add here if more are needed <==
-      NBits    ///< Number of bits currently supported.
-    }; // triggerType
-
-    /// Type of mask with `triggerType` bits.
-    using triggerTypeMask = mask_t<triggerType>;
-    
-    /// Trigger window mode
-    enum class triggerWindowMode: unsigned int {
-      Separated,             ///< Separated, non-overlapping contiguous window.
-      Overlapping,           ///< Overlapping windows.
-      SeparatedPlusAdders,   ///< OR of `Separated` and `Adders`.
-      OverlappingPlusAdders, ///< OR of `Overlapping` and `Adders`.
-      Adders,                ///< Trigger from adders.
-      //==> add here if more are needed <==
-      NBits     ///< Number of Bits currently supported
-    };
-
-    
-
-    /// Enabled gates in the trigger configuration. See register 0X00050008 in docdb SBN-doc-23778-v1
-    enum class gateSelection: unsigned int {
-      GateBNB,                     ///<Enable receiving BNB early warning signal (gatedBES) to open BNB gates
-      DriftGateBNB,                ///<Enable BNB early-early warning signal ($1D) for light out-of-time in BNB gates
-      GateNuMI,                    ///<Enable NuMI early warning signal (MIBS$74) to open NuMI gates
-      DriftGateNuMI,               ///<Enable receiving NuMI early-early warning signal ($AD) for light out-of-time in NuMI gates
-      GateOffbeamBNB,              ///<Enable Offbeam gate for BNB
-      DriftGateOffbeamBNB,         ///<Enable Offbeam drift gate BNB (for light out-of-time in offbeam gates)
-      GateOffbeamNuMI,             ///<Enable Offbeam gate for NuMI
-      DriftGateOffbeamNuMI,        ///<Enable Offbeam drift gate NuMI (for light out-of-time in offbeam gates)
-      GateCalibration,             ///<Enable Calibration gate
-      DriftGateCalibration,        ///<Enable Calibration drift gate (for light out-of-time in calibration gates)
-      MinbiasGateBNB,              ///<Enable MinBias triggers for the BNB stream
-      MinbiasGateNuMI,             ///<Enable MinBias triggers for the NuMI stream
-      MinbiasGateOffbeamBNB,       ///<Enabke MinBias triggers for the Offbeam BNB stream
-      MinbiasGateOffbeamNuMI,      ///<Enable MinBias triggers for the Offbeam NuMI stream
-      MinbiasGateCalibration,      ///<Enable MinBias triggers for the Calibration stream
-      MinbiasDriftGateBNB,         ///<Enable light out-of-time for MinBias triggers in BNB stream
-      MinbiasDriftGateNuMI,        ///<Enable light out-of-time for MinBias triggers in NuMI stream
-      MinbiasDriftGateOffbeamBNB,  ///<Enable light out-of-time for MinBias triggers in Offbeam BNB stream
-      MinbiasDriftGateOffbeamNuMI, ///<Enable light out-of-time for MinBias triggers in Offbeam NuMI stream
-      MinbiasDriftGateCalibration, ///<Enable light out-of-time for MinBias triggers in Calibration stream
-      // ==> add here if more are needed <==
-      NBits
-    }; // gateSelection
-
-    using gateSelectionMask = mask_t<gateSelection>;
-
-    /// Returns a mnemonic short name of the beam type.
-    std::string bitName(triggerSource bit);
-    /// Returns a mnemonic short name of the trigger location.
-    std::string bitName(triggerLocation bit);
-    /// Returns a mnemonic short name of the trigger logic.
-    std::string bitName(triggerLogic bit);
-    /// Returns a mnemonic short name of the trigger type.
-    std::string bitName(triggerType bit);
-    /// Returns a mnemonic short name for the trigger window mode.
-    std::string bitName(triggerWindowMode bit);
-    /// Returns a mnemonic short name for the gate type.
-    std::string bitName(gateSelection bit);
-
-    /// @}
-    // --- END ---- Beam bits --------------------------------------------------
-
-  } // namespace bits
+  // --- BEGIN -- Generic bit functions ----------------------------------------
+  /// @name Generic bit functions
+  /// @{
   
-  using bits::triggerSource; // import symbol
+  /// Type for bit masks.
+  /// @note This is a glorified integral type.
+  template <typename EnumType>
+  struct mask_t {
+    using bits_t = EnumType; ///< Enumeration type of the bits.
+    using maskbits_t = std::underlying_type_t<EnumType>; ///< Bit data type.
+    maskbits_t bits { 0 };
+    operator maskbits_t() const { return bits; }
+  }; // mask_t
+
+  /// Converts a integral type into a mask.
+  template <typename EnumType>
+  mask_t<EnumType> makeMask
+    (typename mask_t<EnumType>::maskbits_t bits) noexcept;
+  
+  
+  /// Returns the value of specified `bit` (conversion like `enum` to `int`).
+  template <typename EnumType>
+  constexpr auto value(EnumType bit);
+  
+  /// Returns a mask with all specified bits set.
+  template <typename EnumType, typename... OtherBits>
+  constexpr mask_t<EnumType> mask(EnumType bit, OtherBits... otherBits);
+  
+  /// Returns whether the specified `bit` is set in `bitMask`.
+  template <typename EnumType>
+  constexpr bool hasBitSet(mask_t<EnumType> bitMask, EnumType bit);
+  
+  /// Returns the name of the specified `bit`. Delegates to `bitName()`.
+  template <typename EnumType>
+  std::string name(EnumType bit);
+  
+  /// Returns a list of the names of all the bits set in `mask`.
+  /// Mask is interpreted as made of only bits of type `EnumType`.
+  template <typename EnumType>
+  std::vector<std::string> names(mask_t<EnumType> mask);
+  
+  /// @}
+  // --- END ---- Generic bit functions ----------------------------------------
+  
+  
+  // --- BEGIN -- Beam bits ----------------------------------------------------
+  /// @name Beam bits
+  /// @{
+  
+  /// Type of beam or beam gate or other trigger source.
+  enum class triggerSource: unsigned int {
+    Unknown,     ///< Type of beam unknown.
+    BNB,         ///< Type of beam: BNB.
+    NuMI,        ///< Type of beam: NuMI.
+    OffbeamBNB,  ///< Type of Offbeam: BNB.
+    OffbeamNuMI, ///< Type of Offbeam: NuMI.
+    Calib,       ///< Type of source: calibration trigger.
+    // ==> add here if more are needed <==
+    NBits    ///< Number of bits currently supported.
+  }; // triggerSource
+
+  /// Type of mask with `triggerSource` bits.
+  using triggerSourceMask = mask_t<triggerSource>;
+
+  
+  /// Location or locations generating a trigger.
+  enum class triggerLocation: unsigned int {
+    CryoEast,    ///< A trigger happened in the east cryostat.
+    CryoWest,    ///< A trigger happened in the west cryostat.
+    TPCEE,       ///< A trigger happened in the east cryostat, east TPC.
+    TPCEW,       ///< A trigger happened in the east cryostat, west TPC.
+    TPCWE,       ///< A trigger happened in the west cryostat, east TPC.
+    TPCWW,       ///< A trigger happened in the west cryostat, west TPC.
+    // ==> add here if more are needed <==
+    NBits    ///< Number of bits currently supported.
+  }; // triggerLocation
+
+  /// Type of mask with `triggerLocation` bits.
+  using triggerLocationMask = mask_t<triggerLocation>;
+
+  /// Type(s) of trigger logic being satisfied.
+  enum class triggerLogic: unsigned int {
+    PMTAnalogSum,    ///< Discriminated PMT signal sum above threshold.
+    PMTPairMajority, ///< Minimum number of discriminated PMT above threshold.
+    // ==> add here if more are needed <==
+    NBits    ///< Number of bits currently supported.
+  }; // triggerLocation
+
+  /// Type of mask with `triggerLogic` bits.
+  using triggerLogicMask = mask_t<triggerLogic>;
+
+  /// Type representing the type(s) of this trigger.
+  enum class triggerType: unsigned int {
+    Majority,    ///< A minimum number of close-by PMT pairs above threshold was reached.
+    MinimumBias, ///< Data collected at gate opening with no further requirement imposed.
+    // ==> add here if more are needed <==
+    NBits    ///< Number of bits currently supported.
+  }; // triggerType
+
+  /// Type of mask with `triggerType` bits.
+  using triggerTypeMask = mask_t<triggerType>;
+  
+  /// Trigger window mode
+  enum class triggerWindowMode: unsigned int {
+    Separated,             ///< Separated, non-overlapping contiguous window.
+    Overlapping,           ///< Overlapping windows.
+    SeparatedPlusAdders,   ///< OR of `Separated` and `Adders`.
+    OverlappingPlusAdders, ///< OR of `Overlapping` and `Adders`.
+    Adders,                ///< Trigger from adders.
+    //==> add here if more are needed <==
+    NBits     ///< Number of Bits currently supported
+  };
+
+  
+
+  /// Enabled gates in the trigger configuration. See register 0X00050008 in docdb SBN-doc-23778-v1
+  enum class gateSelection: unsigned int {
+    GateBNB,                     ///<Enable receiving BNB early warning signal (gatedBES) to open BNB gates
+    DriftGateBNB,                ///<Enable BNB early-early warning signal ($1D) for light out-of-time in BNB gates
+    GateNuMI,                    ///<Enable NuMI early warning signal (MIBS$74) to open NuMI gates
+    DriftGateNuMI,               ///<Enable receiving NuMI early-early warning signal ($AD) for light out-of-time in NuMI gates
+    GateOffbeamBNB,              ///<Enable Offbeam gate for BNB
+    DriftGateOffbeamBNB,         ///<Enable Offbeam drift gate BNB (for light out-of-time in offbeam gates)
+    GateOffbeamNuMI,             ///<Enable Offbeam gate for NuMI
+    DriftGateOffbeamNuMI,        ///<Enable Offbeam drift gate NuMI (for light out-of-time in offbeam gates)
+    GateCalibration,             ///<Enable Calibration gate
+    DriftGateCalibration,        ///<Enable Calibration drift gate (for light out-of-time in calibration gates)
+    MinbiasGateBNB,              ///<Enable MinBias triggers for the BNB stream
+    MinbiasGateNuMI,             ///<Enable MinBias triggers for the NuMI stream
+    MinbiasGateOffbeamBNB,       ///<Enabke MinBias triggers for the Offbeam BNB stream
+    MinbiasGateOffbeamNuMI,      ///<Enable MinBias triggers for the Offbeam NuMI stream
+    MinbiasGateCalibration,      ///<Enable MinBias triggers for the Calibration stream
+    MinbiasDriftGateBNB,         ///<Enable light out-of-time for MinBias triggers in BNB stream
+    MinbiasDriftGateNuMI,        ///<Enable light out-of-time for MinBias triggers in NuMI stream
+    MinbiasDriftGateOffbeamBNB,  ///<Enable light out-of-time for MinBias triggers in Offbeam BNB stream
+    MinbiasDriftGateOffbeamNuMI, ///<Enable light out-of-time for MinBias triggers in Offbeam NuMI stream
+    MinbiasDriftGateCalibration, ///<Enable light out-of-time for MinBias triggers in Calibration stream
+    // ==> add here if more are needed <==
+    NBits
+  }; // gateSelection
+
+  using gateSelectionMask = mask_t<gateSelection>;
+
+  /// Returns a mnemonic short name of the beam type.
+  std::string bitName(triggerSource bit);
+  /// Returns a mnemonic short name of the trigger location.
+  std::string bitName(triggerLocation bit);
+  /// Returns a mnemonic short name of the trigger logic.
+  std::string bitName(triggerLogic bit);
+  /// Returns a mnemonic short name of the trigger type.
+  std::string bitName(triggerType bit);
+  /// Returns a mnemonic short name for the trigger window mode.
+  std::string bitName(triggerWindowMode bit);
+  /// Returns a mnemonic short name for the gate type.
+  std::string bitName(gateSelection bit);
+
+  /// @}
+  // --- END ---- Beam bits ----------------------------------------------------
+
+} // namespace sbn::bits
+
+namespace sbn { // import symbol
+  
+  using bits::triggerSource;
   using bits::triggerSourceMask;
   using bits::triggerType;
   using bits::triggerTypeMask;
