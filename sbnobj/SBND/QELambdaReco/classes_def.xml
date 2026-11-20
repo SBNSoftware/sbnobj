@@ -1,0 +1,18 @@
+<lcgdict>
+  <class name="qelambda::QELambdaReco"/>
+  <class name="qelambda::QELambdaPID"/>
+
+  <!-- <class name="art::Ptr<qelambda::QELambdaReco>"/>
+  <class name="art::PtrVector<qelambda::QELambdaReco>"/>
+  <class name="std::vector<qelambda::QELambdaReco>"/>
+  <class name="std::vector<art::Ptr<qelambda::QELambdaReco>>"/> -->
+
+  <class name="art::Wrapper<qelambda::QELambdaReco>"/>
+  <class name="art::Wrapper<qelambda::QELambdaPID>"/>
+  <!-- <class name="art::Wrapper<std::vector<qelambda::QELambdaReco>>"/> -->
+  <!-- <class name="art::Wrapper<std::vector<qelambda::QELambdaPID>>"/> -->
+  <!-- <class name="std::vector<qelambda::QELambdaPID>"/> -->
+  <!-- <class name="art::Ptr<qelambda::QELambdaPID>"/>
+  <class name="art::PtrVector<qelambda::QELambdaPID>"/>
+  <class name="std::vector<art::Ptr<qelambda::QELambdaPID>>"/> -->
+</lcgdict>
