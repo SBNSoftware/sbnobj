@@ -2,6 +2,9 @@ cet_make_library(
   SOURCE
     ExtraTriggerInfo.cxx
   LIBRARIES
+  INTERFACE
+    sbnobj::Common_Utilities
+  PRIVATE
     ROOT::Core
 )
 

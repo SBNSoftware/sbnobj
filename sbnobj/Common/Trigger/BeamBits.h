@@ -4,30 +4,25 @@
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   May 19, 2021
  * 
- * This is a header-only library.
+ * Link with `sbnobj::Common_Trigger`.
  */
 
 #ifndef SBNOBJ_COMMON_TRIGGER_BEAMBITS_H
 #define SBNOBJ_COMMON_TRIGGER_BEAMBITS_H
 
+// SBN libraries
+#include "sbnobj/Common/Utilities/EnumNameRegistry.h" // support for enumerators
 
 // C/C++ standard libraries
+#include <ostream>
 #include <stdexcept> // std::runtime_error
 #include <string>
 #include <vector>
-#include <initializer_list>
+#include <typeinfo>
 #include <type_traits> // std::underlying_type_t
 
 
 // -----------------------------------------------------------------------------
-/**
- * @brief Set of values to identify a beam.
- * 
- * The constants are used to identify the gate during which a trigger is
- * acquired, in the `raw::Trigger::TriggerBits()` bit mask.
- */
-namespace sbn {} // for documentation only; populated below
-
 /**
  * @brief Simple utilities to deal with bit enumerators.
  * 
@@ -47,40 +42,59 @@ namespace sbn::bits {
   
   /// Type for bit masks.
   /// @note This is a glorified integral type.
-  template <typename EnumType>
+  template <::util::ScopedEnum Enum>
   struct mask_t {
-    using bits_t = EnumType; ///< Enumeration type of the bits.
-    using maskbits_t = std::underlying_type_t<EnumType>; ///< Bit data type.
+    using bits_t = Enum; ///< Enumeration type of the bits.
+    using maskbits_t = std::underlying_type_t<Enum>; ///< Bit data type.
     maskbits_t bits { 0 };
     operator maskbits_t() const { return bits; }
   }; // mask_t
 
   /// Converts a integral type into a mask.
-  template <typename EnumType>
-  mask_t<EnumType> makeMask
-    (typename mask_t<EnumType>::maskbits_t bits) noexcept;
+  template <::util::ScopedEnum Enum>
+  mask_t<Enum> makeMask(typename mask_t<Enum>::maskbits_t bits) noexcept;
   
   
   /// Returns the value of specified `bit` (conversion like `enum` to `int`).
-  template <typename EnumType>
-  constexpr auto value(EnumType bit);
+  template <::util::ScopedEnum Enum>
+  constexpr auto value(Enum bit);
   
   /// Returns a mask with all specified bits set.
-  template <typename EnumType, typename... OtherBits>
-  constexpr mask_t<EnumType> mask(EnumType bit, OtherBits... otherBits);
+  template <::util::ScopedEnum Enum, typename... OtherBits>
+  constexpr mask_t<Enum> mask(Enum bit, OtherBits... otherBits);
   
   /// Returns whether the specified `bit` is set in `bitMask`.
-  template <typename EnumType>
-  constexpr bool hasBitSet(mask_t<EnumType> bitMask, EnumType bit);
+  template <::util::ScopedEnum Enum>
+  constexpr bool hasBitSet(mask_t<Enum> bitMask, Enum bit);
   
-  /// Returns the name of the specified `bit`. Delegates to `bitName()`.
-  template <typename EnumType>
-  std::string name(EnumType bit);
+  /// Returns the name of the specified `bit`.
+  /// @throws std::runtime_error if bit is not known
+  template <::util::RegisteredEnum Enum>
+  std::string name(Enum bit);
   
+  /// Alias for `sbn::bits::name()`.
+  /// @deprecated Use `sbn::bits::name()` instead.
+  [[deprecated("Use `sbn::bits::name()` instead")]]
+  std::string bitName(::util::RegisteredEnum auto bit) { return name(bit); }
+
+  /**
+   * @brief Returns the bit value of a given name, if present.
+   * @tparam Enum (mandatory) the type of bits to read
+   * @param name the name of the bit
+   * @param caseSensitive (default: `true`): whether to match the case of `name`
+   * @return optional value of the matched bit, or an invalid state if not found
+   */
+  template <::util::RegisteredEnum Enum>
+  std::optional<Enum> parse(std::string_view name, bool caseSensitive = true);
+
   /// Returns a list of the names of all the bits set in `mask`.
-  /// Mask is interpreted as made of only bits of type `EnumType`.
-  template <typename EnumType>
-  std::vector<std::string> names(mask_t<EnumType> mask);
+  /// Mask is interpreted as made of only bits of type `Enum`.
+  template <::util::RegisteredEnum Enum>
+  std::vector<std::string> names(mask_t<Enum> mask);
+  
+  /// Inserts the name of `bit` into `out` stream [template]
+  std::ostream& operator<< (std::ostream& out, ::util::NamedEnum auto bit)
+    { return out << name(bit); }
   
   /// @}
   // --- END ---- Generic bit functions ----------------------------------------
@@ -104,7 +118,6 @@ namespace sbn::bits {
 
   /// Type of mask with `triggerSource` bits.
   using triggerSourceMask = mask_t<triggerSource>;
-
   
   /// Location or locations generating a trigger.
   enum class triggerLocation: unsigned int {
@@ -153,9 +166,7 @@ namespace sbn::bits {
     //==> add here if more are needed <==
     NBits     ///< Number of Bits currently supported
   };
-
   
-
   /// Enabled gates in the trigger configuration. See register 0X00050008 in docdb SBN-doc-23778-v1
   enum class gateSelection: unsigned int {
     GateBNB,                     ///<Enable receiving BNB early warning signal (gatedBES) to open BNB gates
@@ -184,18 +195,6 @@ namespace sbn::bits {
 
   using gateSelectionMask = mask_t<gateSelection>;
 
-  /// Returns a mnemonic short name of the beam type.
-  std::string bitName(triggerSource bit);
-  /// Returns a mnemonic short name of the trigger location.
-  std::string bitName(triggerLocation bit);
-  /// Returns a mnemonic short name of the trigger logic.
-  std::string bitName(triggerLogic bit);
-  /// Returns a mnemonic short name of the trigger type.
-  std::string bitName(triggerType bit);
-  /// Returns a mnemonic short name for the trigger window mode.
-  std::string bitName(triggerWindowMode bit);
-  /// Returns a mnemonic short name for the gate type.
-  std::string bitName(gateSelection bit);
 
   /// @}
   // --- END ---- Beam bits ----------------------------------------------------
@@ -219,24 +218,145 @@ namespace sbn { // import symbol
 
 
 // -----------------------------------------------------------------------------
+// ---  enumerator names
+// -----------------------------------------------------------------------------
+//
+// `nameRegistry()` functions must live in the namespace where their enumerators
+// are defined (see `EnumNameRegistry.h`). The registry itself can be anywhere,
+// and it's better not clutter that namespace; however it is defined `auto`
+// and it can't be detached into a implementation file.
+//
+namespace sbn::bits {
+  
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto triggerSourceNames = ::util::makeNameRegistry<triggerSource>({
+      { triggerSource::Unknown,     "unknown"     },
+      { triggerSource::BNB,         "BNB"         },
+      { triggerSource::NuMI,        "NuMI"        },
+      { triggerSource::OffbeamBNB,  "OffbeamBNB"  },
+      { triggerSource::OffbeamNuMI, "OffbeamNuMI" },
+      { triggerSource::Calib,       "Calib"       },
+      { triggerSource::NBits,       "<invalid>"   },
+      // some aliases
+      { triggerSource::OffbeamBNB,  "BNBoffbeam"  },
+      { triggerSource::OffbeamNuMI, "NuMIoffbeam" },
+      { triggerSource::Calib,       "Calibration" },
+    });
+  }
+  
+  inline constexpr auto const& nameRegistry(triggerSource)
+    { return details::triggerSourceNames; }
+  
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto triggerLocationNames = ::util::makeNameRegistry<triggerLocation>({
+      { triggerLocation::CryoEast, "Cryo E"    },
+      { triggerLocation::CryoWest, "Cryo W"    },
+      { triggerLocation::TPCEE,    "TPC EE"    },
+      { triggerLocation::TPCEW,    "TPC EW"    },
+      { triggerLocation::TPCWE,    "TPC WE"    },
+      { triggerLocation::TPCWW,    "TPC WW"    },
+      { triggerLocation::NBits,    "<invalid>" },
+    });
+  }
+
+  inline constexpr auto const& nameRegistry(triggerLocation)
+    { return details::triggerLocationNames; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto triggerLogicNames = ::util::makeNameRegistry<triggerLogic>({
+      { triggerLogic::PMTPairMajority, "PMT pair majority" },
+      { triggerLogic::PMTAnalogSum,    "PMT analog sum"    },
+      { triggerLogic::NBits,           "<invalid>"         },
+    });
+  }
+
+  inline constexpr auto const& nameRegistry(triggerLogic)
+    { return details::triggerLogicNames; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto triggerTypeNames = ::util::makeNameRegistry<triggerType>({
+      { triggerType::Majority,    "majority"     },
+      { triggerType::MinimumBias, "minimum bias" },
+      { triggerType::NBits,       "<invalid>"    },
+    });
+  }
+
+  inline constexpr auto const& nameRegistry(triggerType)
+    { return details::triggerTypeNames; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto triggerWindowModeNames = ::util::makeNameRegistry<triggerWindowMode>({
+      { triggerWindowMode::Separated,             "Separated Window"   },
+      { triggerWindowMode::Overlapping,           "Overlapping Window" },
+      { triggerWindowMode::SeparatedPlusAdders,   "Separated Both"     },
+      { triggerWindowMode::OverlappingPlusAdders, "Overlapping Both"   },
+      { triggerWindowMode::Adders,                "Adders"             },
+      { triggerWindowMode::NBits,                 "<invalid>"          },
+    });
+  }
+
+  inline constexpr auto const& nameRegistry(triggerWindowMode)
+    { return details::triggerWindowModeNames; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  namespace details {
+    inline constexpr auto gateSelectionNames = ::util::makeNameRegistry<gateSelection>({
+      { gateSelection::GateBNB,                     "GateBNB"                     },
+      { gateSelection::DriftGateBNB,                "DriftGateBNB"                },
+      { gateSelection::GateNuMI,                    "GateNuMI"                    },
+      { gateSelection::DriftGateNuMI,               "DriftGateNuMI"               },
+      { gateSelection::GateOffbeamBNB,              "GateOffbeamBNB"              },
+      { gateSelection::DriftGateOffbeamBNB,         "DriftGateOffbeamBNB"         },
+      { gateSelection::GateOffbeamNuMI,             "GateOffbeamNuMI"             },
+      { gateSelection::DriftGateOffbeamNuMI,        "DriftGateOffbeamNuMI"        },
+      { gateSelection::GateCalibration,             "GateCalibration"             },
+      { gateSelection::DriftGateCalibration,        "DriftGateCalibration"        },
+      { gateSelection::MinbiasGateBNB,              "MinbiasGateBNB"              },
+      { gateSelection::MinbiasGateNuMI,             "MinbiasGateNuMI"             },
+      { gateSelection::MinbiasGateOffbeamBNB,       "MinbiasGateOffbeamBNB"       },
+      { gateSelection::MinbiasGateOffbeamNuMI,      "MinbiasGateOffbeamNuMI"      },
+      { gateSelection::MinbiasGateCalibration,      "MinbiasGateCalibration"      },
+      { gateSelection::MinbiasDriftGateBNB,         "MinbiasDriftGateBNB"         },
+      { gateSelection::MinbiasDriftGateNuMI,        "MinbiasDriftGateNuMI"        },
+      { gateSelection::MinbiasDriftGateOffbeamBNB,  "MinbiasDriftGateOffbeamBNB"  },
+      { gateSelection::MinbiasDriftGateOffbeamNuMI, "MinbiasDriftGateOffbeamNuMI" },
+      { gateSelection::MinbiasDriftGateCalibration, "MinbiasDriftGateCalibration" },
+      { gateSelection::NBits,                       "NBits"                       },
+    });
+  }
+
+  inline constexpr auto const& nameRegistry(gateSelection)
+    { return details::gateSelectionNames; }
+    
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+} // namespace sbn::bits
+
+
+// -----------------------------------------------------------------------------
 // ---  inline and template implementation
 // -----------------------------------------------------------------------------
-template <typename EnumType>
-auto sbn::bits::makeMask  (typename mask_t<EnumType>::maskbits_t bits) noexcept
-  -> mask_t<EnumType>
+template <::util::ScopedEnum Enum>
+auto sbn::bits::makeMask  (typename mask_t<Enum>::maskbits_t bits) noexcept
+  -> mask_t<Enum>
   { return { bits }; }
 
 
 // -----------------------------------------------------------------------------
-template <typename EnumType>
-constexpr auto sbn::bits::value(EnumType bit)
-  { return static_cast<std::underlying_type_t<EnumType>>(bit); }
+template <util::ScopedEnum Enum>
+constexpr auto sbn::bits::value(Enum bit)
+  { return static_cast<std::underlying_type_t<Enum>>(bit); }
 
 
 // -----------------------------------------------------------------------------
-template <typename EnumType, typename... OtherBits>
-constexpr auto sbn::bits::mask(EnumType bit, OtherBits... otherBits)
-  -> mask_t<EnumType>
+template <util::ScopedEnum Enum, typename... OtherBits>
+constexpr auto sbn::bits::mask(Enum bit, OtherBits... otherBits)
+  -> mask_t<Enum>
 {
   unsigned int m { 1U << value(bit) };
   if constexpr(sizeof...(OtherBits) > 0U) m |= mask(otherBits...);
@@ -245,156 +365,48 @@ constexpr auto sbn::bits::mask(EnumType bit, OtherBits... otherBits)
 
 
 // -----------------------------------------------------------------------------
-template <typename EnumType>
-constexpr bool sbn::bits::hasBitSet(mask_t<EnumType> bitMask, EnumType bit)
+template <::util::ScopedEnum Enum>
+constexpr bool sbn::bits::hasBitSet(mask_t<Enum> bitMask, Enum bit)
   { return bitMask & mask(bit); }
 
 
 // -----------------------------------------------------------------------------
-template <typename EnumType>
-std::string sbn::bits::name(EnumType bit)
-  { return bitName(bit); }
-  
-  
-// -----------------------------------------------------------------------------
-template <typename EnumType>
-std::vector<std::string> sbn::bits::names(mask_t<EnumType> mask) {
-  static_assert(value(EnumType::NBits) >= 0);
-  
+template <::util::RegisteredEnum Enum>
+std::string sbn::bits::name(Enum bit) {
+  if (auto const name = nameRegistry(bit).optName(bit); name)
+    return std::string{ name.value() };
+  // sbnobj must not depend on larcorealg, else we'd used lar::debug::demangle()
   using namespace std::string_literals;
-  
-  constexpr std::size_t MaxBits = sizeof(mask) * 8U;
-  constexpr std::size_t NSupportedBits = value(EnumType::NBits);
-  
-  std::vector<std::string> names;
-  for (std::size_t bit = 0U; bit < MaxBits; ++bit) {
-    auto const typedBit = static_cast<EnumType>(bit);
-    if (!hasBitSet(mask, typedBit)) continue;
-    names.push_back((bit > NSupportedBits)
-      ? "<unsupported ["s + std::to_string(bit) + "]>"s: name(typedBit)
-      );
-  } // for
-  return names;
-  
+  throw std::runtime_error{
+    "sbn::bits::name("s + typeid(std::decay_t<Enum>).name() + "{ "s
+    + std::to_string(value(bit)) + " }): unknown bit"s
+    };
+} // sbn::bits::name()
+
+
+// -----------------------------------------------------------------------------
+template <::util::RegisteredEnum Enum>
+std::vector<std::string> sbn::bits::names(mask_t<Enum> mask) {
+  auto const& allNames = ::util::allEnumNames<Enum>();
+  return std::vector<std::string>{ begin(allNames), end(allNames) };
 } // sbn::bits::names()
 
 
 // -----------------------------------------------------------------------------
-/// @todo Move into an implementation file once this header in the final location.
-inline std::string sbn::bits::bitName(triggerSource bit) {
-  
-  using namespace std::string_literals;
-  switch (bit) {
-    case triggerSource::Unknown:     return "unknown"s;
-    case triggerSource::BNB:         return "BNB"s;
-    case triggerSource::NuMI:        return "NuMI"s;
-    case triggerSource::OffbeamBNB:  return "OffbeamBNB"s;
-    case triggerSource::OffbeamNuMI: return "OffbeamNuMI"s;
-    case triggerSource::Calib:       return "Calib"s;
-    case triggerSource::NBits:       return "<invalid>"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(triggerSource{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // sbn::bitName()
-
-
-// -----------------------------------------------------------------------------
-inline std::string sbn::bits::bitName(triggerLocation bit) {
-
-  using namespace std::string_literals;
-  switch (bit) {
-    case triggerLocation::CryoEast: return "Cryo E"s;
-    case triggerLocation::CryoWest: return "Cryo W"s;
-    case triggerLocation::TPCEE:    return "TPC EE"s;
-    case triggerLocation::TPCEW:    return "TPC EW"s;
-    case triggerLocation::TPCWE:    return "TPC WE"s;
-    case triggerLocation::TPCWW:    return "TPC WW"s;
-    case triggerLocation::NBits:    return "<invalid>"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(triggerLocation{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // sbn::bitName(triggerLocation)
-
-
-// -----------------------------------------------------------------------------
-inline std::string sbn::bits::bitName(triggerLogic bit) {
-
-  using namespace std::string_literals;
-  switch (bit) {
-    case triggerLogic::PMTPairMajority: return "PMT pair majority"s;
-    case triggerLogic::PMTAnalogSum:    return "PMT analog sum"s;
-    case triggerLogic::NBits:           return "<invalid>"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(triggerLogic{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // sbn::bitName(triggerLogic)
-
-
-// -----------------------------------------------------------------------------
-inline std::string sbn::bits::bitName(triggerType bit) {
-
-  using namespace std::string_literals;
-  switch (bit) {
-    case triggerType::Majority:    return "majority"s;
-    case triggerType::MinimumBias: return "minimum bias"s;
-    case triggerType::NBits:       return "<invalid>"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(triggerType{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // sbn::bitName(triggerType)
-
-
-// -----------------------------------------------------------------------------
-inline std::string sbn::bits::bitName(triggerWindowMode bit) {
-
-  using namespace std::string_literals;
-  switch (bit) {
-    case sbn::bits::triggerWindowMode::Separated:             return "Separated Window"s;
-    case sbn::bits::triggerWindowMode::Overlapping:           return "Overlapping Window"s;
-    case sbn::bits::triggerWindowMode::SeparatedPlusAdders:   return "Separated Both"s;
-    case sbn::bits::triggerWindowMode::OverlappingPlusAdders: return "Overlapping Both"s;
-    case sbn::bits::triggerWindowMode::Adders:                return "Adders"s;
-    case sbn::bits::triggerWindowMode::NBits:    return "<invalid>"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(triggerWindowMode{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // triggerWindowMode
-
-
-// -----------------------------------------------------------------------------
-inline std::string sbn::bits::bitName(gateSelection bit) {
-
-  using namespace std::string_literals;
-  switch (bit) {
-    case gateSelection::GateBNB:                     return "GateBNB"s;
-    case gateSelection::DriftGateBNB:                return "DriftGateBNB"s;
-    case gateSelection::GateNuMI:                    return "GateNuMI"s;
-    case gateSelection::DriftGateNuMI:               return "DriftGateNuMI"s;
-    case gateSelection::GateOffbeamBNB:              return "GateOffbeamBNB"s;
-    case gateSelection::DriftGateOffbeamBNB:         return "DriftGateOffbeamBNB"s;
-    case gateSelection::GateOffbeamNuMI:             return "GateOffbeamNuMI"s;
-    case gateSelection::DriftGateOffbeamNuMI:        return "DriftGateOffbeamNuMI"s;
-    case gateSelection::GateCalibration:             return "GateCalibration"s;
-    case gateSelection::DriftGateCalibration:        return "DriftGateCalibration"s;
-    case gateSelection::MinbiasGateBNB:              return "MinbiasGateBNB"s;
-    case gateSelection::MinbiasGateNuMI:             return "MinbiasGateNuMI"s;
-    case gateSelection::MinbiasGateOffbeamBNB:       return "MinbiasGateOffbeamBNB"s;
-    case gateSelection::MinbiasGateOffbeamNuMI:      return "MinbiasGateOffbeamNuMI"s;
-    case gateSelection::MinbiasGateCalibration:      return "MinbiasGateCalibration"s;
-    case gateSelection::MinbiasDriftGateBNB:         return "MinbiasDriftGateBNB"s;
-    case gateSelection::MinbiasDriftGateNuMI:        return "MinbiasDriftGateNuMI"s;
-    case gateSelection::MinbiasDriftGateOffbeamBNB:  return "MinbiasDriftGateOffbeamBNB"s;
-    case gateSelection::MinbiasDriftGateOffbeamNuMI: return "MinbiasDriftGateOffbeamNuMI"s;
-    case gateSelection::MinbiasDriftGateCalibration: return "MinbiasDriftGateCalibration"s;
-    case gateSelection::NBits:                       return "NBits"s;
-  } // switch
-  throw std::runtime_error("sbn::bits::bitName(gateSelection{ "s
-    + std::to_string(value(bit)) + " }): unknown bit"s);
-} // sbn::bitName()
+template <::util::RegisteredEnum Enum>
+std::optional<Enum> sbn::bits::parse
+  (std::string_view name, bool caseSensitive /* = true */)
+{
+  return caseSensitive? ::util::parseEnumName<Enum>(name)
+    : ::util::parseEnumNameAnyCase<Enum>(name);
+} // sbn::bits::parse()
 
 
 // -----------------------------------------------------------------------------
 namespace icarus::trigger {
+
+  /// @name Bit definitions specific to ICARUS trigger
+  /// @{
 
   using triggerLocation = sbn::triggerLocation;
   using triggerSource   = sbn::triggerSource;
@@ -410,7 +422,9 @@ namespace icarus::trigger {
   static constexpr std::size_t kCalibration    = sbn::bits::value<triggerSource>(triggerSource::Calib);
   static constexpr std::size_t kNTriggerSource = sbn::bits::value<triggerSource>(triggerSource::NBits);
 
-}
+  /// @}
+  
+} // namespace icarus::trigger
 
 
 // -----------------------------------------------------------------------------
